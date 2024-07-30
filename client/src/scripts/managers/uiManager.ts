@@ -1494,7 +1494,7 @@ export class UIManager {
         }
 
         // Disable spaces in chinese languages.
-        if (["zh", "tw", "hk_mo", "jp"].includes(this.game.console.getBuiltInCVar("cv_language"))) {
+        if (["cn", "tw", "hk_mo", "jp"].includes(this.game.console.getBuiltInCVar("cv_language"))) {
             classes.push("no-spaces");
         }
 

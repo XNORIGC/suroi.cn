@@ -3,6 +3,7 @@ import type { TranslationMap } from "../translations";
 export const CHINESE_TRADITIONAL_TRANSLATIONS: TranslationMap = {
     "name": "中文（繁體）",
     "flag": "🇹🇼",
+    "html_lang": "zh-TW",
 
     "msg_rotate": "請將設備旋轉至橫向來獲取更好的遊戲體驗。",
     "msg_loading": "連接中",
@@ -283,7 +284,7 @@ export const CHINESE_TRADITIONAL_TRANSLATIONS: TranslationMap = {
     "dual_template": "雙持<gun>",
 
     // 地區
-    "region_dev": "本地",
+    "region_hk": "香港",
     "region_na": "北美",
     "region_eu": "歐洲",
     "region_sa": "南美",

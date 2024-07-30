@@ -130,7 +130,7 @@ export const GameConstants = freezeDeep({
     maxPosition: 1632,
     player: {
         radius: 2.25,
-        nameMaxLength: 16,
+        nameMaxLength: 256,
         defaultName: "Player",
         defaultSkin: "hazel_jumpsuit",
         defaultHealth: 100,

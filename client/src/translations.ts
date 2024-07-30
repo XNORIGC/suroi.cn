@@ -3,8 +3,10 @@ import { Emotes } from "../../common/src/definitions/emotes";
 import { Loots } from "../../common/src/definitions/loots";
 import { type Game } from "./scripts/game";
 import { defaultClientCVars } from "./scripts/utils/console/defaultClientCVars";
-import { ALBANIAN_TRANSLATIONS } from "./translations/albanian";
 import { CHINESE_SIMPLIFIED_TRANSLATIONS } from "./translations/chinese_simplified";
+import { CHINESE_TRADITIONAL_TRANSLATIONS } from "./translations/chinese_traditional";
+import { CHINESE_CANTONESE_TRANSLATIONS } from "./translations/chinese_cantonese";
+import { ALBANIAN_TRANSLATIONS } from "./translations/albanian";
 import { CZECH_TRANSLATIONS } from "./translations/czech";
 import { ENGLISH_TRANSLATIONS } from "./translations/english";
 import { ESTONIAN_TRANSLATIONS } from "./translations/estonian";
@@ -20,8 +22,6 @@ import { TAMIL_TRANSLATIONS } from "./translations/tamil";
 import { TURKISH_TRANSLATIONS } from "./translations/turkısh";
 import { VIETNAMESE_TRANSLATIONS } from "./translations/vietnamese";
 import { CUTE_ENGWISH_TRANSLATIONS } from "./translations/cute_engwish";
-import { CANTONESE_TRANSLATIONS } from "./translations/cantonese";
-import { CHINESE_TRADITIONAL_TRANSLATIONS } from "./translations/chinese_traditional";
 import { ROMANIAN_TRANSLATIONS } from "./translations/romanian";
 import { DRUNKGLISH_TRANSLATIONS } from "./translations/drunkglish";
 
@@ -42,6 +42,9 @@ export const TRANSLATIONS = {
         return defaultLanguage;
     },
     translations: {
+        cn: CHINESE_SIMPLIFIED_TRANSLATIONS,
+        tw: CHINESE_TRADITIONAL_TRANSLATIONS,
+        hk_mo: CHINESE_CANTONESE_TRANSLATIONS,
         en: ENGLISH_TRANSLATIONS,
         gr: GREEK_TRANSLATIONS,
         tr: TURKISH_TRANSLATIONS,
@@ -50,9 +53,6 @@ export const TRANSLATIONS = {
         ru: RUSSIAN_TRANSLATIONS,
         de: GERMAN_TRANSLATIONS,
         ro: ROMANIAN_TRANSLATIONS,
-        zh: CHINESE_SIMPLIFIED_TRANSLATIONS,
-        tw: CHINESE_TRADITIONAL_TRANSLATIONS,
-        hk_mo: CANTONESE_TRANSLATIONS,
         jp: JAPANESE_TRANSLATIONS,
         vi: VIETNAMESE_TRANSLATIONS,
         ta: TAMIL_TRANSLATIONS,
@@ -88,6 +88,8 @@ export function initTranslation(game: Game): void {
 
     language = game.console.getBuiltInCVar("cv_language");
 
+    if (navigator.language.match(/^zh(-CN)?$/)) TRANSLATIONS.translations.tw.flag = TRANSLATIONS.translations.cn.flag;
+
     translateCurrentDOM();
 }
 
@@ -97,24 +99,35 @@ export function getTranslatedString(key: string, replacements?: Record<string, s
         return key;
     }
 
-    // Easter egg language
-    if (language === "hp18") return "HP-18";
-
-    if (key.startsWith("emote_")) {
-        return Emotes.reify(key.slice("emote_".length)).name;
-    }
-
-    if (key.startsWith("badge_")) {
-        return Badges.reify(key.slice("badge_".length)).name;
-    }
 
     let foundTranslation: TranslationMap[string];
-    try {
-        foundTranslation = TRANSLATIONS.translations[language]?.[key]
-        ?? TRANSLATIONS.translations[defaultLanguage]?.[key]
-        ?? Loots.reify(key).name;
-    } catch (_) {
-        foundTranslation = "no translation found";
+    if (["cn", "hk_mo", "tw"].includes(language)) {
+        try {
+            foundTranslation = TRANSLATIONS.translations[language]?.[key]
+            ?? TRANSLATIONS.translations.cn[key]
+            ?? Loots.reify(key).name;
+        } catch (_) {
+            foundTranslation = "no translation found";
+        }
+    } else {
+        // Easter egg language
+        if (language === "hp18") return "HP-18";
+
+        if (key.startsWith("emote_")) {
+            return Emotes.reify(key.slice("emote_".length)).name;
+        }
+
+        if (key.startsWith("badge_")) {
+            return Badges.reify(key.slice("badge_".length)).name;
+        }
+ 
+        try {
+            foundTranslation = TRANSLATIONS.translations[language]?.[key]
+            ?? TRANSLATIONS.translations.en[key]
+            ?? Loots.reify(key).name;
+        } catch (_) {
+            foundTranslation = "no translation found";
+        }
     }
 
     if (foundTranslation === "no translation found") return key;
@@ -164,6 +177,10 @@ function adjustFontSize(element: HTMLElement): void {
 function translateCurrentDOM(): void {
     let debugTranslationCounter = 0;
 
+    if (["cn", "hk_mo", "tw"].includes(language)) {
+        document.querySelector("html").lang = getTranslatedString("html_lang");
+    }
+
     document.querySelectorAll("body *").forEach(element => {
         if (!(element instanceof HTMLElement)) return; // ignore non-html elements (like svg and mathml)
 
@@ -192,9 +209,9 @@ function translateCurrentDOM(): void {
 
     if (printTranslationDebug) {
         console.log("Translated", debugTranslationCounter, "strings");
-        console.log("With language as", language, "and default as", defaultLanguage);
+        console.log("With language as", language, "and default as", "en");
 
-        const reference = new Set(Object.keys(TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage]));
+        const reference = new Set(Object.keys(TRANSLATIONS.translations[TRANSLATIONS.en]));
 
         console.table(
             [...Object.entries(TRANSLATIONS.translations)].reduce<{

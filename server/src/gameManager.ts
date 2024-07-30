@@ -111,7 +111,7 @@ export interface GameData {
 export function findGame(): GetGameResponse {
     for (let gameID = 0; gameID < Config.maxGames; gameID++) {
         const game = games[gameID];
-        if (canJoin(game) && game?.data.allowJoin) {
+        if (canJoin(game)) {
             return { success: true, gameID };
         }
     }

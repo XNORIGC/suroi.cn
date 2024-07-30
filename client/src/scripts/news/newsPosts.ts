@@ -2,6 +2,14 @@ import { type NewsPost } from "./newsHelper";
 
 export const news: NewsPost[] = [
     {
+        date: 1722331200000,
+	author: "XNOR",
+	title: "Ciallo～(∠・ω< )⌒★",
+	bannerImage: "../img/news/v0.18.3-suroi.cn.png",
+	content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/TURLPvUEo0" target="_blank">314460357</a>！`,
+	longContent: `qwq`
+    },
+    {
         date: 1717870665000,
         author: "HAZEL",
         title: "Back in the Saddle",

@@ -1,10 +1,10 @@
 export const Config = {
     regions: {
-        dev: {
-            name: "Local Server",
-            mainAddress: "http://127.0.0.1:8000",
-            gameAddress: "ws://127.0.0.1:800<ID>"
-        },
+        hk: {
+            name: "Hong Kong",
+            mainAddress: "http://34.150.25.53:8000",
+            gameAddress: "ws://34.150.25.53:800<ID>"
+        }/*,
         na: {
             name: "North America",
             mainAddress: "https://na.suroi.io",
@@ -24,9 +24,9 @@ export const Config = {
             name: "Asia",
             mainAddress: "https://as.suroi.io",
             gameAddress: "wss://<ID>.as.suroi.io"
-        }
+        }*/
     },
-    defaultRegion: "na",
+    defaultRegion: "hk",
     mode: "normal"
 } satisfies ConfigType as ConfigType;
 

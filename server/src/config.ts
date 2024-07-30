@@ -18,10 +18,10 @@ export enum GasMode {
 }
 
 export const Config = {
-    host: "127.0.0.1",
+    host: "0.0.0.0",
     port: 8000,
 
-    mapName: "main",
+    mapName: 0,
 
     tps: 40,
 
@@ -30,7 +30,7 @@ export const Config = {
     spawn: { mode: SpawnMode.Normal },
 
     maxPlayersPerGame: 80,
-    maxGames: 4,
+    maxGames: 2,
     preventJoinAfter: 60000,
 
     gas: { mode: GasMode.Normal },
@@ -39,7 +39,7 @@ export const Config = {
 
     censorUsernames: true,
 
-    maxTeamSize: TeamSize.Solo,
+    maxTeamSize: TeamSize.Duo,
 
     roles: {
         "developr": { password: "developr", isDev: true },

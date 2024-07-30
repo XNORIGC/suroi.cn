@@ -14,10 +14,8 @@ const badWordRegexes: RegExp[] = [
 export function cleanUsername(name?: string | null): string {
     return (
         !name?.length
-        || name.length > 16
+        || name.length > GameConstants.player.nameMaxLength
         || (Config.censorUsernames && badWordRegexes.some(regex => regex.test(name)))
-
-        || /[^\x20-\x7E]/g.test(name) // extended ASCII chars
     )
         ? GameConstants.player.defaultName
         : name;

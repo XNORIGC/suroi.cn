@@ -138,19 +138,19 @@ export async function setUpUI(game: Game): Promise<void> {
         if (!["en", "hp18"].includes(language)) {
             for (const key of Object.keys(languageInfo)) {
                 // Do not count guns or same strings (which are guns most of the time)
-                if (languageInfo[key] === TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage][key] && nonCountableStrings.includes((languageInfo[key] as string))) {
+                if (languageInfo[key] === TRANSLATIONS.translations.en[key] && nonCountableStrings.includes((languageInfo[key] as string))) {
                     filtered = filtered.filter(translationString => {
-                        return translationString !== TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage][key];
+                        return translationString !== TRANSLATIONS.translations.en[key];
                     });
                 }
             }
         }
 
-        const percentage = (filtered.length - 2) / (Object.values(TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage]).length - 2);
+        const percentage = (filtered.length - 2) / (Object.values(TRANSLATIONS.translations.en).length - 2);
         languageFieldset.append(html`
             <div>
               <input type="radio" name="selected-language" id="language-${language}" value="${language}">
-              <label for="language-${language}">${languageInfo.flag} ${languageInfo.name} (${language === "den" ? "001" : language === "qen" ? "OwO" : languageInfo.name === "HP-18" ? "HP-18" : Math.ceil(percentage * 100)}%)</label>
+              <label for="language-${language}" lang="${languageInfo.html_lang}">${languageInfo.flag} ${languageInfo.name} (${language === "den" ? "001" : language === "qen" ? "OwO" : languageInfo.name === "HP-18" ? "HP-18" : Math.ceil(percentage * 100)}%)</label>
             </div>
         `);
 
@@ -788,24 +788,7 @@ export async function setUpUI(game: Game): Promise<void> {
     usernameField.val(game.console.getBuiltInCVar("cv_player_name"));
 
     usernameField.on("input", function() {
-        // Replace fancy quotes & dashes, so they don't get stripped out
-
-        game.console.setBuiltInCVar(
-            "cv_player_name",
-            this.value = this.value
-                .replace(/[\u201c\u201d\u201f]/g, '"')
-                //         |  “  |  ”  |  ‟  |
-
-                .replace(/[\u2018\u2019\u201b]/g, "'")
-                //         |  ‘  |  ’  |  ‛  |
-
-                .replace(/[\u2013\u2014]/g, "-")
-                //         |  –  |  —  |
-
-                // Strip out non-ASCII chars and
-                // the C0/C1 control characters
-                .replace(/[^\x20-\x7E]/g, "")
-        );
+        game.console.setBuiltInCVar("cv_player_name", this.value);
     });
 
     createDropdown("#server-select");
