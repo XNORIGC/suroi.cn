@@ -201,6 +201,118 @@ const maps = {
             { name: "Deepwood", position: Vec.create(0.5, 0.65) }
         ]
     },
+    //awa
+    knyuzhouzuishuai: {
+        width: 1145,
+        height: 1145,
+        oceanSize: 64,
+        beachSize: 32,
+        rivers: {
+            minAmount: 1,
+            maxAmount: 4,
+            wideChance: 0.1,
+            minWidth: 10,
+            maxWidth: 20,
+            minWideWidth: 21,
+            maxWideWidth: 36
+        },
+        majorBuildings: ["armory", "port_complex", "refinery"],
+        buildings: {
+            large_bridge: 2,
+            small_bridge: Infinity,
+            port_complex: 1,
+            sea_traffic_control: 2,
+            tugboat_red: 1,
+            tugboat_white: 5,
+            armory: 2,
+            refinery: 1,
+            warehouse: 5,
+            firework_warehouse: 1, // birthday mode
+            green_house: 3,
+            red_house: 5,
+            construction_site: 1,
+            mobile_home: 9,
+            porta_potty: 12,
+            container_3: 2,
+            container_4: 2,
+            container_5: 2,
+            container_6: 2,
+            container_7: 3,
+            container_8: 2,
+            container_9: 2,
+            container_10: 2
+        },
+        obstacles: {
+            oil_tank: 11,
+            christmas_tree: 3, // winter mode
+            oak_tree: 100,
+            birch_tree: 20,
+            pine_tree: 10,
+            regular_crate: 160,
+            flint_crate: 25,
+            aegis_crate: 15,
+            grenade_crate: 35,
+            rock: 100,
+            river_chest: 2,
+            river_rock: 39,
+            bush: 100,
+            birthday_cake: 25, // birthday mode
+            lily_pad: 20,
+            blueberry_bush: 30,
+            barrel: 80,
+            viking_chest: 2,
+            super_barrel: 60,
+            melee_crate: 2,
+            gold_rock: 2,
+            loot_tree: 3,
+            loot_barrel: 3,
+            flint_stone: 3,
+            pumpkin: 75
+            },
+        obstacleClumps: [
+           {
+                clumpAmount: 100,
+                clump: {
+                    minAmount: 2,
+                    maxAmount: 3,
+                    jitter: 5,
+                    obstacles: ["oak_tree"],
+                    radius: 12
+                }
+            },
+            {
+                clumpAmount: 25,
+                clump: {
+                    minAmount: 2,
+                    maxAmount: 3,
+                    jitter: 5,
+                    obstacles: ["birch_tree"],
+                    radius: 12
+                }
+            },
+            {
+                clumpAmount: 4,
+                clump: {
+                    minAmount: 2,
+                    maxAmount: 3,
+                    jitter: 5,
+                    obstacles: ["pine_tree"],
+                    radius: 12
+                }
+            }
+        ],
+        loots: {
+            ground_loot: 70
+        },
+        places: [
+            { name: "1+1=3", position: Vec.create(0.22, 0.2) },
+            { name: "Kastname", position: Vec.create(0.29, 0.78) },
+            { name: "QQqun314460357", position: Vec.create(0.75, 0.3) },
+            { name: "I HATE IGWROI", position: Vec.create(0.62, 0.52) },
+            { name: "HELLO:)", position: Vec.create(0.5, 0.35) },
+            { name: "Aminuosi", position: Vec.create(0.3, 0.65) }
+        ]
+    },
     debug: {
         width: 1620,
         height: 1620,
