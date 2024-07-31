@@ -280,7 +280,7 @@ export const LootTables: Record<string, LootTable> = {
             { tier: "healing_items", weight: 1 },
             { tier: "equipment", weight: 1 },
             { tier: "guns", weight: 0.5 },
-            { tier: "scopes", weight: 0.3 }
+            { tier: "scopes", weight: 0.3 },
             { tier: "knawa", weight: 0.8 }
         ]
     },
@@ -316,7 +316,7 @@ export const LootTables: Record<string, LootTable> = {
             { item: "flamingo", weight: 1 },
             { item: "verified", weight: 0.5 },
             { item: "no_kil_pls", weight: 0.5 },
-            { item: "basic_outfit", weight: 0.001 }
+            { item: "basic_outfit", weight: 0.001 },
             { tier: "knawa", weight: 1.75 }
         ]
     },
@@ -326,7 +326,7 @@ export const LootTables: Record<string, LootTable> = {
         loot: [
             { tier: "healing_items", weight: 3 },
             { tier: "scopes", weight: 1 },
-            { tier: "guns", weight: 2 }
+            { tier: "guns", weight: 2 },
             { tier: "knawa", weight: 5.75 }
         ]
     },
@@ -338,7 +338,7 @@ export const LootTables: Record<string, LootTable> = {
             { tier: "equipment", weight: 0.23 },
             { tier: "scopes", weight: 4.35 },
             { tier: "special_guns", weight: 2.2 },
-            { tier: "healing_items", weight: 3.75 }
+            { tier: "healing_items", weight: 3.75 },
             { tier: "knawa", weight: 5.75 }
         ]
     },
@@ -387,7 +387,7 @@ export const LootTables: Record<string, LootTable> = {
         min: 1,
         max: 2,
         loot: [
-            { item: "gas_can", weight: 1 }
+            { item: "gas_can", weight: 1 },
             { item: "heap_sword", weight: 2 }
         ]
     },
@@ -466,8 +466,8 @@ export const LootTables: Record<string, LootTable> = {
         min: 1,
         max: 9,
         loot: [
-            { tier: "gold_airdrop_guns", weight: 1 }
-            { tier: "airdrop_melee", weight: 1 }
+            { tier: "gold_airdrop_guns", weight: 1 },
+            { tier: "airdrop_melee", weight: 1 },
             { tier: "knawa", weight: 1 },
             { tier: "special_guns", weight: 1 },
             { tier: "special_equipment", weight: 0.65 },
@@ -501,7 +501,7 @@ export const LootTables: Record<string, LootTable> = {
         loot: [
             { tier: "ammo", weight: 10 },
             { item: "127mm", count: 10, weight: 0.1 },
-            { item: "cola", weight: 15 }
+            { item: "cola", weight: 15 },
             { tier: "special_equipment", weight: 0.65 },
             { tier: "knawa", weight: 0.65 },
             { item: "firework_rocket", count: 10, weight: 2 },
@@ -574,9 +574,9 @@ export const LootTables: Record<string, LootTable> = {
         min: 1,
         max: 3,
         loot: [
-            { item: "developr_swag", weight: 2 }
+            { item: "developr_swag", weight: 2 },
             { item: "arena_closer", weight: 3 },
-            { item: "mg5", weight: 2.15 },
+            { item: "mg5", weight: 2.15 }
         ]
     },
     sea_traffic_control_outside: {
@@ -602,8 +602,8 @@ export const LootTables: Record<string, LootTable> = {
             { tier: "ammo", weight: 1.9 },
             { tier: "airdrop_melee", weight: 1.9 },
             { item: "hasanger", weight: 1.9 },
-            { tier: "throwables", weight: 1.3 }
-            { item: "arena_closer", weight: 0.1 },
+            { tier: "throwables", weight: 1.3 },
+            { item: "arena_closer", weight: 0.1 }
         ]
     },
     potted_plant: {
@@ -824,7 +824,7 @@ export const LootTiers: Record<string, readonly WeightedItem[]> = {
         { item: "usas12", count: 1, weight: 0.75 },
         { item: "tactical_pack", count: 1, weight: 1 },
         { item: "basic_vest", count: 60, weight: 1 },
-        { item: "acr", count: 2, weight: 1 }
+        { item: "acr", count: 2, weight: 1 },
         { item: "revitalizer", count: 1, weight: 1 },
         { item: "basic_vest", count: 60, weight: 1 },
         { item: "acr", count: 2, weight: 1 }
