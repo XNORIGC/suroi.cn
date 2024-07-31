@@ -426,6 +426,9 @@ export const LootTables: Record<string, LootTable> = {
             [
                 { item: "tactical_helmet", count: 3, weight: 2 },
                 { item: null, weight: 1 }
+            ],
+            [
+                { item: "barrett", count: 2, weight: 1 },
             ]
         ]
     },
