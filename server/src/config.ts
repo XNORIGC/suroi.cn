@@ -21,7 +21,7 @@ export const Config = {
     host: "0.0.0.0",
     port: 8000,
 
-    mapName: knyuzhouzuishuai,
+    mapName: "knyuzhouzuishuai",
 
     tps: 40,
 
