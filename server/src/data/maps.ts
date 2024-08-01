@@ -308,7 +308,6 @@ const maps = {
             ground_loot: 60
         },
         places: [
-            { name: "Centralia", position: Vec.create(0.5, 0.5) },
             { name: "Banana", position: Vec.create(0.23, 0.2) },
             { name: "Takedown", position: Vec.create(0.23, 0.8) },
             { name: "Lavlandet", position: Vec.create(0.75, 0.2) },
