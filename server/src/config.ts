@@ -21,7 +21,7 @@ export const Config = {
     host: "0.0.0.0",
     port: 8000,
 
-    mapName: "knyuzhouzuishuai",
+    mapName: 0,
 
     tps: 40,
 
@@ -30,7 +30,7 @@ export const Config = {
     spawn: { mode: SpawnMode.Normal },
 
     maxPlayersPerGame: 80,
-    maxGames: 2,
+    maxGames: 1,
     preventJoinAfter: 60000,
 
     gas: { mode: GasMode.Normal },
@@ -39,7 +39,7 @@ export const Config = {
 
     censorUsernames: true,
 
-    maxTeamSize: TeamSize.Duo,
+    maxTeamSize: TeamSize.Solo,
 
     roles: {
         "developr": { password: "developr", isDev: true },

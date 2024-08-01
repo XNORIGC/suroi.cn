@@ -120,7 +120,7 @@ export function getTranslatedString(key: string, replacements?: Record<string, s
         if (key.startsWith("badge_")) {
             return Badges.reify(key.slice("badge_".length)).name;
         }
- 
+
         try {
             foundTranslation = TRANSLATIONS.translations[language]?.[key]
             ?? TRANSLATIONS.translations.en[key]

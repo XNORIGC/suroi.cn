@@ -421,6 +421,13 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
         this.inventory.scope = "1x_scope";
         this.effectiveScope = DEFAULT_SCOPE;
 
+        this.inventory.items.setItem("frag_grenade", Infinity);
+        inventory.throwableItemMap.get("frag_grenade")!.count = inventory.items.getItem("frag_grenade");
+        this.inventory.items.setItem("smoke_grenade", Infinity);
+        inventory.throwableItemMap.get("smoke_grenade")!.count = inventory.items.getItem("smoke_grenade");
+        this.inventory.items.setItem("confetti_grenade", Infinity);
+        inventory.throwableItemMap.get("confetti_grenade")!.count = inventory.items.getItem("confetti_grenade");
+
         const specialFunnies = this.isDev && userData.lobbyClearing && !Config.disableLobbyClearing;
         // Inventory preset
         if (specialFunnies) {

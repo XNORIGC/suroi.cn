@@ -46,7 +46,7 @@ export class GameContainer {
 
                     if (message.data.stopped === true) {
                         // If allowJoin is true, then a new game hasn't been created by this game, so create one to replace this one
-                        const shouldCreateNewGame = this.data.allowJoin;
+                        const shouldCreateNewGame = this.data.allowJoin || Config.maxGames === 1;
                         endGame(this.id, shouldCreateNewGame);
                     }
                     break;
@@ -111,7 +111,7 @@ export interface GameData {
 export function findGame(): GetGameResponse {
     for (let gameID = 0; gameID < Config.maxGames; gameID++) {
         const game = games[gameID];
-        if (canJoin(game)) {
+        if (!game?.data.over) {
             return { success: true, gameID };
         }
     }

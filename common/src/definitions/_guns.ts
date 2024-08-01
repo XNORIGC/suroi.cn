@@ -715,14 +715,6 @@ export const Guns = ObjectDefinitions.create<GunDefinition>()(
                     width: 2.5,
                     length: 4
                 }
-            },
-            dual: {
-                leftRightOffset: 1.3,
-                fireDelay: 30,
-                shotSpread: 1.2,
-                moveSpread: 5,
-                capacity: 10,
-                reloadTime: 6.8
             }
         },
         {
@@ -1784,7 +1776,7 @@ export const Guns = ObjectDefinitions.create<GunDefinition>()(
             idString: "deathray",
             name: "Death Ray",
             ammoType: "power_cell",
-            capacity: 1000,
+            capacity: 1,
             reloadTime: 1.4,
             fireDelay: 40,
             switchDelay: 500,
@@ -1807,8 +1799,8 @@ export const Guns = ObjectDefinitions.create<GunDefinition>()(
                 on: "reload"
             }],
             ballistics: {
-                damage: 3,
-                obstacleMultiplier: 1000,
+                damage: 800,
+                obstacleMultiplier: 2,
                 speed: 4,
                 range: 800,
                 penetration: {

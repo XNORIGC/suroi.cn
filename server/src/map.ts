@@ -216,16 +216,14 @@ export class GameMap {
 
         if (mapDef.genCallback) mapDef.genCallback(this);
 
-        if (mapDef.places) {
-            packet.places = mapDef.places.map(({ name, position }) => {
-                const absPosition = Vec.create(
-                    this.width * (position.x + randomFloat(-0.04, 0.04)),
-                    this.height * (position.y + randomFloat(-0.04, 0.04))
-                );
+        packet.places = (mapDef.places ?? []).map(({ name, position }) => {
+            const absPosition = Vec.create(
+                this.width * (position.x + randomFloat(-0.04, 0.04)),
+                this.height * (position.y + randomFloat(-0.04, 0.04))
+            );
 
-                return { name, position: absPosition };
-            });
-        }
+            return { name, position: absPosition };
+        });
 
         const stream = new PacketStream(new ArrayBuffer(1 << 16));
         stream.serializeServerPacket(MapPacket.create(packet));

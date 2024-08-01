@@ -606,8 +606,13 @@ export async function setUpUI(game: Game): Promise<void> {
 
     copyUrl.on("click", () => {
         const url = ui.createTeamUrl.val();
-        if (!url) {
+        const error = (): void => {
             alert("Unable to copy link to clipboard.");
+            if (url) alert(url);
+        };
+
+        if (!url) {
+            error();
             return;
         }
         void navigator.clipboard
@@ -632,9 +637,7 @@ export async function setUpUI(game: Game): Promise<void> {
                         );
                 }, 2000); // 2 sec
             })
-            .catch(() => {
-                alert("Unable to copy link to clipboard.");
-            });
+            .catch(error);
     });
 
     const icon = hideUrl.children("i");
@@ -1695,6 +1698,7 @@ Video evidence is required.`)) {
                 "Unable to copy settings. To export settings manually, open the dev tools with Ctrl+Shift+I (Cmd+Opt+I on Mac) "
                 + "and, after typing in the following, copy the result manually: localStorage.getItem(\"suroi_config\")"
             );
+            if (exportedSettings) alert(exportedSettings);
         };
         if (exportedSettings === null) {
             error();
