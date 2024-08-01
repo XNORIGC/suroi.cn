@@ -19,12 +19,12 @@ export const Config = {
             name: "South America",
             mainAddress: "https://sa.suroi.io",
             gameAddress: "wss://<ID>.sa.suroi.io"
-        },
+        }*/,
         as: {
             name: "Asia",
             mainAddress: "https://as.suroi.io",
             gameAddress: "wss://<ID>.as.suroi.io"
-        }*/
+        }
     },
     defaultRegion: "hk",
     mode: "normal"

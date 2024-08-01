@@ -606,38 +606,33 @@ export async function setUpUI(game: Game): Promise<void> {
 
     copyUrl.on("click", () => {
         const url = ui.createTeamUrl.val();
-        const error = (): void => {
+        try {
+            void navigator.clipboard
+                .writeText(url)
+                .then(() => {
+                    copyUrl
+                        .addClass("btn-success")
+                        .css("pointer-events", "none")
+                        .html(`
+                            <i class="fa-solid fa-check" id="copy-team-btn-icon"></i>
+                            ${getTranslatedString("copied")}`
+                        );
+
+                    // After some seconds, reset the copy button's css
+                    window.setTimeout(() => {
+                        copyUrl
+                            .removeClass("btn-success")
+                            .css("pointer-events", "")
+                            .html(`
+                                <i class="fa-solid fa-clipboard" id="copy-team-btn-icon"></i>
+                                ${getTranslatedString("copy")}`
+                            );
+                    }, 2000); // 2 sec
+                })
+        } catch {
             alert("Unable to copy link to clipboard.");
             if (url) alert(url);
-        };
-
-        if (!url) {
-            error();
-            return;
         }
-        void navigator.clipboard
-            .writeText(url)
-            .then(() => {
-                copyUrl
-                    .addClass("btn-success")
-                    .css("pointer-events", "none")
-                    .html(`
-                        <i class="fa-solid fa-check" id="copy-team-btn-icon"></i>
-                        ${getTranslatedString("copied")}`
-                    );
-
-                // After some seconds, reset the copy button's css
-                window.setTimeout(() => {
-                    copyUrl
-                        .removeClass("btn-success")
-                        .css("pointer-events", "")
-                        .html(`
-                            <i class="fa-solid fa-clipboard" id="copy-team-btn-icon"></i>
-                            ${getTranslatedString("copy")}`
-                        );
-                }, 2000); // 2 sec
-            })
-            .catch(error);
     });
 
     const icon = hideUrl.children("i");
@@ -1693,23 +1688,20 @@ Video evidence is required.`)) {
     // Copy settings to clipboard
     $("#export-settings-btn").on("click", () => {
         const exportedSettings = localStorage.getItem("suroi_config");
-        const error = (): void => {
+        try {
+            navigator.clipboard
+                .writeText(exportedSettings)
+                .then(() => {
+                    alert("Settings copied to clipboard.");
+                })
+                .catch(error);
+        } catch {
             alert(
                 "Unable to copy settings. To export settings manually, open the dev tools with Ctrl+Shift+I (Cmd+Opt+I on Mac) "
                 + "and, after typing in the following, copy the result manually: localStorage.getItem(\"suroi_config\")"
             );
             if (exportedSettings) alert(exportedSettings);
-        };
-        if (exportedSettings === null) {
-            error();
-            return;
         }
-        navigator.clipboard
-            .writeText(exportedSettings)
-            .then(() => {
-                alert("Settings copied to clipboard.");
-            })
-            .catch(error);
     });
 
     // Reset settings

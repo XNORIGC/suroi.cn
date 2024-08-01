@@ -113,7 +113,7 @@ const maps = {
             oak_tree: 1,
             birch_tree: 1,
             pine_tree: 1,
-            regular_crate: 400,
+            regular_crate: 300,
             flint_crate: 50,
             aegis_crate: 50,
             grenade_crate: 100,
