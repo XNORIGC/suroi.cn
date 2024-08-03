@@ -421,10 +421,6 @@ export class Player extends BaseGameObject<ObjectCategory.Player> {
         this.inventory.scope = "1x_scope";
         this.effectiveScope = DEFAULT_SCOPE;
 
-        this.inventory.items.setItem("frag_grenade", Infinity);
-        this.inventory.items.setItem("smoke_grenade", Infinity);
-        this.inventory.items.setItem("confetti_grenade", Infinity);
-
         const specialFunnies = this.isDev && userData.lobbyClearing && !Config.disableLobbyClearing;
         // Inventory preset
         if (specialFunnies) {

@@ -4,6 +4,7 @@ import { type Vector } from "@common/utils/vector";
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
+import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
 
 export enum SpawnMode {
     Normal,
@@ -25,7 +26,7 @@ export const Config = {
 
     tps: 40,
 
-    plugins: [],
+    plugins: [InfiniteThrowablesPlugin],
 
     spawn: { mode: SpawnMode.Normal },
 
@@ -39,7 +40,7 @@ export const Config = {
 
     censorUsernames: true,
 
-    maxTeamSize: TeamSize.Duo,
+    maxTeamSize: TeamSize.Solo,
 
     roles: {
         "developr": { password: "developr", isDev: true },
