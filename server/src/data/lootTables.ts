@@ -24,32 +24,32 @@ export const LootTables: Record<string, LootTable> = {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 },
-            { tier: "knawa", weight: 1 },
-            { tier: "knawa", weight: 1 },
-            { tier: "knawa", weight: 0.9 },
-            { tier: "knawa", weight: 0.3 }
+            { tier: "equipment", weight: 1 },
+            { tier: "healing_items", weight: 1 },
+            { tier: "ammo", weight: 1 },
+            { tier: "guns", weight: 0.9 },
+            { tier: "scopes", weight: 0.3 }
         ]
     },
     regular_crate: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1.25 },
-            { tier: "knawa", weight: 1 },
-            { tier: "knawa", weight: 1 },
-            { tier: "knawa", weight: 0.5 },
-            { tier: "knawa", weight: 0.3 },
-            { tier: "knawa", weight: 0.3 },
-            { tier: "knawa", weight: 0.04 }
+            { tier: "guns", weight: 1.25 },
+            { tier: "equipment", weight: 1 },
+            { tier: "healing_items", weight: 1 },
+            { tier: "ammo", weight: 0.5 },
+            { tier: "scopes", weight: 0.3 },
+            { tier: "throwables", weight: 0.3 },
+            { tier: "melee", weight: 0.04 }
         ]
     },
     hazel_crate: {
         min: 1,
         max: 1,
         loot: [
-            [{ tier: "knawa", weight: 1 }],
-            [{ tier: "knawa", weight: 1 }]
+            [{ item: "firework_launcher", weight: 1 }],
+            [{ item: "1st_birthday", weight: 1 }]
         ]
     },
     viking_chest: {
@@ -57,22 +57,22 @@ export const LootTables: Record<string, LootTable> = {
         max: 1,
         loot: [
             [
-                { tier: "knawa", weight: 1 }
+                { item: "seax", weight: 1 }
             ],
             [
-                { tier: "knawa", weight: 1 }
+                { tier: "viking_chest_guns", weight: 1 }
             ],
             [
-                { tier: "knawa", weight: 1 }
+                { tier: "viking_chest_guns", weight: 1 }
             ],
             [
-                { tier: "knawa", weight: 0.65 },
-                { tier: "knawa", weight: 0.5 },
-                { tier: "knawa", weight: 0.3 }
+                { tier: "special_equipment", weight: 0.65 },
+                { tier: "viking_chest_guns", weight: 0.5 },
+                { tier: "special_scopes", weight: 0.3 }
             ],
             [
-                { tier: "knawa", weight: 0.65 },
-                { tier: "knawa", weight: 0.3 }
+                { tier: "special_equipment", weight: 0.65 },
+                { tier: "special_scopes", weight: 0.3 }
             ]
         ]
     },
@@ -81,19 +81,19 @@ export const LootTables: Record<string, LootTable> = {
         max: 1,
         loot: [
             [
-                { tier: "knawa", weight: 1 }
+                { tier: "river_chest_guns", weight: 1 }
             ],
             [
-                { tier: "knawa", weight: 1 }
+                { tier: "river_chest_guns", weight: 1 }
             ],
             [
-                { tier: "knawa", weight: 0.65 },
-                { tier: "knawa", weight: 0.5 },
-                { tier: "knawa", weight: 0.3 }
+                { tier: "special_equipment", weight: 0.65 },
+                { tier: "river_chest_guns", weight: 0.5 },
+                { tier: "special_scopes", weight: 0.3 }
             ],
             [
-                { tier: "knawa", weight: 0.65 },
-                { tier: "knawa", weight: 0.3 }
+                { tier: "special_equipment", weight: 0.65 },
+                { tier: "special_scopes", weight: 0.3 }
             ]
         ]
     },
@@ -101,42 +101,42 @@ export const LootTables: Record<string, LootTable> = {
         min: 3,
         max: 5,
         loot: [
-            { tier: "knawa", weight: 1 },
-            { tier: "knawa", weight: 0.15 },
-            { tier: "knawa", weight: 0.65 },
-            { tier: "knawa", weight: 0.3 }
+            { tier: "special_guns", weight: 1 },
+            { tier: "special_healing_items", weight: 0.15 },
+            { tier: "special_equipment", weight: 0.65 },
+            { tier: "special_scopes", weight: 0.3 }
         ]
     },
     flint_crate: {
         min: 3,
         max: 5,
         loot: [
-            { tier: "knawa", weight: 1 },
-            { tier: "knawa", weight: 0.65 },
-            { tier: "knawa", weight: 0.15 },
-            { tier: "knawa", weight: 0.3 }
+            { tier: "special_guns", weight: 1 },
+            { tier: "special_equipment", weight: 0.65 },
+            { tier: "special_healing_items", weight: 0.15 },
+            { tier: "special_scopes", weight: 0.3 }
         ]
     },
     grenade_box: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1, count: 2 },
-            { tier: "knawa", weight: 1, count: 2 }
+            { item: "frag_grenade", weight: 1, count: 2 },
+            { item: "smoke_grenade", weight: 1, count: 2 }
         ]
     },
     melee_crate: {
         min: 2,
         max: 2,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "melee", weight: 1 }
         ]
     },
     grenade_crate: {
         min: 3,
         max: 4,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "throwables", weight: 1 }
         ]
     },
     tango_crate: {
@@ -144,16 +144,16 @@ export const LootTables: Record<string, LootTable> = {
         max: 1,
         loot: [
             [
-                { tier: "knawa", weight: 1 },
-                { tier: "knawa", weight: 0.1 },
-                { tier: "knawa", weight: 0.0025 }
+                { item: "4x_scope", weight: 1 },
+                { item: "8x_scope", weight: 0.1 },
+                { item: "15x_scope", weight: 0.0025 }
             ],
             [
-                { tier: "knawa", spawnSeparately: true, weight: 60 },
-                { tier: "knawa", spawnSeparately: true, count: 2, weight: 30 },
-                { tier: "knawa", spawnSeparately: true, count: 3, weight: 3.5 },
-                { tier: "knawa", spawnSeparately: true, count: 4, weight: 0.1 },
-                { tier: "knawa", spawnSeparately: true, count: 5, weight: 0.0000001 }
+                { item: "tango_51", spawnSeparately: true, weight: 60 },
+                { item: "tango_51", spawnSeparately: true, count: 2, weight: 30 },
+                { item: "tango_51", spawnSeparately: true, count: 3, weight: 3.5 },
+                { item: "tango_51", spawnSeparately: true, count: 4, weight: 0.1 },
+                { item: "tango_51", spawnSeparately: true, count: 5, weight: 0.0000001 }
             ]
         ]
     },
@@ -162,10 +162,10 @@ export const LootTables: Record<string, LootTable> = {
         max: 1,
         loot: [
             [
-                { tier: "knawa", weight: 1 }
+                { item: "cz600", weight: 1 }
             ],
             [
-                { tier: "knawa", weight: 1 }
+                { tier: "scopes", weight: 1 }
             ]
         ]
     },
@@ -173,7 +173,7 @@ export const LootTables: Record<string, LootTable> = {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "mosin", weight: 1 }
         ]
     },
     loot_tree: {
@@ -181,26 +181,26 @@ export const LootTables: Record<string, LootTable> = {
         max: 1,
         loot: [
             [
-                { tier: "knawa", weight: 1 },
-                { tier: "knawa", weight: 1 },
-                { tier: "knawa", weight: 0.2 }
+                { item: "model_37", weight: 1 },
+                { item: "m3k", weight: 1 },
+                { item: "vepr12", weight: 0.2 }
             ],
-            [{ tier: "knawa", weight: 1 }],
-            [{ tier: "knawa", weight: 1 }],
-            [{ tier: "knawa", weight: 1 }],
-            [{ tier: "knawa", weight: 1 }],
-            [{ tier: "knawa", count: 15, weight: 1 }]
+            [{ item: "hatchet", weight: 1 }],
+            [{ item: "lumberjack", weight: 1 }],
+            [{ item: "basic_helmet", weight: 1 }],
+            [{ item: "basic_pack", weight: 1 }],
+            [{ item: "12g", count: 15, weight: 1 }]
         ]
     },
     loot_barrel: {
         min: 1,
         max: 1,
         loot: [
-            [{ tier: "knawa", weight: 1 }],
-            [{ tier: "knawa", weight: 1 }],
+            [{ item: "crowbar", weight: 1 }],
+            [{ item: "sr25", weight: 1 }],
             [
-                { tier: "knawa", weight: 1, count: 3 },
-                { tier: "knawa", weight: 1, count: 3 }
+                { item: "frag_grenade", weight: 1, count: 3 },
+                { item: "smoke_grenade", weight: 1, count: 3 }
             ],
             [
                 { tier: "equipment", weight: 1 },
@@ -221,397 +221,355 @@ export const LootTables: Record<string, LootTable> = {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 0.25 },
-            { tier: "knawa", weight: 0.25 }
+            { tier: "special_guns", weight: 0.25 },
+            { tier: "special_equipment", weight: 0.25 },
+            { item: "1st_birthday", weight: 0.25 },
+            { item: "firework_rocket", weight: 0.2 },
+            { item: "firework_launcher", weight: 0.01 }
         ]
     },
     blueberry_bush: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "special_equipment", weight: 1 },
+            { tier: "healing_items", weight: 1 },
+            { tier: "scopes", weight: 1 }
         ]
     },
     warehouse: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "special_guns", weight: 1 },
+            { tier: "special_scopes", weight: 0.25 },
+            { tier: "special_equipment", weight: 0.65 }
         ]
     },
     large_drawer: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "guns", weight: 1 },
+            { tier: "equipment", weight: 0.65 },
+            { tier: "scopes", weight: 0.3 }
         ]
     },
     small_drawer: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "ammo", weight: 1 },
+            { tier: "healing_items", weight: 0.8 },
+            { tier: "guns", weight: 0.3 }
         ]
     },
     small_table: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "healing_items", weight: 1 },
+            { tier: "ammo", weight: 1 }
         ]
     },
     box: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1.2 }
+            { tier: "ammo", weight: 1.2 },
+            { tier: "healing_items", weight: 1 },
+            { tier: "equipment", weight: 1 },
+            { tier: "guns", weight: 0.5 },
+            { tier: "scopes", weight: 0.3 }
         ]
     },
     bookshelf: {
         min: 1,
         max: 2,
         loot: [
-            { tier: "knawa", weight: 1.1 }
+            { tier: "equipment", weight: 1.1 },
+            { tier: "scopes", weight: 0.4 },
+            { tier: "guns", weight: 1 },
+            { tier: "healing_items", weight: 0.6 }
         ]
     },
     fridge: {
         min: 2,
         max: 3,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "cola", weight: 1 }
         ]
     },
     cooler: {
         min: 2,
         max: 3,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "cola", weight: 1 }
         ]
     },
     washing_machine: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "lemon", weight: 1 },
+            { item: "flamingo", weight: 1 },
+            { item: "verified", weight: 0.5 },
+            { item: "no_kil_pls", weight: 0.5 },
+            { item: "basic_outfit", weight: 0.001 }
         ]
     },
     toilet: {
         min: 2,
         max: 3,
         loot: [
-            { tier: "knawa", weight: 3 }
+            { tier: "healing_items", weight: 3 },
+            { tier: "scopes", weight: 0.1 },
+            { tier: "guns", weight: 0.05 }
         ]
     },
     used_toilet: {
         min: 2,
         max: 3,
         loot: [
-            { tier: "knawa", weight: 1.25 }
+            { tier: "guns", weight: 1.25 },
+            { tier: "equipment", weight: 1 },
+            { tier: "scopes", weight: 0.35 },
+            { tier: "special_guns", weight: 0.8 },
+            { tier: "healing_items", weight: 0.75 }
         ]
     },
     porta_potty_toilet_open: {
         min: 2,
         max: 3,
         loot: [
-            { tier: "knawa", weight: 0.35 }
+            { tier: "guns", weight: 1.25 },
+            { tier: "healing_items", weight: 1 },
+            { tier: "equipment", weight: 0.9 },
+            { tier: "special_guns", weight: 0.8 },
+            { tier: "special_scopes", weight: 0.35 }
         ]
     },
     porta_potty_toilet_closed: {
         min: 2,
         max: 3,
         loot: [
-            { tier: "knawa", weight: 3 }
+            { tier: "healing_items", weight: 3 },
+            { tier: "scopes", weight: 0.1 },
+            { tier: "guns", weight: 0.05 }
         ]
     },
     gun_mount_mcx_spear: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "mcx_spear", weight: 1 }
         ]
     },
     gun_mount_stoner_63: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "stoner_63", weight: 1 }
         ]
     },
     gun_mount_maul: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "maul", weight: 1 }
         ]
     },
     gun_mount_hp18: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "hp18", weight: 1 }
         ]
     },
     gas_can: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "gas_can", weight: 1 }
         ]
     },
     airdrop_crate: {
-        min: 7,
-        max: 8,
+        min: 1,
+        max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            [
+                { tier: "airdrop_equipment", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_scopes", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_healing_items", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_skins", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_melee", weight: 1 }
+            ],
+            [
+                { tier: "ammo", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_guns", weight: 1 }
+            ],
+            [
+                { item: "frag_grenade", count: 3, weight: 2 },
+                { item: null, weight: 1 }
+            ]
         ]
     },
     gold_airdrop_crate: {
-        min: 8,
-        max: 8,
+        min: 1,
+        max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            [
+                { tier: "airdrop_equipment", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_scopes", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_healing_items", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_skins", weight: 1 }
+            ],
+            [
+                { tier: "airdrop_melee", weight: 1 }
+            ],
+            [
+                { tier: "ammo", weight: 1 }
+            ],
+            [
+                { tier: "gold_airdrop_guns", weight: 1 }
+            ],
+            [
+                { item: "frag_grenade", count: 3, weight: 1 }
+            ]
         ]
     },
     flint_stone: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "gold_airdrop_guns", weight: 1 }
         ]
     },
     christmas_tree: {
         min: 4,
         max: 5,
         loot: [
-            { tier: "knawa", weight: 0.1 }
+            { tier: "special_winter_skins", weight: 1 },
+            { tier: "special_guns", weight: 1 },
+            { tier: "special_equipment", weight: 0.65 },
+            { tier: "special_healing_items", weight: 0.65 },
+            { tier: "special_scopes", weight: 0.3 },
+            { item: "radio", weight: 0.1 }
         ]
     },
     gun_case: {
         min: 1,
         max: 2,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "special_guns", weight: 1 }
         ]
     },
     ammo_crate: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 0.1 }
+            { tier: "ammo", weight: 1 },
+            { item: "127mm", count: 10, weight: 0.1 },
+            { item: "curadell", weight: 0.1 }
         ]
     },
     rocket_box: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", count: 10, weight: 2 },
-            { tier: "knawa", weight: 2 }
+            { item: "firework_rocket", count: 10, weight: 2 },
+            { tier: "ammo", weight: 1 },
+            { item: "curadell", weight: 0.02 }
         ]
     },
     confetti_grenade_box: {
         min: 1,
         max: 2,
         loot: [
-            { tier: "knawa", count: 4, weight: 2 },
-            { tier: "knawa", weight: 1 }
+            { item: "confetti_grenade", count: 4, weight: 2 },
+            { tier: "throwables", weight: 1 }
         ]
     },
     cabinet: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "special_guns", weight: 1 },
+            { tier: "special_healing_items", weight: 0.65 },
+            { tier: "special_equipment", weight: 0.65 },
+            { tier: "special_scopes", weight: 0.3 }
         ]
     },
     briefcase: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "vector", weight: 3 },
+            { item: "arx160", weight: 1 },
+            { item: "vepr12", weight: 1 },
+            { item: "stoner_63", weight: 0.2 },
+            { item: "negev", weight: 0.15 },
+            { item: "mg5", weight: 0.15 },
+            { item: "g19", weight: 0.05 }
         ]
     },
     mobile_home_sink: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { tier: "healing_items", weight: 1.2 },
+            { tier: "ammo", weight: 1 }
         ]
     },
     sea_traffic_control_floor: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "radio", weight: 1 }
         ]
     },
     sea_traffic_control_outside: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "peachy_breeze", weight: 1 }
         ]
     },
     tugboat_red_floor: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 }
+            { item: "deep_sea", weight: 1 }
         ]
     },
     potted_plant: {
         min: 1,
         max: 1,
         loot: [
-            { tier: "knawa", weight: 1 },
+            { tier: "ammo", weight: 1 },
+            { tier: "healing_items", weight: 0.5 },
+            { tier: "equipment", weight: 0.3 }
         ]
     }
 };
 
 export const LootTiers: Record<string, readonly WeightedItem[]> = {
-    knawa: [
-        { item: "g19", weight: 1 },
-        { item: "m1895", weight: 1 },
-        { item: "mp40", weight: 1 },
-        { item: "saf_200", weight: 1 },
-        { item: "cz75a", weight: 1 },
-        { item: "hp18", weight: 1 },
-        { item: "micro_uzi", weight: 1 },
-        { item: "ak47", weight: 1 },
-        { item: "model_37", weight: 1 },
-        { item: "aug", weight: 1 },
-        { item: "m3k", weight: 1 },
-        { item: "m16a4", weight: 1 },
-        { item: "arx160", weight: 1 },
-        { item: "flues", weight: 1 },
-        { item: "vss", weight: 1 },
-        { item: "mg36", weight: 1 },
-        { item: "sr25", weight: 1 },
-        { item: "mini14", weight: 1 },
-        { item: "mcx_spear", weight: 1 },
-        { item: "cz600", weight: 1 },
-        { item: "vepr12", weight: 1 },
-        { item: "stoner_63", weight: 1 },
-        { item: "radio", weight: 1 },
-        { item: "mosin", weight: 1 },
-        { item: "firework_launcher", weight: 1 }, // ! temporary
-        { item: "vector", weight: 1 },
-        { item: "negev", weight: 1 },
-        { item: "mg5", weight: 1 },
-        { item: "tango_51", weight: 1 },
-        { item: "gauze", count: 5, weight: 1 },
-        { item: "cola", weight: 1 },
-        { item: "tablets", weight: 1 },
-        { item: "medikit", weight: 1 },
-        { item: "2x_scope", weight: 1 },
-        { item: "4x_scope", weight: 1 },
-        { item: "8x_scope", weight: 1 },
-        { item: "15x_scope", weight: 1 },
-        { item: "basic_helmet", weight: 1 },
-        { item: "regular_helmet", weight: 1 },
-        { item: "tactical_helmet", weight: 1 },
-        { item: "basic_vest", weight: 1 },
-        { item: "regular_vest", weight: 1 },
-        { item: "tactical_vest", weight: 1 },
-        { item: "basic_pack", weight: 1 },
-        { item: "regular_pack", weight: 1 },
-        { item: "tactical_pack", weight: 1 },
-        { item: "deathray", weight: 1 },
-        { item: "12g", count: 10, weight: 1 },
-        { item: "556mm", count: 60, weight: 1 },
-        { item: "762mm", count: 60, weight: 1 },
-        { item: "firework_rocket", count: 5, weight: 1 }, // ! temporary
-        { item: "9mm", count: 60, weight: 1 },
-        { item: "frag_grenade", count: 2, weight: 1 },
-        { item: "smoke_grenade", count: 2, weight: 1 },
-        { item: "confetti_grenade", count: 3, weight: 1 }, // ! temporary
-        { item: "lewis_gun", weight: 1 },
-        { item: "baseball_bat", weight: 1 },
-        { item: "kbar", weight: 1 },
-        { item: null, weight: 1 },
-        { item: "stardust", weight: 1 },
-        { item: "aurora", weight: 1 },
-        { item: "nebula", weight: 1 },
-        { item: "ghillie_suit", weight: 1 },
-        { item: "basic_outfit", weight: 1 },
-        { item: "m1_garand", weight: 1 },
-        { item: "acr", weight: 1 },
-        { item: "pp19", weight: 1 },
-        { item: "barrett", weight: 1 },
-        { item: "model_89", weight: 1 },
-        { item: "coal", weight: 1 },
-        { item: "henrys_little_helper", weight: 1 },
-        { item: "candy_cane", weight: 1 },
-        { item: "christmas_tree", weight: 1 },
-        { item: "gingerbread", weight: 1 },
-        { item: "s_g17", weight: 1 },
-        { item: "usas12", weight: 1 },
-        { item: "seax", weight: 1 },
-        { item: "gas_can", weight: 1 },
-        { item: "heap_sword", weight: 1 },
-        { item: "maul", weight: 1 },
-        { item: "ice_pick", weight: 1 },
-        { item: "revitalizer", weight: 1 },
-        { item: "hasanger", weight: 1 },
-        { item: "leia", weight: 1 },
-        { item: "limenade", weight: 1 },
-        { item: "katie", weight: 1 },
-        { item: "eipi", weight: 1 },
-        { item: "123op", weight: 1 },
-        { item: "radians", weight: 1 },
-        { item: "developr_swag", weight: 1 },
-        { item: "designr_swag", weight: 1 },
-        { item: "composr_swag", weight: 1 },
-        { item: "hazel_jumpsuit", weight: 1 },
-        { item: "the_amateur", weight: 1 },
-        { item: "the_pro", weight: 1 },
-        { item: "forest_camo", weight: 1 },
-        { item: "desert_camo", weight: 1 },
-        { item: "arctic_camo", weight: 1 },
-        { item: "bloodlust", weight: 1 },
-        { item: "tomato", weight: 1 },
-        { item: "greenhorn", weight: 1 },
-        { item: "blue_blood", weight: 1 },
-        { item: "silver_lining", weight: 1 },
-        { item: "pot_o_gold", weight: 1 },
-        { item: "gunmetal", weight: 1 },
-        { item: "algae", weight: 1 },
-        { item: "twilight_zone", weight: 1 },
-        { item: "bubblegum", weight: 1 },
-        { item: "sunrise", weight: 1 },
-        { item: "sunset", weight: 1 },
-        { item: "stratosphere", weight: 1 },
-        { item: "mango", weight: 1 },
-        { item: "snow_cone", weight: 1 },
-        { item: "aquatic", weight: 1 },
-        { item: "floral", weight: 1 },
-        { item: "sunny", weight: 1 },
-        { item: "ashfall", weight: 1 },
-        { item: "volcanic", weight: 1 },
-        { item: "solar_flare", weight: 1 },
-        { item: "beacon", weight: 1 },
-        { item: "wave_jumpsuit", weight: 1 },
-        { item: "full_moon", weight: 1 },
-        { item: "swiss_cheese", weight: 1 },
-        { item: "target_practice", weight: 1 },
-        { item: "zebra", weight: 1 },
-        { item: "tiger", weight: 1 },
-        { item: "bee", weight: 1 },
-        { item: "armadillo", weight: 1 },
-        { item: "printer", weight: 1 },
-        { item: "distant_shores", weight: 1 },
-        { item: "lemon", weight: 1 },
-        { item: "flamingo", weight: 1 },
-        { item: "peachy_breeze", weight: 1 },
-        { item: "deep_sea", weight: 1 },
-        { item: "basic_outfit", weight: 1 },
-        { item: "peppermint", weight: 1 },
-        { item: "spearmint", weight: 1 },
-        { item: "coal", weight: 1 },
-        { item: "verified", weight: 1 },
-        { item: "no_kil_pls", weight: 1 },
-        { item: "1st_birthday", weight: 1 },
-        { item: "arena_closer", weight: 1 }
-    ],
     guns: [
         { item: "g19", weight: 2 },
         { item: "m1895", weight: 1.75 },

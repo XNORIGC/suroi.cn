@@ -122,9 +122,14 @@ export function findGame(): GetGameResponse {
         return { success: true, gameID };
     } else {
         // Join the game that most recently started
-        const game = games
-            .filter((g => g && !g.data.over) as (g?: GameContainer) => g is GameContainer)
-            .reduce((a, b) => a.data.startedTime > b.data.startedTime ? a : b);
+        const games_ = games
+            .filter((g => g && !g.data.over) as (g?: GameContainer) => g is GameContainer);
+        let game;
+        try {
+            game = games_.reduce((a, b) => a.data.startedTime > b.data.startedTime ? a : b);
+        } catch {
+            game = games_[0];
+        }
 
         return game
             ? { success: true, gameID: game.id }
