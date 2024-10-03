@@ -800,24 +800,7 @@ export async function setUpUI(game: Game): Promise<void> {
     usernameField.val(game.console.getBuiltInCVar("cv_player_name"));
 
     usernameField.on("input", function() {
-        // Replace fancy quotes & dashes, so they don't get stripped out
-
-        game.console.setBuiltInCVar(
-            "cv_player_name",
-            this.value = this.value
-                .replace(/[\u201c\u201d\u201f]/g, '"')
-                //         |  “  |  ”  |  ‟  |
-
-                .replace(/[\u2018\u2019\u201b]/g, "'")
-                //         |  ‘  |  ’  |  ‛  |
-
-                .replace(/[\u2013\u2014]/g, "-")
-                //         |  –  |  —  |
-
-                // Strip out non-ASCII chars and
-                // the C0/C1 control characters
-                .replace(/[^\x20-\x7E]/g, "")
-        );
+        game.console.setBuiltInCVar("cv_player_name", this.value);
     });
 
     createDropdown("#server-select");

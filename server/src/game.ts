@@ -893,7 +893,7 @@ export class Game implements GameData {
             }, 3000);
         }
 
-        Logger.log(`Game ${this.id} | "${player.name}" joined`);
+        Logger.log(`Game ${this.id} | "${player.name}" (${player.ip}) joined`);
         this.pluginManager.emit("player_did_join", { player, joinPacket: packet });
     }
 

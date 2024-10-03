@@ -3,8 +3,10 @@ import { Emotes } from "../../common/src/definitions/emotes";
 import { Loots } from "../../common/src/definitions/loots";
 import { type Game } from "./scripts/game";
 import { defaultClientCVars } from "./scripts/utils/console/defaultClientCVars";
-import { ALBANIAN_TRANSLATIONS } from "./translations/albanian";
 import { CHINESE_SIMPLIFIED_TRANSLATIONS } from "./translations/chinese_simplified";
+import { CHINESE_TRADITIONAL_TRANSLATIONS } from "./translations/chinese_traditional";
+import { CANTONESE_TRANSLATIONS } from "./translations/cantonese";
+import { ALBANIAN_TRANSLATIONS } from "./translations/albanian";
 import { CZECH_TRANSLATIONS } from "./translations/czech";
 import { ENGLISH_TRANSLATIONS } from "./translations/english";
 import { ESTONIAN_TRANSLATIONS } from "./translations/estonian";
@@ -20,8 +22,6 @@ import { TAMIL_TRANSLATIONS } from "./translations/tamil";
 import { TURKISH_TRANSLATIONS } from "./translations/turkısh";
 import { VIETNAMESE_TRANSLATIONS } from "./translations/vietnamese";
 import { CUTE_ENGWISH_TRANSLATIONS } from "./translations/cute_engwish";
-import { CANTONESE_TRANSLATIONS } from "./translations/cantonese";
-import { CHINESE_TRADITIONAL_TRANSLATIONS } from "./translations/chinese_traditional";
 import { ROMANIAN_TRANSLATIONS } from "./translations/romanian";
 import { DRUNKGLISH_TRANSLATIONS } from "./translations/drunkglish";
 
@@ -42,6 +42,9 @@ export const TRANSLATIONS = {
         return defaultLanguage;
     },
     translations: {
+        zh: CHINESE_SIMPLIFIED_TRANSLATIONS,
+        tw: CHINESE_TRADITIONAL_TRANSLATIONS,
+        hk_mo: CANTONESE_TRANSLATIONS,
         en: ENGLISH_TRANSLATIONS,
         gr: GREEK_TRANSLATIONS,
         tr: TURKISH_TRANSLATIONS,
@@ -50,9 +53,6 @@ export const TRANSLATIONS = {
         ru: RUSSIAN_TRANSLATIONS,
         de: GERMAN_TRANSLATIONS,
         ro: ROMANIAN_TRANSLATIONS,
-        zh: CHINESE_SIMPLIFIED_TRANSLATIONS,
-        tw: CHINESE_TRADITIONAL_TRANSLATIONS,
-        hk_mo: CANTONESE_TRANSLATIONS,
         jp: JAPANESE_TRANSLATIONS,
         vi: VIETNAMESE_TRANSLATIONS,
         ta: TAMIL_TRANSLATIONS,
@@ -89,6 +89,8 @@ export function initTranslation(game: Game): void {
         : defaultClientCVars.cv_language;
 
     language = game.console.getBuiltInCVar("cv_language");
+
+    if (navigator.language.match(/^zh(-CN)?$/)) TRANSLATIONS.translations.tw.flag = TRANSLATIONS.translations.zh.flag;
 
     translateCurrentDOM();
 }

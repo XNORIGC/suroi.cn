@@ -2,6 +2,14 @@ import { type NewsPost } from "./newsHelper";
 
 export const news: NewsPost[] = [
     {
+        date: 1727953200000,
+        author: "XNOR",
+        title: "DA☆ZE",
+        bannerImage: "../img/news/v0.19.1-suroi.cn.png",
+        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/pj6XQmuhnU" target="_blank">227269266</a>！`,
+        longContent: `Meow`
+    },
+    {
         date: 1727030995000,
         author: "HAZEL",
         title: "High-Caliber Negotiations",
@@ -86,6 +94,14 @@ export const news: NewsPost[] = [
   <li>Fixed tinting of ghillie suit fists in the inventory.</li>
 </ul><br>
 Special thanks to pap, Solstice, platonthek, eiπ, and the other devs for their outstanding work on this update!`
+    },
+    {
+        date: 1722331200000,
+        author: "XNOR",
+        title: "Ciallo～(∠・ω< )⌒★",
+        bannerImage: "../img/news/v0.18.3-suroi.cn.png",
+        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/TURLPvUEo0" target="_blank">314460357！</a>`,
+        longContent: `QWQ`
     },
     {
         date: 1717870665000,
