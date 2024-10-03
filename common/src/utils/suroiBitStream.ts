@@ -246,7 +246,7 @@ export class SuroiBitStream extends BitStream {
      * @param name The player name
      */
     writePlayerName(name: string): void {
-        this.writeASCIIString(name, GameConstants.player.nameMaxLength);
+        this.writeUTF8String(name, GameConstants.player.nameMaxLength);
     }
 
     /**
@@ -254,7 +254,7 @@ export class SuroiBitStream extends BitStream {
      * @return The player name
      */
     readPlayerName(): string {
-        return this.readASCIIString(GameConstants.player.nameMaxLength);
+        return this.readUTF8String(GameConstants.player.nameMaxLength);
     }
 
     /**

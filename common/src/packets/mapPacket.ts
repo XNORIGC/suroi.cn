@@ -63,7 +63,7 @@ export const MapPacket = createPacket("MapPacket")<MapPacketData>({
         });
 
         stream.writeArray(data.places ?? [], 4, place => {
-            stream.writeASCIIString(place.name);
+            stream.writeUTF8String(place.name);
             stream.writePosition(place.position);
         });
     },
@@ -125,7 +125,7 @@ export const MapPacket = createPacket("MapPacket")<MapPacketData>({
                 }
             }),
             places: stream.readAndCreateArray(4, () => ({
-                name: stream.readASCIIString(),
+                name: stream.readUTF8String(),
                 position: stream.readPosition()
             }))
         } as MapPacketData;

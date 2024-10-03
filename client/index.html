@@ -158,7 +158,7 @@
                 name="username-input"
                 id="username-input"
                 placeholder="Enter a nickname"
-                maxlength="16"
+                maxlength="256"
               />
               <div id="server-select" class="dropdown">
                 <button id="btn-server-select">
@@ -456,7 +456,7 @@
           <div id="action-name"></div>
         </div>
         <div id="interact-message" style="display: none">
-          <kbd id="interact-key"></kbd>
+          <kbd id="interact-key" style="font-family: Consolas"></kbd>
           <span id="interact-text"></span>
         </div>
         <div id="center-bottom-container">
@@ -1073,7 +1073,7 @@
         </button>
       </div>
       <div id="create-team-options">
-        <div id="create-team-toggles">
+        <div class="modal-item checkbox-setting" id="create-team-toggles">
           <label>
             <span class="setting-title" translation="create_team_autofill"></span>
             <input type="checkbox" id="create-team-toggle-auto-fill">
