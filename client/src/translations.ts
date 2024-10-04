@@ -90,7 +90,7 @@ export function initTranslation(game: Game): void {
 
     language = game.console.getBuiltInCVar("cv_language");
 
-    if (navigator.language.match(/^zh(-CN)?$/)) TRANSLATIONS.translations.tw.flag = TRANSLATIONS.translations.zh.flag;
+    if (navigator.language.match(/^zh(-CN)?$/)) TRANSLATIONS.translations.zh_tw.flag = TRANSLATIONS.translations.zh_cn.flag;
 
     translateCurrentDOM();
 }

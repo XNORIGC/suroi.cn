@@ -368,6 +368,9 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
 
     // 可选翻译
 
+    "donate": "捐赠",
+    "msg_lost_connection": "连接已丢失",
+
     "fire_hatchet": "火焰斧头",
     "falchion": "西洋剑",
 
@@ -504,15 +507,15 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "emote_frustrated_face": "恼怒",
     // 文字
     "emote_question_mark": "问号",
-    "emote_team_=_ban": "组队=封号",
-    "emote_hack_=_ban": "开挂=封号",
+    "emote_team_=_ban": "组队 = 封号",
+    "emote_hack_=_ban": "开挂 = 封号",
     "emote_gg": "打得不错",
     "emote_ez": "简单",
     "emote_hi5": "击掌",
     "emote_oof": "唔",
     "emote_real": "真的",
     "emote_fake": "假的",
-    "emote_colon_three": "冒号三",
+    "emote_colon_three": ":3",
     // 模因
     "emote_troll_face": "巨魔",
     "emote_clueless": "无知",
@@ -527,7 +530,7 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "emote_socks": "袜子",
     // 图标
     "emote_suroi_logo": "Suroi",
-    "emote_ageis_logo": "AEGIS",
+    "emote_aegis_logo": "AEGIS",
     "emote_flint_logo": "燧石",
     "emote_duel": "决斗",
     "emote_chicken_dinner": "吃鸡",
@@ -554,7 +557,7 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "badge_ownr": "所有者",
     "badge_bleh": "略",
     "badge_froog": "青蛙",
-    "badge_ageis_logo": "AEGIS",
+    "badge_aegis_logo": "AEGIS",
     "badge_flint_logo": "燧石",
     "badge_duel": "决斗",
     "badge_suroi_logo": "Suroi",

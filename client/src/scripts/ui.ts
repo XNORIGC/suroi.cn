@@ -284,7 +284,7 @@ export async function setUpUI(game: Game): Promise<void> {
         }
 
         if (getTranslatedString(`region_${game.console.getBuiltInCVar("cv_region")}`) === "region_") {
-            serverName.text(selectedRegion.name); // this for now until we find a way to selectedRegion.id
+            serverName.text(getTranslatedString(`region_${Config.defaultRegion}`));
         } else {
             serverName.text(getTranslatedString(`region_${game.console.getBuiltInCVar("cv_region")}`));
         }

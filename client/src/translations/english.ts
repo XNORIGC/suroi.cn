@@ -3,6 +3,7 @@ import type { TranslationMap } from "../translations";
 export const ENGLISH_TRANSLATIONS: TranslationMap = {
     "name": "English",
     "flag": "🇬🇧",
+    "html_lang": "en",
 
     "msg_rotate": "For a better experience, please rotate your device to landscape.",
     "msg_loading": "Connecting",
@@ -363,5 +364,9 @@ export const ENGLISH_TRANSLATIONS: TranslationMap = {
     "region_na": "North America",
     "region_eu": "Europe",
     "region_sa": "South America",
-    "region_as": "Asia"
+    "region_as": "Asia",
+
+    "donate": "Donate",
+
+    "msg_lost_connection": "Connection Lost"
 };
