@@ -4,6 +4,8 @@ import { type Vector } from "@common/utils/vector";
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
+import { TeleportPlugin } from "./defaultPlugins/teleportPlugin";
+import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
 
 export enum SpawnMode {
     Normal,
@@ -21,21 +23,21 @@ export const Config = {
     host: "0.0.0.0",
     port: 8000,
 
-    map: "main",
+    map: "gallery",
 
     spawn: { mode: SpawnMode.Normal },
 
     maxTeamSize: TeamSize.Solo,
 
     maxPlayersPerGame: 80,
-    maxGames: 4,
+    maxGames: 1,
     gameJoinTime: 60,
 
     gas: { mode: GasMode.Normal },
 
     tps: 40,
 
-    plugins: [],
+    plugins: [TeleportPlugin, InfiniteThrowablesPlugin],
 
     roles: {
         "developr": { password: "developr", isDev: true },

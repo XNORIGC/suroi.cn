@@ -4,7 +4,7 @@ export const news: NewsPost[] = [
     {
         date: 1727953200000,
         author: "XNOR",
-        title: "DA☆ZE",
+        title: "DA☆ZE～^~^",
         bannerImage: "../img/news/v0.19.1-suroi.cn.png",
         content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/pj6XQmuhnU" target="_blank">227269266</a>！`,
         longContent: `Meow`

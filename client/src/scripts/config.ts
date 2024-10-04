@@ -6,7 +6,7 @@ export const Config = {
             name: "Hong Kong",
             mainAddress: "http://34.96.151.223:8000",
             gameAddress: "ws://34.96.151.223:800<ID>"
-        },
+        }/*,
         dev: {
             name: "Local Server",
             mainAddress: "http://127.0.0.1:8000",
@@ -31,7 +31,7 @@ export const Config = {
             name: "Asia",
             mainAddress: "https://as.suroi.io",
             gameAddress: "wss://<ID>.as.suroi.io"
-        }
+        }*/
     },
     defaultRegion: "hk",
     mode: "normal"
