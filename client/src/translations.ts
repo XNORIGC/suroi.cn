@@ -5,7 +5,7 @@ import { type Game } from "./scripts/game";
 import { defaultClientCVars } from "./scripts/utils/console/defaultClientCVars";
 import { CHINESE_SIMPLIFIED_TRANSLATIONS } from "./translations/chinese_simplified";
 import { CHINESE_TRADITIONAL_TRANSLATIONS } from "./translations/chinese_traditional";
-import { CANTONESE_TRANSLATIONS } from "./translations/cantonese";
+import { CHINESE_CANTONESE_TRANSLATIONS } from "./translations/chinese_cantonese";
 import { ALBANIAN_TRANSLATIONS } from "./translations/albanian";
 import { CZECH_TRANSLATIONS } from "./translations/czech";
 import { ENGLISH_TRANSLATIONS } from "./translations/english";
@@ -42,9 +42,9 @@ export const TRANSLATIONS = {
         return defaultLanguage;
     },
     translations: {
-        zh: CHINESE_SIMPLIFIED_TRANSLATIONS,
-        tw: CHINESE_TRADITIONAL_TRANSLATIONS,
-        hk_mo: CANTONESE_TRANSLATIONS,
+        zh_cn: CHINESE_SIMPLIFIED_TRANSLATIONS,
+        zh_tw: CHINESE_TRADITIONAL_TRANSLATIONS,
+        zh_hk: CHINESE_CANTONESE_TRANSLATIONS,
         en: ENGLISH_TRANSLATIONS,
         gr: GREEK_TRANSLATIONS,
         tr: TURKISH_TRANSLATIONS,
@@ -73,7 +73,7 @@ export const TRANSLATIONS = {
     readonly translations: Record<string, TranslationMap>
 };
 
-export const NO_SPACE_LANGUAGES = ["zh", "tw", "hk_mo", "jp"];
+export const NO_SPACE_LANGUAGES = ["zh_cn", "zh_tw", "zh_hk", "jp"];
 
 let setup = false;
 export function initTranslation(game: Game): void {
