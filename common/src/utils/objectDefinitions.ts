@@ -601,6 +601,10 @@ export type BaseBulletDefinition = {
     readonly obstacleMultiplier: number
     readonly speed: number
     readonly range: number
+    readonly penetration: {
+        readonly players: boolean
+        readonly obstacles: boolean
+    }
 
     readonly tracer: {
         readonly opacity: number

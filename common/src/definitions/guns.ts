@@ -686,6 +686,53 @@ export const Guns = ObjectDefinitions.withDefault<GunDefinition>()(
                 }
             },
             {
+                idString: "barrett",
+                name: "Barrett M95",
+                ammoType: "127mm",
+                ammoSpawnAmount: 25,
+                capacity: 5,
+                reloadTime: 3.4,
+                fireDelay: 1400,
+                switchDelay: 900,
+                recoilMultiplier: 0.3,
+                recoilDuration: 1500,
+                fireMode: FireMode.Single,
+                shotSpread: 0.5,
+                moveSpread: 4,
+                length: 9.2,
+                shootOnRelease: true,
+                fists: {
+                    left: Vec.create(115, -4),
+                    right: Vec.create(40, 0),
+                    rightZIndex: 4,
+                    animationDuration: 100
+                },
+                image: { position: Vec.create(90, 4) },
+                casingParticles: [{
+                    position: Vec.create(2, 0.6),
+                    ejectionDelay: 700
+                }],
+                gasParticles: gasParticlePresets.rifle,
+                ballistics: {
+                    damage: 129,
+                    obstacleMultiplier: 1,
+                    speed: 0.45,
+                    range: 300,
+                    tracer: {
+                        width: 2.5,
+                        length: 4
+                    }
+                },
+                dual: {
+                    leftRightOffset: 1.3,
+                    fireDelay: 30,
+                    shotSpread: 1.2,
+                    moveSpread: 5,
+                    capacity: 10,
+                    reloadTime: 6.8
+                }
+            },
+            {
                 idString: "m1895",
                 name: "M1895",
                 ammoType: "762mm",
@@ -1898,7 +1945,7 @@ export const Guns = ObjectDefinitions.withDefault<GunDefinition>()(
                 idString: "death_ray",
                 name: "Death Ray",
                 ammoType: "power_cell",
-                capacity: 1,
+                capacity: Infinity,
                 reloadTime: 1.4,
                 fireDelay: 40,
                 switchDelay: 500,
@@ -1925,6 +1972,10 @@ export const Guns = ObjectDefinitions.withDefault<GunDefinition>()(
                     obstacleMultiplier: 2,
                     speed: 4,
                     range: 800,
+                    penetration: {
+                        players: true,
+                        obstacles: true
+                    },
                     tracer: {
                         image: "power_cell_trail",
                         length: 10
