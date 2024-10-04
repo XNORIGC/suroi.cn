@@ -1,6 +1,6 @@
 import type { TranslationMap } from "../translations";
 
-export const CANTONESE_TRANSLATIONS: TranslationMap = {
+export const CHINESE_CANTONESE_TRANSLATIONS: TranslationMap = {
     "name": "廣東話(香港/澳門)",
     "flag": "🇭🇰 🇲🇴",
 

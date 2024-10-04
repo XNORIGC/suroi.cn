@@ -104,21 +104,12 @@ export function getTranslatedString(key: string, replacements?: Record<string, s
     // Easter egg language
     if (language === "hp18") return "HP-18";
 
-    if (key.startsWith("emote_")) {
-        return Emotes.reify(key.slice("emote_".length)).name;
-    }
-
-    if (key.startsWith("badge_")) {
-        return Badges.reify(key.slice("badge_".length)).name;
-    }
-
     let foundTranslation: TranslationMap[string];
     try {
         foundTranslation = TRANSLATIONS.translations[language]?.[key]
-        ?? TRANSLATIONS.translations[defaultLanguage]?.[key]
-        ?? Loots.reify(key).name;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (_) {
+        ?? TRANSLATIONS.translations.en[key]
+        ?? (Badges.fromStringSafe(key.slice("badge_".length)) ?? Emotes.fromStringSafe(key.slice("emote_".length)) ?? Loots.fromStringSafe(key)).name;
+    } catch {
         foundTranslation = "no translation found";
     }
 
@@ -169,6 +160,7 @@ function adjustFontSize(element: HTMLElement): void {
 function translateCurrentDOM(): void {
     let debugTranslationCounter = 0;
 
+    document.querySelector("html").lang = TRANSLATIONS.translations[language]?.html_lang ?? "";
     document.querySelectorAll("body *").forEach(element => {
         if (!(element instanceof HTMLElement)) return; // ignore non-html elements (like svg and mathml)
 
@@ -199,7 +191,7 @@ function translateCurrentDOM(): void {
         console.log("Translated", debugTranslationCounter, "strings");
         console.log("With language as", language, "and default as", defaultLanguage);
 
-        const reference = new Set(Object.keys(TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage]));
+        const reference = new Set(Object.keys(TRANSLATIONS.translations.en));
 
         console.table(
             [...Object.entries(TRANSLATIONS.translations)].reduce<{
