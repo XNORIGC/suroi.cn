@@ -100,7 +100,7 @@ Special thanks to pap, Solstice, platonthek, eiπ, and the other devs for their 
         author: "XNOR",
         title: "Ciallo～(∠・ω< )⌒★",
         bannerImage: "../img/news/v0.18.3-suroi.cn.png",
-        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/TURLPvUEo0" target="_blank">314460357！</a>`,
+        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/TURLPvUEo0" target="_blank">314460357</a>！`,
         longContent: `QWQ`
     },
     {
