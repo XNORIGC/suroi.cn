@@ -1972,10 +1972,7 @@ export const Guns = ObjectDefinitions.withDefault<GunDefinition>()(
                     obstacleMultiplier: 2,
                     speed: 4,
                     range: 800,
-                    penetration: {
-                        players: true,
-                        obstacles: true
-                    },
+                    penetration: true,
                     tracer: {
                         image: "power_cell_trail",
                         length: 10

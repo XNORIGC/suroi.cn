@@ -97,7 +97,7 @@ export class Bullet extends BaseBullet {
 
         for (const collision of this.updateAndGetCollisions(dt, objects)) {
             const object = collision.object as DamageRecord["object"];
-            const { isPlayer, isObstacle, isBuilding } = object;
+            const { isObstacle, isBuilding, isPlayer } = object;
 
             if (isObstacle && object.definition.isStair) {
                 (object).handleStairInteraction(this);
@@ -115,8 +115,6 @@ export class Bullet extends BaseBullet {
             });
 
             this.damagedIDs.add(object.id);
-
-            if ((definition.penetration.players && isPlayer) || (definition.penetration.obstacles && isObstacle)) continue;
 
             this.position = point;
 
@@ -142,6 +140,8 @@ export class Bullet extends BaseBullet {
                     this.reflected = true;
                 }
             }
+
+            if (definition.penetration) continue;
 
             this.dead = true;
             break;

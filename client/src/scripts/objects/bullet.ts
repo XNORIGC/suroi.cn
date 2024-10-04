@@ -85,6 +85,9 @@ export class Bullet extends BaseBullet {
 
                 this.damagedIDs.add(object.id);
                 this.position = point;
+
+                if (this.definition.penetration) continue;
+
                 this.dead = true;
                 break;
             }
