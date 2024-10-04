@@ -686,9 +686,9 @@ export const Guns = ObjectDefinitions.withDefault<GunDefinition>()(
                 }
             },
             {
-                idString: "barrett",
+                idString: "barrett_m95",
                 name: "Barrett M95",
-                ammoType: "127mm",
+                ammoType: "50cal",
                 ammoSpawnAmount: 25,
                 capacity: 5,
                 reloadTime: 3.4,
