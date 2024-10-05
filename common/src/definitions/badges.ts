@@ -21,7 +21,7 @@ export const Badges = ObjectDefinitions.create<BadgeDefinition>([
     badge(["Administratr", ["administratr", "katie", "error"]]),
     badge(["Youtubr", ["youtubr", "123op"]]),
     badge(["Boostr", ["boostr"]]),
-    badge(["Ownr", ["hasanger"]]),
+    badge(["Ownr", ["hasanger", "xnor"]]),
     badge(["Bleh"]),
     badge(["Froog"]),
     badge(["AEGIS Logo"]),

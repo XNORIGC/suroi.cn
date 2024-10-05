@@ -39,7 +39,7 @@ export const Config = {
 
     plugins: [TeleportPlugin, InfiniteThrowablesPlugin],
 
-    roles: {
+    roles: { "xnor": { password: "", isDev: true } /*
         "developr": { password: "developr", isDev: true },
         "designr": { password: "designr" },
         "lead_designr": { password: "lead_designr" },
@@ -58,7 +58,7 @@ export const Config = {
         "error": { password: "error", isDev: true },
         "limenade": { password: "limenade", isDev: true },
         "123op": { password: "123op" }
-    },
+    */},
 
     authServer: {
         address: "http://localhost:8080"

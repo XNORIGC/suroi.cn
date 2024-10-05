@@ -368,5 +368,5 @@ export const ENGLISH_TRANSLATIONS: TranslationMap = {
 
     "donate": "Donate",
 
-    "msg_lost_connection": "Connection Lost"
+    "msg_lost_connection": "Connection lost."
 };

@@ -334,12 +334,12 @@ export class Game {
         this._socket.onclose = (): void => {
             resetPlayButtons();
 
-            const reason = this.disconnectReason || getTranslatedString("msg_lost_connection");
+            const reason = this.disconnectReason || "Connection lost";
 
             if (!this.gameOver) {
                 if (this.gameStarted) {
                     ui.splashUi.fadeIn(400);
-                    ui.splashMsgText.html(this.disconnectReason || "Connection lost.");
+                    ui.splashMsgText.html(this.disconnectReason || getTranslatedString("msg_lost_connection"));
                     ui.splashMsg.show();
                 }
                 this.uiManager.ui.btnSpectate.addClass("btn-disabled");

@@ -369,9 +369,9 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     // 可选翻译
 
     "donate": "捐赠",
-    "msg_lost_connection": "连接已丢失",
+    "msg_lost_connection": "连接已丢失。",
 
-    "fire_hatchet": "火焰斧头",
+    "fire_hatchet": "消防斧",
     "falchion": "西洋剑",
 
     "cz600": "CZ-600",
