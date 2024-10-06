@@ -39,7 +39,7 @@ export const Config = {
 
     plugins: [TeleportPlugin, InfiniteThrowablesPlugin],
 
-    roles: { "xnor": { password: "", isDev: true } /*
+    roles: { "xnor": { password: "meow", isDev: true } /*
         "developr": { password: "developr", isDev: true },
         "designr": { password: "designr" },
         "lead_designr": { password: "lead_designr" },

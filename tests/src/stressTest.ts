@@ -176,7 +176,7 @@ class Bot {
 
         this.sendPacket(
             JoinPacket.create({
-                name: `BOT_${this.id}`,
+                name: `[Bot] ${this.id}`,
                 isMobile: false,
                 skin: Loots.reify(pickRandomInArray(skins)),
                 emotes: this._emotes

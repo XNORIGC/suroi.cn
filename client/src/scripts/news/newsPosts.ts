@@ -6,7 +6,8 @@ export const news: NewsPost[] = [
         author: "XNOR",
         title: "DA☆ZE～^~^",
         bannerImage: "../img/news/v0.19.1-suroi.cn.png",
-        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/pj6XQmuhnU" target="_blank">227269266</a>！`,
+        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/pj6XQmuhnU" target="_blank">227269266</a>！<br>
+		也欢迎你来游玩我们的上海服<a href="http://124.223.18.68/">http://124.223.18.68/</a>！`,
         longContent: `Meow`
     },
     {

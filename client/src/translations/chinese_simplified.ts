@@ -453,8 +453,8 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "nebula": "星云",
     "1st_birthday": "一岁生日",
     "lumberjack": "伐木工",
-    "gold_tie_event": "金领带服装",
-    "ship_carrier": "船舶运行者",
+    "gold_tie_event": "金领带活动",
+    "ship_carrier": "船舶运输者",
     "nsd_uniform": "NSD制服",
     "ghillie_suit": "吉利服",
 
