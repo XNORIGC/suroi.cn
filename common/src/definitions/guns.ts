@@ -1968,7 +1968,7 @@ export const Guns = ObjectDefinitions.withDefault<GunDefinition>()(
                     on: "reload"
                 }],
                 ballistics: {
-                    damage: 800,
+                    damage: 3,
                     obstacleMultiplier: 2,
                     speed: 4,
                     range: 800,

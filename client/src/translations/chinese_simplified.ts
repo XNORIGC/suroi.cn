@@ -337,14 +337,13 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "ak47": "AK-47",
     "vector": "维克托",
     "mini14": "迷你14",
-    "model_37": "37式",
-    "model_89": "89式",
+    "model_37": "三七式",
+    "model_89": "八九式",
     "negev": "内格夫",
     "sr25": "SR-25",
     "tango_51": "探戈51",
-    "barrett_m95": "巴雷特95式",
     "stoner_63": "斯通纳63",
-    "m1_garand": "1式加兰德",
+    "m1_garand": "一式加兰德",
     "micro_uzi": "微型乌兹",
     "m3k": "M3K",
     "arx160": "ARX-160",
@@ -354,7 +353,7 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
 
     "frag_grenade": "破片手榴弹",
     "smoke_grenade": "烟雾弹",
-    "confetti_grenade": "彩色纸屑手榴弹",
+    "confetti_grenade": "彩屑手榴弹",
 
     // 用于双枪
     "dual_template": "双持<gun>",
@@ -372,13 +371,11 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "msg_lost_connection": "连接已丢失。",
 
     "fire_hatchet": "消防斧",
-    "falchion": "西洋剑",
+    "falchion": "弯刀",
 
     "cz600": "CZ-600",
     "mg5": "MG5",
     "deagle": "沙漠之鹰",
-
-    "region_hk": "香港",
 
     "12g": "12号口径",
     "556mm": "5.56毫米",
@@ -563,5 +560,21 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "badge_suroi_logo": "Suroi",
     "badge_fire": "火",
     "badge_colon_three": ":3",
-    "badge_suroi_general_chat": "Suroi通用聊天"
+    "badge_suroi_general_chat": "Suroi通用聊天",
+
+    "32x_scope": "三十二倍镜",
+    "barrett_m95": "巴雷特95式",
+    "region_hk": "香港",
+    "settings_colorful_bullets": "五彩缤纷的子弹",
+    "settings_menu_music": "菜单音乐",
+    "settings_menu_music_main": "斯特林之歌（标准模式，Suroi默认）",
+    "settings_menu_music_old": "旧菜单音乐",
+    "settings_menu_music_halloween": "山丘上的房子的秘密（万圣节模式）",
+    "settings_menu_music_winter": "圣诞节主题（冬季模式）",
+    "settings_menu_music_speaker": "苏瑞OK 9.0（AEGIS总部，Suroi.cn默认）",
+    "settings_menu_music_main_full": "斯特林之歌（完整版）",
+    "settings_menu_music_survivio": "Surviv.io",
+    "settings_menu_music_survivio_halloween": "Surviv.io万圣节",
+    "settings_menu_music_random": "随机选择",
+    "settings_self_deception_ping": "自欺欺人延迟"
 };

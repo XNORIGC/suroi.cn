@@ -70,8 +70,8 @@ const [serializePlayerData, deserializePlayerData] = (() => {
     );
 
     const zoom = generateReadWritePair<PlayerData["zoom"]>(
-        (zoom, stream) => stream.writeUint8(zoom),
-        stream => stream.readUint8()
+        (zoom, stream) => stream.writeUint16(zoom),
+        stream => stream.readUint16()
     );
 
     const layer = generateReadWritePair<PlayerData["layer"]>(

@@ -1453,8 +1453,12 @@ export async function setUpUI(game: Game): Promise<void> {
         }
     );
 
-    // Old menu music
-    addCheckboxListener("#toggle-old-music", "cv_use_old_menu_music");
+    // Menu music
+    const menuMusicSelect = $<HTMLSelectElement>("#menu-music-select")[0];
+    menuMusicSelect.addEventListener("input", () => {
+        game.console.setBuiltInCVar("cv_menu_music", menuMusicSelect.value as unknown as "main" | "old" | "halloween" | "winter" | "speaker" | "main_full", "survivio", "survivio_halloween", "random");
+    });
+    menuMusicSelect.value = game.console.getBuiltInCVar("cv_menu_music");
 
     // Camera shake
     addCheckboxListener("#toggle-camera-shake", "cv_camera_shake_fx");
@@ -1471,6 +1475,8 @@ export async function setUpUI(game: Game): Promise<void> {
             value => debugReadout.toggle(value)
         );
     }
+
+    addCheckboxListener("#toggle-self-deception-ping", "pf_self_deception_ping");
 
     // lmao one day, we'll have dropdown menus
 
@@ -1562,6 +1568,9 @@ export async function setUpUI(game: Game): Promise<void> {
         }
     );
     addCheckboxListener("#toggle-draw-hud", "cv_draw_hud");
+
+    // Colorful bullets toggle
+    addCheckboxListener("#toggle-colorful-bullets", "cv_colorful_bullets");
 
     // Anti-aliasing toggle
     addCheckboxListener("#toggle-antialias", "cv_antialias");

@@ -342,7 +342,6 @@ export const ENGLISH_TRANSLATIONS: TranslationMap = {
     "negev": "Negev",
     "sr25": "SR-25",
     "tango_51": "Tango 51",
-    "barrett_m95": "Barrett M95",
     "stoner_63": "Stoner 63",
     "m1_garand": "M1 Garand",
     "micro_uzi": "Micro Uzi",
@@ -366,7 +365,21 @@ export const ENGLISH_TRANSLATIONS: TranslationMap = {
     "region_sa": "South America",
     "region_as": "Asia",
 
+    "32x_scope": "32x Scope",
+    "barrett_m95": "Barrett M95",
     "donate": "Donate",
-
-    "msg_lost_connection": "Connection lost."
+    "msg_lost_connection": "Connection lost.",
+    "region_hk": "Hong Kong",
+    "settings_colorful_bullets": "Colorful bullets",
+    "settings_menu_music": "Menu music",
+    "settings_menu_music_main": "Sterling's Song (Normal Mode, Suroi Default)",
+    "settings_menu_music_old": "Old menu music",
+    "settings_menu_music_halloween": "Secrets of the House on the Hill (Halloween Mode)",
+    "settings_menu_music_winter": "Christmas Theme (Winter Mode)",
+    "settings_menu_music_speaker": "surioke 9.0 (AEGIS Headquarters, Suroi.cn Default)",
+    "settings_menu_music_main_full": "Sterling's Song (Full Version)",
+    "settings_menu_music_survivio": "Surviv.io",
+    "settings_menu_music_survivio_halloween": "Surviv.io Halloween",
+    "settings_menu_music_random": "Random Selection",
+    "settings_self_deception_ping": "Show self-deception ping"
 };

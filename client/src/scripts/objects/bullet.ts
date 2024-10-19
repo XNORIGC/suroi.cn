@@ -50,7 +50,7 @@ export class Bullet extends BaseBullet {
 
         const white = 0xFFFFFF;
         const color = new Color(
-            tracerStats.color === -1
+            tracerStats.color === -1 || this.game.console.getBuiltInCVar("cv_colorful_bullets")
                 ? random(0, white)
                 : tracerStats.color ?? white
         );

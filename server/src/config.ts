@@ -6,6 +6,7 @@ import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
 import { TeleportPlugin } from "./defaultPlugins/teleportPlugin";
 import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
+import { BarrelCratesPlugin } from "./plugins/barrelCratesPlugin";
 
 export enum SpawnMode {
     Normal,
@@ -37,9 +38,9 @@ export const Config = {
 
     tps: 40,
 
-    plugins: [TeleportPlugin, InfiniteThrowablesPlugin],
+    plugins: [TeleportPlugin, InfiniteThrowablesPlugin, BarrelCratesPlugin],
 
-    roles: { "xnor": { password: "meow", isDev: true } /*
+    roles: { "xnor": { password: "meow", isDev: true },
         "developr": { password: "developr", isDev: true },
         "designr": { password: "designr" },
         "lead_designr": { password: "lead_designr" },
@@ -58,7 +59,7 @@ export const Config = {
         "error": { password: "error", isDev: true },
         "limenade": { password: "limenade", isDev: true },
         "123op": { password: "123op" }
-    */},
+    },
 
     authServer: {
         address: "http://localhost:8080"

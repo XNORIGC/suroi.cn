@@ -27,6 +27,7 @@ import { Timeout } from "../../../common/src/utils/misc";
 import { ItemType, ObstacleSpecialRoles } from "../../../common/src/utils/objectDefinitions";
 import { ObjectPool } from "../../../common/src/utils/objectPool";
 import { type ObjectsNetData } from "../../../common/src/utils/objectsSerializations";
+import { pickRandomInArray } from "../../../common/src/utils/random";
 import { getTranslatedString, initTranslation } from "../translations";
 import { InputManager } from "./managers/inputManager";
 import { /* GameSound, */ SoundManager } from "./managers/soundManager";
@@ -241,8 +242,21 @@ export class Game {
         setUpCommands(this);
         this.inputManager.generateBindsConfigScreen();
 
+        const menuMusic = {
+            main: "./audio/music/menu_music.mp3",
+            old: "./audio/music/menu_music_old.mp3",
+            halloween: "./audio/music/menu_music_halloween.mp3",
+            winter: "./audio/music/menu_music_winter.mp3",
+            speaker: "./audio/sfx/speaker.mp3",
+            main_full: "./audio/music/menu_music_full.mp3",
+            survivio: "./audio/music/menu_music_01.mp3",
+            survivio_halloween: "./audio/music/menu_music_02.mp3"
+        };
+
+        const selectedMenuMusic = this.console.getBuiltInCVar("cv_menu_music");
+
         this.music = sound.add("menu_music", {
-            url: `./audio/music/menu_music${this.console.getBuiltInCVar("cv_use_old_menu_music") ? "_old" : MODE.specialMenuMusic ? `_${MODE.idString}` : "_full"}.mp3`,
+            url: selectedMenuMusic === "random" ? pickRandomInArray(Object.values(menuMusic)) : menuMusic[selectedMenuMusic],
             singleInstance: true,
             preload: true,
             autoPlay: true,
@@ -374,7 +388,7 @@ export class Game {
                 this.uiManager.processKillFeedPacket(packet.output);
                 break;
             case packet instanceof PingPacket: {
-                this.uiManager.debugReadouts.ping.text(`${Date.now() - this.lastPingDate} ms`);
+                this.uiManager.debugReadouts.ping.text(`${this.console.getBuiltInCVar("pf_self_deception_ping") ? 30 : Date.now() - this.lastPingDate} ms`);
                 setTimeout((): void => {
                     this.sendPacket(PingPacket.create());
                     this.lastPingDate = Date.now();
