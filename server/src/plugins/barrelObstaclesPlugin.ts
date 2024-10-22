@@ -4,9 +4,9 @@ import { weightedRandom } from "@common/utils/random";
 import { GamePlugin } from "../pluginManager";
 
 /**
-  * Plugin to make crates have a chance to generate a barrel when destroyed
+  * Plugin to make obstacles have a chance to generate a barrel when destroyed
  */
-export class BarrelCratesPlugin extends GamePlugin {
+export class BarrelObstaclesPlugin extends GamePlugin {
     readonly config = {
         chance: 0.3,
         obstacles: ["barrel", "super_barrel", "loot_barrel", "small_refinery_barrel", "large_refinery_barrel"],

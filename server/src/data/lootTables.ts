@@ -178,7 +178,8 @@ export const LootTables: Record<string, LootTable> = {
         max: 1,
         loot: [
             [
-                { item: "cz600", weight: 1 }
+                { item: "cz600", weight: 9 },
+                { item: "ash127", weight: 1 }
             ],
             [
                 { tier: "scopes", weight: 1 }
@@ -757,7 +758,8 @@ export const LootTiers: Record<string, readonly WeightedItem[]> = {
         { item: "mg5", weight: 0.003 },
         { item: "tango_51", weight: 0.002 },
         { item: "dual_deagle", weight: 0.001 },
-        { item: "death_ray", weight: 0.005 }
+        { item: "death_ray", weight: 0.008 },
+        { item: "ash127", weight: 14.121 / 19 }
     ],
     healing_items: [
         { item: "gauze", count: 5, weight: 3 },

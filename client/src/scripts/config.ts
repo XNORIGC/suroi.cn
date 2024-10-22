@@ -4,8 +4,8 @@ export const Config = {
     regions: {
         hk: {
             name: "Hong Kong",
-            mainAddress: "http://34.96.151.223:8000",
-            gameAddress: "ws://34.96.151.223:800<ID>"
+            mainAddress: "http://camvan.xyz:8000",
+            gameAddress: "ws://camvan.xyz:800<ID>"
         }/*,
         dev: {
             name: "Local Server",

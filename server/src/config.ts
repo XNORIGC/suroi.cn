@@ -6,7 +6,7 @@ import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
 import { TeleportPlugin } from "./defaultPlugins/teleportPlugin";
 import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
-import { BarrelCratesPlugin } from "./plugins/barrelCratesPlugin";
+//import { BarrelObstaclesPlugin } from "./plugins/barrelObstaclesPlugin";
 
 export enum SpawnMode {
     Normal,
@@ -28,7 +28,7 @@ export const Config = {
 
     spawn: { mode: SpawnMode.Normal },
 
-    maxTeamSize: TeamSize.Solo,
+    maxTeamSize: TeamSize.Duo,
 
     maxPlayersPerGame: 80,
     maxGames: 1,
@@ -38,9 +38,10 @@ export const Config = {
 
     tps: 40,
 
-    plugins: [TeleportPlugin, InfiniteThrowablesPlugin, BarrelCratesPlugin],
+    plugins: [TeleportPlugin, InfiniteThrowablesPlugin],// BarrelObstaclesPlugin],
 
-    roles: { "xnor": { password: "meow", isDev: true },
+    roles: {
+        "xnor": { password: "meow", isDev: true },
         "developr": { password: "developr", isDev: true },
         "designr": { password: "designr" },
         "lead_designr": { password: "lead_designr" },
@@ -60,6 +61,8 @@ export const Config = {
         "limenade": { password: "limenade", isDev: true },
         "123op": { password: "123op" }
     },
+
+    disableLobbyClearing: true,
 
     authServer: {
         address: "http://localhost:8080"

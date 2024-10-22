@@ -35,7 +35,7 @@ export const MODE = Modes.find(m => m.idString === Config.mode)!;
 export const COLORS = (Object.keys(MODE.colors) as ColorKeys[])
     .reduce(
         (result, key) => {
-            result[key] = new Color(MODE.colors[key]);
+            result[key] = (new Color(MODE.colors[key])).multiply(new Color("hsl(0, 0%, 100%)"));
             return result;
         },
         {} as Record<ColorKeys, Color>

@@ -1,3 +1,4 @@
+import { Layer } from "@common/constants";
 import { Vec } from "@common/utils/vector";
 
 import { GamePlugin } from "../pluginManager";
@@ -9,6 +10,7 @@ export class TeleportPlugin extends GamePlugin {
     protected override initListeners(): void {
         this.on("player_did_map_ping", ({ player, position }) => {
             player.position = Vec.clone(position);
+            player.layer = Layer.Ground;
             player.updateObjects = true;
             player.setPartialDirty();
         });

@@ -12,7 +12,8 @@ const bulletColors: Record<string, number> = {
     "762mm": 0x80ffff,
     "50cal": 0x202020,
     "338lap": 0x408000,
-    "shrapnel": 0x1d1d1d
+    "shrapnel": 0x1d1d1d,
+    "127bp": 0xcb90b8
 };
 
 export const Bullets = ObjectDefinitions.withDefault<BulletDefinition>()(
