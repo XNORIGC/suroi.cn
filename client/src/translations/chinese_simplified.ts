@@ -563,7 +563,7 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "badge_suroi_general_chat": "Suroi通用聊天",
 
     "32x_scope": "三十二倍镜",
-    "barrett_m95": "巴雷特95式",
+    "barrett_m95": "巴雷特九五式",
     "region_hk": "香港",
     "settings_colorful_bullets": "五彩缤纷的子弹",
     "settings_menu_music": "菜单音乐",

@@ -52,7 +52,7 @@ export const CVarCasters = Object.freeze({
     cv_high_res_textures: Casters.toBoolean,
     cv_cooler_graphics: Casters.toBoolean,
     cv_colorful_bullets: Casters.toBoolean,
-    cv_dark_mode: Casters.toBoolean,
+    cv_brightness: Casters.toNumber,
     cv_blur_splash: Casters.toBoolean,
 
     cv_rules_acknowledged: Casters.toBoolean,
@@ -164,7 +164,7 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_high_res_textures: true,
     cv_cooler_graphics: false,
     cv_colorful_bullets: false,
-    cv_dark_mode: false,
+    cv_brightness: 1,
     cv_blur_splash: !isMobile.any, // blur kills splash screen performance on phones from my testing
 
     cv_rules_acknowledged: false,

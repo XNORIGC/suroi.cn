@@ -567,7 +567,7 @@ export async function setUpUI(game: Game): Promise<void> {
             createTeamMenu.fadeOut(250);
 
             // Dimmed backdrop on team menu. (Probably not needed here)
-            ui.splashUi.css({ filter: "", pointerEvents: "" });
+            ui.splashUi.css({ filter: `brightness(${game.console.getBuiltInCVar("cv_brightness")})`, pointerEvents: "" });
         };
 
         teamSocket.onclose = (): void => {
@@ -589,14 +589,14 @@ export async function setUpUI(game: Game): Promise<void> {
             createTeamMenu.fadeOut(250);
 
             // Dimmed backdrop on team menu.
-            ui.splashUi.css({ filter: "", pointerEvents: "" });
+            ui.splashUi.css({ filter: `brightness(${game.console.getBuiltInCVar("cv_brightness")})`, pointerEvents: "" });
         };
 
         createTeamMenu.fadeIn(250);
 
         // Dimmed backdrop on team menu.
         ui.splashUi.css({
-            filter: "brightness(0.6)",
+            filter: `brightness(${game.console.getBuiltInCVar("cv_brightness") * 0.6})`,
             pointerEvents: "none"
         });
     });
@@ -1453,7 +1453,7 @@ export async function setUpUI(game: Game): Promise<void> {
         }
     );
 
-    // Menu music
+    // Menu music select menu
     const menuMusicSelect = $<HTMLSelectElement>("#menu-music-select")[0];
     menuMusicSelect.addEventListener("input", () => {
         game.console.setBuiltInCVar("cv_menu_music", menuMusicSelect.value as unknown as "main" | "old" | "halloween" | "winter" | "speaker" | "main_full", "survivio", "survivio_halloween", "random");
@@ -1571,6 +1571,20 @@ export async function setUpUI(game: Game): Promise<void> {
 
     // Colorful bullets toggle
     addCheckboxListener("#toggle-colorful-bullets", "cv_colorful_bullets");
+
+    // Brightness
+    addSliderListener(
+        "#slider-brightness",
+        "cv_brightness",
+        value => {
+            ui.splashUi.css("filter", `brightness(${value})`);
+            ui.canvas.css({
+                "filter": `brightness(${value})`,
+                "position": "relative",
+                "z-index": "-1"
+            });
+        }
+    );
 
     // Anti-aliasing toggle
     addCheckboxListener("#toggle-antialias", "cv_antialias");

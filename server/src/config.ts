@@ -62,8 +62,6 @@ export const Config = {
         "123op": { password: "123op" }
     },
 
-    disableLobbyClearing: true,
-
     authServer: {
         address: "http://localhost:8080"
     }
