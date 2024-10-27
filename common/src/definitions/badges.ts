@@ -21,7 +21,7 @@ export const Badges = ObjectDefinitions.create<BadgeDefinition>([
     badge(["Administratr", ["administratr", "katie", "error"]]),
     badge(["Youtubr", ["youtubr", "123op"]]),
     badge(["Boostr", ["boostr"]]),
-    badge(["Ownr", ["hasanger", "xnor"]]),
+    badge(["Ownr", ["hasanger"]]),
     badge(["Bleh"]),
     badge(["Froog"]),
     badge(["AEGIS Logo"]),
@@ -30,5 +30,6 @@ export const Badges = ObjectDefinitions.create<BadgeDefinition>([
     badge(["Suroi Logo"]),
     badge(["Fire"]),
     badge(["Colon Three"]),
+    badge(["Suroi General Chat"])
     badge(["Suroi General Chat"])
 ]);
