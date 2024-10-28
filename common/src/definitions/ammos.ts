@@ -121,18 +121,6 @@ export const Ammos = ObjectDefinitions.withDefault<AmmoDefinition>()(
             defaultCasingFrame: "casing_firework_rocket",
             hideUnlessPresent: true
         },
-        {
-            idString: "127bp",
-            name: "12.7x55mm BP",
-            maxStackSize:40,
-            characteristicColor: {
-                hue: 320,
-                saturation: 36,
-                lightness: 23
-            },
-            defaultCasingFrame: "casing_762x39mm",
-            hideUnlessPresent: true
-        },
 
         // Ephemeral ammo types below
 

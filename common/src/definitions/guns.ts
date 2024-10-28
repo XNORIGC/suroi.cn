@@ -358,45 +358,6 @@ export const Guns = ObjectDefinitions.withDefault<GunDefinition>()(
                 }
             },
             {
-                idString: "ash127",
-                name: "Автомат штурмовой 12.7мм",
-                ammoType: "127bp",
-                ammoSpawnAmount: 90,
-                fireDelay: 90,
-                switchDelay: 600,
-                speedMultiplier: 0.9,
-                recoilMultiplier: 0.75,
-                recoilDuration: 200,
-                fireMode: FireMode.Auto,
-                shotSpread: 2,
-                moveSpread: 3.75,
-                noMuzzleFlash: false,
-                length: 6.2,
-                fists: {
-                    left: Vec.create(95, -2),
-                    right: Vec.create(40, 0),
-                    rightZIndex: 4,
-                    animationDuration: 100
-                },
-                image: { position: Vec.create(75, -1) },
-                casingParticles: [{
-                    position: Vec.create(4, 0.5)
-                }],
-                capacity: 60,
-                reloadTime: 2.4,
-                ballistics: {
-                    damage: 19,
-                    obstacleMultiplier: 2.5,
-                    speed: 0.3,
-                    range: 180,
-                    tracer: {
-                        opacity: 1,
-                        width: 1.6,
-                        length: 2
-                    }
-                }
-            },
-            {
                 idString: "m3k",
                 name: "M3K",
                 ammoType: "12g",

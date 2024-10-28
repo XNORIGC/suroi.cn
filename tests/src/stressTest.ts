@@ -1,4 +1,4 @@
-import { WebSocket, type MessageEvent } from "ws";
+	import { WebSocket, type MessageEvent } from "ws";
 import { GameConstants, InputActions, ObjectCategory } from "../../common/src/constants";
 import { Emotes, type EmoteDefinition } from "../../common/src/definitions/emotes";
 import { Loots } from "../../common/src/definitions/loots";
@@ -23,7 +23,7 @@ const config = {
     mainAddress: "http://127.0.0.1:8000",
     gameAddress: "ws://127.0.0.1:800<ID>",
     botCount: 79,
-    joinDelay: 100
+    joinDelay: 10000
 };
 
 const skins: ReadonlyArray<ReferenceTo<SkinDefinition>> = Skins.definitions
@@ -176,7 +176,7 @@ class Bot {
 
         this.sendPacket(
             JoinPacket.create({
-                name: `[Bot] ${this.id}`,
+                name: `Bot ${this.id}`,
                 isMobile: false,
                 skin: Loots.reify(pickRandomInArray(skins)),
                 emotes: this._emotes
@@ -237,6 +237,7 @@ class Bot {
             actions.push({ type: InputActions.EquipItem, slot });
 
             if (GameConstants.player.inventorySlotTypings[slot] === ItemType.Throwable && this._shootStart) {
+                actions.push({ type: InputActions.ExplodeC4 });
                 this._dontCommitGrenadeSuicideTimer ??= setTimeout(() => {
                     this._grenadeSuicidePrevention = true;
                     this._dontCommitGrenadeSuicideTimer = undefined;
@@ -275,7 +276,7 @@ class Bot {
         this._shootStart = randomBoolean();
         this._interact = randomBoolean();
         this._swap = randomBoolean();
-        this._emote = randomBoolean();
+        this._emote = false;//randomBoolean();
         this["admin he doing it sideways"] = randomBoolean();
 
         switch (random(1, 8)) {

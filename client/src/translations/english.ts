@@ -370,6 +370,7 @@ export const ENGLISH_TRANSLATIONS: TranslationMap = {
     "donate": "Donate",
     "msg_lost_connection": "Connection lost.",
     "region_hk": "Hong Kong",
+    "settings_brightness": "Brightness",
     "settings_colorful_bullets": "Colorful bullets",
     "settings_menu_music": "Menu music",
     "settings_menu_music_main": "Sterling's Song (Normal Mode, Suroi Default)",

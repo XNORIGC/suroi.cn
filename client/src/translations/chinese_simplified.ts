@@ -565,6 +565,7 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "32x_scope": "三十二倍镜",
     "barrett_m95": "巴雷特九五式",
     "region_hk": "香港",
+    "settings_brightness": "亮度",
     "settings_colorful_bullets": "五彩缤纷的子弹",
     "settings_menu_music": "菜单音乐",
     "settings_menu_music_main": "斯特林之歌（标准模式，Suroi默认）",

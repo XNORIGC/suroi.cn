@@ -12,7 +12,7 @@ export class TeleportPlugin extends GamePlugin {
             player.position = Vec.clone(position);
             player.layer = Layer.Ground;
             player.setPartialDirty();
-            player.updateObjects = true;
+            player.game.grid.updateObject(player);
         });
     }
 }
