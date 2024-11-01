@@ -120,7 +120,7 @@ export class Bullet extends BaseBullet {
             if (
                 (isObstacle || isBuilding)
                 && object.definition.reflectBullets
-                && this.reflectionCount < 3
+                && this.reflectionCount < (definition.penetration ? 1 : 3)
             ) {
                 /*
                     no matter what, nudge the bullet
@@ -139,6 +139,8 @@ export class Bullet extends BaseBullet {
                     this.reflected = true;
                 }
             }
+
+            if (definition.penetration) continue;
 
             this.dead = true;
             break;

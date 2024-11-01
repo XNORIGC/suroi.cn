@@ -603,7 +603,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                 });
             }
 
-            return;
+            // return;
         }
 
         this._mapPings.push({

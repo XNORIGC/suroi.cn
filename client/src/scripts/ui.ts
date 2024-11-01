@@ -144,19 +144,19 @@ export async function setUpUI(game: Game): Promise<void> {
         if (!["en", "hp18"].includes(language)) {
             for (const key of Object.keys(languageInfo)) {
                 // Do not count guns or same strings (which are guns most of the time)
-                if (languageInfo[key] === TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage][key] && nonCountableStrings.includes((languageInfo[key] as string))) {
+                if (languageInfo[key] === TRANSLATIONS.translations.en[key] && nonCountableStrings.includes((languageInfo[key] as string))) {
                     filtered = filtered.filter(translationString => {
-                        return translationString !== TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage][key];
+                        return translationString !== TRANSLATIONS.translations.en[key];
                     });
                 }
             }
         }
 
-        const percentage = (filtered.length - 2) / (Object.values(TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage]).length - 2);
+        const percentage = (filtered.length - 2) / (Object.values(TRANSLATIONS.translations.en).length - 2);
         languageFieldset.append(html`
             <div>
               <input type="radio" name="selected-language" id="language-${language}" value="${language}">
-              <label for="language-${language}">${languageInfo.flag} ${languageInfo.name} (${language === "den" ? "001" : language === "qen" ? "OwO" : languageInfo.name === "HP-18" ? "HP-18" : Math.ceil(percentage * 100)}%)</label>
+              <label for="language-${language}" lang="${languageInfo.html_lang}">${languageInfo.flag} ${languageInfo.name} (${language === "den" ? "001" : language === "qen" ? "OwO" : languageInfo.name === "HP-18" ? "HP-18" : Math.ceil(percentage * 100)}%)</label>
             </div>
         `);
 
@@ -284,7 +284,7 @@ export async function setUpUI(game: Game): Promise<void> {
         }
 
         if (getTranslatedString(`region_${game.console.getBuiltInCVar("cv_region")}`) === "region_") {
-            serverName.text(selectedRegion.name); // this for now until we find a way to selectedRegion.id
+            serverName.text(getTranslatedString(`region_${Config.defaultRegion}`));
         } else {
             serverName.text(getTranslatedString(`region_${game.console.getBuiltInCVar("cv_region")}`));
         }
@@ -567,7 +567,7 @@ export async function setUpUI(game: Game): Promise<void> {
             createTeamMenu.fadeOut(250);
 
             // Dimmed backdrop on team menu. (Probably not needed here)
-            ui.splashUi.css({ filter: "", pointerEvents: "" });
+            ui.splashUi.css({ filter: `brightness(${game.console.getBuiltInCVar("cv_brightness")})`, pointerEvents: "" });
         };
 
         teamSocket.onclose = (): void => {
@@ -589,14 +589,14 @@ export async function setUpUI(game: Game): Promise<void> {
             createTeamMenu.fadeOut(250);
 
             // Dimmed backdrop on team menu.
-            ui.splashUi.css({ filter: "", pointerEvents: "" });
+            ui.splashUi.css({ filter: `brightness(${game.console.getBuiltInCVar("cv_brightness")})`, pointerEvents: "" });
         };
 
         createTeamMenu.fadeIn(250);
 
         // Dimmed backdrop on team menu.
         ui.splashUi.css({
-            filter: "brightness(0.6)",
+            filter: `brightness(${game.console.getBuiltInCVar("cv_brightness") * 0.6})`,
             pointerEvents: "none"
         });
     });
@@ -612,35 +612,33 @@ export async function setUpUI(game: Game): Promise<void> {
 
     copyUrl.on("click", () => {
         const url = ui.createTeamUrl.val();
-        if (!url) {
-            alert("Unable to copy link to clipboard.");
-            return;
-        }
-        void navigator.clipboard
-            .writeText(url)
-            .then(() => {
-                copyUrl
-                    .addClass("btn-success")
-                    .css("pointer-events", "none")
-                    .html(`
-                        <i class="fa-solid fa-check" id="copy-team-btn-icon"></i>
-                        ${getTranslatedString("copied")}`
-                    );
-
-                // After some seconds, reset the copy button's css
-                window.setTimeout(() => {
+        try {
+            void navigator.clipboard
+                .writeText(url)
+                .then(() => {
                     copyUrl
-                        .removeClass("btn-success")
-                        .css("pointer-events", "")
+                        .addClass("btn-success")
+                        .css("pointer-events", "none")
                         .html(`
-                            <i class="fa-solid fa-clipboard" id="copy-team-btn-icon"></i>
-                            ${getTranslatedString("copy")}`
+                            <i class="fa-solid fa-check" id="copy-team-btn-icon"></i>
+                            ${getTranslatedString("copied")}`
                         );
-                }, 2000); // 2 sec
-            })
-            .catch(() => {
-                alert("Unable to copy link to clipboard.");
-            });
+
+                    // After some seconds, reset the copy button's css
+                    window.setTimeout(() => {
+                        copyUrl
+                            .removeClass("btn-success")
+                            .css("pointer-events", "")
+                            .html(`
+                                <i class="fa-solid fa-clipboard" id="copy-team-btn-icon"></i>
+                                ${getTranslatedString("copy")}`
+                            );
+                    }, 2000); // 2 sec
+                })
+        } catch {
+            alert("Unable to copy link to clipboard.");
+            if (url) alert(url);
+        }
     });
 
     const icon = hideUrl.children("i");
@@ -1455,8 +1453,12 @@ export async function setUpUI(game: Game): Promise<void> {
         }
     );
 
-    // Old menu music
-    addCheckboxListener("#toggle-old-music", "cv_use_old_menu_music");
+    // Menu music select menu
+    const menuMusicSelect = $<HTMLSelectElement>("#menu-music-select")[0];
+    menuMusicSelect.addEventListener("input", () => {
+        game.console.setBuiltInCVar("cv_menu_music", menuMusicSelect.value as unknown as "main" | "old" | "halloween" | "winter" | "speaker" | "main_full", "survivio", "survivio_halloween", "random");
+    });
+    menuMusicSelect.value = game.console.getBuiltInCVar("cv_menu_music");
 
     // Camera shake
     addCheckboxListener("#toggle-camera-shake", "cv_camera_shake_fx");
@@ -1473,6 +1475,8 @@ export async function setUpUI(game: Game): Promise<void> {
             value => debugReadout.toggle(value)
         );
     }
+
+    addCheckboxListener("#toggle-self-deception-ping", "pf_self_deception_ping");
 
     // lmao one day, we'll have dropdown menus
 
@@ -1564,6 +1568,23 @@ export async function setUpUI(game: Game): Promise<void> {
         }
     );
     addCheckboxListener("#toggle-draw-hud", "cv_draw_hud");
+
+    // Colorful bullets toggle
+    addCheckboxListener("#toggle-colorful-bullets", "cv_colorful_bullets");
+
+    // Brightness
+    addSliderListener(
+        "#slider-brightness",
+        "cv_brightness",
+        value => {
+            ui.splashUi.css("filter", `brightness(${value})`);
+            ui.canvas.css({
+                "filter": `brightness(${value})`,
+                "position": "relative",
+                "z-index": "-1"
+            });
+        }
+    );
 
     // Anti-aliasing toggle
     addCheckboxListener("#toggle-antialias", "cv_antialias");
@@ -1702,22 +1723,20 @@ export async function setUpUI(game: Game): Promise<void> {
     // Copy settings to clipboard
     $("#export-settings-btn").on("click", () => {
         const exportedSettings = localStorage.getItem("suroi_config");
-        const error = (): void => {
+        try {
+            navigator.clipboard
+                .writeText(exportedSettings)
+                .then(() => {
+                    alert("Settings copied to clipboard.");
+                })
+                .catch(error);
+        } catch {
             alert(
                 "Unable to copy settings. To export settings manually, open the dev tools with Ctrl+Shift+I (Cmd+Opt+I on Mac) "
                 + "and, after typing in the following, copy the result manually: localStorage.getItem(\"suroi_config\")"
             );
-        };
-        if (exportedSettings === null) {
-            error();
-            return;
+            if (exportedSettings) alert(exportedSettings);
         }
-        navigator.clipboard
-            .writeText(exportedSettings)
-            .then(() => {
-                alert("Settings copied to clipboard.");
-            })
-            .catch(error);
     });
 
     // Reset settings

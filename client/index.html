@@ -211,6 +211,18 @@
           </div>
           <div id="splash-socials">
             <a
+              href="https://qm.qq.com/q/pj6XQmuhnU"
+              rel="noopener noreferrer"
+              class="btn btn-darken btn-social btn-qq"
+              target="_blank"
+            ></a>
+            <a
+              href="https://github.com/XNORIGC/suroi.cn"
+              rel="noopener noreferrer"
+              class="btn btn-darken btn-social btn-github-cn"
+              target="_blank"
+            ></a>
+            <a
               href="https://discord.suroi.io"
               rel="noopener noreferrer"
               class="btn btn-darken btn-social btn-discord"
@@ -337,7 +349,7 @@
           >
         </div>
         <div id="splash-settings">
-          <button class="btn btn-primary btn-donate" style="width: auto;height:auto;" onclick="window.open('https://ko-fi.com/suroi')"><i class="fa-solid fa-heart"></i>Donate</button>
+          <button class="btn btn-primary btn-donate" style="width: auto;height:auto;" onclick="window.open('https://ko-fi.com/suroi')"><i class="fa-solid fa-heart"></i><span translation="donate"></span></button>
           <button
             class="btn btn-darken btn-secondary"
             id="btn-language"
@@ -682,10 +694,20 @@
               <input type="range" max="1" min="0" id="slider-music-volume" step="0.1" value="1">
             </label>
           </div>
-          <div class="modal-item checkbox-setting">
+          <div class="modal-item select-setting">
             <label>
-              <span class="setting-title"><span translation="settings_old_menu_music"></span><i>*</i></span>
-              <input type="checkbox" id="toggle-old-music">
+              <span class="setting-title"><span translation="settings_menu_music"></span><i>*</i></span>
+              <select id="menu-music-select">
+                <option value="main" translation="settings_menu_music_main"></option>
+                <option value="old" translation="settings_menu_music_old"></option>
+                <option value="halloween" translation="settings_menu_music_halloween"></option>
+                <option value="winter" translation="settings_menu_music_winter"></option>
+                <option value="speaker" translation="settings_menu_music_speaker"></option>
+                <option value="main_full" translation="settings_menu_music_main_full"></option>
+                <option value="survivio" translation="settings_menu_music_survivio"></option>
+                <option value="survivio_halloween" translation="settings_menu_music_survivio_halloween"></option>
+                <option value="random" translation="settings_menu_music_random"></option>
+              </select>
             </label>
           </div>
           <p style="color: red"><i translation="settings_require_reload"></i></p>
@@ -693,6 +715,13 @@
         <div class="tab-content" id="tab-keybinds-content" style="display: none">
         </div>
         <div class="tab-content" id="tab-graphics-content" style="display: none">
+          <div class="modal-item">
+            <label>
+              <span class="setting-title" translation="settings_brightness"></span>
+              <span class="range-input-value"></span>
+              <input type="range" max="1" min="0.05" id="slider-brightness" step="0.05" value="1">
+            </label>
+          </div>
           <div class="modal-item select-setting">
             <label>
               <span class="setting-title"><span translation="settings_render_mode"></span><i>*</i></span>
@@ -725,6 +754,12 @@
             <label>
               <span class="setting-title" translation="settings_cooler_graphics"></span>
               <input type="checkbox" id="toggle-cooler-graphics">
+            </label>
+          </div>
+          <div class="modal-item checkbox-setting">
+            <label>
+              <span class="setting-title" translation="settings_colorful_bullets"></span>
+              <input type="checkbox" id="toggle-colorful-bullets">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
@@ -809,6 +844,12 @@
             <label>
               <span class="setting-title" translation="settings_show_ping">Show ping</span>
               <input type="checkbox" id="toggle-ping">
+            </label>
+          </div>
+          <div class="modal-item checkbox-setting">
+            <label>
+              <span class="setting-title" translation="settings_self_deception_ping">Show self-deception ping</span>
+              <input type="checkbox" id="toggle-self-deception-ping">
             </label>
           </div>
           <div class="modal-item checkbox-setting">

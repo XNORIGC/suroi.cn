@@ -744,7 +744,7 @@
         height: 50px;
     }
 
-    *:not(:last-child) {
+    button:not(:last-child) {
         margin-right: -2px;
     }
 }

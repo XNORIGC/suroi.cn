@@ -93,7 +93,7 @@
 .btn-social {
   display: inline-block;
 
-  height: 45px;
+  aspect-ratio: 1 / 1;
   width: 45px;
 
   margin: 4px 0;
@@ -107,6 +107,18 @@
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
+}
+
+.btn-qq {
+  background-image: url("/img/socials/qq.svg");
+  background-color: $qq;
+  box-shadow: inset 0 -4px $qq_bg;
+}
+
+.btn-github-cn {
+  background-image: url("/img/socials/github.svg");
+  background-color: $github-cn;
+  box-shadow: inset 0 -4px $github-cn_bg;
 }
 
 .btn-twitter {
@@ -149,13 +161,6 @@
   background-image: url("/img/socials/wiki.svg");
   background-color: $orange;
   box-shadow: inset 0 -4px $orange_bg;
-  padding: 0;
-  display: flex;
-  span {
-    color: white;
-    font-weight: 800;
-    margin: auto;
-  }
 }
 
 .btn-bind {

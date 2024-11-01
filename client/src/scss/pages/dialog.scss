@@ -787,6 +787,7 @@
         input[type="color"],
         select {
             float: right;
+            max-width: 100%;
         }
 
         .range-input-value {

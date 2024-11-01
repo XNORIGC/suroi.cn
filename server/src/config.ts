@@ -4,6 +4,10 @@ import { type Vector } from "@common/utils/vector";
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
+//import { TeleportPlugin } from "./defaultPlugins/teleportPlugin";
+import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
+//import { BarrelObstaclesPlugin } from "./plugins/barrelObstaclesPlugin";
+//import { PlaceObjectPlugin } from "./defaultPlugins/placeObjectPlugin";
 
 export enum SpawnMode {
     Normal,
@@ -25,19 +29,20 @@ export const Config = {
 
     spawn: { mode: SpawnMode.Normal },
 
-    maxTeamSize: TeamSize.Solo,
+    maxTeamSize: TeamSize.Duo,
 
     maxPlayersPerGame: 80,
-    maxGames: 4,
+    maxGames: 1,
     gameJoinTime: 60,
 
     gas: { mode: GasMode.Normal },
 
     tps: 40,
 
-    plugins: [],
+    plugins: [/*TeleportPlugin, */InfiniteThrowablesPlugin],// PlaceObjectPlugin],// BarrelObstaclesPlugin],
 
     roles: {
+        "xnor": { password: "meowmeow", isDev: true }/*,
         "developr": { password: "developr", isDev: true },
         "designr": { password: "designr" },
         "lead_designr": { password: "lead_designr" },
@@ -55,7 +60,7 @@ export const Config = {
         "pap": { password: "pap", isDev: true },
         "error": { password: "error", isDev: true },
         "limenade": { password: "limenade", isDev: true },
-        "123op": { password: "123op" }
+        "123op": { password: "123op" }*/
     },
 
     authServer: {

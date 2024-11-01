@@ -155,15 +155,21 @@ export const LootTables: Record<string, LootTable> = {
         loot: [
             [
                 { item: "4x_scope", weight: 1 },
-                { item: "8x_scope", weight: 0.1 },
-                { item: "15x_scope", weight: 0.0025 }
+                { item: "8x_scope", weight: 5 },
+                { item: "15x_scope", weight: 25 },
+                { item: "32x_scope", weight: 125 }
             ],
             [
                 { item: "tango_51", weight: 60 },
                 { item: "tango_51", spawnSeparately: true, count: 2, weight: 30 },
                 { item: "tango_51", spawnSeparately: true, count: 3, weight: 3.5 },
                 { item: "tango_51", spawnSeparately: true, count: 4, weight: 0.1 },
-                { item: "tango_51", spawnSeparately: true, count: 5, weight: 0.0000001 }
+                { item: "tango_51", spawnSeparately: true, count: 5, weight: 0.0000001 },
+                { item: "barrett_m95", weight: 60 * 0.2 },
+                { item: "barrett_m95", spawnSeparately: true, count: 2, weight: 30 * 0.2 },
+                { item: "barrett_m95", spawnSeparately: true, count: 3, weight: 3.5 * 0.2 },
+                { item: "barrett_m95", spawnSeparately: true, count: 4, weight: 0.1 * 0.2 },
+                { item: "barrett_m95", spawnSeparately: true, count: 5, weight: 0.0000001 * 0.2 }
             ]
         ]
     },
@@ -172,7 +178,7 @@ export const LootTables: Record<string, LootTable> = {
         max: 1,
         loot: [
             [
-                { item: "cz600", weight: 1 }
+                { item: "cz600", weight: 1 },
             ],
             [
                 { tier: "scopes", weight: 1 }
@@ -750,7 +756,9 @@ export const LootTiers: Record<string, readonly WeightedItem[]> = {
         { item: "negev", weight: 0.003 },
         { item: "mg5", weight: 0.003 },
         { item: "tango_51", weight: 0.002 },
-        { item: "dual_deagle", weight: 0.001 }
+        { item: "dual_deagle", weight: 0.001 },
+        { item: "death_ray", weight: 0.008 },
+        { item: "usas12", weight: 0.008 }
     ],
     healing_items: [
         { item: "gauze", count: 5, weight: 3 },
@@ -906,6 +914,7 @@ export const LootTiers: Record<string, readonly WeightedItem[]> = {
         { item: "l115a1", weight: 0.5 },
         { item: "model_89", weight: 0.5 },
         { item: "dual_rsh12", weight: 0.5 },
+        { item: "barrett_m95", weight: 0.5 },
         { item: "g19", weight: 0.0005 }
     ],
     winter_skins: [

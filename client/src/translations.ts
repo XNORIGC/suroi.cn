@@ -5,7 +5,7 @@ import { type Game } from "./scripts/game";
 import { defaultClientCVars } from "./scripts/utils/console/defaultClientCVars";
 import { CHINESE_SIMPLIFIED_TRANSLATIONS } from "./translations/chinese_simplified";
 import { CHINESE_TRADITIONAL_TRANSLATIONS } from "./translations/chinese_traditional";
-import { CANTONESE_TRANSLATIONS } from "./translations/cantonese";
+import { CHINESE_CANTONESE_TRANSLATIONS } from "./translations/chinese_cantonese";
 import { ALBANIAN_TRANSLATIONS } from "./translations/albanian";
 import { CZECH_TRANSLATIONS } from "./translations/czech";
 import { ENGLISH_TRANSLATIONS } from "./translations/english";
@@ -42,9 +42,9 @@ export const TRANSLATIONS = {
         return defaultLanguage;
     },
     translations: {
-        zh: CHINESE_SIMPLIFIED_TRANSLATIONS,
-        tw: CHINESE_TRADITIONAL_TRANSLATIONS,
-        hk_mo: CANTONESE_TRANSLATIONS,
+        zh_cn: CHINESE_SIMPLIFIED_TRANSLATIONS,
+        zh_tw: CHINESE_TRADITIONAL_TRANSLATIONS,
+        zh_hk: CHINESE_CANTONESE_TRANSLATIONS,
         en: ENGLISH_TRANSLATIONS,
         gr: GREEK_TRANSLATIONS,
         tr: TURKISH_TRANSLATIONS,
@@ -73,7 +73,7 @@ export const TRANSLATIONS = {
     readonly translations: Record<string, TranslationMap>
 };
 
-export const NO_SPACE_LANGUAGES = ["zh", "tw", "hk_mo", "jp"];
+export const NO_SPACE_LANGUAGES = ["zh_cn", "zh_tw", "zh_hk", "jp"];
 
 let setup = false;
 export function initTranslation(game: Game): void {
@@ -90,7 +90,7 @@ export function initTranslation(game: Game): void {
 
     language = game.console.getBuiltInCVar("cv_language");
 
-    if (navigator.language.match(/^zh(-CN)?$/)) TRANSLATIONS.translations.tw.flag = TRANSLATIONS.translations.zh.flag;
+    if (navigator.language.match(/^zh(-CN)?$/)) TRANSLATIONS.translations.zh_tw.flag = TRANSLATIONS.translations.zh_cn.flag;
 
     translateCurrentDOM();
 }
@@ -104,21 +104,12 @@ export function getTranslatedString(key: string, replacements?: Record<string, s
     // Easter egg language
     if (language === "hp18") return "HP-18";
 
-    if (key.startsWith("emote_")) {
-        return Emotes.reify(key.slice("emote_".length)).name;
-    }
-
-    if (key.startsWith("badge_")) {
-        return Badges.reify(key.slice("badge_".length)).name;
-    }
-
     let foundTranslation: TranslationMap[string];
     try {
         foundTranslation = TRANSLATIONS.translations[language]?.[key]
-        ?? TRANSLATIONS.translations[defaultLanguage]?.[key]
-        ?? Loots.reify(key).name;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (_) {
+        ?? TRANSLATIONS.translations.en[key]
+        ?? (Badges.fromStringSafe(key.slice("badge_".length)) ?? Emotes.fromStringSafe(key.slice("emote_".length)) ?? Loots.fromStringSafe(key)).name;
+    } catch {
         foundTranslation = "no translation found";
     }
 
@@ -169,6 +160,7 @@ function adjustFontSize(element: HTMLElement): void {
 function translateCurrentDOM(): void {
     let debugTranslationCounter = 0;
 
+    document.querySelector("html").lang = TRANSLATIONS.translations[language]?.html_lang ?? "";
     document.querySelectorAll("body *").forEach(element => {
         if (!(element instanceof HTMLElement)) return; // ignore non-html elements (like svg and mathml)
 
@@ -199,7 +191,7 @@ function translateCurrentDOM(): void {
         console.log("Translated", debugTranslationCounter, "strings");
         console.log("With language as", language, "and default as", defaultLanguage);
 
-        const reference = new Set(Object.keys(TRANSLATIONS.translations[TRANSLATIONS.defaultLanguage]));
+        const reference = new Set(Object.keys(TRANSLATIONS.translations.en));
 
         console.table(
             [...Object.entries(TRANSLATIONS.translations)].reduce<{

@@ -34,11 +34,11 @@ export const CVarCasters = Object.freeze({
     cv_master_volume: Casters.toNumber,
     cv_music_volume: Casters.toNumber,
     cv_sfx_volume: Casters.toNumber,
+    cv_menu_music: Casters.generateUnionCaster(["main", "old", "halloween", "winter", "speaker", "main_full", "survivio", "survivio_halloween", "random"]),
 
     cv_loop_scope_selection: Casters.toBoolean,
     cv_anonymize_player_names: Casters.toBoolean,
     cv_hide_emotes: Casters.toBoolean,
-    cv_use_old_menu_music: Casters.toBoolean,
     cv_region: Casters.toString,
     cv_camera_shake_fx: Casters.toBoolean,
     cv_killfeed_style: Casters.generateUnionCaster(["icon", "text"]),
@@ -51,6 +51,8 @@ export const CVarCasters = Object.freeze({
     cv_renderer_res: Casters.generateUnionCaster(["auto", "0.5", "1", "2", "3"]),
     cv_high_res_textures: Casters.toBoolean,
     cv_cooler_graphics: Casters.toBoolean,
+    cv_colorful_bullets: Casters.toBoolean,
+    cv_brightness: Casters.toNumber,
     cv_blur_splash: Casters.toBoolean,
 
     cv_rules_acknowledged: Casters.toBoolean,
@@ -84,6 +86,8 @@ export const CVarCasters = Object.freeze({
     pf_show_fps: Casters.toBoolean,
     pf_show_ping: Casters.toBoolean,
     pf_show_pos: Casters.toBoolean,
+
+    pf_self_deception_ping: Casters.toBoolean,
 
     mb_controls_enabled: Casters.toBoolean,
     mb_joystick_size: Casters.toNumber,
@@ -142,11 +146,11 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_music_volume: 1,
     cv_sfx_volume: 1,
     cv_master_volume: 1,
+    cv_menu_music: "speaker",
 
     cv_loop_scope_selection: false,
     cv_anonymize_player_names: false,
     cv_hide_emotes: false,
-    cv_use_old_menu_music: false,
     cv_region: "",
     cv_camera_shake_fx: true,
     cv_killfeed_style: "text",
@@ -159,6 +163,8 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_renderer_res: "auto",
     cv_high_res_textures: true,
     cv_cooler_graphics: false,
+    cv_colorful_bullets: false,
+    cv_brightness: 1,
     cv_blur_splash: !isMobile.any, // blur kills splash screen performance on phones from my testing
 
     cv_rules_acknowledged: false,
@@ -200,7 +206,7 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
 
     cv_autopickup: true,
     cv_autopickup_dual_guns: true,
-    cv_language: "en",
+    cv_language: "zh_cn",
 
     // unused for now
     cv_mute_audio: false,
@@ -209,6 +215,8 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     pf_show_fps: false,
     pf_show_ping: false,
     pf_show_pos: false,
+
+    pf_self_deception_ping: false,
 
     mb_controls_enabled: true,
     mb_joystick_size: 150,
