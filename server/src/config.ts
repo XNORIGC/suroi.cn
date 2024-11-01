@@ -39,7 +39,7 @@ export const Config = {
 
     tps: 40,
 
-    plugins: [/*TeleportPlugin, */InfiniteThrowablesPlugin],// PlaceObjectPlugin],// BarrelObstaclesPlugin],
+    plugins: [TeleportPlugin, InfiniteThrowablesPlugin],
 
     roles: {
         "xnor": { password: "meowmeow", isDev: true }/*,

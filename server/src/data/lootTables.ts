@@ -315,10 +315,13 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
             { table: "guns", weight: 0.3 }
         ],
         filing_cabinet: [
-            { table: "ammo", weight: 1 },
-            { table: "equipment", weight: 0.85 },
-            { table: "healing_items", weight: 0.4 },
-            { table: "guns", weight: 0.3 }
+            [
+                { table: "ammo", weight: 1 },
+                { table: "equipment", weight: 0.85 },
+                { table: "healing_items", weight: 0.4 },
+                { table: "guns", weight: 0.3 }
+            ],
+            [{ item: "g19", weight:1 }]
         ],
         small_table: [
             { table: "healing_items", weight: 1 },

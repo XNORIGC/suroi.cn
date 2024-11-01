@@ -1,3 +1,5 @@
+import { getTranslatedString } from "../../translations";
+
 declare global {
     interface Element {
         requestFullscreen: (options?: FullscreenOptions) => Promise<void>
@@ -19,8 +21,8 @@ export function formatDate(seconds: number): string {
     const date = new Date(seconds * 1000);
     let timeString = "";
     const minutes = date.getMinutes();
-    if (minutes > 0) timeString += `${minutes}m`;
-    timeString += `${date.getSeconds()}s`;
+    if (minutes > 0) timeString += `${minutes}${getTranslatedString("time_minute")}`;
+    timeString += `${date.getSeconds()}${getTranslatedString("time_second")}`;
 
     return timeString;
 }

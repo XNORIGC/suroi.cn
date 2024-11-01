@@ -390,8 +390,7 @@ export class GunItem extends InventoryItem<GunDefinition> {
         const { owner, definition } = this;
 
         if (
-            definition.infiniteAmmo
-            || this.ammo >= (this.owner.hasPerk(PerkIds.ExtendedMags) ? definition.extendedCapacity ?? definition.capacity : definition.capacity)
+            this.ammo >= (this.owner.hasPerk(PerkIds.ExtendedMags) ? definition.extendedCapacity ?? definition.capacity : definition.capacity)
             || (!owner.inventory.items.hasItem(definition.ammoType) && !this.owner.hasPerk(PerkIds.InfiniteAmmo))
             || owner.action !== undefined
             || owner.activeItem !== this

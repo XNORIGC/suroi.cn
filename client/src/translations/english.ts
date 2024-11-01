@@ -386,4 +386,7 @@ export const ENGLISH_TRANSLATIONS: TranslationMap = {
     "settings_menu_music_survivio_halloween": "Surviv.io Halloween",
     "settings_menu_music_random": "Random Selection",
     "settings_self_deception_ping": "Show self-deception ping"
+
+    "time_minute": "m",
+    "time_second": "s"
 };

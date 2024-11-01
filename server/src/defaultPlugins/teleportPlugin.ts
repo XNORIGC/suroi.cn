@@ -9,10 +9,13 @@ import { GamePlugin } from "../pluginManager";
 export class TeleportPlugin extends GamePlugin {
     protected override initListeners(): void {
         this.on("player_did_map_ping", ({ player, position }) => {
-            player.position = Vec.clone(position);
-            player.layer = Layer.Ground;
+            if ((position.x + 200) % this.game.map.width <= 400 && (position.y + 200) % this.game.map.height <= 400) {
+                player.layer = Layer.Ground;
+            } else {
+                player.position = Vec.clone(position);
+            }
             player.setPartialDirty();
-            player.game.grid.updateObject(player);
+            this.game.grid.updateObject(player);
         });
     }
 }

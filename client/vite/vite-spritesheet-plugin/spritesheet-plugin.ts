@@ -23,8 +23,12 @@ const compilerOpts = {
 } satisfies CompilerOptions as CompilerOptions;
 
 const imageDirs = [
+//    "public/img/modes/winter",
+//    "public/img/modes/birthday",
+//    "public/img/modes/normal",
+//    "public/img/modes/fall",
     "public/img/game",
-    `public/img/modes/${GameConstants.modeName}`
+    "public/img/modes/halloween"
 ];
 
 async function buildSpritesheets(): Promise<MultiResAtlasList> {

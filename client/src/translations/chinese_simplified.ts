@@ -577,5 +577,8 @@ export const CHINESE_SIMPLIFIED_TRANSLATIONS: TranslationMap = {
     "settings_menu_music_survivio": "Surviv.io",
     "settings_menu_music_survivio_halloween": "Surviv.io万圣节",
     "settings_menu_music_random": "随机选择",
-    "settings_self_deception_ping": "自欺欺人延迟"
+    "settings_self_deception_ping": "自欺欺人延迟",
+
+    "time_minute": "分",
+    "time_second": "秒"
 };
