@@ -159,8 +159,7 @@ const maps = {
             melee_crate: 1,
             gold_rock: 1,
             loot_barrel: 1,
-            flint_stone: 1,
-            filing_cabinet: 20
+            flint_stone: 1
         },
         obstacleClumps: [
             {
@@ -207,8 +206,8 @@ const maps = {
         ]
     },
     fall: {
-        width: 1924,
-        height: 1924,
+        width: 2221,
+        height: 2221,
         oceanSize: 128,
         beachSize: 32,
         rivers: {
@@ -272,15 +271,15 @@ const maps = {
             tent_4: 3,
             tent_5: 1,
             outhouse: 10,
-//            port_complex: 1,
-//            armory: 1,
-//            headquarters: 1,
-//            small_bunker: 1,
-//            refinery: 1,
-//            firework_warehouse: 1,
-//            construction_site: 1
+            port_complex: 1,
+            armory: 1,
+            headquarters: 1,
+            small_bunker: 1,
+            refinery: 1,
+            firework_warehouse: 1,
+            construction_site: 1
         },
-        majorBuildings: ["armory_damaged", "lodge", "plumpkin_bunker"],
+        majorBuildings: ["armory_damaged", "lodge", "plumpkin_bunker", "armory", "refinery", "port_complex", "headquarters"],
         quadBuildingLimit: {
             barn: 1,
             outhouse: 3,
@@ -323,7 +322,10 @@ const maps = {
             flint_stone: 3,
             pumpkin: 200,
             large_pumpkin: 5,
-            pebble: 110
+            pebble: 110,
+            filing_cabinet: 20,
+            christmas_tree: 1,
+            birthday_cake: 10
         },
         obstacleClumps: [
             {
