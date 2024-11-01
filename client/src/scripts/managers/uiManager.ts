@@ -718,14 +718,9 @@ export class UIManager {
         } else {
             this.ui.ammoCounterContainer.show();
 
-            if (activeWeapon.definition.capacity === Infinity)
-                this.ui.activeAmmo
-                    .text("∞")
-                    .css("color", "inherit");
-            else
-                this.ui.activeAmmo
-                    .text(count)
-                    .css("color", count ? "inherit" : "red");
+            this.ui.activeAmmo
+                .text(count)
+                .css("color", count > 0 ? "inherit" : "red");
 
             let showReserve = false;
             if (activeWeapon.definition.itemType === ItemType.Gun) {
