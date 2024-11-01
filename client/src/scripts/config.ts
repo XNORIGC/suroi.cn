@@ -34,7 +34,6 @@ export const Config = {
         }*/
     },
     defaultRegion: "hk",
-    mode: "normal"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {
