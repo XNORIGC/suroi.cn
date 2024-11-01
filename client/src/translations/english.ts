@@ -366,5 +366,8 @@ export const ENGLISH_TRANSLATIONS: TranslationMap = {
     "region_na": "North America",
     "region_eu": "Europe",
     "region_sa": "South America",
-    "region_as": "Asia"
+    "region_as": "Asia",
+
+    "time_minute": "m",
+    "time_second": "s"
 };
