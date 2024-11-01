@@ -1,6 +1,7 @@
 import { ObjectCategory, ZIndexes } from "../../../../common/src/constants";
 import { ArmorType } from "../../../../common/src/definitions/armors";
 import { type LootDefinition } from "../../../../common/src/definitions/loots";
+import { PerkIds } from "../../../../common/src/definitions/perks";
 import { CircleHitbox } from "../../../../common/src/utils/hitbox";
 import { getEffectiveZIndex } from "../../../../common/src/utils/layer";
 import { EaseFunctions } from "../../../../common/src/utils/math";
@@ -115,6 +116,13 @@ export class Loot extends GameObject.derive(ObjectCategory.Loot) {
                     backgroundTexture = "loot_background_throwable";
                     break;
                 }
+                case ItemType.Perk: {
+                    // FIXME bad
+                    backgroundTexture = definition.idString === PerkIds.PlumpkinGamble
+                        ? "loot_background_plumpkin_gamble"
+                        : "loot_background_perk";
+                    break;
+                }
             }
 
             if (backgroundTexture !== undefined) {
@@ -170,7 +178,12 @@ export class Loot extends GameObject.derive(ObjectCategory.Loot) {
         if (!HITBOX_DEBUG_MODE) return;
 
         this.debugGraphics.clear();
-        drawHitbox(this.hitbox, HITBOX_COLORS.loot, this.debugGraphics, this.layer === this.game.activePlayer?.layer as number | undefined ? 1 : DIFF_LAYER_HITBOX_OPACITY);
+        drawHitbox(
+            this.hitbox,
+            HITBOX_COLORS.loot,
+            this.debugGraphics,
+            this.layer === this.game.activePlayer?.layer as number | undefined ? 1 : DIFF_LAYER_HITBOX_OPACITY
+        );
     }
 
     destroy(): void {
@@ -234,6 +247,10 @@ export class Loot extends GameObject.derive(ObjectCategory.Loot) {
             }
             case ItemType.Skin: {
                 return true;
+            }
+            case ItemType.Perk: {
+                const perks = this.game.uiManager.perks;
+                return !perks.asList()[0]?.noSwap && !perks.hasPerk(definition);
             }
         }
     }

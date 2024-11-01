@@ -1,9 +1,10 @@
-import { Loots, type LootDefinition } from "@common/definitions/loots";
+import { GameConstants } from "@common/constants";
 import { ColorStyles, styleText } from "@common/utils/ansiColoring";
+import { halfπ, τ } from "@common/utils/math";
 import { NullString, type ObjectDefinition, type ReferenceTo } from "@common/utils/objectDefinitions";
 import { weightedRandom } from "@common/utils/random";
-
-import { LootTiers, type WeightedItem } from "../data/lootTables";
+import { Vec, type Vector } from "@common/utils/vector";
+import { Config } from "../config";
 
 export const Logger = {
     log(...message: string[]): void {
@@ -23,65 +24,15 @@ function internalLog(...message: string[]): void {
     );
 }
 
-export class LootItem {
-    constructor(
-        public readonly idString: ReferenceTo<LootDefinition>,
-        public readonly count: number
-    ) {}
-}
-
-export function getLootTableLoot(loots: readonly WeightedItem[]): LootItem[] {
-    let loot: LootItem[] = [];
-
-    const items: Array<readonly WeightedItem[] | WeightedItem> = [];
-    const weights: number[] = [];
-    for (const item of loots) {
-        items.push(
-            item.spawnSeparately && (item.count ?? 1) > 1
-                /**
-                 * @author ei-pi
-                 * A null-ish value would fail the conditional that this branch is contingent on.
-                 */
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                ? new Array<WeightedItem>(item.count!).fill(item)
-                : item
-        );
-        weights.push(item.weight);
-    }
-
-    for (
-        const selection of [weightedRandom<WeightedItem | readonly WeightedItem[]>(items, weights)].flat()
-    ) {
-        if ("tier" in selection) {
-            loot = loot.concat(getLootTableLoot(LootTiers[selection.tier]));
-            continue;
-        }
-
-        const item = selection.item;
-        if (item === NullString) continue;
-        loot.push(new LootItem(item, selection.spawnSeparately ? 1 : (selection.count ?? 1)));
-
-        const definition = Loots.fromStringSafe(item);
-        if (definition === undefined) {
-            throw new ReferenceError(`Unknown loot item: ${item}`);
-        }
-
-        if ("ammoType" in definition && definition.ammoSpawnAmount) {
-            const { ammoType, ammoSpawnAmount } = definition;
-
-            if (ammoSpawnAmount > 1) {
-                const halfAmount = ammoSpawnAmount / 2;
-                loot.push(
-                    new LootItem(ammoType, Math.floor(halfAmount)),
-                    new LootItem(ammoType, Math.ceil(halfAmount))
-                );
-            } else {
-                loot.push(new LootItem(ammoType, ammoSpawnAmount));
-            }
-        }
-    }
-
-    return loot;
+export function cleanUsername(name?: string | null): string {
+    return (
+        !name?.length
+        || name.length > 16
+        || Config.protection?.usernameFilters?.some((regex: RegExp) => regex.test(name))
+        || /[^\x20-\x7E]/g.test(name) // extended ASCII chars
+    )
+        ? GameConstants.player.defaultName
+        : name;
 }
 
 export function getRandomIDString<
@@ -109,4 +60,52 @@ export function removeFrom<T>(array: T[], value: NoInfer<T>): void {
     if (index !== -1) array.splice(index, 1);
 }
 
-export const CARDINAL_DIRECTIONS = Array.from({ length: 4 }, (_, i) => i / 2 * Math.PI);
+export const CARDINAL_DIRECTIONS = Array.from({ length: 4 }, (_, i) => i / τ);
+
+export function getPatterningShape(
+    spawnCount: number,
+    radius: number
+): Vector[] {
+    const makeSimpleShape = (points: number) => {
+        const tauFrac = τ / points;
+        return (radius: number, offset = 0): Vector[] => Array.from(
+            { length: points },
+            (_, i) => Vec.fromPolar(i * tauFrac + offset, radius)
+        );
+    };
+
+    const [
+        makeTriangle,
+        makeSquare,
+        makePentagon,
+        makeHexagon
+    ] = [3, 4, 5, 6].map(makeSimpleShape);
+
+    switch (spawnCount) {
+        case 1: return [Vec.create(0, 0)];
+        case 2: return [
+            Vec.create(0, radius),
+            Vec.create(0, -radius)
+        ];
+        case 3: return makeTriangle(radius);
+        case 4: return [Vec.create(0, 0), ...makeTriangle(radius)];
+        case 5: return [Vec.create(0, 0), ...makeSquare(radius)];
+        case 6: return [Vec.create(0, 0), ...makePentagon(radius)];
+        case 7: return [Vec.create(0, 0), ...makeHexagon(radius, halfπ)];
+        case 8: return [
+            Vec.create(0, 0),
+            ...makeTriangle(radius / 2),
+            ...makeSquare(radius, halfπ)
+        ];
+        case 9: return [
+            Vec.create(0, 0),
+            ...makeTriangle(radius / 2),
+            ...makePentagon(radius)
+        ];
+    }
+
+    return [
+        ...getPatterningShape(spawnCount - 6, radius * 3 / 4),
+        ...makeHexagon(radius, halfπ)
+    ];
+}

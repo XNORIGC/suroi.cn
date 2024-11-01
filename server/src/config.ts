@@ -25,13 +25,13 @@ export const Config = {
     host: "0.0.0.0",
     port: 8000,
 
-    map: "main",
+    map: "halloween",
 
     spawn: { mode: SpawnMode.Normal },
 
     maxTeamSize: TeamSize.Duo,
 
-    maxPlayersPerGame: 80,
+    maxPlayersPerGame: 70,
     maxGames: 1,
     gameJoinTime: 60,
 
@@ -60,7 +60,8 @@ export const Config = {
         "pap": { password: "pap", isDev: true },
         "error": { password: "error", isDev: true },
         "limenade": { password: "limenade", isDev: true },
-        "123op": { password: "123op" }*/
+        "123op": { password: "123op" },
+        "solstice": { password: "solstice", isDev: true }*/
     },
 
     authServer: {
@@ -222,10 +223,23 @@ export interface ConfigType {
         readonly refreshDuration: number
 
         /**
-         * If `true`, a list of blocked IPs will be downloaded from the given URL on server startup. The IPs must be separated by newlines.
-         * The list is only reloaded on server startup.
+         * Limits the number of teams that can be created by any one IP address.
          */
-        readonly ipBlocklistURL?: string
+        readonly maxTeams?: number
+
+        /**
+         * If a player's username matches one of the regexes in this array, it will be replaced with the default username.
+         */
+        readonly usernameFilters?: RegExp[]
+
+        /**
+         * If specified, the proxycheck.io API will be used to detect and block VPNs and proxies.
+         */
+        readonly ipChecker?: {
+            readonly key: string
+            readonly baseUrl: string
+            readonly logURL: string
+        }
     }
 
     /**

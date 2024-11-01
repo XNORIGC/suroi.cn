@@ -1,5 +1,5 @@
 import { Cron } from "croner";
-import { existsSync, readFile, writeFile, writeFileSync } from "fs";
+import { existsSync, readFile, readFileSync, writeFile, writeFileSync } from "fs";
 import { URLSearchParams } from "node:url";
 import os from "os";
 import { type WebSocket } from "uWebSockets.js";
@@ -12,25 +12,41 @@ import { Numeric } from "@common/utils/math";
 
 import { version } from "../../package.json";
 import { Config } from "./config";
-import { findGame, games, newGame } from "./gameManager";
+import { findGame, games, newGame, WorkerMessages } from "./gameManager";
 import { CustomTeam, CustomTeamPlayer, type CustomTeamPlayerContainer } from "./team";
 import { Logger } from "./utils/misc";
 import { cors, createServer, forbidden, getIP, textDecoder } from "./utils/serverHelpers";
-import { cleanUsername } from "./utils/usernameFilter";
-
-export interface Punishment {
-    readonly id: string
-    readonly ip: string
-    readonly reportId: string
-    readonly reason: string
-    readonly reporter: string
-    readonly expires?: number
-    readonly punishmentType: "warn" | "temp" | "perma"
-}
+import { cleanUsername } from "./utils/misc";
+import IpChecker from "./utils/apiHelper";
+import { Punishment } from "./utils/apiHelper";
 
 let punishments: Punishment[] = [];
 
-let ipBlocklist: string[] | undefined;
+const ipCheck = Config.protection?.ipChecker
+    ? new IpChecker(Config.protection.ipChecker.baseUrl, Config.protection.ipChecker.key)
+    : undefined;
+
+const isVPN = Config.protection?.ipChecker
+    ? new Map<string, boolean>()
+    : new Map<string, boolean>(
+        existsSync("isVPN.json")
+            ? Object.entries(JSON.parse(readFileSync("isVPN.json", "utf8")) as Record<string, boolean>)
+            : undefined
+    );
+
+async function isVPNCheck(ip: string): Promise<boolean> {
+    if (!ipCheck) return false;
+
+    let ipIsVPN = isVPN.get(ip);
+    if (ipIsVPN !== undefined) return ipIsVPN;
+
+    const result = await ipCheck.check(ip);
+    if (!result?.flagged) return false;
+
+    ipIsVPN = result.flagged;
+    isVPN.set(ip, ipIsVPN);
+    return ipIsVPN;
+}
 
 function removePunishment(ip: string): void {
     punishments = punishments.filter(p => p.ip !== ip);
@@ -52,6 +68,8 @@ function removePunishment(ip: string): void {
     }
 }
 
+let teamsCreated: Record<string, number> = {};
+
 export const customTeams: Map<string, CustomTeam> = new Map<string, CustomTeam>();
 
 export let maxTeamSize = typeof Config.maxTeamSize === "number" ? Config.maxTeamSize : Config.maxTeamSize.rotation[0];
@@ -66,7 +84,7 @@ if (isMainThread) {
         res
             .writeHeader("Content-Type", "application/json")
             .end(JSON.stringify({
-                playerCount: games.reduce((a, b) => (a + (b?.data.aliveCount ?? 0)), 0),
+                playerCount: games.reduce((a, b) => (a + (b?.aliveCount ?? 0)), 0),
                 maxTeamSize,
 
                 nextSwitchTime: maxTeamSizeSwitchCron?.nextRun()?.getTime(),
@@ -94,11 +112,11 @@ if (isMainThread) {
                 removePunishment(ip);
             }
             response = { success: false, message: punishment.punishmentType, reason: punishment.reason, reportID: punishment.reportId };
-        } else if (ipBlocklist?.includes(ip)) {
-            response = { success: false, message: "perma" };
         } else {
-            const teamID = new URLSearchParams(req.getQuery()).get("teamID");
-            if (teamID) {
+            const teamID = maxTeamSize !== TeamSize.Solo && new URLSearchParams(req.getQuery()).get("teamID"); // must be here or it causes uWS errors
+            if (await isVPNCheck(ip)) {
+                response = { success: false, message: "perma", reason: "VPN/proxy detected. To play the game, please disable it." };
+            } else if (teamID) {
                 const team = customTeams.get(teamID);
                 if (team?.gameID !== undefined) {
                     response = games[team.gameID]
@@ -108,7 +126,7 @@ if (isMainThread) {
                     response = { success: false };
                 }
             } else {
-                response = findGame();
+                response = await findGame();
             }
 
             if (response.success) {
@@ -148,19 +166,25 @@ if (isMainThread) {
         upgrade(res, req, context) {
             res.onAborted((): void => { /* Handle errors in WS connection */ });
 
-            const searchParams = new URLSearchParams(req.getQuery());
+            const ip = getIP(res, req);
+            const maxTeams = Config.protection?.maxTeams;
+            if (
+                maxTeamSize === TeamSize.Solo
+                || (maxTeams && teamsCreated[ip] > maxTeams)
+            ) {
+                forbidden(res);
+                return;
+            }
 
+            const searchParams = new URLSearchParams(req.getQuery());
             const teamID = searchParams.get("teamID");
 
             let team!: CustomTeam;
             const noTeamIdGiven = teamID !== null;
             if (
-                maxTeamSize === TeamSize.Solo
-                || (
-                    noTeamIdGiven
-                    // @ts-expect-error cleanest overall way to do this (`undefined` gets filtered out anyways)
-                    && (team = customTeams.get(teamID)) === undefined
-                )
+                noTeamIdGiven
+                // @ts-expect-error cleanest overall way to do this (`undefined` gets filtered out anyways)
+                && (team = customTeams.get(teamID)) === undefined
             ) {
                 forbidden(res);
                 return;
@@ -177,6 +201,10 @@ if (isMainThread) {
                 isLeader = true;
                 team = new CustomTeam();
                 customTeams.set(team.id, team);
+
+                if (Config.protection?.maxTeams) {
+                    teamsCreated[ip] = (teamsCreated[ip] ?? 0) + 1;
+                }
             }
 
             const name = cleanUsername(searchParams.get("name"));
@@ -283,7 +311,7 @@ if (isMainThread) {
         Logger.log(`Listening on ${Config.host}:${Config.port}`);
         Logger.log("Press Ctrl+C to exit.");
 
-        newGame(0);
+        void newGame(0);
 
         setInterval(() => {
             const memoryUsage = process.memoryUsage().rss;
@@ -303,6 +331,10 @@ if (isMainThread) {
         if (typeof teamSize === "object") {
             maxTeamSizeSwitchCron = Cron(teamSize.switchSchedule, () => {
                 maxTeamSize = teamSize.rotation[teamSizeRotationIndex = (teamSizeRotationIndex + 1) % teamSize.rotation.length];
+
+                for (const game of games) {
+                    game?.worker.postMessage({ type: WorkerMessages.UpdateMaxTeamSize, maxTeamSize });
+                }
 
                 const humanReadableTeamSizes = [undefined, "solos", "duos", "trios", "squads"];
                 Logger.log(`Switching to ${humanReadableTeamSizes[maxTeamSize] ?? `team size ${maxTeamSize}`}`);
@@ -327,7 +359,7 @@ if (isMainThread) {
                         }
                     })();
                 } else {
-                    if (!existsSync("punishments.json")) writeFileSync("punishments.json", "{}");
+                    if (!existsSync("punishments.json")) writeFileSync("punishments.json", "[]");
                     readFile("punishments.json", "utf8", (error, data) => {
                         if (error) {
                             console.error("Error: Unable to load punishment list. Details:", error);
@@ -354,21 +386,14 @@ if (isMainThread) {
                     }
                 }
 
+                teamsCreated = {};
+
+                if (!Config.protection?.ipChecker) {
+                    writeFileSync("isVPN.json", JSON.stringify(Object.fromEntries(isVPN)));
+                }
+
                 Logger.log("Reloaded punishment list");
             }, protection.refreshDuration);
-
-            const ipBlocklistURL = protection.ipBlocklistURL;
-
-            if (ipBlocklistURL !== undefined) {
-                void (async() => {
-                    try {
-                        const response = await fetch(ipBlocklistURL);
-                        ipBlocklist = (await response.text()).split("\n").map(line => line.split("/")[0]);
-                    } catch (e) {
-                        console.error("Error: Unable to load IP blocklist. Details:", e);
-                    }
-                })();
-            }
         }
     });
 }

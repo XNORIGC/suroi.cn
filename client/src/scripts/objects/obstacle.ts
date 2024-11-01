@@ -1,9 +1,11 @@
+import { Graphics } from "pixi.js";
 import { Layer, Layers, ObjectCategory, ZIndexes } from "../../../../common/src/constants";
 import { MaterialSounds, type ObstacleDefinition } from "../../../../common/src/definitions/obstacles";
 import { type Orientation, type Variation } from "../../../../common/src/typings";
 import { CircleHitbox, RectangleHitbox, type Hitbox } from "../../../../common/src/utils/hitbox";
 import { adjacentOrEqualLayer, equivLayer, getEffectiveZIndex } from "../../../../common/src/utils/layer";
 import { Angle, EaseFunctions, Numeric, calculateDoorHitboxes } from "../../../../common/src/utils/math";
+import type { Timeout } from "../../../../common/src/utils/misc";
 import { ObstacleSpecialRoles } from "../../../../common/src/utils/objectDefinitions";
 import { type ObjectsNetData } from "../../../../common/src/utils/objectsSerializations";
 import { random, randomBoolean, randomFloat, randomRotation } from "../../../../common/src/utils/random";
@@ -12,8 +14,9 @@ import { type Game } from "../game";
 import { type GameSound } from "../managers/soundManager";
 import { DIFF_LAYER_HITBOX_OPACITY, HITBOX_COLORS, HITBOX_DEBUG_MODE, PIXI_SCALE } from "../utils/constants";
 import { SuroiSprite, drawHitbox, toPixiCoords } from "../utils/pixi";
+import type { Tween } from "../utils/tween";
 import { GameObject } from "./gameObject";
-import { type ParticleEmitter, type ParticleOptions } from "./particles";
+import { type Particle, type ParticleEmitter, type ParticleOptions } from "./particles";
 import { type Player } from "./player";
 
 export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
@@ -57,6 +60,12 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
     hitSound?: GameSound;
 
     notOnCoolDown = true;
+
+    doorMask?: Graphics;
+
+    private _glowTween?: Tween<Particle>;
+    private _flickerTimeout?: Timeout;
+    private _glow?: Particle;
 
     constructor(game: Game, id: number, data: ObjectsNetData[ObjectCategory.Obstacle]) {
         super(game, id);
@@ -109,7 +118,7 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
                         frames: "smoke_particle",
                         position: this.position,
                         layer: this.layer,
-                        zIndex: Math.max((definition.zIndex ?? ZIndexes.ObstaclesLayer1) + 1, ZIndexes.Players),
+                        zIndex: Numeric.max((definition.zIndex ?? ZIndexes.ObstaclesLayer1) + 1, ZIndexes.Players),
                         lifetime: 3500,
                         scale: { start: 0, end: randomFloat(4, 5) },
                         alpha: { start: 0.9, end: 0 },
@@ -136,7 +145,7 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
                     // FIXME idString check, hard coded behavior
                     if (this.definition.idString === "airdrop_crate_locked") {
                         const options = (minSpeed: number, maxSpeed: number): Partial<ParticleOptions> => ({
-                            zIndex: Math.max((this.definition.zIndex ?? ZIndexes.Players) + 1, 4),
+                            zIndex: Numeric.max((this.definition.zIndex ?? ZIndexes.Players) + 1, 4),
                             lifetime: 1000,
                             scale: {
                                 start: randomFloat(0.85, 0.95),
@@ -198,18 +207,85 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
 
         this.container.scale.set(this.dead ? 1 : this.scale);
 
+        this.updateZIndex();
+
+        if (isNew) {
+            if (definition.glow !== undefined) {
+                const glow = definition.glow;
+
+                const particle = this._glow ??= this.game.particleManager.spawnParticle({
+                    frames: "_glow_",
+                    position: glow.position !== undefined
+                        ? Vec.add(this.position, glow.position)
+                        : this.position,
+                    layer: this.layer,
+                    lifetime: Infinity,
+                    speed: Vec.create(0, 0),
+                    zIndex: this.container.zIndex - 0.5,
+                    tint: glow.tint,
+                    scale: glow.scale
+                });
+
+                if (glow.scaleAnim !== undefined) {
+                    const { to, duration } = glow.scaleAnim;
+
+                    // offset so that they aren't all synchronized lol
+                    window.setTimeout(() => {
+                        if (this.dead) return;
+
+                        this._glowTween ??= this.game.addTween({
+                            target: particle,
+                            to: {
+                                scale: to
+                            },
+                            duration,
+                            ease: EaseFunctions.cubicOut,
+                            yoyo: true,
+                            infinite: true
+                        });
+                    }, Math.random() * 2000);
+                }
+
+                const { chance, strength, interval } = glow.flicker ?? { chance: 0, strength: 1, interval: 1 };
+                if ((chance ?? 0) > 0) {
+                    const This = this;
+                    // "i will write bad code but make it look pretty so that it doesn't look like bad code"
+                    // -eiπ
+
+                    this._flickerTimeout ??= this.game.addTimeout(function flicker(): void {
+                        if (particle.dead) return;
+                        if (Math.random() < chance) {
+                            const old = particle.alpha;
+                            particle.alpha *= strength;
+                            This._flickerTimeout = This.game.addTimeout(() => {
+                                if (particle.dead) return;
+                                particle.alpha = old;
+                                This._flickerTimeout = This.game.addTimeout(flicker, interval);
+                            }, 50);
+                        } else {
+                            This._flickerTimeout = This.game.addTimeout(flicker, interval);
+                        }
+                    }, interval);
+                }
+            }
+        }
+
         // Change the texture of the obstacle and play a sound when it's destroyed
         if (!this.dead && data.dead) {
             this.dead = true;
-            if (!isNew && !("replaceWith" in definition && definition.replaceWith)) {
+            if (!isNew && !("replaceWith" in definition && definition.replaceWith) && !definition.noDestroyEffect) {
                 const playSound = (name: string): void => {
                     this.playSound(name, {
                         falloff: 0.2,
                         maxRange: 96
                     });
                 };
-                playSound(`${MaterialSounds[definition.material]?.destroyed ?? definition.material}_destroyed`);
-                for (const sound of definition.additionalDestroySounds) playSound(sound);
+
+                if (data.playMaterialDestroyedSound) {
+                    playSound(`${MaterialSounds[definition.material]?.destroyed ?? definition.material}_destroyed`);
+
+                    for (const sound of definition.additionalDestroySounds) playSound(sound);
+                }
 
                 if (definition.noResidue) {
                     this.image.setVisible(false);
@@ -248,9 +324,11 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
                     speed: Vec.fromPolar(randomRotation(), randomFloat(4, 9) * (definition.explosion ? 3 : 1))
                 }));
             }
-        }
 
-        this.updateZIndex();
+            this._glowTween?.kill();
+            this._flickerTimeout?.kill();
+            this._glow?.kill();
+        }
 
         if (this._door === undefined) {
             this.hitbox = definition.hitbox.transform(this.position, this.scale, this.orientation);
@@ -378,7 +456,7 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
                         { x: min.x, y: max.y }
                     ];
                 const ratio = (vertexB.y - vertexA.y) / (vertexB.x - vertexA.x);
-                const protrusion = Math.min(50, 50 / ratio);
+                const protrusion = Numeric.min(50, 50 / ratio);
 
                 gphx.setStrokeStyle({ color: 0xffff00, width: 2, alpha })
                     .beginPath()
@@ -504,6 +582,25 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
 
         if (isNew) {
             this._door.offset = offset;
+
+            if (this.definition.isDoor && this.definition.hideWhenOpen) {
+                this.doorMask = new Graphics();
+                this.doorMask.alpha = 0;
+                this.container.addChild(this.doorMask);
+
+                const { min, max } = this.definition.hitbox;
+                this.doorMask
+                    .beginPath()
+                    .rect(
+                        min.x * PIXI_SCALE,
+                        min.y * PIXI_SCALE,
+                        (max.x - min.x) * PIXI_SCALE,
+                        (max.y - min.y) * PIXI_SCALE
+                    )
+                    .closePath()
+                    .fill(0xffffff);
+                this.image.mask = this.doorMask;
+            }
         } else if (offset !== this._door.offset) {
             this._door.offset = offset;
 
@@ -575,7 +672,7 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
         this.game.particleManager.spawnParticle({
             frames: this.particleFrames,
             position,
-            zIndex: Math.max((this.definition.zIndex ?? ZIndexes.Players) + 1, 4),
+            zIndex: Numeric.max((this.definition.zIndex ?? ZIndexes.Players) + 1, 4),
             lifetime: 600,
             layer: this.layer,
             scale: { start: 0.9, end: 0.2 },
@@ -587,6 +684,10 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
     override destroy(): void {
         super.destroy();
         this.image.destroy();
+        this.doorMask?.destroy();
         this.smokeEmitter?.destroy();
+        this._glow?.kill();
+        this._glowTween?.kill();
+        this._flickerTimeout?.kill();
     }
 }

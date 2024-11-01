@@ -32,9 +32,10 @@ export const CVarCasters = Object.freeze({
     cv_loadout_death_emote: Casters.toString,
     cv_loadout_win_emote: Casters.toString,
     cv_master_volume: Casters.toNumber,
-    cv_music_volume: Casters.toNumber,
     cv_sfx_volume: Casters.toNumber,
     cv_menu_music: Casters.generateUnionCaster(["main", "old", "halloween", "winter", "speaker", "main_full", "survivio", "survivio_halloween", "random"]),
+    cv_ambience_volume: Casters.toNumber,
+    cv_music_volume: Casters.toNumber,
 
     cv_loop_scope_selection: Casters.toBoolean,
     cv_anonymize_player_names: Casters.toBoolean,
@@ -53,6 +54,7 @@ export const CVarCasters = Object.freeze({
     cv_cooler_graphics: Casters.toBoolean,
     cv_colorful_bullets: Casters.toBoolean,
     cv_brightness: Casters.toNumber,
+    cv_ambient_particles: Casters.toBoolean,
     cv_blur_splash: Casters.toBoolean,
 
     cv_rules_acknowledged: Casters.toBoolean,
@@ -143,10 +145,11 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_loadout_left_emote: "sad_face",
     cv_loadout_death_emote: "",
     cv_loadout_win_emote: "",
-    cv_music_volume: 1,
-    cv_sfx_volume: 1,
     cv_master_volume: 1,
     cv_menu_music: "speaker",
+    cv_sfx_volume: 1,
+    cv_ambience_volume: 1,
+    cv_music_volume: 1,
 
     cv_loop_scope_selection: false,
     cv_anonymize_player_names: false,
@@ -165,6 +168,7 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_cooler_graphics: false,
     cv_colorful_bullets: false,
     cv_brightness: 1,
+    cv_ambient_particles: true,
     cv_blur_splash: !isMobile.any, // blur kills splash screen performance on phones from my testing
 
     cv_rules_acknowledged: false,

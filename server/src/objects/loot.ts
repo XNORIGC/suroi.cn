@@ -1,4 +1,5 @@
 import { GameConstants, InventoryMessages, ObjectCategory, PlayerActions } from "@common/constants";
+import type { GunDefinition } from "@common/definitions";
 import { ArmorType } from "@common/definitions/armors";
 import { Loots, type LootDefinition } from "@common/definitions/loots";
 import { PickupPacket } from "@common/packets/pickupPacket";
@@ -14,14 +15,34 @@ import { type Game } from "../game";
 import { GunItem } from "../inventory/gunItem";
 import { BaseGameObject } from "./gameObject";
 import { type Player } from "./player";
+import { PerkCategories } from "@common/definitions/perks";
 
-export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
+export type DataMap = Record<ItemType, unknown> & {
+    [ItemType.Gun]: {
+        readonly kills: number
+        readonly damage: number
+        readonly totalShots: number
+    }
+    [ItemType.Melee]: {
+        readonly kills: number
+        readonly damage: number
+    }
+    [ItemType.Throwable]: {
+        readonly kills: number
+        readonly damage: number
+    }
+};
+
+export type ItemData<Def extends LootDefinition = LootDefinition> = DataMap[Def["itemType"]];
+
+export class Loot<Def extends LootDefinition = LootDefinition> extends BaseGameObject.derive(ObjectCategory.Loot) {
     override readonly fullAllocBytes = 8;
     override readonly partialAllocBytes = 4;
 
     declare readonly hitbox: CircleHitbox;
 
-    readonly definition: LootDefinition;
+    readonly definition: Def;
+    readonly itemData?: ItemData<Def>;
 
     private _count;
     get count(): number { return this._count; }
@@ -36,15 +57,20 @@ export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
 
     constructor(
         game: Game,
-        definition: ReifiableDef<LootDefinition>,
+        basis: ReifiableDef<Def>,
         position: Vector,
         layer: number,
-        count?: number,
-        pushVel = 0.003
+        { count, pushVel = 0.003, data }: {
+            readonly count?: number
+            readonly pushVel?: number
+            readonly data?: ItemData<Def>
+        } = {}
     ) {
         super(game, position);
 
-        this.definition = Loots.reify(definition);
+        this.definition = Loots.reify(basis);
+        this.itemData = data;
+
         this.hitbox = new CircleHitbox(LootRadius[this.definition.itemType], Vec.clone(position));
         this.layer = layer;
 
@@ -73,7 +99,7 @@ export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
         const { terrain } = this.game.map;
         if (terrain.getFloor(this.position, this.layer) === FloorNames.Water && terrain.groundRect.isPointInside(this.position)) {
             for (const river of terrain.getRiversInPosition(this.position)) {
-                if (river.waterHitbox.isPointInside(this.position)) {
+                if (river.waterHitbox?.isPointInside(this.position)) {
                     const tangent = river.getTangent(
                         river.getClosestT(this.position)
                     );
@@ -127,7 +153,7 @@ export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
                     this.velocity = Vec.sub(this.velocity, Vec.scale(collision.dir, 0.0005));
                 }
 
-                const dist = Math.max(Geometry.distance(object.position, this.position), 1);
+                const dist = Numeric.max(Geometry.distance(object.position, this.position), 1);
                 const vecCollision = Vec.create(object.position.x - this.position.x, object.position.y - this.position.y);
                 const vecCollisionNorm = Vec.create(vecCollision.x / dist, vecCollision.y / dist);
                 const vRelativeVelocity = Vec.create(this.velocity.x - object.velocity.x, this.velocity.y - object.velocity.y);
@@ -226,7 +252,10 @@ export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
                 return !inventory.items.hasItem(definition.idString) || InventoryMessages.ItemAlreadyEquipped;
             }
             case ItemType.Skin: {
-                return player.loadout.skin.idString !== definition.idString || InventoryMessages.ItemAlreadyEquipped;
+                return !player.loadout.skin.noSwap && (player.loadout.skin !== definition || InventoryMessages.ItemAlreadyEquipped);
+            }
+            case ItemType.Perk: {
+                return !player.perks.asList()[0]?.noSwap && (!(player.hasPerk(definition) && !definition.alwaysAllowSwap) || InventoryMessages.ItemAlreadyEquipped);
             }
         }
     }
@@ -242,14 +271,15 @@ export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
             })
         ) return;
 
-        const createNewItem = (
+        const createNewItem = <D extends LootDefinition = Def>(
             { type, count }: {
-                readonly type: LootDefinition
+                readonly type?: D
                 readonly count: number
-            } = { type: this.definition, count: this._count }
+                readonly data?: ItemData<D>
+            } = { count: this._count }
         ): void => {
             this.game
-                .addLoot(type, this.position, this.layer, { count, pushVel: 0, jitterSpawn: false })
+                .addLoot(type ?? this.definition, this.position, this.layer, { count, pushVel: 0, jitterSpawn: false, data: this.itemData })
                 ?.push(player.rotation + Math.PI, 0.009);
         };
 
@@ -268,9 +298,9 @@ export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
         let countToRemove = 1;
 
         const definition = this.definition;
-        const idString = definition.idString;
+        const { idString, itemType } = definition;
 
-        switch (definition.itemType) {
+        switch (itemType) {
             case ItemType.Melee: {
                 const slot: number | undefined = (inventory.slotsByItemType[ItemType.Melee] ?? [])[0];
 
@@ -315,7 +345,7 @@ export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
                 }
                 if (gotDual) break;
 
-                const slot = inventory.appendWeapon(definition);
+                const slot = inventory.appendWeapon<ItemType.Gun>(definition, (this as Loot<GunDefinition>).itemData);
 
                 if (slot === -1) { // If it wasn't added, then either there are no gun slots or they're all occupied
                     /*
@@ -428,8 +458,54 @@ export class Loot extends BaseGameObject.derive(ObjectCategory.Loot) {
                 player.setDirty();
                 break;
             }
-        }
 
+            // This seems to work server-side, but it breaks client-side perk display..
+            case ItemType.Perk: {
+                const currentPerks = player.perks.asList();
+                // const perksLength = currentPerks.length;
+
+                const isHalloweenPerk = definition.categories.includes(PerkCategories.Halloween);
+                const isNormalPerk = definition.categories.includes(PerkCategories.Normal);
+
+                // Variable to track which perk to remove
+                let perkToRemove = null;
+
+                if (isHalloweenPerk) {
+                    perkToRemove = currentPerks.find(perk => perk.categories.includes(PerkCategories.Halloween));
+                } else if (isNormalPerk) {
+                    perkToRemove = currentPerks.find(perk => perk.categories.includes(PerkCategories.Normal));
+                }
+
+                // If a perk to remove has been identified, remove it
+                if (perkToRemove) {
+                    if (!perkToRemove.noDrop) {
+                        createNewItem({ type: perkToRemove, count: 1 });
+                    }
+                    player.perks.removePerk(perkToRemove);
+                }
+
+                // Add the new perk
+                player.perks.addPerk(definition);
+                player.updateAndApplyModifiers();
+                break;
+            }
+
+            // case ItemType.Perk: {
+            //     const currentPerks = player.perks.asList();
+            //     const perksLength = currentPerks.length;
+
+            //     if (perksLength === GameConstants.player.maxPerkCount) {
+            //         // remove the old perk
+            //         const equippedPerk = currentPerks[0];
+            //         if (!equippedPerk.noDrop) createNewItem({ type: equippedPerk, count: 1 });
+            //         player.perks.removePerk(equippedPerk);
+            //     }
+
+            //     player.perks.addPerk(definition);
+            //     player.updateAndApplyModifiers();
+            //     break;
+            // }
+        }
         this._count -= countToRemove;
 
         player.dirty.items = true;
