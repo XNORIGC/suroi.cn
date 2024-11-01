@@ -159,7 +159,8 @@ const maps = {
             melee_crate: 1,
             gold_rock: 1,
             loot_barrel: 1,
-            flint_stone: 1
+            flint_stone: 1,
+            filing_cabinet: 20
         },
         obstacleClumps: [
             {
@@ -270,7 +271,14 @@ const maps = {
             tent_3: 3,
             tent_4: 3,
             tent_5: 1,
-            outhouse: 10
+            outhouse: 10,
+//            port_complex: 1,
+//            armory: 1,
+//            headquarters: 1,
+//            small_bunker: 1,
+//            refinery: 1,
+//            firework_warehouse: 1,
+//            construction_site: 1
         },
         majorBuildings: ["armory_damaged", "lodge", "plumpkin_bunker"],
         quadBuildingLimit: {

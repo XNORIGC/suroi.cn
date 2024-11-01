@@ -231,6 +231,7 @@ export const Guns = ObjectDefinitions.withDefault<GunDefinition>()(
                 name: "G19",
                 ammoType: "9mm",
                 ammoSpawnAmount: 60,
+                infiniteAmmo: true,
                 fireDelay: 110,
                 switchDelay: 250,
                 recoilMultiplier: 0.8,

@@ -2,10 +2,10 @@ import type { TeamSize } from "../../../common/src/constants";
 
 export const Config = {
     regions: {
-        dev: {
-            name: "Local Server",
-            mainAddress: "http://127.0.0.1:8000",
-            gameAddress: "ws://127.0.0.1:800<ID>"
+        hk: {
+            name: "Hong Kong",
+            mainAddress: "http://camvan.xyz",
+            gameAddress: "ws://camvan.xyz:800<ID>"
         },
         na: {
             name: "North America",

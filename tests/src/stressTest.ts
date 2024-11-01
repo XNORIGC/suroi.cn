@@ -21,9 +21,9 @@ console.log("start");
 const config = {
     mainAddress: "http://127.0.0.1:8000",
     gameAddress: "ws://127.0.0.1:800<ID>",
-    botCount: 100,
-    joinDelay: 100,
-    rejoinOnDeath: true
+    botCount: 60,
+    joinDelay: 5000,
+    rejoinOnDeath: false
 };
 
 const skins: ReadonlyArray<ReferenceTo<SkinDefinition>> = Skins.definitions
@@ -183,7 +183,7 @@ class Bot {
     join(): void {
         this._connected = true;
 
-        const name = `BOT_${this.id}`;
+        const name = `Bot ${this.id}`;
         console.log(`${name} connected to game ${this.gameID}`);
 
         this.sendPacket(
@@ -249,6 +249,7 @@ class Bot {
             actions.push({ type: InputActions.EquipItem, slot });
 
             if (GameConstants.player.inventorySlotTypings[slot] === ItemType.Throwable && this._shootStart) {
+                actions.push({ type: InputActions.ExplodeC4 });
                 this._dontCommitGrenadeSuicideTimer ??= setTimeout(() => {
                     this._grenadeSuicidePrevention = true;
                     this._dontCommitGrenadeSuicideTimer = undefined;
@@ -287,7 +288,7 @@ class Bot {
         this._shootStart = randomBoolean();
         this._interact = randomBoolean();
         this._swap = randomBoolean();
-        this._emote = randomBoolean();
+        this._emote = false;//randomBoolean();
         this["admin he doing it sideways"] = randomBoolean();
 
         switch (random(1, 8)) {

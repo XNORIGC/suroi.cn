@@ -419,6 +419,62 @@ const perks = [
         noDrop: true,
         plumpkinGambleIgnore: true,
         type: PerkQualities.Negative
+    },
+    {
+        idString: PerkIds.Toploaded,
+        name: "Toploaded",
+        description: "Do more damage with the top half of your magazine.",
+        categories: [PerkCategories.Normal],
+
+        thresholds: [
+            [0.2, 1.25],
+            [0.49, 1.1]
+        ] as ReadonlyArray<readonly [number, number]>
+    },
+    {
+        idString: PerkIds.InfiniteAmmo,
+        name: "Infinite Ammo",
+        description: "All weapons have unlimited ammo. Electronic devices may break if overused.",
+        categories: [PerkCategories.Normal],
+
+        airdropCallerLimit: Infinity
+    },
+    {
+        idString: PerkIds.FieldMedic,
+        name: "Field Medic",
+        description: "All consumable items can be used faster. Teammates can be revived more quickly.",
+        categories: [PerkCategories.Normal],
+
+        usageMod: 1.5 // divide
+    },
+    {
+        idString: PerkIds.Berserker,
+        name: "Berserker",
+        description: "Melee weapons make you move faster when equipped, and deal more damage.",
+        categories: [PerkCategories.Normal],
+
+        speedMod: 1.3, // multiplicative
+        damageMod: 1.3 // multiplicative
+    },
+    {
+        idString: PerkIds.CloseQuartersCombat,
+        name: "Close Quarters Combat",
+        description: "Weapons do more damage and reload faster at close range.",
+        categories: [PerkCategories.Normal],
+
+        cutoff: 60,
+        reloadMod: 1.2, // divide
+        damageMod: 1.1 // multiplicative
+    },
+    {
+        idString: PerkIds.LowProfile,
+        name: "Low Profile",
+        description: "Become smaller and take less damage from explosions.",
+        categories: [PerkCategories.Normal],
+
+        sizeMod: 0.8, // multiplicative
+        explosionMod: 0.7 // multiplicative
+>>>>>>> a4bbf4f54 (meow)
     }
 ] as const satisfies ReadonlyArray<
     GetMissing<

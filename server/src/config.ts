@@ -4,6 +4,8 @@ import { type Vector } from "@common/utils/vector";
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
+import { TeleportPlugin } from "./defaultPlugins/teleportPlugin";
+import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
 
 export enum SpawnMode {
     Normal,
@@ -18,7 +20,7 @@ export enum GasMode {
 }
 
 export const Config = {
-    host: "127.0.0.1",
+    host: "0.0.0.0",
     port: 8000,
 
     map: "halloween",
@@ -28,14 +30,14 @@ export const Config = {
     maxTeamSize: TeamSize.Solo,
 
     maxPlayersPerGame: 70,
-    maxGames: 5,
+    maxGames: 1,
     gameJoinTime: 60,
 
     gas: { mode: GasMode.Normal },
 
     tps: 40,
 
-    plugins: [],
+    plugins: [TeleportPlugin, InfiniteThrowablesPlugin],
 
     roles: {
         "developr": { password: "developr", isDev: true },
