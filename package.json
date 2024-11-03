@@ -1,6 +1,6 @@
 {
   "name": "suroi",
-  "version": "0.21.1-suroi.cn",
+  "version": "0.21.2-suroi.cn",
   "description": "An open-source 2D battle royale game inspired by surviv.io",
   "private": true,
   "scripts": {
