@@ -42,7 +42,6 @@ export const Config = {
     plugins: [TeleportPlugin, InfiniteThrowablesPlugin],
 
     roles: {
-        "xnor": { password: "meowmeow", isDev: true },
         "developr": { password: "developr", isDev: true },
         "designr": { password: "designr" },
         "lead_designr": { password: "lead_designr" },
@@ -54,6 +53,7 @@ export const Config = {
         "youtubr": { password: "youtubr" },
         "boostr": { password: "boostr" },
 
+        "xnor": { password: "meowmeow", isDev: true },
         "hasanger": { password: "hasanger", isDev: true },
         "katie": { password: "katie", isDev: true },
         "eipi": { password: "eipi", isDev: true },

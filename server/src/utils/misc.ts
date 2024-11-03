@@ -27,9 +27,9 @@ function internalLog(...message: string[]): void {
 export function cleanUsername(name?: string | null): string {
     return (
         !name?.length
-        || name.length > 16
+        || name.length > GameConstants.player.nameMaxLength
         || Config.protection?.usernameFilters?.some((regex: RegExp) => regex.test(name))
-        || /[^\x20-\x7E]/g.test(name) // extended ASCII chars
+        //|| /[^\x20-\x7E]/g.test(name) // extended ASCII chars
     )
         ? GameConstants.player.defaultName
         : name;

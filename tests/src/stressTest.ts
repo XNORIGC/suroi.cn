@@ -1,4 +1,4 @@
-	import { WebSocket, type MessageEvent } from "ws";
+import { WebSocket, type MessageEvent } from "ws";
 import { GameConstants, InputActions, ObjectCategory } from "../../common/src/constants";
 import { Emotes, type EmoteDefinition } from "../../common/src/definitions/emotes";
 import { Loots } from "../../common/src/definitions/loots";

@@ -570,7 +570,7 @@ export class Game implements GameData {
             return undefined;
         }
 
-        let spawnPosition = Vec.create(this.map.width / 2, this.map.height / 2)/* this.gas.currentPosition */;
+        let spawnPosition = /*Vec.create(this.map.width / 2, this.map.height / 2)*/ this.gas.currentPosition;
         let spawnLayer;
 
         let team: Team | undefined;

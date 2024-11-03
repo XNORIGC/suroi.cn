@@ -36,7 +36,7 @@ export const GameConstants = freezeDeep({
         maxAdrenaline: 100,
         inventorySlotTypings,
         maxWeapons: inventorySlotTypings.length,
-        nameMaxLength: 16,
+        nameMaxLength: 256,
         defaultName: "Player",
         defaultSkin: "hazel_jumpsuit",
         killLeaderMinKills: 3,
