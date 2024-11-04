@@ -642,6 +642,8 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
             { item: "mcx_spear", weight: 0.01 },
             { item: "cz600", weight: 0.008 },
             { item: "vepr12", weight: 0.008 },
+            { item: "death_ray", weight: 0.008 },
+            { item: "usas12", weight: 0.008 },
             { item: "stoner_63", weight: 0.005 },
             { item: "radio", weight: 0.005 },
             { item: "mosin_nagant", weight: 0.005 },
@@ -813,6 +815,7 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
             { item: "mk18", weight: 0.5 },
             { item: "l115a1", weight: 0.5 },
             { item: "dual_rsh12", weight: 0.5 },
+            { item: "barrett_m95", weight: 0.5 },
             { item: "g19", weight: 0.0005 }
         ],
         winter_skins: [
@@ -1054,6 +1057,9 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
             { item: "mini14", weight: 0.0133 },
             { item: "mosin_nagant", weight: 0.0133 },
 
+            { item: "death_ray", weight: 0.008 },
+            { item: "usas12", weight: 0.008 },
+
             // 2% chance for one of these
             { item: "tango_51", weight: 0.0066 },
             { item: "model_89", weight: 0.0066 },
@@ -1132,6 +1138,7 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
             { item: "l115a1", weight: 1 },
             { item: "mk18", weight: 1 },
             { item: "m1_garand", weight: 0.5 },
+            { item: "barrett_m95", weight: 0.5 },
             { item: "g19", weight: 0.0001 }
         ],
         viking_chest_guns: [
@@ -1381,6 +1388,9 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
             { item: "mini14", weight: 0.0133 },
             { item: "mosin_nagant", weight: 0.0133 },
 
+            { item: "death_ray", weight: 0.008 },
+            { item: "usas12", weight: 0.008 },
+
             // 2% chance for one of these
             { item: "tango_51", weight: 0.0066 },
             { item: "model_89", weight: 0.0066 },
@@ -1459,6 +1469,7 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
             { item: "l115a1", weight: 1 },
             { item: "mk18", weight: 1 },
             { item: "m1_garand", weight: 0.5 },
+            { item: "barrett_m95", weight: 0.5 },
             { item: "g19", weight: 0.0001 }
         ],
         viking_chest_guns: [

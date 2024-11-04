@@ -25,7 +25,7 @@ export const Config = {
     host: "0.0.0.0",
     port: 8000,
 
-    map: "halloween",
+    map: "fall",
 
     spawn: { mode: SpawnMode.Normal },
 
