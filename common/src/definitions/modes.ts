@@ -4,8 +4,8 @@ import { ScopeDefinition } from "./scopes";
 export type ColorKeys = "grass" | "water" | "border" | "beach" | "riverBank" | "trail" | "gas" | "void";
 
 export interface ModeDefinition {
-    readonly colors: Record<ColorKeys, string>
-    readonly inheritTexturesFrom?: Mode
+    readonly colors?: Record<ColorKeys, string>
+    readonly inheritTexturesFrom?: Mode | "shared"
     readonly specialMenuMusic?: boolean
     readonly ambience?: string
     readonly specialSounds?: string[]
@@ -20,9 +20,9 @@ export interface ModeDefinition {
     }
 }
 
-export type Mode = "normal" | "fall" | "halloween" | "winter";
+export type Mode = "normal" | "fall" | "halloween" | "winter" | "birthday";
 
-export const Modes: Record<Mode, ModeDefinition> = {
+export const Modes: Record<Mode | "shared", ModeDefinition> = {
     normal: {
         colors: {
             grass: "hsl(95, 41%, 38%)",
@@ -34,6 +34,7 @@ export const Modes: Record<Mode, ModeDefinition> = {
             gas: "hsla(17, 100%, 50%, 0.55)",
             void: "hsl(25, 80%, 6%)"
         },
+        inheritTexturesFrom: "halloween",
         reskin: "normal"
     },
     fall: {
@@ -47,6 +48,7 @@ export const Modes: Record<Mode, ModeDefinition> = {
             gas: "hsla(17, 100%, 50%, 0.55)",
             void: "hsl(25, 80%, 6%)"
         },
+        inheritTexturesFrom: "shared",
         ambience: "wind_ambience",
         defaultScope: "2x_scope",
         reskin: "fall",
@@ -65,7 +67,7 @@ export const Modes: Record<Mode, ModeDefinition> = {
             gas: "hsla(17, 100%, 50%, 0.55)",
             void: "hsl(25, 80%, 6%)"
         },
-        inheritTexturesFrom: "fall",
+        inheritTexturesFrom: "winter",
         defaultScope: "2x_scope",
         specialMenuMusic: true,
         darkShaders: true,
@@ -82,11 +84,14 @@ export const Modes: Record<Mode, ModeDefinition> = {
             gas: "hsla(17, 100%, 50%, 0.55)",
             void: "hsl(25, 80%, 6%)"
         },
+        inheritTexturesFrom: "birthday",
         specialMenuMusic: true,
         specialSounds: [
             "airdrop_plane"
         ],
         reskin: "winter",
         bulletTrailAdjust: "hsl(0, 50%, 80%)"
-    }
+    },
+    birthday: {},
+    shared: { inheritTexturesFrom: "normal" }
 };
