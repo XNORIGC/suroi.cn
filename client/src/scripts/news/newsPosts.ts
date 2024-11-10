@@ -2,6 +2,14 @@ import { type NewsPost } from "./newsHelper";
 
 export const news: NewsPost[] = [
     {
+        date: 1722331200000,
+        author: "XNOR",
+        title: "Ciallo～(∠・ω< )⌒★",
+        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/FtRydynYqY" target="_blank">227269266</a>！<br>
+                  也欢迎你来游玩我们的上海服<a href="http://124.223.18.68/">http://124.223.18.68/</a>！`,
+        pinned: true
+    },
+    {
         date: 1730689557000,
         author: "HAZEL",
         title: "Autumn Wilt",
@@ -58,15 +66,6 @@ export const news: NewsPost[] = [
   <li>Fixed bullets not damaging bushes and tables.</li>
   <li>Fixed occasional “Error joining game” issues.</li>
 </ul>`
-    },
-    {
-        date: 1727953200000,
-        author: "XNOR",
-        title: "DA☆ZE～^~^",
-        bannerImage: "../img/news/v0.19.1-suroi.cn.png",
-        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/pj6XQmuhnU" target="_blank">227269266</a>！<br>
-		也欢迎你来游玩我们的上海服<a href="http://124.223.18.68/">http://124.223.18.68/</a>！`,
-        longContent: `Meow`
     },
     {
         date: 1727030995000,
@@ -153,14 +152,6 @@ export const news: NewsPost[] = [
   <li>Fixed tinting of ghillie suit fists in the inventory.</li>
 </ul><br>
 Special thanks to pap, Solstice, platonthek, eiπ, and the other devs for their outstanding work on this update!`
-    },
-    {
-        date: 1722331200000,
-        author: "XNOR",
-        title: "Ciallo～(∠・ω< )⌒★",
-        bannerImage: "../img/news/v0.18.3-suroi.cn.png",
-        content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/TURLPvUEo0" target="_blank">314460357</a>！`,
-        longContent: `QWQ`
     },
     {
         date: 1717870665000,
@@ -776,4 +767,4 @@ To report a bug or suggest something, <a href="https://discord.suroi.io" target=
 <h3>I found a bug.</h3>
 <p>To report a bug or suggest a feature, join the Discord. Post bugs in the #bugs channel, and suggestions in #suggestions. Before reporting a bug, please check to make sure someone else hasn't reported it already.</p>`
     }
-];
+].sort((a, b) => Boolean(b.pinned) - Boolean(a.pinned));

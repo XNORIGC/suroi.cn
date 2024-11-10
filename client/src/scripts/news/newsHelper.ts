@@ -7,6 +7,7 @@
  *  - bannerImage (optional): The URL of the banner image for the news post. It should have a 2:1 or greater aspect ratio.
  *  - content (required): Brief information about the news post that appears on the homepage. Remember to use backslashes \ before any quotation marks! Supports HTML.
  *  - longContent (optional): Longer information for the news page. Defaults to the value of content. Supports HTML.
+ *  - pinned (optional): A boolean value. If true, the post will be pinned to the top of the news. Defaults to false if not specified.
  */
 
 export interface NewsPost {
@@ -16,6 +17,7 @@ export interface NewsPost {
     readonly bannerImage?: string
     readonly content: string
     readonly longContent?: string
+    readonly pinned?: boolean
 }
 
 export function processPost(post: NewsPost): string {
@@ -28,6 +30,7 @@ export function processPost(post: NewsPost): string {
     });
 
     newsText += '<article class="splash-news-entry">';
+    newsText += `${post.pinned ? `<div class="news-pinned"><i class="fa-solid fa-arrow-up"></i></div>` : ""}`;
     newsText += `<h3 class="news-title">${post.title}</h3>`;
     newsText += `<div class="news-date">${date}`;
     newsText += `<br><i>Written by: ${post.author}</i>`;

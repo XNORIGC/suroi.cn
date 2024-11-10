@@ -31,6 +31,10 @@ body {
         padding: 25px;
         border-radius: 10px;
 
+        .news-pinned {
+            float: right;
+        }
+
         .news-date {
             color: gray;
             font-size: 14px;

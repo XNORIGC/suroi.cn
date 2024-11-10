@@ -376,6 +376,7 @@ export const ENGLISH_TRANSLATIONS: TranslationMap = {
     "barrett_m95": "Barrett M95",
     "donate": "Donate",
     "msg_lost_connection": "Connection lost.",
+    "news_pinned": "Pinned",
     "region_hk": "Hong Kong",
     "settings_brightness": "Brightness",
     "settings_colorful_bullets": "Colorful bullets",

@@ -267,6 +267,10 @@
         article {
             margin-bottom: 10px;
 
+            .news-pinned {
+                float: right;
+            }
+
             .news-date {
                 color: #ccc;
                 font-size: 14px;
