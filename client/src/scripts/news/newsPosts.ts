@@ -6,7 +6,7 @@ export const news: NewsPost[] = [
         author: "XNOR",
         title: "Ciallo～(∠・ω< )⌒★",
         content: `欢迎加入我们的QQ群<a href="https://qm.qq.com/q/FtRydynYqY" target="_blank">227269266</a>！<br>
-                  也欢迎你来游玩我们的上海服<a href="http://124.223.18.68/">http://124.223.18.68/</a>！`,
+                  也欢迎你来游玩我们的上海服<a href="http://124.223.18.68/" target="_blank">http://124.223.18.68/</a>！`,
         pinned: true
     },
     {

@@ -191,7 +191,7 @@ export async function setUpUI(game: Game): Promise<void> {
         });
 
         newsText += '<article class="splash-news-entry">';
-        newsText += `${newsPost.pinned ? `<div class="news-pinned"><i class="fa-solid fa-arrow-up"></i> ${getTranslatedString("news_pinned")}</div>` : ""}`;
+        newsText += `${newsPost.pinned ? `<span class="news-pinned"><i class="fa-solid fa-arrow-up"></i> ${getTranslatedString("news_pinned")}</span>` : ""}`;
         newsText += `<div class="news-date">${date}</div>`;
         newsText += `<div class="news-title">${newsPost.title}</div>`;
         newsText += `<p>${newsPost.content}<br><i>- ${newsPost.author}</i></p></article>`;
