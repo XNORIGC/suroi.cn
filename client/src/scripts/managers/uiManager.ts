@@ -840,9 +840,14 @@ export class UIManager {
                         "color": ""
                     });
 
-                itemName.text(weapon.definition.idString.startsWith("dual_")
-                    ? getTranslatedString("dual_template", { gun: getTranslatedString(weapon.definition.idString.slice("dual_".length) as TranslationKeys) })
-                    : getTranslatedString(weapon.definition.idString as TranslationKeys));
+                const oldIdString = itemName.data("id-string")
+                const newIdString = weapon.definition.idString
+                if (oldIdString !== newIdString) {
+                    itemName.data("idString", newIdString)
+                        .text(newIdString.startsWith("dual_")
+                            ? getTranslatedString("dual_template", { gun: getTranslatedString(newIdString.slice("dual_".length) as TranslationKeys) })
+                            : getTranslatedString(newIdString as TranslationKeys));
+                }
 
                 const isFists = weapon.definition.idString === "fists";
                 const oldSrc = itemImage.attr("src");

@@ -140,7 +140,7 @@ export async function setUpUI(game: Game): Promise<void> {
       languageFieldset.append(html`
           <div>
             <input type="radio" name="selected-language" id="language-${language}" value="${language}">
-            <label for="language-${language}">${languageInfo.flag} ${languageInfo.name} (${languageInfo.percentage})</label>
+            <label for="language-${language}">${languageInfo.flag} <span lang="${languageInfo.html_lang}">${languageInfo.name}</span> (${languageInfo.percentage})</label>
           </div>
       `);
 
@@ -1009,7 +1009,7 @@ export async function setUpUI(game: Game): Promise<void> {
             const emoteItem = $<HTMLDivElement>(
                 `<div id="emote-${idString}" class="emotes-list-item-container">
                     <div class="emotes-list-item" style="background-image: url(./img/game/shared/emotes/${idString}.svg)"></div>
-                    <span class="emote-name">${getTranslatedString(`emote_${idString}` as TranslationKeys)}</span>
+                    <span class="emote-name">${getTranslatedString(`${idString}` as TranslationKeys)}</span>
                 </div>`
             );
 
@@ -1265,7 +1265,7 @@ export async function setUpUI(game: Game): Promise<void> {
                         <div class="badges-list-item">\
                             <div style="background-image: url('./img/game/shared/badges/${idString}.svg')"></div>\
                         </div>\
-                        <span class="badge-name">${getTranslatedString(`badge_${idString}` as TranslationKeys)}</span>\
+                        <span class="badge-name">${getTranslatedString(`${idString}` as TranslationKeys)}</span>\
                     </div>`
                 );
 

@@ -1,5 +1,9 @@
+import { Ammos } from "@common/definitions/ammos";
+import { Badges } from "@common/definitions/badges";
+import { Emotes } from "@common/definitions/emotes";
 import { Guns } from "@common/definitions/guns";
 import { Melees } from "@common/definitions/melees";
+import { Skins } from "@common/definitions/skins";
 import { Throwables } from "@common/definitions/throwables";
 import { parse } from "hjson";
 import { readdirSync, readFileSync } from "node:fs";
@@ -11,16 +15,12 @@ export const LANGUAGES_DIRECTORY = "../languages/";
 
 const files = readdirSync(LANGUAGES_DIRECTORY).filter(file => file.endsWith(".hjson"));
 
-const keyFilter = (key: string): boolean => (
-    key !== "name"
-    && key !== "flag"
-    && key !== "mandatory"
-    && key !== "no_space"
-    && key !== "no_resize"
-    && key !== "html_lang"
-    && !Guns.hasString(key)
-    && !Melees.hasString(key)
-    && !Throwables.hasString(key)
+const keyFilter = (key: string): boolean => !(
+    ["name", "flag", "mandatory", "no_space", "no_resize", "html_lang"].includes(key)
+    || [Ammos, Badges, Emotes, Guns, Melees, Skins, Throwables].some(d => d.hasString(key))
+    || ["deathray", "developr_vest", "32x_scope", "msg_lost_connection", "news_pinned", "region_hk"].includes(key)
+    || (key.startsWith("settings_") && ((a, f) => f(a))(key.slice("settings_".length), (key: string) => ["brightness", "colorful_bullets", "saturate", "self_deception_ping"].includes(key) || key.startsWith("menu_music")))
+    || key.startsWith("time_")
 );
 
 const ValidKeys: readonly string[] = Object.keys(parse(readFileSync(`${LANGUAGES_DIRECTORY + REFERENCE_LANGUAGE}.hjson`, "utf8")) as Record<string, unknown>)
@@ -55,7 +55,7 @@ This file is a report of all errors and missing keys in the translation files of
     ) {
         const keys = Object.keys(content).filter(keyFilter);
 
-        let languageReportBuffer = `## ${content.flag} <span lang="${content.html_lang}">${content.name}</span> (${Math.round(100 * keys.length / ValidKeys.length)}% Complete) - ${filename}\n\n`;
+        let languageReportBuffer = `## ${content.flag} <span lang="${content.html_lang ?? ""}">${content.name}</span> (${Math.round(100 * keys.length / ValidKeys.length)}% Complete) - ${filename}\n\n`;
 
         // Find invalid keys
         const invalidKeys = keys.filter(k => !ValidKeys.includes(k)).map(key => `- Key \`${key}\` is not a valid key`).join("\n");

@@ -89,8 +89,8 @@ export function getTranslatedString(key: TranslationKeys, replacements?: Record<
     try {
         foundTranslation = TRANSLATIONS.translations[selectedLanguage]?.[key]
         ?? TRANSLATIONS.translations.en[key]
-        ?? (Badges.fromStringSafe(key.slice("badge_".length))
-        ?? Emotes.fromStringSafe(key.slice("emote_".length))
+        ?? (Badges.fromStringSafe(key)
+        ?? Emotes.fromStringSafe(key)
         ?? Loots.reify(key)).name;
     } catch {
         return key;
