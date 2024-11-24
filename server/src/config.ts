@@ -1,6 +1,5 @@
 import { Layer, TeamSize } from "@common/constants";
 import { type Vector } from "@common/utils/vector";
-
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
@@ -9,13 +8,13 @@ import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
 //import { BarrelObstaclesPlugin } from "./plugins/barrelObstaclesPlugin";
 //import { PlaceObjectPlugin } from "./defaultPlugins/placeObjectPlugin";
 
-export enum SpawnMode {
+export const enum SpawnMode {
     Normal,
     Radius,
     Fixed,
     Center
 }
-export enum GasMode {
+export const enum GasMode {
     Normal,
     Debug,
     Disabled
@@ -25,7 +24,7 @@ export const Config = {
     host: "0.0.0.0",
     port: 8000,
 
-    map: "fall",
+    map: "normal",
 
     spawn: { mode: SpawnMode.Normal },
 

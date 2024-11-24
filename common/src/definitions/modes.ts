@@ -34,7 +34,7 @@ export const Modes: Record<Mode | "shared", ModeDefinition> = {
             gas: "hsla(17, 100%, 50%, 0.55)",
             void: "hsl(25, 80%, 6%)"
         },
-        inheritTexturesFrom: "halloween",
+        inheritTexturesFrom: "shared",
         reskin: "normal"
     },
     fall: {
@@ -93,5 +93,5 @@ export const Modes: Record<Mode | "shared", ModeDefinition> = {
         bulletTrailAdjust: "hsl(0, 50%, 80%)"
     },
     birthday: {},
-    shared: { inheritTexturesFrom: "normal" }
+    shared: {}
 };
