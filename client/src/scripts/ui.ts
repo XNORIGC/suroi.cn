@@ -525,7 +525,7 @@ export async function setUpUI(game: Game): Promise<void> {
             createTeamMenu.fadeOut(250);
 
             // Dimmed backdrop on team menu. (Probably not needed here)
-            ui.splashUi.css({ filter: `brightness(${game.console.getBuiltInCVar("cv_brightness")})`, pointerEvents: "" });
+            ui.splashUi.css({ filter: `brightness(${game.console.getBuiltInCVar("cv_brightness")}) saturate(${game.console.getBuiltInCVar("cv_saturate")})`, pointerEvents: "" });
         };
 
         teamSocket.onclose = (): void => {
@@ -547,14 +547,14 @@ export async function setUpUI(game: Game): Promise<void> {
             createTeamMenu.fadeOut(250);
 
             // Dimmed backdrop on team menu.
-            ui.splashUi.css({ filter: `brightness(${game.console.getBuiltInCVar("cv_brightness")})`, pointerEvents: "" });
+            ui.splashUi.css({ filter: `brightness(${game.console.getBuiltInCVar("cv_brightness")}) saturate(${game.console.getBuiltInCVar("cv_saturate")})`, pointerEvents: "" });
         };
 
         createTeamMenu.fadeIn(250);
 
         // Dimmed backdrop on team menu.
         ui.splashUi.css({
-            filter: `brightness(${game.console.getBuiltInCVar("cv_brightness") * 0.6})`,
+            filter: `brightness(${game.console.getBuiltInCVar("cv_brightness") * 0.6}) saturate(${game.console.getBuiltInCVar("cv_saturate")})`,
             pointerEvents: "none"
         });
     });
@@ -1583,9 +1583,23 @@ export async function setUpUI(game: Game): Promise<void> {
         "#slider-brightness",
         "cv_brightness",
         value => {
-            ui.splashUi.css("filter", `brightness(${value})`);
+            ui.splashUi.css("filter", `brightness(${value}) saturate(${game.console.getBuiltInCVar("cv_saturate")})`);
             ui.canvas.css({
-                "filter": `brightness(${value})`,
+                "filter": `brightness(${value}) saturate(${game.console.getBuiltInCVar("cv_saturate")})`,
+                "position": "relative",
+                "z-index": "-1"
+            });
+        }
+    );
+
+    // Saturate
+    addSliderListener(
+        "#slider-saturate",
+        "cv_saturate",
+        value => {
+            ui.splashUi.css("filter", `brightness(${game.console.getBuiltInCVar("cv_brightness")}) saturate(${value})`);
+            ui.canvas.css({
+                "filter": `brightness(${game.console.getBuiltInCVar("cv_brightness")}) saturate(${value})`,
                 "position": "relative",
                 "z-index": "-1"
             });

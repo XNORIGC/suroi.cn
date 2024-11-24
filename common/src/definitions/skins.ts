@@ -37,15 +37,14 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
         }));
 
         const hidden = createTemplate(skin, {
-            hideFromLoadout: true
+            // hideFromLoadout: true
         });
 
         const withRole = createTemplate(skin, (role: string) => ({
-            roleRequired: role
+            // roleRequired: role
         }));
 
         return [
-            withRole([["xnor"],     ["Peachy Breeze", 0xf2a263]]),
             withRole([["hasanger"], ["Hasanger",      0x640000]]),
             withRole([["limenade"], ["LimeNade",      0xffffff]]),
             withRole([["solstice"], ["Dragonscale",   0x3f808d]]),
@@ -98,6 +97,7 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
             ...([
                 ["Lemon",                 0xebe092],
                 ["Flamingo",              0xf1847d],
+                ["Peachy Breeze",         0xf2a263],
                 ["Deep Sea",              0x284553],
                 ["Basic Outfit",          0xdd9b0a],
                 ["Peppermint",            0xb40030],

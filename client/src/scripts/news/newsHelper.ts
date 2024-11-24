@@ -30,7 +30,7 @@ export function processPost(post: NewsPost): string {
     });
 
     newsText += '<article class="splash-news-entry">';
-    newsText += `${post.pinned ? `<div class="news-pinned"><i class="fa-solid fa-arrow-up"></i></div>` : ""}`;
+    newsText += `${post.pinned ? '<div class="news-pinned"><i class="fa-solid fa-arrow-up"></i></div>' : ""}`;
     newsText += `<h3 class="news-title">${post.title}</h3>`;
     newsText += `<div class="news-date">${date}`;
     newsText += `<br><i>Written by: ${post.author}</i>`;

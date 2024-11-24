@@ -33,13 +33,13 @@ export const CVarCasters = Object.freeze({
     cv_loadout_win_emote: Casters.toString,
     cv_master_volume: Casters.toNumber,
     cv_sfx_volume: Casters.toNumber,
-    cv_menu_music: Casters.generateUnionCaster(["main", "old", "halloween", "winter", "speaker", "main_full", "survivio", "survivio_halloween", "random"]),
     cv_ambience_volume: Casters.toNumber,
     cv_music_volume: Casters.toNumber,
 
     cv_loop_scope_selection: Casters.toBoolean,
     cv_anonymize_player_names: Casters.toBoolean,
     cv_hide_emotes: Casters.toBoolean,
+    cv_menu_music: Casters.generateUnionCaster(["main", "old", "halloween", "winter", "speaker", "main_full", "survivio", "survivio_halloween", "random"]),
     cv_region: Casters.toString,
     cv_camera_shake_fx: Casters.toBoolean,
     cv_killfeed_style: Casters.generateUnionCaster(["icon", "text"]),
@@ -54,6 +54,7 @@ export const CVarCasters = Object.freeze({
     cv_cooler_graphics: Casters.toBoolean,
     cv_colorful_bullets: Casters.toBoolean,
     cv_brightness: Casters.toNumber,
+    cv_saturate: Casters.toNumber,
     cv_ambient_particles: Casters.toBoolean,
     cv_blur_splash: Casters.toBoolean,
 
@@ -87,9 +88,9 @@ export const CVarCasters = Object.freeze({
 
     pf_show_fps: Casters.toBoolean,
     pf_show_ping: Casters.toBoolean,
+    pf_self_deception_ping: Casters.toBoolean,
     pf_show_pos: Casters.toBoolean,
 
-    pf_self_deception_ping: Casters.toBoolean,
 
     mb_controls_enabled: Casters.toBoolean,
     mb_joystick_size: Casters.toNumber,
@@ -146,7 +147,6 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_loadout_death_emote: "",
     cv_loadout_win_emote: "",
     cv_master_volume: 1,
-    cv_menu_music: "speaker",
     cv_sfx_volume: 1,
     cv_ambience_volume: 1,
     cv_music_volume: 1,
@@ -154,6 +154,7 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_loop_scope_selection: false,
     cv_anonymize_player_names: false,
     cv_hide_emotes: false,
+    cv_menu_music: "speaker",
     cv_region: "",
     cv_camera_shake_fx: true,
     cv_killfeed_style: "text",
@@ -168,6 +169,7 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
     cv_cooler_graphics: false,
     cv_colorful_bullets: false,
     cv_brightness: 1,
+    cv_saturate: 1,
     cv_ambient_particles: true,
     cv_blur_splash: !isMobile.any, // blur kills splash screen performance on phones from my testing
 
@@ -218,9 +220,8 @@ export const defaultClientCVars: SimpleCVarMapping = Object.freeze({
 
     pf_show_fps: false,
     pf_show_ping: false,
-    pf_show_pos: false,
-
     pf_self_deception_ping: false,
+    pf_show_pos: false,
 
     mb_controls_enabled: true,
     mb_joystick_size: 150,

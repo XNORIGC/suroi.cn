@@ -287,7 +287,7 @@ class Bot {
         this._shootStart = randomBoolean();
         this._interact = randomBoolean();
         this._swap = randomBoolean();
-        this._emote = false;//randomBoolean();
+        this._emote = false;
         this["admin he doing it sideways"] = randomBoolean();
 
         switch (random(1, 8)) {

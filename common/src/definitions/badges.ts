@@ -32,5 +32,5 @@ export const Badges = ObjectDefinitions.create<BadgeDefinition>("Badges", [
     badge(["Fire"]),
     badge(["Colon Three"]),
     badge(["Suroi General Chat"]),
-    badge(["robot"])
+    badge(["Robot"])
 ]);

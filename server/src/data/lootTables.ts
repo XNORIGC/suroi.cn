@@ -241,11 +241,11 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
                 { item: "tango_51", spawnSeparately: true, count: 3, weight: 3.5 },
                 { item: "tango_51", spawnSeparately: true, count: 4, weight: 0.1 },
                 { item: "tango_51", spawnSeparately: true, count: 5, weight: 0.0000001 },
-                { item: "barrett_m95", weight: 60 * 0.2 },
-                { item: "barrett_m95", spawnSeparately: true, count: 2, weight: 30 * 0.2 },
-                { item: "barrett_m95", spawnSeparately: true, count: 3, weight: 3.5 * 0.2 },
-                { item: "barrett_m95", spawnSeparately: true, count: 4, weight: 0.1 * 0.2 },
-                { item: "barrett_m95", spawnSeparately: true, count: 5, weight: 0.0000001 * 0.2 }
+                { item: "barrett_m95", weight: 12 },
+                { item: "barrett_m95", spawnSeparately: true, count: 2, weight: 6 },
+                { item: "barrett_m95", spawnSeparately: true, count: 3, weight: 0.7 },
+                { item: "barrett_m95", spawnSeparately: true, count: 4, weight: 0.02 },
+                { item: "barrett_m95", spawnSeparately: true, count: 5, weight: 0.00000002 }
             ]
         ],
         lux_crate: [
@@ -329,7 +329,7 @@ export const LootTables: Record<string, Record<string, LootTable>> = {
                 { table: "healing_items", weight: 0.4 },
                 { table: "guns", weight: 0.3 }
             ],
-            [{ item: "g19", weight:1 }]
+            [{ item: "g19", weight: 1 }]
         ],
         small_table: [
             { table: "healing_items", weight: 1 },

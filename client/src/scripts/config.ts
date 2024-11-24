@@ -29,7 +29,7 @@ export const Config = {
             gameAddress: "wss://<ID>.as.suroi.io"
         }*/
     },
-    defaultRegion: "hk",
+    defaultRegion: "hk"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {

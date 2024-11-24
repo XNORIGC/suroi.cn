@@ -17,6 +17,7 @@ const keyFilter = (key: string): boolean => (
     && key !== "mandatory"
     && key !== "no_space"
     && key !== "no_resize"
+    && key !== "html_lang"
     && !Guns.hasString(key)
     && !Melees.hasString(key)
     && !Throwables.hasString(key)
@@ -33,6 +34,7 @@ export type TranslationManifest = {
     readonly mandatory?: boolean
     readonly no_resize?: boolean
     readonly no_space?: boolean
+    readonly html_lang?: string
 };
 export type TranslationsManifest = Record<string, TranslationManifest>;
 
@@ -53,7 +55,7 @@ This file is a report of all errors and missing keys in the translation files of
     ) {
         const keys = Object.keys(content).filter(keyFilter);
 
-        let languageReportBuffer = `## ${content.flag} ${content.name} (${Math.round(100 * keys.length / ValidKeys.length)}% Complete) - ${filename}\n\n`;
+        let languageReportBuffer = `## ${content.flag} <span lang="${content.html_lang}">${content.name}</span> (${Math.round(100 * keys.length / ValidKeys.length)}% Complete) - ${filename}\n\n`;
 
         // Find invalid keys
         const invalidKeys = keys.filter(k => !ValidKeys.includes(k)).map(key => `- Key \`${key}\` is not a valid key`).join("\n");
@@ -93,6 +95,7 @@ export async function buildTranslations(): Promise<void> {
             mandatory: Boolean(content.mandatory),
             no_resize: Boolean(content.no_resize),
             no_space: Boolean(content.no_space),
+            html_lang: content.html_lang,
             percentage: `${Math.round(100 * Object.keys(content).filter(keyFilter).length / ValidKeys.length)}%`
         };
 

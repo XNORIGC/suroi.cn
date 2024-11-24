@@ -746,15 +746,13 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                     playerId: this.id
                 });
             }
-
-            // return;
+        } else {
+            this._mapPings.push({
+                definition: ping,
+                position,
+                playerId: this.id
+            });
         }
-
-        this._mapPings.push({
-            definition: ping,
-            position,
-            playerId: this.id
-        });
 
         this.game.pluginManager.emit("player_did_map_ping", {
             player: this,
