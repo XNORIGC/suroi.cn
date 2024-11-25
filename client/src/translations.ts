@@ -79,7 +79,6 @@ export async function initTranslation(game: Game): Promise<void> {
 }
 
 export function getTranslatedString(key: TranslationKeys, replacements?: Record<string, string>): string {
-    console.log(key)
     if (!setup) {
         console.error("Translation API not yet setup");
         return key;
