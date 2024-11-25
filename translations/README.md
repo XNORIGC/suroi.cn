@@ -1,6 +1,6 @@
 # Translation File Reports
 
-This file is a report of all errors and missing keys in the translation files of this game. Last generated Mon, 25 Nov 2024 20:17:31 GMT
+This file is a report of all errors and missing keys in the translation files of this game. Last generated Mon, 25 Nov 2024 20:25:34 GMT
 
 ## 🇦🇱 <span lang="">Shqip</span> (88% Complete) - ab.hjson
 
@@ -458,9 +458,7 @@ This file is a report of all errors and missing keys in the translation files of
 
 ## 🇨🇳 <span lang="zh-CN">中文（简体）</span> (100% Complete) - zh.hjson
 
-### Invalid Keys
-
-- Key `fireplace:explosion` is not a valid key
+### (No Invalid Keys)
 
 ### (No Undefined Keys)
 

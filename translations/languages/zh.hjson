@@ -430,7 +430,7 @@
 
   "barrel_explosion": "油桶"
   "stove_explosion": "炉灶"
-  "fireplace:explosion": "壁炉"
+  "fireplace_explosion": "壁炉"
   "control_panel_explosion": "控制台"
   "super_barrel_explosion": "超级油桶"
   "small_refinery_barrel_explosion": "炼油厂小型油桶"
