@@ -1,6 +1,8 @@
 import { Badges } from "@common/definitions/badges";
 import { Emotes } from "@common/definitions/emotes";
 import { Loots } from "@common/definitions/loots";
+import { news } from "./scripts/news/newsPosts";
+import { type NewsPost } from "./scripts/news/newsHelper";
 import { Numeric } from "@common/utils/math";
 import type { TranslationManifest, TranslationsManifest } from "../../translations/src/processTranslations";
 import { type Game } from "./scripts/game";
@@ -77,6 +79,7 @@ export async function initTranslation(game: Game): Promise<void> {
 }
 
 export function getTranslatedString(key: TranslationKeys, replacements?: Record<string, string>): string {
+    console.log(key)
     if (!setup) {
         console.error("Translation API not yet setup");
         return key;
@@ -91,9 +94,13 @@ export function getTranslatedString(key: TranslationKeys, replacements?: Record<
         ?? TRANSLATIONS.translations.en[key]
         ?? (Badges.fromStringSafe(key)
         ?? Emotes.fromStringSafe(key)
-        ?? Loots.reify(key)).name;
+        ?? Loots.reify(key)).name
     } catch {
-        return key;
+        if (key.startsWith("news_")) {
+            foundTranslation = news.filter(post => post.date === +key.split("_")[1])[0][key.split("_")[2] as keyof NewsPost];
+        } else {
+            return key;
+        }
     }
 
     if (replacements === undefined) {

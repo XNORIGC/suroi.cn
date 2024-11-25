@@ -176,8 +176,8 @@ export async function setUpUI(game: Game): Promise<void> {
         newsText += '<article class="splash-news-entry">';
         newsText += `${newsPost.pinned ? `<span class="news-pinned"><i class="fa-solid fa-arrow-up"></i> ${getTranslatedString("news_pinned")}</span>` : ""}`;
         newsText += `<div class="news-date">${date}</div>`;
-        newsText += `<div class="news-title">${newsPost.title}</div>`;
-        newsText += `<p>${newsPost.content}<br><i>- ${newsPost.author}</i></p></article>`;
+        newsText += `<div class="news-title">${getTranslatedString(`news_${newsPost.date}_title`)}</div>`;
+        newsText += `<p>${getTranslatedString(`news_${newsPost.date}_content`)}<br><i>- ${getTranslatedString(`news_${newsPost.date}_author`)}</i></p></article>`;
     }
 
     ui.newsPosts.html(newsText);
@@ -668,7 +668,7 @@ export async function setUpUI(game: Game): Promise<void> {
         location.search = "";
     }
 
-    const usernameField = $<HTMLInputElement>("#username-input");
+    const usernameField = $<HTMLInputElement>("#username-input").attr("placeholder", getTranslatedString("username_input"));
 
     const youtubers = [
         {

@@ -1,6 +1,7 @@
 import { Ammos } from "@common/definitions/ammos";
 import { Badges } from "@common/definitions/badges";
 import { Emotes } from "@common/definitions/emotes";
+import { Explosions } from "@common/definitions/explosions";
 import { Guns } from "@common/definitions/guns";
 import { Melees } from "@common/definitions/melees";
 import { Skins } from "@common/definitions/skins";
@@ -17,10 +18,10 @@ const files = readdirSync(LANGUAGES_DIRECTORY).filter(file => file.endsWith(".hj
 
 const keyFilter = (key: string): boolean => !(
     ["name", "flag", "mandatory", "no_space", "no_resize", "html_lang"].includes(key)
-    || [Ammos, Badges, Emotes, Guns, Melees, Skins, Throwables].some(d => d.hasString(key))
-    || ["deathray", "developr_vest", "32x_scope", "msg_lost_connection", "news_pinned", "region_hk"].includes(key)
+    || [Ammos, Badges, Emotes, Explosions, Guns, Melees, Skins, Throwables].some(d => d.hasString(key))
+    || ["deathray", "developr_vest", "32x_scope", "msg_lost_connection", "region_hk", "username_input"].includes(key)
     || (key.startsWith("settings_") && ((a, f) => f(a))(key.slice("settings_".length), (key: string) => ["brightness", "colorful_bullets", "saturate", "self_deception_ping"].includes(key) || key.startsWith("menu_music")))
-    || key.startsWith("time_")
+    || key.startsWith("news_") || key.startsWith("time_")
 );
 
 const ValidKeys: readonly string[] = Object.keys(parse(readFileSync(`${LANGUAGES_DIRECTORY + REFERENCE_LANGUAGE}.hjson`, "utf8")) as Record<string, unknown>)

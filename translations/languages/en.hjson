@@ -317,10 +317,14 @@
   "developr_vest": "Developr Vest"
   "feral_claws": "Feral Claws"
 
-  "32x_scope": "32x Scope"
-  "barrett_m95": "Barrett M95"
   "html_lang": "en"
   "msg_lost_connection": "Connection lost."
+  "time_minute": "m"
+  "time_second": "s"
+  "username_input": "Enter a nickname"
+
+  "32x_scope": "32x Scope"
+  "barrett_m95": "Barrett M95"
   "news_pinned": "Pinned"
   "region_hk": "Hong Kong"
   "settings_brightness": "Brightness"
@@ -336,7 +340,5 @@
   "settings_menu_music_survivio_halloween": "Surviv.io Halloween"
   "settings_menu_music_winter": "Christmas Theme (Winter Mode)"
   "settings_saturate": "Saturate"
-  "settings_self_deception_ping": "Show self-deception ping"
-  "time_minute": "m"
-  "time_second": "s"
+  "settings_self_deception_ping": "Self-deception ping"
 }
