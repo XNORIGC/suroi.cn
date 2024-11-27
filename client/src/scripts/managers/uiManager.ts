@@ -223,6 +223,7 @@ export class UIManager {
 
         gameOverOverlay: $<HTMLDivElement>("#game-over-overlay"),
         gameOverText: $<HTMLHeadingElement>("#game-over-text"),
+        gameOverScreen: $<HTMLDivElement>("#game-over-screen"),
         gameOverPlayerName: $<HTMLHeadingElement>("#game-over-player-name"),
         gameOverKills: $<HTMLSpanElement>("#game-over-kills"),
         gameOverDamageDone: $<HTMLSpanElement>("#game-over-damage-done"),
@@ -397,6 +398,7 @@ export class UIManager {
             chickenDinner,
             gameOverText,
             gameOverRank,
+            gameOverScreen,
             gameOverPlayerName,
             gameOverKills,
             gameOverDamageDone,
@@ -430,6 +432,8 @@ export class UIManager {
                     })
                     : getTranslatedString("msg_you_died"))
         );
+
+        gameOverScreen.css("background-image", packet.won ? "url(/img/misc/chicken-dinner.png)" : "none");
 
         gameOverPlayerName.html(playerName + playerBadgeText);
 

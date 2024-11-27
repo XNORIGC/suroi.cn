@@ -668,7 +668,7 @@ export async function setUpUI(game: Game): Promise<void> {
         location.search = "";
     }
 
-    const usernameField = $<HTMLInputElement>("#username-input").attr("placeholder", getTranslatedString("username_input"));
+    const usernameField = $<HTMLInputElement>("#username-input").attr("placeholder", getTranslatedString("username_input_placeholder"));
 
     const youtubers = [
         {
@@ -1222,6 +1222,8 @@ export async function setUpUI(game: Game): Promise<void> {
             });
 
         $<HTMLInputElement>("#weapon-preset")
+            .attr("placeholder", getTranslatedString("special_weapon_preset_placeholder"))
+            .attr("title", getTranslatedString("special_weapon_preset_title"))
             .val(game.console.getBuiltInCVar("dv_weapon_preset"))
             .on("input", e => {
                 game.console.setBuiltInCVar("dv_weapon_preset", e.target.value);

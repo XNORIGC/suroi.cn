@@ -1,8 +1,8 @@
 # Translation File Reports
 
-This file is a report of all errors and missing keys in the translation files of this game. Last generated Mon, 25 Nov 2024 20:25:34 GMT
+This file is a report of all errors and missing keys in the translation files of this game. Last generated Wed, 27 Nov 2024 19:11:45 GMT
 
-## 🇦🇱 <span lang="">Shqip</span> (88% Complete) - ab.hjson
+## 🇦🇱 <span lang="">Shqip</span> (84% Complete) - ab.hjson
 
 ### (No Invalid Keys)
 
@@ -38,8 +38,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `themselves` is not defined
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇨🇿 <span lang="">Čeština</span> (95% Complete) - cz.hjson
+## 🇨🇿 <span lang="">Čeština</span> (91% Complete) - cz.hjson
 
 ### (No Invalid Keys)
 
@@ -58,8 +69,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇩🇪 <span lang="">Deutsch</span> (86% Complete) - de.hjson
+## 🇩🇪 <span lang="">Deutsch</span> (82% Complete) - de.hjson
 
 ### (No Invalid Keys)
 
@@ -100,8 +122,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `region_eu` is not defined
 - Key `region_sa` is not defined
 - Key `region_as` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇪🇪 <span lang="">Eesti</span> (94% Complete) - et.hjson
+## 🇪🇪 <span lang="">Eesti</span> (90% Complete) - et.hjson
 
 ### (No Invalid Keys)
 
@@ -122,8 +155,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇫🇷 <span lang="">Français</span> (93% Complete) - fr.hjson
+## 🇫🇷 <span lang="">Français</span> (89% Complete) - fr.hjson
 
 ### (No Invalid Keys)
 
@@ -147,8 +191,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_kl_dead` is not defined
 - Key `kf_kl_suicide` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇬🇷 <span lang="">Ελληνικά</span> (94% Complete) - gr.hjson
+## 🇬🇷 <span lang="">Ελληνικά</span> (90% Complete) - gr.hjson
 
 ### (No Invalid Keys)
 
@@ -169,8 +224,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_explode_c4` is not defined
 - Key `bindings_+map_ping` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇭🇰 🇲🇴 <span lang="">廣東話(香港/澳門)</span> (93% Complete) - hk_mo.hjson
+## 🇭🇰 🇲🇴 <span lang="">廣東話(香港/澳門)</span> (89% Complete) - hk_mo.hjson
 
 ### (No Invalid Keys)
 
@@ -193,8 +259,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_finished_off_kill` is not defined
 - Key `kf_finished_off_down` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇭🇺 <span lang="">Magyar</span> (100% Complete) - hu.hjson
+## 🇭🇺 <span lang="">Magyar</span> (96% Complete) - hu.hjson
 
 ### Invalid Keys
 
@@ -213,28 +290,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_punishment_temp_reason` is not defined
 - Key `msg_punishment_perma` is not defined
 - Key `msg_punishment_perma_reason` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇯🇵 <span lang="">日本語</span> (95% Complete) - jp.hjson
-
-### (No Invalid Keys)
-
-### Undefined Keys
-
-- Key `msg_punishment_vpn` is not defined
-- Key `msg_punishment_vpn_reason` is not defined
-- Key `donate` is not defined
-- Key `settings_ambience_volume` is not defined
-- Key `settings_ambient_particles` is not defined
-- Key `msg_not_enough_space` is not defined
-- Key `msg_item_already_equipped` is not defined
-- Key `msg_better_item_equipped` is not defined
-- Key `msg_cannot_use_radio` is not defined
-- Key `msg_radio_overused` is not defined
-- Key `interact_speaker` is not defined
-- Key `bindings_explode_c4` is not defined
-- Key `create_team_ready` is not defined
-
-## 🇱🇹 <span lang="">Lietuvių</span> (95% Complete) - lt.hjson
+## 🇯🇵 <span lang="">日本語</span> (91% Complete) - jp.hjson
 
 ### (No Invalid Keys)
 
@@ -253,8 +321,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇱🇻 <span lang="">Latviešu</span> (95% Complete) - lv.hjson
+## 🇱🇹 <span lang="">Lietuvių</span> (91% Complete) - lt.hjson
 
 ### (No Invalid Keys)
 
@@ -273,8 +352,50 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🎀 <span lang="">Cute Engwish</span> (93% Complete) - qen.hjson
+## 🇱🇻 <span lang="">Latviešu</span> (91% Complete) - lv.hjson
+
+### (No Invalid Keys)
+
+### Undefined Keys
+
+- Key `msg_punishment_vpn` is not defined
+- Key `msg_punishment_vpn_reason` is not defined
+- Key `donate` is not defined
+- Key `settings_ambience_volume` is not defined
+- Key `settings_ambient_particles` is not defined
+- Key `msg_not_enough_space` is not defined
+- Key `msg_item_already_equipped` is not defined
+- Key `msg_better_item_equipped` is not defined
+- Key `msg_cannot_use_radio` is not defined
+- Key `msg_radio_overused` is not defined
+- Key `interact_speaker` is not defined
+- Key `bindings_explode_c4` is not defined
+- Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+
+## 🎀 <span lang="">Cute Engwish</span> (89% Complete) - qen.hjson
 
 ### (No Invalid Keys)
 
@@ -298,8 +419,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇷🇴 <span lang="">Română</span> (88% Complete) - ro.hjson
+## 🇷🇴 <span lang="">Română</span> (85% Complete) - ro.hjson
 
 ### (No Invalid Keys)
 
@@ -334,8 +466,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `themselves` is not defined
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇷🇺 <span lang="">Русский</span> (97% Complete) - ru.hjson
+## 🇷🇺 <span lang="">Русский</span> (93% Complete) - ru.hjson
 
 ### (No Invalid Keys)
 
@@ -349,8 +492,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_finished_off_kill` is not defined
 - Key `kf_finished_off_down` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇮🇳 <span lang="">தமிழ்</span> (92% Complete) - ta.hjson
+## 🇮🇳 <span lang="">தமிழ்</span> (88% Complete) - ta.hjson
 
 ### (No Invalid Keys)
 
@@ -376,8 +530,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_waiting` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇹🇷 <span lang="">Turkısh</span> (95% Complete) - tr.hjson
+## 🇹🇷 <span lang="">Turkısh</span> (91% Complete) - tr.hjson
 
 ### (No Invalid Keys)
 
@@ -396,8 +561,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇹🇼 <span lang="">中文（繁體）</span> (87% Complete) - tw.hjson
+## 🇹🇼 <span lang="">中文（繁體）</span> (84% Complete) - tw.hjson
 
 ### (No Invalid Keys)
 
@@ -435,8 +611,19 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `themselves` is not defined
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
-## 🇻🇳 <span lang="">Tiếng Việt</span> (95% Complete) - vi.hjson
+## 🇻🇳 <span lang="">Tiếng Việt</span> (91% Complete) - vi.hjson
 
 ### (No Invalid Keys)
 
@@ -455,6 +642,17 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
 
 ## 🇨🇳 <span lang="zh-CN">中文（简体）</span> (100% Complete) - zh.hjson
 

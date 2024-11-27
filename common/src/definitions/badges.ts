@@ -18,6 +18,8 @@ export const Badges = ObjectDefinitions.create<BadgeDefinition>("Badges", [
     badge(["VIP Designr", ["vip_designr"]]),
     badge(["Composr", ["composr"]]),
     badge(["Lead Composr", ["lead_composr"]]),
+    badge(["Translatr", ["translatr"]]),
+    badge(["Bot", ["bot"]]),
     badge(["Moderatr", ["moderatr"]]),
     badge(["Administratr", ["administratr", "error"]]),
     badge(["Youtubr", ["youtubr"]]),
@@ -32,5 +34,4 @@ export const Badges = ObjectDefinitions.create<BadgeDefinition>("Badges", [
     badge(["Fire"]),
     badge(["Colon Three"]),
     badge(["Suroi General Chat"]),
-    badge(["Robot"])
 ]);
