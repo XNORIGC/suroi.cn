@@ -40,6 +40,10 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
             // hideFromLoadout: true
         });
 
+        const HIDDEN = createTemplate(skin, {
+            hideFromLoadout: true
+        });
+
         const withRole = createTemplate(skin, (role: string) => ({
             // roleRequired: role
         }));
@@ -130,14 +134,28 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
                     noDrop: true
                 }
             ),
-            hidden(
+            HIDDEN(
                 ["Ghillie Suit", 0xffffff],
                 {
                     grassTint: true,
                     hideEquipment: true,
                     hideBlood: true
                 }
-            )
+            ),
+            ...([
+                ["123OP",                 0x000000],
+                ["Blueberry Smoothie",    0x000000],
+                ["eipi",                  0x000000],
+                ["Fireball",              0x000000],
+                ["Hazmat",                0x000000],
+                ["Katie",                 0x000000],
+                ["Kenos",                 0x000000],
+                ["Leia",                  0x000000],
+                ["Radians",               0x000000],
+                ["Shapes",                0x000000],
+                ["Skibidi Toilet",        0x000000],
+                ["Watermelon",            0x000000],
+            ] satisfies ReadonlyArray<readonly [string, number]>).map(([name, tint]) => hidden([name, tint]))
         ];
     }
 );

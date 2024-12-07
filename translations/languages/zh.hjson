@@ -440,6 +440,11 @@
   "frag_grenade_explosion": "破片手榴弹"
   "pumpkin_explosion": "南瓜"
 
+  "deagle": "沙漠之鹰"
+
+  "chainsaw": "电锯"
+  "feral_claws": "猛爪"
+
   "1st_birthday": "一岁生日"
   "algae": "藻类"
   "aquatic": "水蓝"
@@ -454,10 +459,8 @@
   "blue_blood": "冷血"
   "bubblegum": "泡泡糖"
   "candy_cane": "拐杖糖"
-  "chainsaw": "电锯"
   "coal": "煤炭"
   "composr_swag": "作曲家服装"
-  "deagle": "沙漠之鹰"
   "deep_sea": "深海"
   "deer_season": "鹿季"
   "desert_camo": "沙漠迷彩"
@@ -465,7 +468,6 @@
   "developr_swag": "开发者服装"
   "diseased": "病楠瓜"
   "distant_shores": "遥远海岸"
-  "feral_claws": "猛爪"
   "flamingo": "火烈鸟"
   "floral": "花衣"
   "forest_camo": "森林迷彩"
@@ -535,10 +537,14 @@
   "barrett_m95": "巴雷特九五式"
   "bdg_bot": "人机"
   "bdg_translatr": "译者"
+  "blueberry_smoothie": "蓝莓冰沙"
+  "fireball": "火球"
+  "hazmat": "防护服"
   "news_1731245400000_content": "欢迎加入我们的QQ群<a href=\"https://qm.qq.com/q/FtRydynYqY\" target=\"_blank\">227269266</a>！<br>\n                  也欢迎你来游玩我们的上海服<a href=\"http://124.223.18.68/\" target=\"_blank\">http://124.223.18.68/</a>！"
   "news_pinned": "置顶"
   "region_hk": "香港"
   "settings_brightness": "亮度"
+  "settings_chicken_dinner_picture": "烤鸡图片",
   "settings_colorful_bullets": "五彩缤纷的子弹"
   "settings_menu_music": "菜单音乐"
   "settings_menu_music_halloween": "山丘上的房子的秘密（万圣节模式）"
@@ -552,4 +558,7 @@
   "settings_menu_music_winter": "圣诞节主题（冬季模式）"
   "settings_saturate": "色度"
   "settings_self_deception_ping": "自欺欺人延迟"
+  "shapes": "形状"
+  "skibidi_toilet": "斯基比迪厕所"
+  "watermelon": "西瓜"
 }

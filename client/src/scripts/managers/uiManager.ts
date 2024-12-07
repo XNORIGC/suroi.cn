@@ -433,7 +433,7 @@ export class UIManager {
                     : getTranslatedString("msg_you_died"))
         );
 
-        gameOverScreen.css("background-image", packet.won ? "url(/img/misc/chicken-dinner.png)" : "none");
+        gameOverScreen.css("background-image", this.game.console.getBuiltInCVar("cv_chicken_dinner_picture") && packet.won ? "url(/img/misc/chicken-dinner.png)" : "none");
 
         gameOverPlayerName.html(playerName + playerBadgeText);
 

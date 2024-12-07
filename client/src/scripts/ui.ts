@@ -1521,6 +1521,8 @@ export async function setUpUI(game: Game): Promise<void> {
         element.checked = game.console.getBuiltInCVar("cv_weapon_slot_style") === "colored";
     }
 
+    addCheckboxListener("#toggle-chicken-dinner-picture", "cv_chicken_dinner_picture");
+
     // render mode select menu
     const renderSelect = $<HTMLSelectElement>("#render-mode-select")[0];
     renderSelect.addEventListener("input", () => {
