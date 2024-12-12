@@ -1,6 +1,6 @@
 # Translation File Reports
 
-This file is a report of all errors and missing keys in the translation files of this game. Last generated Sat, 07 Dec 2024 15:42:36 GMT
+This file is a report of all errors and missing keys in the translation files of this game. Last generated Thu, 12 Dec 2024 17:50:01 GMT
 
 ## 🇦🇱 <span lang="">Shqip</span> (84% Complete) - ab.hjson
 

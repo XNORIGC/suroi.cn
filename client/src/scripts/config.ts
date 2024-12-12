@@ -1,3 +1,4 @@
+
 import { type TeamSize } from "@common/constants";
 
 export const Config = {
@@ -7,7 +8,6 @@ export const Config = {
             mainAddress: "http://camvan.xyz:8000",
             gameAddress: "ws://camvan.xyz:800<ID>"
         }/*,
-        },
         na: {
             name: "North America",
             mainAddress: "https://na.suroi.io",
