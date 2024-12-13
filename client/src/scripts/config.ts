@@ -1,4 +1,3 @@
-
 import { type TeamSize } from "@common/constants";
 
 export const Config = {
@@ -7,7 +6,7 @@ export const Config = {
             name: "Hong Kong",
             mainAddress: "http://camvan.xyz:8000",
             gameAddress: "ws://camvan.xyz:800<ID>"
-        }/*,
+        }/* ,
         na: {
             name: "North America",
             mainAddress: "https://na.suroi.io",
@@ -27,7 +26,7 @@ export const Config = {
             name: "Asia",
             mainAddress: "https://as.suroi.io",
             gameAddress: "wss://<ID>.as.suroi.io"
-        }*/
+        } */
     },
     defaultRegion: "hk"
 } satisfies ConfigType as ConfigType;

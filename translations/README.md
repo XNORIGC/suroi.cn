@@ -1,6 +1,6 @@
 # Translation File Reports
 
-This file is a report of all errors and missing keys in the translation files of this game. Last generated Thu, 12 Dec 2024 17:50:01 GMT
+This file is a report of all errors and missing keys in the translation files of this game. Last generated Fri, 13 Dec 2024 02:24:14 GMT
 
 ## 🇦🇱 <span lang="">Shqip</span> (84% Complete) - ab.hjson
 
@@ -672,9 +672,12 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇨🇳 <span lang="zh-CN">中文（简体）</span> (100% Complete) - zh.hjson
+## 🇨🇳 <span lang="zh-CN">中文（简体）</span> (101% Complete) - zh.hjson
 
-### (No Invalid Keys)
+### Invalid Keys
+
+- Key `bdg_youtubr` is not a valid key
+- Key `bdg_boostr` is not a valid key
 
 ### (No Undefined Keys)
 
