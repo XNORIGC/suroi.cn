@@ -51,10 +51,16 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
         return [
             // Dev funny skins
             withRole([[["hasanger"]], ["Hasanger",      0x640000]]),
+            withRole([[["leia"]],     ["Leia",          0x6563d9]]),
             withRole([[["limenade"]], ["LimeNade",      0xffffff]]),
+            withRole([[["katie"]],    ["Katie",         0x7784f0]]),
             withRole([[["solstice"]], ["Dragonscale",   0x3f808d]]),
+            withRole([[["eipi"]],     ["eipi",          0x8040bf]]),
             withRole([[["error"]],    ["error",         0x1fc462]]),
+            withRole([[["kenos"]],    ["Kenos",         0x1fc462]]),
             withRole([[["pap"]],      ["pap",           0x00366b]]),
+            withRole([[["123op"]],    ["123OP",         0x0000ff]]),
+            withRole([[["radians"]],  ["Radians",       0xffe600]]),
 
             // Role skins
             withRole([[["developr", "pap", "error", "limenade"]],                ["Developr Swag", 0x007a7f]]),
@@ -99,7 +105,8 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
                 ["Bee",             0x4a4a4a],
                 ["Armadillo",       0xa68c5e],
                 ["Printer",         0xffffff],
-                ["Distant Shores",  0x7eca83]
+                ["Distant Shores",  0x7eca83],
+                ["Watermelon",      0xc02c2c]
             ] satisfies ReadonlyArray<readonly [string, number]>).map(([name, tint]) => skin([name, tint])),
             ...([
                 ["Lemon",                 0xebe092],
@@ -120,6 +127,8 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
                 ["no kil pls",            0x6b6b6b],
                 ["Stardust",              0x16448b],
                 ["Aurora",                0x1d2f58],
+                ["Blueberry Smoothie",   undefined],
+                ["Fireball",             undefined],
                 ["Nebula",                0x28a0b7],
                 ["1st Birthday",          0xed8080],
                 ["Lumberjack",            0x924a24],
@@ -131,7 +140,7 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
                 ["Sky",                   0x002121],
                 ["Diseased",              0x2d1f1f],
                 ["Deer Season",           0x9a3604]
-            ] satisfies ReadonlyArray<readonly [string, number]>).map(([name, tint]) => hidden([name, tint])),
+            ] satisfies ReadonlyArray<readonly [string, number | undefined]>).map(([name, tint]) => hidden([name, tint])),
             hidden(
                 ["Werewolf", 0x323232],
                 {
@@ -146,21 +155,7 @@ export const Skins = ObjectDefinitions.withDefault<SkinDefinition>()(
                     hideEquipment: true,
                     hideBlood: true
                 }
-            ),
-            ...([
-                ["123OP",                 0x000000],
-                ["Blueberry Smoothie",    0x000000],
-                ["eipi",                  0x000000],
-                ["Fireball",              0x000000],
-                ["Hazmat",                0x000000],
-                ["Katie",                 0x000000],
-                ["Kenos",                 0x000000],
-                ["Leia",                  0x000000],
-                ["Radians",               0x000000],
-                ["Shapes",                0x000000],
-                ["Skibidi Toilet",        0x000000],
-                ["Watermelon",            0x000000],
-            ] satisfies ReadonlyArray<readonly [string, number]>).map(([name, tint]) => hidden([name, tint]))
+            )
         ];
     }
 );

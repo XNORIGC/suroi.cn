@@ -1,5 +1,7 @@
 # Build
 dist/
+client/public/translations/
+translations/README.md
 
 # Node
 node_modules/

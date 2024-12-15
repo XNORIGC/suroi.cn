@@ -1935,9 +1935,9 @@ export async function setUpUI(game: Game): Promise<void> {
                     : getTranslatedString("health")
             });
 
-            const actualToolTip = healingItemString.split("<br> ");
+            const actualToolTip = healingItemString.split(/<br> ?/);
             const itemName = actualToolTip[0];
-            const itemDescription = actualToolTip[1]?.charAt(0).toUpperCase() + actualToolTip[1]?.slice(1);
+            const itemDescription = actualToolTip[1].charAt(0).toUpperCase() + actualToolTip[1].slice(1);
             healingItemString = `<b>${itemName}</b><br>${itemDescription}`;
 
             const ele = $<HTMLDivElement>(
