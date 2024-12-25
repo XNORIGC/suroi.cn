@@ -1491,7 +1491,7 @@ export async function setUpUI(game: Game): Promise<void> {
     // Menu music select menu
     const menuMusicSelect = $<HTMLSelectElement>("#menu-music-select")[0];
     menuMusicSelect.addEventListener("input", () => {
-        game.console.setBuiltInCVar("cv_menu_music", menuMusicSelect.value as unknown as "main" | "old" | "halloween" | "winter" | "speaker" | "main_full", "survivio", "survivio_halloween", "random");
+        game.console.setBuiltInCVar("cv_menu_music", menuMusicSelect.value as unknown as "follow_the_mode" | "main" | "old" | "halloween" | "winter" | "speaker" | "main_full", "survivio", "survivio_halloween", "random");
     });
     menuMusicSelect.value = game.console.getBuiltInCVar("cv_menu_music");
 

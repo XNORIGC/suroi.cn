@@ -261,10 +261,13 @@ export class Game {
             survivio_halloween: "./audio/music/menu_music_02.mp3"
         };
 
-        const selectedMenuMusic = game.console.getBuiltInCVar("cv_menu_music");
+        const selectedMenuMusic = game.console.getBuiltInCVar("cv_menu_music")
 
         game.music = sound.add("menu_music", {
-            url: selectedMenuMusic === "random" ? pickRandomInArray(Object.values(menuMusic)) : menuMusic[selectedMenuMusic],
+            url: ({
+                follow_the_mode: `./audio/music/menu_music${MODE.specialMenuMusic ? GameConstants.modeName : ""}.mp3`,
+                random: pickRandomInArray(Object.values(menuMusic))
+            })[selectedMenuMusic] ?? menuMusic[selectedMenuMusic],
             singleInstance: true,
             preload: true,
             autoPlay: true,

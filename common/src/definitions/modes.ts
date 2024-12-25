@@ -41,7 +41,7 @@ export const Modes: Record<Mode | "shared", ModeDefinition> = {
             gas: "hsla(17, 100%, 50%, 0.55)",
             void: "hsl(25, 80%, 6%)"
         },
-        inheritTexturesFrom: "halloween",
+        inheritTexturesFrom: "fall",
         reskin: "normal"
     },
     fall: {
@@ -56,7 +56,7 @@ export const Modes: Record<Mode | "shared", ModeDefinition> = {
             gas: "hsla(17, 100%, 50%, 0.55)",
             void: "hsl(25, 80%, 6%)"
         },
-        inheritTexturesFrom: "shared",
+        inheritTexturesFrom: "halloween",
         ambience: "wind_ambience",
         defaultScope: "2x_scope",
         reskin: "fall",
@@ -100,6 +100,7 @@ export const Modes: Record<Mode | "shared", ModeDefinition> = {
             gas: "hsla(17, 100%, 50%, 0.55)",
             void: "hsl(25, 80%, 6%)"
         },
+        inheritTexturesFrom: "normal",
         specialMenuMusic: true,
         specialSounds: [
             "airdrop_plane"
@@ -117,11 +118,9 @@ export const Modes: Record<Mode | "shared", ModeDefinition> = {
         modeLogoImage: "./img/game/winter/obstacles/red_gift.svg"
     },
     birthday: {
-        inheritTexturesFrom: "winter"
+        inheritTexturesFrom: "shared"
     },
-    shared: {
-        inheritTexturesFrom: "normal"
-    }
+    shared: {}
 };
 export const ObstacleModeVariations: Partial<Record<Mode, string>> = {
     winter: "_winter"
