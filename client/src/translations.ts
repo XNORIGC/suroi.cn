@@ -1,5 +1,4 @@
 import { Badges } from "@common/definitions/badges";
-import { Emotes } from "@common/definitions/emotes";
 import { Loots } from "@common/definitions/loots";
 import { news } from "./scripts/news/newsPosts";
 import { type NewsPost } from "./scripts/news/newsHelper";
@@ -9,6 +8,7 @@ import { type Game } from "./scripts/game";
 import { defaultClientCVars } from "./scripts/utils/console/defaultClientCVars";
 import TRANSLATIONS_MANIFEST from "./translationsManifest.json";
 import { type TranslationKeys } from "./typings/translations";
+import { Emotes } from "@common/definitions/emotes";
 
 export type TranslationMap = Partial<Record<TranslationKeys, string>> & TranslationManifest;
 
@@ -29,7 +29,7 @@ export const TRANSLATIONS: {
     translations: {
         hp18: {
             name: "HP-18",
-            flag: "<img height=\"20\" src=\"./img/killfeed/hp18_killfeed.svg\" />",
+            flag: "<img height=\"20\" src=\"./img/game/shared/weapons/hp18.svg\" />",
             percentage: "HP-18%"
         }
     }
@@ -87,6 +87,10 @@ export function getTranslatedString(key: TranslationKeys, replacements?: Record<
     // Easter egg language
     if (selectedLanguage === "hp18") return "HP-18";
 
+    if (key.startsWith("badge_")) {
+        key = Badges.reify(key.slice("badge_".length)).idString.replace("bdg_", "badge_") as TranslationKeys;
+    }
+
     let foundTranslation: string;
     try {
         foundTranslation = TRANSLATIONS.translations[selectedLanguage]?.[key]
@@ -96,10 +100,15 @@ export function getTranslatedString(key: TranslationKeys, replacements?: Record<
         ?? Loots.reify(key)).name
     } catch {
         if (key.startsWith("news_")) {
-            foundTranslation = news.filter(post => post.date === +key.split("_")[1])[0][key.split("_")[2] as keyof NewsPost];
-        } else {
-            return key;
+            return news.filter(post => post.date === +key.split("_")[1])[0][key.split("_")[2] as keyof NewsPost];
         }
+        if (key.startsWith("emote_")) {
+            return Emotes.reify(key.slice("emote_".length)).name as TranslationKeys;
+        }
+        if (key.startsWith("badge_")) {
+            return Badges.reify(`bdg_${key.slice("badge_".length)}`).name as TranslationKeys;
+        }
+        return key;
     }
 
     for (const [search, replace] of Object.entries(replacements ?? {})) {

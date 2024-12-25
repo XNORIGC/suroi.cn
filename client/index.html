@@ -357,6 +357,14 @@
         </div>-->
       </div>
       <div>
+      <!-- Language stuff -->
+      <div id="language-dropdown" class="dropdown">
+        <button class="btn btn-darken btn-secondary" id="btn-language">
+          <specialI class="fa-solid fa-globe"></specialI>
+          <txt translation="languages"></txt>
+          <i class="fa-solid fa-caret-down"></i></button>
+        <div id="languages-selector" class="dropdown-content persistent-scrollbar"></div>
+      </div>
         <div id="splash-backlinks">
           <a href="./changelog/" target="_blank" rel="noopener noreferrer"
             >v%VITE_APP_VERSION%</a
@@ -366,13 +374,6 @@
           <button class="btn btn-primary btn-donate" style="width: auto; height:auto;" onclick="window.open('https://ko-fi.com/suroi')">
             <i class="fa-solid fa-heart"></i>
             <span translation="donate"></span>
-          </button>
-          <button
-            class="btn btn-darken btn-secondary"
-            id="btn-language"
-            style="margin-left:7px;"
-          >
-            <i class="fa-solid fa-earth-americas"></i>
           </button>
           <button
             style="display: none"
@@ -415,7 +416,8 @@
             <div id="debug-hud">
               <div id="fps-counter"></div>
               <div id="ping-counter"></div>
-              <div id="coordinates-hud"></div>
+              <!-- The placeholder text is needed -->
+              <div id="coordinates-hud">X: -- Y: -- Z: --</div>
             </div>
           </div>
           <div id="spectating-container">
@@ -678,12 +680,12 @@
   </div>
   <div class="modal dialog" id="warning-modal" style="display: none">
     <div id="warning-modal-content">
-      <h1 style="color: red; text-align: center; margin-top: 0" id="warning-modal-title"></h1>
+      <h1 id="warning-modal-title"></h1>
       <p id="warning-modal-text"></p>
       <div id="warning-modal-agree-options" style="display: none">
-        <br>
+        <br><br>
         <input type="checkbox" class="regular-checkbox" id="warning-modal-agree-checkbox">
-        <label for="warning-modal-agree-checkbox">I acknowledge this warning and will not repeat the offense.</label>
+        <label for="warning-modal-agree-checkbox" translation="msg_punishment_warn_agreement"></label>
         <br><br>
         <button class="btn btn-lg btn-darken btn-primary btn-disabled" id="warning-btn-play-solo" style="width: 100%"><strong>Continue</strong></button>
       </div>
@@ -699,7 +701,7 @@
         <button class="tab active" id="tab-volume"><i class="fa-solid fa-volume-high"></i><span translation="settings_volume"></span></button>
         <button class="tab" id="tab-keybinds"><i class="fa-solid fa-keyboard"></i><span translation="settings_keybinds"></span></button>
         <button class="tab" id="tab-graphics"><i class="fa-solid fa-display"></i><span translation="settings_graphics"></span></button>
-        <button class="tab" id="tab-interface"><i class="fa-solid fa-list"></i><span translation="settings_interface"></span></button>
+        <button class="tab" id="tab-interface"><i class="fa-solid fa-list"></i><span translation="settings_interface" use-html></span></button>
         <button class="tab" id="tab-import-export"><i class="fa-solid fa-file-export"></i><span translation="settings_save_load"></span></button>
         <button class="tab" id="tab-mobile"><i class="fa-solid fa-mobile"></i><span translation="settings_mobile"></span></button>
       </div>

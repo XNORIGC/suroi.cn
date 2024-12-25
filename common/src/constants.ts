@@ -7,7 +7,7 @@ import { freezeDeep } from "./utils/misc";
 import { ItemType } from "./utils/objectDefinitions";
 
 export const enum Constants {
-    MAX_POSITION = 1924,
+    MAX_POSITION = 2400,
     MIN_OBJECT_SCALE = 0.15,
     MAX_OBJECT_SCALE = 3,
     PLAYER_NAME_MAX_LENGTH = 256
@@ -43,10 +43,10 @@ const inventorySlotTypings = Object.freeze([ItemType.Gun, ItemType.Gun, ItemType
 export const GameConstants = freezeDeep({
     // !!!!! NOTE: Increase this every time a bit stream change is made between latest release and master
     // or a new item is added to a definition list
-    protocolVersion: 38,
+    protocolVersion: 40,
     gridSize: 32,
     maxPosition: Constants.MAX_POSITION,
-    modeName: "winter" satisfies Mode as Mode,
+    modeName: "fall" satisfies Mode as Mode,
     player: {
         radius: 2.25,
         baseSpeed: 0.02655,

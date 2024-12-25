@@ -148,27 +148,18 @@ export async function setUpUI(game: Game): Promise<void> {
         }
     }
 
-    const languageMenu = $("#select-language-menu");
-    $("#btn-language").on("click", () => {
-        languageMenu.css("display", "");
-    });
-
-    $("#close-select-language").on("click", () => {
-        $("#select-language-menu").css("display", "none");
-    });
-
-    const languageFieldset = $("#select-language-container fieldset");
+    const languageFieldset = $("#languages-selector");
     for (const [language, languageInfo] of Object.entries(TRANSLATIONS.translations)) {
-      languageFieldset.append(html`
-          <div>
-            <input type="radio" name="selected-language" id="language-${language}" value="${language}">
-            <label for="language-${language}">${languageInfo.flag} <span lang="${languageInfo.html_lang}">${languageInfo.name}</span> (${languageInfo.percentage})</label>
-          </div>
-      `);
+        const isSelected = game.console.getBuiltInCVar("cv_language") === language;
+        languageFieldset.append(html`
+           <a id="language-${language}" ${isSelected ? 'class="selected"' : ""}>
+              ${languageInfo.flag} <strong lang="${languageInfo.html_lang}">${languageInfo.name}</strong> [${!isSelected ? TRANSLATIONS.translations[language].percentage : languageInfo.percentage}]
+           </a>
+        `);
 
-      $<HTMLInputElement>(`#language-${language}`).on("click", () => {
-          game.console.setBuiltInCVar("cv_language", language);
-      }).prop("checked", game.console.getBuiltInCVar("cv_language") === language);
+      $(`#language-${language}`).on("click", () => {
+        game.console.setBuiltInCVar("cv_language", language);
+    });
     }
 
     game.console.variables.addChangeListener("cv_language", () => location.reload());
@@ -205,6 +196,7 @@ export async function setUpUI(game: Game): Promise<void> {
     ui.newsPosts.html(newsText);
 
     // createDropdown("#splash-more");
+    createDropdown("#language-dropdown");
 
     ui.lockedInfo.on("click", () => ui.lockedTooltip.fadeToggle(250));
 
@@ -381,7 +373,7 @@ export async function setUpUI(game: Game): Promise<void> {
                         const message = getTranslatedString(`msg_punishment_${data.message}_reason`, { reason: data.reason ?? getTranslatedString("msg_no_reason") });
 
                         ui.warningTitle.text(getTranslatedString(`msg_punishment_${data.message}`));
-                        ui.warningText.html(`${data.message !== "vpn" ? `<span style="font-size:20px;margin-bottom:10px">Case ID: ${reportID}</span><br>` : ""}${message}`);
+                        ui.warningText.html(`${data.message !== "vpn" ? `<span class="case-id">Case ID: ${reportID}</span><br><br><br>` : ""}${message}`);
                         ui.warningAgreeOpts.toggle(data.message === "warn");
                         ui.warningAgreeCheckbox.prop("checked", false);
                         ui.warningModal.show();
@@ -517,7 +509,7 @@ export async function setUpUI(game: Game): Promise<void> {
                                     </div>
                                     <div class="create-team-player-name-container">
                                         <span class="create-team-player-name"${nameColor ? ` style="color: ${new Color(nameColor).toHex()}"` : ""};>${name}</span>
-                                        ${badge ? `<img class="create-team-player-badge" draggable="false" src="./img/game/shared/badges/${badge}.svg" />` : ""}
+                                        ${![undefined, "bdg_"].includes(badge) ? `<img class="create-team-player-badge" draggable="false" src="./img/game/shared/badges/${badge}.svg" />` : ""}
                                     </div>
                                 </div>
                                 `
@@ -793,7 +785,7 @@ export async function setUpUI(game: Game): Promise<void> {
     ];
     const streamer = pickRandomInArray(streamers);
     $("#twitch-featured-name").text(streamer.name);
-    $("#twitch-featured-content").attr("data-href", streamer.link).removeAttr("target");
+    $("#twitch-featured-content").attr("href", streamer.link).removeAttr("target");
 
     const toggleRotateMessage = (): JQuery =>
         $("#splash-rotate-message").toggle(
@@ -1395,6 +1387,12 @@ export async function setUpUI(game: Game): Promise<void> {
         loadCrosshair
     );
 
+    const toggleClass = (elem: JQuery, className: string, bool: boolean): void => {
+        if (bool) {
+            elem.addClass(className);
+        } else elem.removeClass(className);
+    };
+
     const crosshairColor = $<HTMLInputElement>("#crosshair-color-picker");
 
     crosshairColor.on("input", function() {
@@ -1504,12 +1502,13 @@ export async function setUpUI(game: Game): Promise<void> {
     for (const prop of ["fps", "ping", "pos"] as const) {
         const debugReadout = game.uiManager.debugReadouts[prop];
 
-        debugReadout.toggle(game.console.getBuiltInCVar(`pf_show_${prop}`));
+        // toggleClass is sadly depreciated.
+        toggleClass(debugReadout, "hidden-prop", !game.console.getBuiltInCVar(`pf_show_${prop}`));
 
         addCheckboxListener(
             `#toggle-${prop}`,
             `pf_show_${prop}`,
-            value => debugReadout.toggle(value)
+            value => toggleClass(debugReadout, "hidden-prop", !value)
         );
     }
 
@@ -1927,25 +1926,18 @@ export async function setUpUI(game: Game): Promise<void> {
 
     $<HTMLDivElement>("#healing-items-container").append(
         HealingItems.definitions.map(item => {
-            let healingItemString = getTranslatedString("tt_restores", {
-                item: `${getTranslatedString(item.idString as TranslationKeys)}<br>`,
-                amount: item.restoreAmount.toString(),
-                type: item.healType === HealType.Adrenaline
-                    ? getTranslatedString("adrenaline")
-                    : getTranslatedString("health")
-            });
-
-            const actualToolTip = healingItemString.split(/<br> ?/);
-            const itemName = actualToolTip[0];
-            const itemDescription = actualToolTip[1].charAt(0).toUpperCase() + actualToolTip[1].slice(1);
-            healingItemString = `<b>${itemName}</b><br>${itemDescription}`;
-
             const ele = $<HTMLDivElement>(
                 html`<div class="inventory-slot item-slot active" id="${item.idString}-slot">
                     <img class="item-image" src="./img/game/shared/loot/${item.idString}.svg" draggable="false">
                     <span class="item-count" id="${item.idString}-count">0</span>
                     <div class="item-tooltip">
-                        ${healingItemString}
+                        ${getTranslatedString("tt_restores", {
+                            item: `<b>${getTranslatedString(item.idString as TranslationKeys)}</b><br>`,
+                            amount: item.restoreAmount.toString(),
+                            type: item.healType === HealType.Adrenaline
+                                ? getTranslatedString("adrenaline")
+                                : getTranslatedString("health")
+                        })}
                     </div>
                 </div>`
             );

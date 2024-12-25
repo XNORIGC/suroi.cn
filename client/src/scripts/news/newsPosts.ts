@@ -65,7 +65,7 @@ export const news: NewsPost[] = [
     {
         date: 1731245400000,
         author: "XNOR",
-        title: "Ciallo～(∠・ω< )⌒★",
+        title: "Ciallo～(∠・ω< )⌒☆",
         content: `Welcome to join our QQ group <a href="https://qm.qq.com/q/FtRydynYqY" target="_blank">227269266</a>!<br>
                   We also welcome you to play our Shanghai server <a href="http://124.223.18.68/" target="_blank">http://124.223.18.68/</a>!`,
         pinned: true
