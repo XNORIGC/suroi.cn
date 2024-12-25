@@ -3,10 +3,7 @@ import { type Vector } from "@common/utils/vector";
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
-import { TeleportPlugin } from "./defaultPlugins/teleportPlugin";
 import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
-//import { BarrelObstaclesPlugin } from "./plugins/barrelObstaclesPlugin";
-//import { PlaceObjectPlugin } from "./defaultPlugins/placeObjectPlugin";
 
 export const enum SpawnMode {
     Normal,
@@ -24,13 +21,13 @@ export const Config = {
     host: "0.0.0.0",
     port: 8000,
 
-    map: "fall",
+    map: "winter",
 
     spawn: { mode: SpawnMode.Normal },
 
     maxTeamSize: TeamSize.Solo,
 
-    maxPlayersPerGame: 70,
+    maxPlayersPerGame: 80,
     maxGames: 1,
     gameJoinTime: 60,
 
@@ -38,9 +35,9 @@ export const Config = {
 
     tps: 40,
 
-    plugins: [TeleportPlugin, InfiniteThrowablesPlugin],
+    plugins: [InfiniteThrowablesPlugin],
 
-    roles: {
+    roles: {/*
         developr: { password: "developr", isDev: true },
         designr: { password: "designr" },
         lead_designr: { password: "lead_designr" },
@@ -53,13 +50,13 @@ export const Config = {
         content_creatr: { password: "content_creatr" },
         donatr: { password: "donatr" },
 
-        xnor: { password: "meowmeow", isDev: true },
+        */ xnor: { password: "meowmeow", isDev: true } /*,
         hasanger: { password: "hasanger", isDev: true },
         pap: { password: "pap", isDev: true },
         error: { password: "error", isDev: true },
         limenade: { password: "limenade", isDev: true },
         solstice: { password: "solstice", isDev: true }
-    },
+    */},
 
     authServer: {
         address: "http://localhost:8080"
