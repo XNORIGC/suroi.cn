@@ -1,6 +1,6 @@
 # Translation File Reports
 
-This file is a report of all errors and missing keys in the translation files of this game. Last generated Wed, 25 Dec 2024 15:40:12 GMT
+This file is a report of all errors and missing keys in the translation files of this game. Last generated Fri, 27 Dec 2024 18:53:59 GMT
 
 ## 🇦🇱 <span lang="">Shqip</span> (86% Complete) - ab.hjson
 
@@ -32,6 +32,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `themselves` is not defined
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -51,6 +53,8 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -64,7 +68,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇨🇿 <span lang="">Čeština</span> (90% Complete) - cz.hjson
+## 🇨🇿 <span lang="">Čeština</span> (89% Complete) - cz.hjson
 
 ### (No Invalid Keys)
 
@@ -84,6 +88,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -97,7 +103,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇩🇪 <span lang="">Deutsch</span> (82% Complete) - de.hjson
+## 🇩🇪 <span lang="">Deutsch</span> (81% Complete) - de.hjson
 
 ### (No Invalid Keys)
 
@@ -139,6 +145,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `region_eu` is not defined
 - Key `region_sa` is not defined
 - Key `region_as` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -152,13 +160,15 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇪🇪 <span lang="">Eesti</span> (95% Complete) - et.hjson
+## 🇪🇪 <span lang="">Eesti</span> (94% Complete) - et.hjson
 
 ### (No Invalid Keys)
 
 ### Undefined Keys
 
 - Key `msg_punishment_warn_agreement` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -172,13 +182,15 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇫🇷 <span lang="">Français</span> (95% Complete) - fr.hjson
+## 🇫🇷 <span lang="">Français</span> (94% Complete) - fr.hjson
 
 ### (No Invalid Keys)
 
 ### Undefined Keys
 
 - Key `msg_punishment_warn_agreement` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -198,6 +210,8 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -211,7 +225,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇭🇰 🇲🇴 <span lang="">廣東話(香港/澳門)</span> (89% Complete) - hk_mo.hjson
+## 🇭🇰 🇲🇴 <span lang="">廣東話(香港/澳門)</span> (88% Complete) - hk_mo.hjson
 
 ### (No Invalid Keys)
 
@@ -235,6 +249,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_finished_off_kill` is not defined
 - Key `kf_finished_off_down` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -254,6 +270,8 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -267,7 +285,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇯🇵 <span lang="">日本語</span> (90% Complete) - jp.hjson
+## 🇯🇵 <span lang="">日本語</span> (89% Complete) - jp.hjson
 
 ### (No Invalid Keys)
 
@@ -287,6 +305,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -300,7 +320,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇱🇹 <span lang="">Lietuvių</span> (90% Complete) - lt.hjson
+## 🇱🇹 <span lang="">Lietuvių</span> (89% Complete) - lt.hjson
 
 ### (No Invalid Keys)
 
@@ -320,6 +340,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -333,7 +355,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇱🇻 <span lang="">Latviešu</span> (90% Complete) - lv.hjson
+## 🇱🇻 <span lang="">Latviešu</span> (89% Complete) - lv.hjson
 
 ### (No Invalid Keys)
 
@@ -353,6 +375,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -366,13 +390,15 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇵🇱 <span lang="">Polski</span> (95% Complete) - pl.hjson
+## 🇵🇱 <span lang="">Polski</span> (94% Complete) - pl.hjson
 
 ### (No Invalid Keys)
 
 ### Undefined Keys
 
 - Key `msg_punishment_warn_agreement` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -386,7 +412,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🎀 <span lang="">Cute Engwish</span> (89% Complete) - qen.hjson
+## 🎀 <span lang="">Cute Engwish</span> (88% Complete) - qen.hjson
 
 ### Invalid Keys
 
@@ -413,6 +439,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -426,7 +454,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇷🇴 <span lang="">Română</span> (84% Complete) - ro.hjson
+## 🇷🇴 <span lang="">Română</span> (83% Complete) - ro.hjson
 
 ### (No Invalid Keys)
 
@@ -462,6 +490,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `themselves` is not defined
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -481,6 +511,8 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -516,6 +548,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -535,6 +569,8 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -548,7 +584,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇹🇼 <span lang="">中文（繁體）</span> (83% Complete) - tw.hjson
+## 🇹🇼 <span lang="">中文（繁體）</span> (82% Complete) - tw.hjson
 
 ### (No Invalid Keys)
 
@@ -587,6 +623,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `themselves` is not defined
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined
@@ -600,7 +638,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `username_input_placeholder` is not defined
 - Key `settings_chicken_dinner_picture` is not defined
 
-## 🇻🇳 <span lang="">Tiếng Việt</span> (95% Complete) - vi.hjson
+## 🇻🇳 <span lang="">Tiếng Việt</span> (94% Complete) - vi.hjson
 
 ### (No Invalid Keys)
 
@@ -608,6 +646,8 @@ This file is a report of all errors and missing keys in the translation files of
 
 - Key `msg_punishment_warn_agreement` is not defined
 - Key `settings_ambient_particles` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
 - Key `special_developer_cheats` is not defined
 - Key `special_login` is not defined
 - Key `special_name_color` is not defined

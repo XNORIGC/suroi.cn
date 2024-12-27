@@ -318,8 +318,10 @@
   "developr_vest": "Developr Vest"
   "feral_claws": "Feral Claws"
 
+  "fps": "<frames> fps"
   "html_lang": "en"
   "msg_lost_connection": "Connection lost."
+  "ping": "<time> ms"
   "special_developer_cheats": "Developer Cheats"
   "special_login": "Login"
   "special_name_color": "Name Color:"

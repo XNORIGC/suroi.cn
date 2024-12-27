@@ -81,248 +81,6 @@ export type ObstacleClump = {
 };
 
 const maps = {
-    "0": {
-        width: 1100,
-        height: 1100,
-        oceanSize: 128,
-        beachSize: 32,
-        rivers: {
-            minAmount: 1,
-            maxAmount: 1,
-            maxWideAmount: 1,
-            wideChance: 0.35,
-            minWidth: 12,
-            maxWidth: 18,
-            minWideWidth: 25,
-            maxWideWidth: 30
-        },
-        majorBuildings: ["armory", "port_complex", "refinery"],
-        buildings: {
-            large_bridge: 1,
-            small_bridge: Infinity,
-            port_complex: 1,
-            sea_traffic_control: 1,
-            tugboat_red: 1,
-            tugboat_white: 1,
-            armory: 1,
-            refinery: 1,
-            warehouse: 1,
-            firework_warehouse: 1, // birthday mode
-            green_house: 1,
-            red_house: 1,
-            construction_site: 1,
-            mobile_home: 1,
-            porta_potty: 1,
-            container_3: 1,
-            container_4: 1,
-            container_5: 1,
-            container_6: 1,
-            container_7: 1,
-            container_8: 1,
-            container_9: 1,
-            container_10: 1
-        },
-        obstacles: {
-            oil_tank: 1,
-            christmas_tree: 1, // winter mode
-            oak_tree: 1,
-            birch_tree: 1,
-            pine_tree: 1,
-            regular_crate: 300,
-            flint_crate: 50,
-            aegis_crate: 50,
-            grenade_crate: 100,
-            rock: 1,
-            river_chest: 1,
-            river_rock: 1,
-            bush: 1,
-            birthday_cake: 1, // birthday mode
-            lily_pad: 1,
-            blueberry_bush: 1,
-            barrel: 900,
-            viking_chest: 1,
-            super_barrel: 100,
-            melee_crate: 1,
-            gold_rock: 1,
-            loot_tree: 1,
-            loot_barrel: 1,
-            flint_stone: 10,
-            gun_mount_maul: 10
-        },
-        obstacleClumps: [
-            {
-                clumpAmount: 1,
-                clump: {
-                    minAmount: 1,
-                    maxAmount: 1,
-                    jitter: 1,
-                    obstacles: ["oak_tree"],
-                    radius: 1
-                }
-            },
-            {
-                clumpAmount: 1,
-                clump: {
-                    minAmount: 1,
-                    maxAmount: 1,
-                    jitter: 1,
-                    obstacles: ["birch_tree"],
-                    radius: 1
-                }
-            },
-            {
-                clumpAmount: 1,
-                clump: {
-                    minAmount: 1,
-                    maxAmount: 1,
-                    jitter: 1,
-                    obstacles: ["pine_tree"],
-                    radius: 1
-                }
-            }
-        ],
-        loots: {
-            ground_loot: 1
-        },
-        places: [
-            { name: "心", position: Vec.create(0.5, 0.5) },
-            { name: "蕉", position: Vec.create(0.23, 0.2) },
-            { name: "击", position: Vec.create(0.23, 0.8) },
-            { name: "地", position: Vec.create(0.75, 0.2) },
-            { name: "谷", position: Vec.create(0.72, 0.8) },
-            { name: "山", position: Vec.create(0.5, 0.35) },
-            { name: "林", position: Vec.create(0.5, 0.65) }
-        ]
-    },
-    "1": {
-        width: 500,
-        height: 500,
-        oceanSize: 8,
-        beachSize: 8,
-        obstacles: {
-            regular_crate: 1000,
-            aegis_crate: 40,
-            flint_crate: 40,
-            flint_stone: 20,
-            loot_barrel: 200,
-            gun_mount_maul: 10
-        },
-        onGenerate(map) {
-        }
-    },
-    //awa
-    knyuzhouzuishuai: {
-        width: 1145,
-        height: 1145,
-        oceanSize: 64,
-        beachSize: 32,
-        rivers: {
-            minAmount: 1,
-            maxAmount: 4,
-            maxWideAmount: 1,
-            wideChance: 0.1,
-            minWidth: 10,
-            maxWidth: 20,
-            minWideWidth: 21,
-            maxWideWidth: 36
-        },
-        majorBuildings: ["armory", "port_complex", "refinery"],
-        buildings: {
-            large_bridge: 2,
-            small_bridge: Infinity,
-            port_complex: 1,
-            sea_traffic_control: 2,
-            tugboat_red: 1,
-            tugboat_white: 5,
-            armory: 2,
-            refinery: 1,
-            warehouse: 5,
-            firework_warehouse: 1, // birthday mode
-            green_house: 3,
-            red_house: 5,
-            construction_site: 1,
-            mobile_home: 9,
-            porta_potty: 12,
-            container_3: 2,
-            container_4: 2,
-            container_5: 2,
-            container_6: 2,
-            container_7: 3,
-            container_8: 2,
-            container_9: 2,
-            container_10: 2
-        },
-        obstacles: {
-            oil_tank: 11,
-            christmas_tree: 3, // winter mode
-            oak_tree: 100,
-            birch_tree: 20,
-            pine_tree: 10,
-            regular_crate: 160,
-            flint_crate: 25,
-            aegis_crate: 15,
-            grenade_crate: 35,
-            rock: 100,
-            river_chest: 2,
-            river_rock: 39,
-            bush: 100,
-            birthday_cake: 25, // birthday mode
-            lily_pad: 20,
-            blueberry_bush: 30,
-            barrel: 80,
-            viking_chest: 2,
-            super_barrel: 60,
-            melee_crate: 2,
-            gold_rock: 2,
-            loot_tree: 3,
-            loot_barrel: 3,
-            flint_stone: 3,
-            pumpkin: 75
-            },
-        obstacleClumps: [
-           {
-                clumpAmount: 100,
-                clump: {
-                    minAmount: 2,
-                    maxAmount: 3,
-                    jitter: 5,
-                    obstacles: ["oak_tree"],
-                    radius: 12
-                }
-            },
-            {
-                clumpAmount: 25,
-                clump: {
-                    minAmount: 2,
-                    maxAmount: 3,
-                    jitter: 5,
-                    obstacles: ["birch_tree"],
-                    radius: 12
-                }
-            },
-            {
-                clumpAmount: 4,
-                clump: {
-                    minAmount: 2,
-                    maxAmount: 3,
-                    jitter: 5,
-                    obstacles: ["pine_tree"],
-                    radius: 12
-                }
-            }
-        ],
-        loots: {
-            ground_loot: 70
-        },
-        places: [
-            { name: "1+1=3", position: Vec.create(0.22, 0.2) },
-            { name: "Kastname", position: Vec.create(0.29, 0.78) },
-            { name: "QQqun314460357", position: Vec.create(0.75, 0.3) },
-            { name: "I HATE IGWROI", position: Vec.create(0.62, 0.52) },
-            { name: "HELLO:)", position: Vec.create(0.5, 0.35) },
-            { name: "Aminuosi", position: Vec.create(0.3, 0.65) }
-        ]
-    },
     normal: {
         width: 1632,
         height: 1632,
@@ -449,8 +207,8 @@ const maps = {
         ]
     },
     fall: {
-        width: 2221,
-        height: 2221,
+        width: 1924,
+        height: 1924,
         oceanSize: 128,
         beachSize: 32,
         rivers: {
@@ -513,16 +271,9 @@ const maps = {
             tent_3: 3,
             tent_4: 3,
             tent_5: 1,
-            outhouse: 10,
-            port_complex: 1,
-            armory: 1,
-            headquarters: 1,
-            small_bunker: 1,
-            refinery: 1,
-            firework_warehouse: 1,
-            construction_site: 1
+            outhouse: 10
         },
-        majorBuildings: ["bombed_armory", "lodge", "plumpkin_bunker", "armory", "refinery", "port_complex", "headquarters"],
+        majorBuildings: ["bombed_armory", "lodge", "plumpkin_bunker"],
         quadBuildingLimit: {
             barn: 1,
             outhouse: 3,
@@ -566,10 +317,7 @@ const maps = {
             flint_stone: 1,
             pumpkin: 200,
             large_pumpkin: 5,
-            pebble: 110,
-            filing_cabinet: 20,
-            christmas_tree: 1,
-            birthday_cake: 10
+            pebble: 110
         },
         obstacleClumps: [
             {
@@ -1005,7 +753,7 @@ const maps = {
                         || (item.itemType === ItemType.Backpack && item.level === 0)
                         || (item.itemType === ItemType.Perk && item.category === PerkCategories.Halloween)
                         || item.itemType === ItemType.Skin
-                        // || item.devItem
+                        || item.devItem
                     ) continue;
 
                     game.addLoot(item, itemPos, 0, { count: countMap[item.itemType] ?? 1, pushVel: 0, jitterSpawn: false });

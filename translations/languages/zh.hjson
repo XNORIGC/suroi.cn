@@ -518,8 +518,10 @@
   "werewolf": "狼人"
   "zebra": "斑马"
 
+  "fps": "<frames>帧每秒"
   "html_lang": "zh-CN"
   "msg_lost_connection": "连接已丢失。"
+  "ping": "<time>毫秒"
   "special_developer_cheats": "开发者作弊"
   "special_login": "登录"
   "special_name_color": "昵称颜色："

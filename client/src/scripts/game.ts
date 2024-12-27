@@ -24,7 +24,7 @@ import { Timeout } from "@common/utils/misc";
 import { ItemType, ObstacleSpecialRoles } from "@common/utils/objectDefinitions";
 import { ObjectPool } from "@common/utils/objectPool";
 import { type ObjectsNetData } from "@common/utils/objectsSerializations";
-import { randomFloat, randomVector } from "@common/utils/random";
+import { pickRandomInArray, randomFloat, randomVector } from "@common/utils/random";
 import { Vec, type Vector } from "@common/utils/vector";
 import { sound, type Sound } from "@pixi/sound";
 import $ from "jquery";
@@ -234,7 +234,11 @@ export class Game {
 
             setInterval(() => {
                 if (game.console.getBuiltInCVar("pf_show_fps")) {
-                    game.uiManager.debugReadouts.fps.text(`${Math.round(game.pixi.ticker.FPS)} fps`);
+                    game.uiManager.debugReadouts.fps.text(
+                        getTranslatedString("fps", {
+                            frames: Math.round(game.pixi.ticker.FPS)
+                        })
+                    );
                 }
             }, 500);
         };
@@ -441,7 +445,12 @@ export class Game {
                 this.uiManager.processKillFeedPacket(packet.output);
                 break;
             case packet instanceof PingPacket: {
-                this.uiManager.debugReadouts.ping.text(`${this.console.getBuiltInCVar("pf_self_deception_ping") ? 30 : Date.now() - this.lastPingDate} ms`);
+                this.uiManager.debugReadouts.ping.text(
+                    getTranslatedString("ping", {
+                        time: this.console.getBuiltInCVar("pf_self_deception_ping")
+                        ? 30 : Date.now() - this.lastPingDate
+                    })
+                );
                 setTimeout((): void => {
                     this.sendPacket(PingPacket.create());
                     this.lastPingDate = Date.now();

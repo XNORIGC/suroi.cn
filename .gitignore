@@ -1,11 +1,15 @@
 # Build
 dist/
 .spritesheet-cache
+
+# Roles
+server/src/config.ts
+
+# Translations
 client/public/translations/
 client/src/translationsManifest.json
 client/src/typings/translations.ts
 translations/README.md
-server/src/config.ts
 
 # Node
 node_modules/

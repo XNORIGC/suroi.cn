@@ -6,8 +6,8 @@ export interface BadgeDefinition extends ObjectDefinition {
 
 const badge = createTemplate<BadgeDefinition>()((name: string, roles: string[] = []) => ({
     idString: `bdg_${name.toLowerCase().replace(/ /g, "_")}`,
-    name,
-    // roles
+    name/* ,
+    roles */
 }));
 
 export const Badges = ObjectDefinitions.create<BadgeDefinition>("Badges", [
@@ -37,5 +37,5 @@ export const Badges = ObjectDefinitions.create<BadgeDefinition>("Badges", [
     badge(["Suroi Logo"]),
     badge(["Fire"]),
     badge(["Colon Three"]),
-    badge(["Suroi General Chat"]),
+    badge(["Suroi General Chat"])
 ]);
