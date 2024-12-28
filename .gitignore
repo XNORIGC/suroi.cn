@@ -8,7 +8,6 @@ server/src/config.ts
 # Translations
 client/public/translations/
 client/src/translationsManifest.json
-client/src/typings/translations.ts
 translations/README.md
 
 # Node
