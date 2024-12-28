@@ -269,7 +269,7 @@ export class Game {
 
         game.music = sound.add("menu_music", {
             url: ({
-                follow_the_mode: `./audio/music/menu_music${MODE.specialMenuMusic ? GameConstants.modeName : ""}.mp3`,
+                follow_the_mode: `./audio/music/menu_music${MODE.specialMenuMusic ? `_${GameConstants.modeName}` : ""}.mp3`,
                 random: pickRandomInArray(Object.values(menuMusic))
             })[selectedMenuMusic] ?? menuMusic[selectedMenuMusic],
             singleInstance: true,

@@ -92,7 +92,6 @@ export const CVarCasters = Object.freeze({
     pf_self_deception_ping: Casters.toBoolean,
     pf_show_pos: Casters.toBoolean,
 
-
     mb_controls_enabled: Casters.toBoolean,
     mb_joystick_size: Casters.toNumber,
     mb_joystick_transparency: Casters.toNumber,

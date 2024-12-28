@@ -37,9 +37,9 @@ const compilerOpts = {
 
 const getImageDirs = (modeName: Mode | "shared", imageDirs: string[] = []): string[] => {
     imageDirs.push(`public/img/game/${modeName}`);
-    return Modes[modeName].inheritTexturesFrom
-        ? getImageDirs(Modes[modeName].inheritTexturesFrom, imageDirs)
-        : imageDirs;
+    return modeName === "shared"
+        ? imageDirs
+        : getImageDirs(Modes[modeName].inheritTexturesFrom ?? "shared", imageDirs);
 };
 
 const imageDirs = getImageDirs(GameConstants.modeName).reverse();
