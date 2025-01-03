@@ -22,6 +22,7 @@ vite.config.ts.timestamp-*
 # IDE garbage
 .idea
 .DS_Store
+.vs/
 .vscode
 *.kate-swp
 .history

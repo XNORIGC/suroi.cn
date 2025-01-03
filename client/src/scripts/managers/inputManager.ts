@@ -212,6 +212,9 @@ export class InputManager {
 
         $("#emote-wheel > .button-center").on("click", () => {
             this.emoteWheelActive = false;
+            this.game.uiManager.ui.emoteButton
+                .removeClass("btn-alert")
+                .addClass("btn-primary");
             this.selectedEmote = undefined;
             this.pingWheelMinimap = false;
             $("#emote-wheel").hide();
@@ -340,6 +343,39 @@ export class InputManager {
                 this.attacking = shootOnRelease;
                 this.resetAttacking = true;
                 shootOnRelease = false;
+            });
+        }
+        // Gyro stuff
+        const gyroAngle = game.console.getBuiltInCVar("mb_gyro_angle");
+        if (gyroAngle > 0) {
+            const inv = this.game.uiManager.inventory;
+            const swap = (x: number): void => {
+                let y = Numeric.absMod(inv.activeWeaponIndex + x, 4);
+                let iteration = 0;
+                while (!inv.weapons[y]) {
+                    y = Numeric.absMod(y + x, 4);
+                    if (iteration++ > 5) {
+                        y = inv.activeWeaponIndex;
+                        break;
+                    }
+                }
+                this.addAction({
+                    type: InputActions.EquipItem,
+                    slot: y
+                });
+            };
+            let a = false;
+            let b = false;
+            window.addEventListener("deviceorientation", gyro => {
+                // It would be impossible to send the DeviceOrientation event but lack the beta property
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                const angle = gyro.beta!;
+                a = (angle <= -gyroAngle)
+                    ? (a ? a : swap(-1), true)
+                    : false;
+                b = (angle >= gyroAngle)
+                    ? (b ? b : swap(1), true)
+                    : false;
             });
         }
     }

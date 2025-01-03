@@ -235,9 +235,7 @@ export class Game implements GameData {
 
         const { width, height } = Maps[Config.map.split(":")[0] as MapName];
         this.grid = new Grid(this, width, height);
-
         this.map = new GameMap(this, Config.map);
-
         this.gas = new Gas(this);
 
         this.setGameData({ allowJoin: true });
@@ -423,6 +421,7 @@ export class Game implements GameData {
         if (
             this._started
             && !this.over
+            && !Config.startImmediately
             && (
                 this.teamMode
                     ? this.aliveCount <= (this.maxTeamSize as number) && new Set([...this.livingPlayers].map(p => p.teamID)).size <= 1
@@ -730,7 +729,7 @@ export class Game implements GameData {
         this.addTimeout(() => { player.disableInvulnerability(); }, 5000);
 
         if (
-            (this.teamMode ? this.teams.size : this.aliveCount) > 1
+            (this.teamMode ? this.teams.size : this.aliveCount) > (Config.startImmediately ? 0 : 1)
             && !this._started
             && this.startTimeout === undefined
         ) {
@@ -758,8 +757,6 @@ export class Game implements GameData {
                         },
                         body: `{ "username": "${username}" }`
                     }
-                    // you fuckin stupid or smth?
-
                 ).catch(console.error);
             }
         }
@@ -844,7 +841,7 @@ export class Game implements GameData {
             readonly jitterSpawn?: boolean
             readonly data?: ItemData<Def>
         } = {}
-    ): Loot | undefined {
+    ): Loot<Def> | undefined {
         const args = {
             position,
             layer,

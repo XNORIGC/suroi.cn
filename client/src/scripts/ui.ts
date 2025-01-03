@@ -1652,6 +1652,8 @@ export async function setUpUI(game: Game): Promise<void> {
     addCheckboxListener("#toggle-mobile-controls", "mb_controls_enabled");
     addSliderListener("#slider-joystick-size", "mb_joystick_size");
     addSliderListener("#slider-joystick-transparency", "mb_joystick_transparency");
+    addSliderListener("#slider-gyro-angle", "mb_gyro_angle");
+    addCheckboxListener("#toggle-haptics", "mb_haptics");
     addCheckboxListener("#toggle-high-res-mobile", "mb_high_res_textures");
 
     function updateUiScale(): void {
@@ -2082,7 +2084,7 @@ export async function setUpUI(game: Game): Promise<void> {
         ui.spectatingContainer.css({
             width: "150px",
             position: "fixed",
-            top: "10%",
+            top: "15%",
             left: "5rem"
         });
 
@@ -2192,7 +2194,18 @@ export async function setUpUI(game: Game): Promise<void> {
         $("#mobile-options").show();
 
         ui.menuButton.on("click", () => ui.gameMenu.toggle());
-        ui.emoteButton.on("click", () => ui.emoteWheel.show());
+
+        ui.emoteButton.on("click", () => {
+            const { emoteWheelActive } = inputManager;
+
+            inputManager.emoteWheelActive = !emoteWheelActive;
+
+            ui.emoteButton
+                .toggleClass("btn-alert", !emoteWheelActive)
+                .toggleClass("btn-primary", emoteWheelActive);
+
+            game.uiManager.ui.emoteWheel.show();
+        });
 
         ui.pingToggle.on("click", () => {
             inputManager.pingWheelActive = !inputManager.pingWheelActive;
@@ -2228,7 +2241,7 @@ export async function setUpUI(game: Game): Promise<void> {
             )
             .siblings(".range-input-value")
             .text(
-                element.id !== "slider-joystick-size"
+                element.id !== "slider-joystick-size" && element.id !== "slider-gyro-angle"
                     ? `${Math.round(value * 100)}%`
                     : value
             );

@@ -17,7 +17,7 @@ import { ItemType, type ReferenceTo } from "@common/utils/objectDefinitions";
 import { Vec, type Vector } from "@common/utils/vector";
 import $ from "jquery";
 import { Color } from "pixi.js";
-import { getTranslatedString, NO_SPACE_LANGUAGES } from "../../translations";
+import { getTranslatedString, TRANSLATIONS } from "../../translations";
 import { type TranslationKeys } from "../../typings/translations";
 import { type Game } from "../game";
 import { type GameObject } from "../objects/gameObject";
@@ -738,7 +738,7 @@ export class UIManager {
             let showReserve = false;
             if (activeWeapon.definition.itemType === ItemType.Gun) {
                 const ammoType = activeWeapon.definition.ammoType;
-                let totalAmmo: number | string = this.perks.hasPerk(PerkIds.InfiniteAmmo)
+                let totalAmmo: number | string = this.perks.hasItem(PerkIds.InfiniteAmmo)
                     ? "∞"
                     : this.inventory.items[ammoType];
 
@@ -861,7 +861,7 @@ export class UIManager {
                 const oldSrc = itemImage.attr("src");
 
                 let frame = definition.idString;
-                if (this.perks.hasPerk(PerkIds.PlumpkinBomb) && definition.itemType === ItemType.Throwable && !definition.noSkin) {
+                if (this.perks.hasItem(PerkIds.PlumpkinBomb) && definition.itemType === ItemType.Throwable && !definition.noSkin) {
                     frame += "_halloween";
                 }
 
@@ -932,7 +932,7 @@ export class UIManager {
         container.attr("data-idString", perkDef.idString);
         container.children(".item-tooltip").html(`<strong>${perkDef.name}</strong><br>${perkDef.description}`);
         container.children(".item-image").attr("src", `./img/game/${perkDef.category === PerkCategories.Halloween ? "halloween" : "fall"}/perks/${perkDef.idString}.svg`);
-        container.css("visibility", this.perks.hasPerk(perkDef.idString) ? "visible" : "hidden");
+        container.css("visibility", this.perks.hasItem(perkDef.idString) ? "visible" : "hidden");
 
         container.css("outline", !perkDef.noDrop ? "" : "none");
 
@@ -1264,7 +1264,7 @@ export class UIManager {
                         let useSpecialSentence = false;
 
                         // Remove spaces if chinese/japanese language.
-                        if (NO_SPACE_LANGUAGES.includes(language) && messageText) {
+                        if (TRANSLATIONS.translations[language].no_space && messageText) {
                             messageText = messageText.replaceAll("<span>", "<span style=\"display:contents;\">");
                         }
 
@@ -1623,7 +1623,7 @@ export class UIManager {
         }
 
         // Disable spaces in chinese languages.
-        if (NO_SPACE_LANGUAGES.includes(this.game.console.getBuiltInCVar("cv_language"))) {
+        if (TRANSLATIONS.translations[(this.game.console.getBuiltInCVar("cv_language"))].no_space) {
             classes.push("no-spaces");
         }
 

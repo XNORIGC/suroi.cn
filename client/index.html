@@ -404,7 +404,7 @@
             <div id="mobile-options" style="display: none">
               <button id="btn-game-menu" class="btn btn-lg btn-primary fa-solid fa-bars"></button>
               <button id="btn-emotes" class="btn btn-lg btn-primary">
-                <img src="./img/misc/emotes_icon.svg" style="margin-bottom: -3px" />
+                <img src="./img/misc/emotes_icon.svg"/>
               </button>
               <button id="btn-toggle-ping" class="btn btn-lg btn-primary fa-solid fa-tower-broadcast"></button>
             </div>
@@ -1014,10 +1014,23 @@
               <input type="range" max="1" min="0.1" id="slider-joystick-transparency" step="0.1">
             </label>
           </div>
+          <div class="modal-item">
+            <label>
+              <span class="setting-title" translation="settings_gyro_angle"></span>
+              <span class="range-input-value"></span>
+              <input type="range" max="45" min="0" id="slider-gyro-angle" step="1">
+            </label>
+          </div>
           <div class="modal-item checkbox-setting">
             <label>
               <span class="setting-title" translation="settings_autopickup"></span>
               <input type="checkbox" id="toggle-auto-pickup">
+            </label>
+          </div>
+          <div class="modal-item checkbox-setting">
+            <label>
+              <span class="setting-title" translation="settings_haptics"></span>
+              <input type="checkbox" id="toggle-haptics">
             </label>
           </div>
           <div class="modal-item checkbox-setting">

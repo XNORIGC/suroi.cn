@@ -71,6 +71,12 @@ export function explosion(game: Game, definition: ExplosionDefinition, position:
         );
     }
 
+    if (game.console.getBuiltInCVar("mb_haptics")) {
+        navigator.vibrate(
+            definition.animation.duration * 0.75
+        );
+    }
+
     if (definition.sound !== undefined) {
         game.soundManager.play(
             definition.sound,
