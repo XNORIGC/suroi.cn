@@ -3,6 +3,8 @@ import { type Vector } from "@common/utils/vector";
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
+import { BarrelObstaclesPlugin } from "./plugins/barrelObstaclesPlugin";
+import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
 
 export const enum SpawnMode {
     Normal,
@@ -34,7 +36,7 @@ export const Config = {
 
     tps: 40,
 
-    plugins: [],
+    plugins: [BarrelObstaclesPlugin, InfiniteThrowablesPlugin],
 
     disableLobbyClearing: true,
 

@@ -1,8 +1,8 @@
 # Translation File Reports
 
-This file is a report of all errors and missing keys in the translation files of this game. Last generated Wed, 01 Jan 2025 23:37:24 GMT
+This file is a report of all errors and missing keys in the translation files of this game. Last generated Fri, 03 Jan 2025 12:29:38 GMT
 
-## 🇦🇱 Shqip (89% Complete) - ab.hjson
+## 🇦🇱 <span lang="">Shqip</span> (85% Complete) - ab.hjson
 
 ### (No Invalid Keys)
 
@@ -35,8 +35,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
 - Key `m16a4` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇧🇷 Português (Brasil) (99% Complete) - br.hjson
+## 🇧🇷 <span lang="">Português (Brasil)</span> (94% Complete) - br.hjson
 
 ### (No Invalid Keys)
 
@@ -44,8 +58,22 @@ This file is a report of all errors and missing keys in the translation files of
 
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇨🇿 Čeština (94% Complete) - cz.hjson
+## 🇨🇿 <span lang="">Čeština</span> (89% Complete) - cz.hjson
 
 ### (No Invalid Keys)
 
@@ -67,8 +95,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇩🇪 Deutsch (85% Complete) - de.hjson
+## 🇩🇪 <span lang="">Deutsch</span> (80% Complete) - de.hjson
 
 ### (No Invalid Keys)
 
@@ -113,8 +155,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `region_eu` is not defined
 - Key `region_sa` is not defined
 - Key `region_as` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇪🇪 eesti (171% Complete) - et.hjson
+## 🇪🇪 <span lang="">eesti</span> (137% Complete) - et.hjson
 
 ### Invalid Keys
 
@@ -122,7 +178,6 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_your_team_eliminated` is not a valid key
 - Key `msg_the_team_eliminated` is not a valid key
 - Key `kf_message_grammar` is not a valid key
-- Key `developr_vest` is not a valid key
 - Key `accounts_manage` is not a valid key
 - Key `accounts_settings` is not a valid key
 - Key `accounts_stats` is not a valid key
@@ -140,76 +195,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `stats_avg_survived` is not a valid key
 - Key `stats_not_applicable` is not a valid key
 - Key `stats_leaderboards` is not a valid key
-- Key `hazel_jumpsuit` is not a valid key
-- Key `the_amateur` is not a valid key
-- Key `the_pro` is not a valid key
-- Key `forest_camo` is not a valid key
-- Key `desert_camo` is not a valid key
-- Key `arctic_camo` is not a valid key
-- Key `bloodlust` is not a valid key
 - Key `tomato` is not a valid key
-- Key `greenhorn` is not a valid key
-- Key `blue_blood` is not a valid key
-- Key `silver_lining` is not a valid key
-- Key `pot_o_gold` is not a valid key
-- Key `gunmetal` is not a valid key
-- Key `algae` is not a valid key
-- Key `twilight_zone` is not a valid key
-- Key `bubblegum` is not a valid key
-- Key `sunrise` is not a valid key
-- Key `sunset` is not a valid key
-- Key `stratosphere` is not a valid key
-- Key `mango` is not a valid key
-- Key `snow_cone` is not a valid key
-- Key `aquatic` is not a valid key
-- Key `floral` is not a valid key
-- Key `sunny` is not a valid key
-- Key `volcanic` is not a valid key
-- Key `ashfall` is not a valid key
-- Key `solar_flare` is not a valid key
-- Key `beacon` is not a valid key
-- Key `wave_jumpsuit` is not a valid key
-- Key `toadstool` is not a valid key
-- Key `full_moon` is not a valid key
-- Key `swiss_cheese` is not a valid key
-- Key `target_practice` is not a valid key
-- Key `zebra` is not a valid key
-- Key `tiger` is not a valid key
-- Key `bee` is not a valid key
-- Key `armadillo` is not a valid key
-- Key `printer` is not a valid key
-- Key `distant_shores` is not a valid key
-- Key `lemon` is not a valid key
-- Key `flamingo` is not a valid key
-- Key `peachy_breeze` is not a valid key
-- Key `deep_sea` is not a valid key
-- Key `basic_outfit` is not a valid key
-- Key `peppermint` is not a valid key
-- Key `spearmint` is not a valid key
-- Key `coal` is not a valid key
-- Key `henrys_little_helper` is not a valid key
-- Key `candy_cane` is not a valid key
 - Key `christmas_tree` is not a valid key
-- Key `gingerbread` is not a valid key
-- Key `light_choco` is not a valid key
-- Key `frosty` is not a valid key
-- Key `verified` is not a valid key
-- Key `no_kil_pls` is not a valid key
-- Key `stardust` is not a valid key
-- Key `aurora` is not a valid key
-- Key `nebula` is not a valid key
-- Key `1st_birthday` is not a valid key
-- Key `lumberjack` is not a valid key
-- Key `gold_tie_event` is not a valid key
-- Key `ship_carrier` is not a valid key
-- Key `nsd_uniform` is not a valid key
-- Key `pumpkified` is not a valid key
-- Key `one_at_nsd` is not a valid key
-- Key `sky` is not a valid key
-- Key `diseased` is not a valid key
-- Key `deer_season` is not a valid key
-- Key `werewolf` is not a valid key
-- Key `ghillie_suit` is not a valid key
 - Key `emote_happy_face` is not a valid key
 - Key `emote_sad_face` is not a valid key
 - Key `emote_thumbs_up` is not a valid key
@@ -304,8 +291,22 @@ This file is a report of all errors and missing keys in the translation files of
 ### Undefined Keys
 
 - Key `donate` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇫🇮 suomi (99% Complete) - fi.hjson
+## 🇫🇮 <span lang="">suomi</span> (94% Complete) - fi.hjson
 
 ### (No Invalid Keys)
 
@@ -314,8 +315,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_punishment_warn_agreement` is not defined
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇫🇷 Français (99% Complete) - fr.hjson
+## 🇫🇷 <span lang="">Français</span> (94% Complete) - fr.hjson
 
 ### (No Invalid Keys)
 
@@ -324,8 +339,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_punishment_warn_agreement` is not defined
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇬🇷 Ελληνικά (99% Complete) - gr.hjson
+## 🇬🇷 <span lang="">Ελληνικά</span> (94% Complete) - gr.hjson
 
 ### (No Invalid Keys)
 
@@ -333,8 +362,22 @@ This file is a report of all errors and missing keys in the translation files of
 
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇭🇰 🇲🇴 廣東話(香港/澳門) (92% Complete) - hk_mo.hjson
+## 🇭🇰 🇲🇴 <span lang="">廣東話(香港/澳門)</span> (87% Complete) - hk_mo.hjson
 
 ### (No Invalid Keys)
 
@@ -360,8 +403,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_finished_off_kill` is not defined
 - Key `kf_finished_off_down` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇭🇺 Magyar (99% Complete) - hu.hjson
+## 🇭🇺 <span lang="">Magyar</span> (94% Complete) - hu.hjson
 
 ### (No Invalid Keys)
 
@@ -369,8 +426,22 @@ This file is a report of all errors and missing keys in the translation files of
 
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇮🇹 Italiano (93% Complete) - it.hjson
+## 🇮🇹 <span lang="">Italiano</span> (88% Complete) - it.hjson
 
 ### Invalid Keys
 
@@ -412,31 +483,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_finished_off_down` is not defined
 - Key `create_team_ready` is not defined
 - Key `m16a4` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇯🇵 日本語 (94% Complete) - jp.hjson
-
-### (No Invalid Keys)
-
-### Undefined Keys
-
-- Key `msg_punishment_vpn` is not defined
-- Key `msg_punishment_vpn_reason` is not defined
-- Key `msg_punishment_warn_agreement` is not defined
-- Key `donate` is not defined
-- Key `settings_ambience_volume` is not defined
-- Key `settings_ambient_particles` is not defined
-- Key `settings_gyro_angle` is not defined
-- Key `settings_haptics` is not defined
-- Key `msg_not_enough_space` is not defined
-- Key `msg_item_already_equipped` is not defined
-- Key `msg_better_item_equipped` is not defined
-- Key `msg_cannot_use_radio` is not defined
-- Key `msg_radio_overused` is not defined
-- Key `interact_speaker` is not defined
-- Key `bindings_explode_c4` is not defined
-- Key `create_team_ready` is not defined
-
-## 🇱🇹 Lietuvių (94% Complete) - lt.hjson
+## 🇯🇵 <span lang="">日本語</span> (89% Complete) - jp.hjson
 
 ### (No Invalid Keys)
 
@@ -458,8 +520,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇱🇻 Latviešu (94% Complete) - lv.hjson
+## 🇱🇹 <span lang="">Lietuvių</span> (89% Complete) - lt.hjson
 
 ### (No Invalid Keys)
 
@@ -481,8 +557,59 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇵🇱 Polski (99% Complete) - pl.hjson
+## 🇱🇻 <span lang="">Latviešu</span> (89% Complete) - lv.hjson
+
+### (No Invalid Keys)
+
+### Undefined Keys
+
+- Key `msg_punishment_vpn` is not defined
+- Key `msg_punishment_vpn_reason` is not defined
+- Key `msg_punishment_warn_agreement` is not defined
+- Key `donate` is not defined
+- Key `settings_ambience_volume` is not defined
+- Key `settings_ambient_particles` is not defined
+- Key `settings_gyro_angle` is not defined
+- Key `settings_haptics` is not defined
+- Key `msg_not_enough_space` is not defined
+- Key `msg_item_already_equipped` is not defined
+- Key `msg_better_item_equipped` is not defined
+- Key `msg_cannot_use_radio` is not defined
+- Key `msg_radio_overused` is not defined
+- Key `interact_speaker` is not defined
+- Key `bindings_explode_c4` is not defined
+- Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
+
+## 🇵🇱 <span lang="">Polski</span> (94% Complete) - pl.hjson
 
 ### (No Invalid Keys)
 
@@ -491,8 +618,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_punishment_warn_agreement` is not defined
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🎀 Cute Engwish (92% Complete) - qen.hjson
+## 🎀 <span lang="">Cute Engwish</span> (87% Complete) - qen.hjson
 
 ### Invalid Keys
 
@@ -522,8 +663,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
 - Key `m16a4` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇷🇴 Română (87% Complete) - ro.hjson
+## 🇷🇴 <span lang="">Română</span> (82% Complete) - ro.hjson
 
 ### (No Invalid Keys)
 
@@ -562,8 +717,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
 - Key `m16a4` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇷🇺 Русский (99% Complete) - ru.hjson
+## 🇷🇺 <span lang="">Русский</span> (94% Complete) - ru.hjson
 
 ### (No Invalid Keys)
 
@@ -572,8 +741,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
 - Key `m16a4` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇮🇳 தமிழ் (93% Complete) - ta.hjson
+## 🇮🇳 <span lang="">தமிழ்</span> (88% Complete) - ta.hjson
 
 ### (No Invalid Keys)
 
@@ -597,8 +780,22 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_speaker` is not defined
 - Key `bindings_explode_c4` is not defined
 - Key `create_team_ready` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇹🇷 Turkısh (100% Complete) - tr.hjson
+## 🇹🇷 <span lang="">Turkısh</span> (94% Complete) - tr.hjson
 
 ### Invalid Keys
 
@@ -608,8 +805,22 @@ This file is a report of all errors and missing keys in the translation files of
 
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇹🇼 中文（繁體） (86% Complete) - tw.hjson
+## 🇹🇼 <span lang="">中文（繁體）</span> (81% Complete) - tw.hjson
 
 ### (No Invalid Keys)
 
@@ -651,12 +862,24 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_message` is not defined
 - Key `create_team_ready` is not defined
 - Key `m16a4` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇻🇳 Tiếng Việt (99% Complete) - vi.hjson
+## 🇻🇳 <span lang="">Tiếng Việt</span> (93% Complete) - vi.hjson
 
-### Invalid Keys
-
-- Key `deathray` is not a valid key
+### (No Invalid Keys)
 
 ### Undefined Keys
 
@@ -664,12 +887,35 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_ambient_particles` is not defined
 - Key `settings_gyro_angle` is not defined
 - Key `settings_haptics` is not defined
+- Key `fps` is not defined
+- Key `ping` is not defined
+- Key `special_developer_cheats` is not defined
+- Key `special_login` is not defined
+- Key `special_name_color` is not defined
+- Key `special_note_1` is not defined
+- Key `special_note_2` is not defined
+- Key `special_role_name` is not defined
+- Key `special_role_password` is not defined
+- Key `special_weapon_preset` is not defined
+- Key `special_weapon_preset_placeholder` is not defined
+- Key `special_weapon_preset_title` is not defined
+- Key `username_input_placeholder` is not defined
+- Key `settings_chicken_dinner_picture` is not defined
 
-## 🇨🇳 中文（简体） (99% Complete) - zh.hjson
+## 🇨🇳 <span lang="zh-CN">中文（简体）</span> (103% Complete) - zh.hjson
 
 ### Invalid Keys
 
-- Key `developr_vest` is not a valid key
+- Key `bdg_youtubr` is not a valid key
+- Key `bdg_boostr` is not a valid key
+- Key `socks` is not a valid key
+- Key `archimedes` is not a valid key
+- Key `monkey` is not a valid key
+- Key `carrot` is not a valid key
+- Key `tomato` is not a valid key
+- Key `egg` is not a valid key
+- Key `penguin` is not a valid key
+- Key `squid` is not a valid key
 
 ### Undefined Keys
 

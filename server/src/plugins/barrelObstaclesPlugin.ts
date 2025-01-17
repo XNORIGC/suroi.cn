@@ -8,7 +8,7 @@ import { GamePlugin } from "../pluginManager";
  */
 export class BarrelObstaclesPlugin extends GamePlugin {
     readonly config = {
-        chance: 0.3,
+        chance: 0.001,
         obstacles: ["barrel", "super_barrel", "loot_barrel", "small_refinery_barrel", "large_refinery_barrel"],
         weights:   [    5,           4,             0.5,                  2,                       2           ]
     };
