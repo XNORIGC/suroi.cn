@@ -1,7 +1,7 @@
-import { GameConstants, Layer } from "../constants";
+import { Layer } from "../constants";
 import { PolygonHitbox, RectangleHitbox, type Hitbox } from "./hitbox";
 import { Collision, Numeric } from "./math";
-import { SeededRandom } from "./random";
+import { randomBoolean, randomFloat, SeededRandom } from "./random";
 import { Vec, type Vector } from "./vector";
 
 export interface FloorDefinition {
@@ -201,18 +201,18 @@ export class Terrain {
 
         const isInsideMap = this.beachHitbox.isPointInside(position);
         if (isInsideMap) {
-            if (layer) { // Keeping this commented out until a solution is found
+            if (layer) {
                 /*
                     grass and sand only exist on layer 0; on other
                     layers, it's the void
                 */
                 floor = FloorNames.Void;
             } else {
-                floor = FloorNames.Sand;
-
                 if (this.grassHitbox.isPointInside(position)) {
-                    // adding a property wont work for some reason in the mode def
-                    floor = GameConstants.modeName === "winter" ? FloorNames.Sand : FloorNames.Grass;
+                    // TODO Detect mode somehow
+                    floor = FloorNames.Grass; // this.game.modeName === "winter" ? FloorNames.Sand : FloorNames.Grass;
+                } else {
+                    floor = FloorNames.Sand;
                 }
             }
         }
@@ -257,7 +257,7 @@ export class Terrain {
     /**
      * Get rivers near a hitbox
      */
-    getRiversInHitbox(hitbox: Hitbox): River[] {
+    getRiversInHitbox(hitbox: Hitbox, ignoreTrails = false): River[] {
         const rivers = new Set<River>();
 
         const rect = hitbox.toRectangle();
@@ -267,6 +267,7 @@ export class Terrain {
         for (let x = min.x; x <= max.x; x++) {
             for (let y = min.y; y <= max.y; y++) {
                 for (const river of this._grid[x][y].rivers) {
+                    if (ignoreTrails && river.isTrail) continue;
                     rivers.add(river);
                 }
             }
@@ -309,6 +310,9 @@ export class River {
     readonly bankHitbox: PolygonHitbox;
 
     readonly isTrail: boolean;
+
+    readonly waterWidths: number[] = [];
+    readonly bankWidths: number[] = [];
 
     constructor(
         readonly width: number,
@@ -377,9 +381,11 @@ export class River {
             };
 
             if (isRiver) {
+                this.waterWidths.push(width);
                 calculatePoints(width, collidingRiver?.waterHitbox, waterPoints);
             }
 
+            this.bankWidths.push(width + bankWidth);
             calculatePoints(width + bankWidth, collidingRiver?.bankHitbox, bankPoints);
         }
 
@@ -482,5 +488,16 @@ export class River {
         }
 
         return nearestT;
+    }
+
+    getRandomPosition(onBank?: boolean): Vector {
+        const t = Math.random();
+        // river width is not consistent so map t to a point indexing the width at that point
+        const pointIdx = Numeric.clamp(Math.floor(t * this.points.length), 0, this.points.length);
+        const waterWidth = this[onBank ? "bankWidths" : "waterWidths"][pointIdx];
+        const dist = randomFloat(0, waterWidth) * (randomBoolean() ? 1 : -1);
+        // add a random offset that's between river center and river border on either directions
+        const normal = this.getNormal(t);
+        return Vec.add(this.getPosition(t), Vec.scale(normal, dist));
     }
 }

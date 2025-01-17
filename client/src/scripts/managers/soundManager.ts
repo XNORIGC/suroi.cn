@@ -3,7 +3,6 @@ import { Layer } from "@common/constants";
 import { Numeric } from "@common/utils/math";
 import { Vec, type Vector } from "@common/utils/vector";
 import { type Game } from "../game";
-import { MODE /* , SOUND_FILTER_FOR_LAYERS */ } from "../utils/constants";
 // add a namespace to pixi sound imports because it has annoying generic names like "sound" and "filters" without a namespace
 import * as PixiSound from "@pixi/sound";
 
@@ -39,7 +38,10 @@ export class GameSound {
     readonly dynamic: boolean;
     readonly ambient: boolean;
 
-    get volume(): number { return this.ambient ? this.manager.ambienceVolume : this.manager.sfxVolume; }
+    get managerVolume(): number { return this.ambient ? this.manager.ambienceVolume : this.manager.sfxVolume; }
+
+    // acts as multiplier
+    volume = 1;
 
     instance?: PixiSound.IMediaInstance;
     readonly stereoFilter: PixiSound.filters.StereoFilter;
@@ -87,7 +89,7 @@ export class GameSound {
             },
             filters: [filter],
             loop: options.loop,
-            volume: this.volume,
+            volume: this.managerVolume * this.volume,
             speed: this.speed
         });
 
@@ -117,11 +119,11 @@ export class GameSound {
 
             this.instance.volume = (
                 1 - Numeric.clamp(Math.abs(Vec.length(diff) / this.maxRange), 0, 1)
-            ) ** (1 + this.falloff * 2) * this.volume;
+            ) ** (1 + this.falloff * 2) * this.managerVolume * this.volume;
 
             this.stereoFilter.pan = Numeric.clamp(-diff.x / this.maxRange, -1, 1);
         } else {
-            this.instance.volume = this.volume;
+            this.instance.volume = this.managerVolume * this.volume;
         }
     }
 
@@ -155,7 +157,6 @@ export class SoundManager {
 
         this.sfxVolume = game.console.getBuiltInCVar("cv_sfx_volume");
         this.ambienceVolume = game.console.getBuiltInCVar("cv_ambience_volume");
-        this.loadSounds();
     }
 
     play(name: string, options?: Partial<SoundOptions>): GameSound {
@@ -190,7 +191,7 @@ export class SoundManager {
         PixiSound.sound.stopAll();
     }
 
-    loadSounds(): void {
+    async loadSounds({ mode, modeName }: Game): Promise<void> {
         for (const path in import.meta.glob(["/public/audio/sfx/**/*.mp3", "/public/audio/ambience/**/*.mp3"])) {
             /**
              * For some reason, PIXI will call the `loaded` callback twice
@@ -200,8 +201,8 @@ export class SoundManager {
 
             const name = path.slice(path.lastIndexOf("/") + 1, -4); // removes path and extension
             let url = path.slice(7); // removes the "/public"
-            if (MODE.specialSounds?.includes(name)) {
-                url = url.replace(name, `${name}_${MODE.reskin}`);
+            if (mode.sounds?.replace?.includes(name)) {
+                url = url.replace(name, `${name}_${modeName}`);
             }
 
             PixiSound.sound.add(

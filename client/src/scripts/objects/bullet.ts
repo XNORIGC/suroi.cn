@@ -9,7 +9,7 @@ import { colord } from "colord";
 import { BloomFilter } from "pixi-filters";
 import { Color } from "pixi.js";
 import { type Game } from "../game";
-import { MODE, PIXI_SCALE } from "../utils/constants";
+import { PIXI_SCALE } from "../utils/constants";
 import { SuroiSprite, toPixiCoords } from "../utils/pixi";
 import type { Building } from "./building";
 import { type Obstacle } from "./obstacle";
@@ -49,9 +49,9 @@ export class Bullet extends BaseBullet {
         this._image.alpha = tracerStats.opacity * (tracerMods?.opacity ?? 1) / (this.reflectionCount + 1);
 
         if (this.game.console.getBuiltInCVar("cv_cooler_graphics")) {
-            this._image.filters = new BloomFilter({
+            this._image.filters = [new BloomFilter({
                 strength: 5
-            });
+            })];
         }
 
         if (!tracerStats.particle) this._image.anchor.set(1, 0.5);
@@ -61,7 +61,7 @@ export class Bullet extends BaseBullet {
                 ? random(0, white)
                 : tracerStats.color ?? white
         );
-        if (MODE.bulletTrailAdjust) color.multiply(MODE.bulletTrailAdjust);
+        if (game.mode.bulletTrailAdjust) color.multiply(game.mode.bulletTrailAdjust);
         if (this.saturate) {
             const hsl = colord(color.toRgbaString()).saturate(50);
             color.value = (hsl.brightness() < 0.6 ? hsl.lighten(0.1) : hsl.darken(0.2)).rgba;

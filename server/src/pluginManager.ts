@@ -17,7 +17,6 @@ import { DamageParams } from "./objects/gameObject";
 import { Loot, type ItemData } from "./objects/loot";
 import { Obstacle } from "./objects/obstacle";
 import { Player } from "./objects/player";
-import { Logger } from "./utils/misc";
 
 interface PlayerDamageEvent extends DamageParams {
     readonly player: Player
@@ -749,7 +748,7 @@ export class PluginManager {
         try {
             const plugin = new pluginClass(this.game);
             this._plugins.add(plugin);
-            Logger.log(`Game ${this.game.id} | Plugin ${pluginClass.name} loaded`);
+            this.game.log(`Plugin ${pluginClass.name} loaded`);
         } catch (error) {
             console.error(`Failed to load plugin ${pluginClass.name}, err:`, error);
         }

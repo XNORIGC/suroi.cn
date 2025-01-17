@@ -1,6 +1,6 @@
 import { Badges } from "@common/definitions/badges";
 import { Loots } from "@common/definitions/loots";
-import { news } from "./scripts/news/newsPosts";
+import { news as News } from "./scripts/news/newsPosts";
 import { type NewsPost } from "./scripts/news/newsHelper";
 import { Numeric } from "@common/utils/math";
 import type { TranslationManifest, TranslationsManifest } from "../../translations/src/processTranslations";
@@ -90,25 +90,24 @@ export function getTranslatedString(key: TranslationKeys, replacements?: Record<
         key = Badges.reify(key.slice("badge_".length)).idString.replace("bdg_", "badge_") as TranslationKeys;
     }
 
-    let foundTranslation: string;
-    try {
-        foundTranslation = TRANSLATIONS.translations[selectedLanguage]?.[key]
-        ?? TRANSLATIONS.translations.en[key]
-        ?? (Badges.fromStringSafe(key)
-        ?? Emotes.fromStringSafe(key)
-        ?? Loots.reify(key)).name
-    } catch {
-        if (key.startsWith("news_")) {
-            return news.filter(post => post.date === +key.split("_")[1])[0][key.split("_")[2] as keyof NewsPost];
-        }
-        if (key.startsWith("emote_")) {
-            return Emotes.reify(key.slice("emote_".length)).name as TranslationKeys;
-        }
-        if (key.startsWith("badge_")) {
-            return Badges.reify(`bdg_${key.slice("badge_".length)}`).name as TranslationKeys;
-        }
+    const languageData = TRANSLATIONS.translations[selectedLanguage];
+    const defaultLanguageData = TRANSLATIONS.translations[defaultLanguage];
+
+    if (!languageData) {
+        console.error(`Language ${selectedLanguage} does not exist`);
         return key;
     }
+
+    let foundTranslation: string | undefined;
+    foundTranslation = languageData[key];
+    foundTranslation ??= defaultLanguageData[key];
+    foundTranslation ??= Loots.fromStringSafe(key)?.name;
+
+    foundTranslation ??= key.startsWith("news_") ? News.filter(post => post.date === +key.split("_")[1])[0][key.split("_")[2] as keyof NewsPost] : undefined;
+    foundTranslation ??= key.startsWith("emote_") ? Emotes.fromStringSafe(key.slice("emote_".length))?.name : undefined;
+    foundTranslation ??= key.startsWith("bdg_") ? Badges.fromStringSafe(key)?.name : undefined;
+
+    foundTranslation ??= key;
 
     for (const [search, replace] of Object.entries(replacements ?? {})) {
         foundTranslation = foundTranslation.replaceAll(`<${search}>`, replace);
@@ -150,6 +149,7 @@ function adjustFontSize(element: HTMLElement): void {
     }
 
     element.style.fontSize = `${fontSize}px`;
+    element.style.verticalAlign = "middle";
 }
 
 function translateCurrentDOM(): void {

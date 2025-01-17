@@ -571,6 +571,7 @@ export class Inventory {
                 && itemType !== ItemType.Perk
             )
             || definition.noDrop
+            || definition.idString === this.owner.game.mode.defaultScope
         ) return;
 
         switch (itemType) {

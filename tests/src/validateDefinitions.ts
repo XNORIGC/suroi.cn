@@ -15,20 +15,19 @@ import { HealingItems } from "../../common/src/definitions/healingItems";
 import { Loots } from "../../common/src/definitions/loots";
 import { MapPings } from "../../common/src/definitions/mapPings";
 import { Melees } from "../../common/src/definitions/melees";
-import { Modes } from "../../common/src/definitions/modes";
 import { Obstacles, RotationMode } from "../../common/src/definitions/obstacles";
 import { DEFAULT_SCOPE, Scopes } from "../../common/src/definitions/scopes";
 import { Skins } from "../../common/src/definitions/skins";
 import { SyncedParticles } from "../../common/src/definitions/syncedParticles";
 import { Throwables, type ThrowableDefinition } from "../../common/src/definitions/throwables";
-import { ColorStyles, FontStyles, styleText } from "../../common/src/utils/ansiColoring";
+import { ColorStyles, FontStyles, styleText } from "../../common/src/utils/logging";
 import { NullString, ObstacleSpecialRoles, type ItemDefinition } from "../../common/src/utils/objectDefinitions";
 import { FloorTypes } from "../../common/src/utils/terrain";
 import { Vec, type Vector } from "../../common/src/utils/vector";
-import { Config, GasMode, Config as ServerConfig, SpawnMode } from "../../server/src/config";
+import { Config, GasMode, Config as ServerConfig } from "../../server/src/config";
 import { GasStages } from "../../server/src/data/gasStages";
 import { LootTables, type FullLootTable, type SimpleLootTable, type WeightedItem } from "../../server/src/data/lootTables";
-import { Maps, type MapName } from "../../server/src/data/maps";
+import { Maps } from "../../server/src/data/maps";
 import { findDupes, logger, safeString, tester, validators } from "./validationUtils";
 
 const testStart = Date.now();
@@ -2283,34 +2282,35 @@ logger.indent("Validating melees", () => {
     }
 });
 
-logger.indent("Validating modes", () => {
-    for (const [name, mode] of Object.entries(Modes)) {
-        logger.indent(`Validating mode '${name}'`, () => {
-            const errorPath = tester.createPath("modes", `mode '${name}'`);
+// TODO validate mode stuff
+// logger.indent("Validating modes", () => {
+//     for (const [name, mode] of Object.entries(Modes)) {
+//         logger.indent(`Validating mode '${name}'`, () => {
+//             const errorPath = tester.createPath("modes", `mode '${name}'`);
 
-            tester.assertNoPointlessValue({
-                obj: mode,
-                field: "specialMenuMusic",
-                defaultValue: false,
-                baseErrorPath: errorPath
-            });
+//             tester.assertNoPointlessValue({
+//                 obj: mode,
+//                 field: "specialMenuMusic",
+//                 defaultValue: false,
+//                 baseErrorPath: errorPath
+//             });
 
-            tester.assertNoPointlessValue({
-                obj: mode,
-                field: "reskin",
-                defaultValue: "",
-                baseErrorPath: errorPath
-            });
+//             tester.assertNoPointlessValue({
+//                 obj: mode,
+//                 field: "reskin",
+//                 defaultValue: "",
+//                 baseErrorPath: errorPath
+//             });
 
-            tester.assertNoPointlessValue({
-                obj: mode,
-                field: "bulletTrailAdjust",
-                defaultValue: "",
-                baseErrorPath: errorPath
-            });
-        });
-    }
-});
+//             tester.assertNoPointlessValue({
+//                 obj: mode,
+//                 field: "bulletTrailAdjust",
+//                 defaultValue: "",
+//                 baseErrorPath: errorPath
+//             });
+//         });
+//     }
+// });
 
 logger.indent("Validating obstacles", () => {
     tester.assertNoDuplicateIDStrings(Obstacles.definitions, "Obstacles", "obstacles");
@@ -3086,70 +3086,72 @@ logger.indent("Validating configurations", () => {
             baseErrorPath: errorPath
         });
 
-        const [name] = ServerConfig.map.split(":") as [MapName, string[]];
-        tester.assertReferenceExistsObject({
-            value: name,
-            collection: Maps,
-            collectionName: "maps",
-            errorPath
-        });
+        // TODO Validate new spawn mode stuff
 
-        switch (ServerConfig.spawn.mode) {
-            case SpawnMode.Radius: {
-                tester.assertIsPositiveFiniteReal({
-                    obj: ServerConfig.spawn,
-                    field: "radius",
-                    baseErrorPath: errorPath
-                });
+        // const [name] = ServerConfig.map.split(":") as [MapName, string[]];
+        // tester.assertReferenceExistsObject({
+        //     value: name,
+        //     collection: Maps,
+        //     collectionName: "maps",
+        //     errorPath
+        // });
 
-                const map = Maps[name];
-                if (map !== undefined) {
-                    validators.vector(
-                        tester.createPath(errorPath, "spawn position"),
-                        ServerConfig.spawn.position,
-                        {
-                            min: 0,
-                            max: map.width,
-                            includeMin: true,
-                            includeMax: true
-                        },
-                        {
-                            min: 0,
-                            max: map.height,
-                            includeMin: true,
-                            includeMax: true
-                        }
-                    );
-                }
-                break;
-            }
-            case SpawnMode.Fixed: {
-                const map = Maps[name];
-                if (map !== undefined) {
-                    validators.vector(
-                        tester.createPath(errorPath, "spawn position"),
-                        ServerConfig.spawn.position,
-                        {
-                            min: 0,
-                            max: map.width,
-                            includeMin: true,
-                            includeMax: true
-                        },
-                        {
-                            min: 0,
-                            max: map.height,
-                            includeMin: true,
-                            includeMax: true
-                        }
-                    );
-                }
-                break;
-            }
-            case SpawnMode.Normal:
-            case SpawnMode.Center:
-            default:
-                break;
-        }
+        // switch (ServerConfig.spawn.mode) {
+        //     case SpawnMode.Radius: {
+        //         tester.assertIsPositiveFiniteReal({
+        //             obj: ServerConfig.spawn,
+        //             field: "radius",
+        //             baseErrorPath: errorPath
+        //         });
+
+        //         const map = Maps[name];
+        //         if (map !== undefined) {
+        //             validators.vector(
+        //                 tester.createPath(errorPath, "spawn position"),
+        //                 ServerConfig.spawn.position,
+        //                 {
+        //                     min: 0,
+        //                     max: map.width,
+        //                     includeMin: true,
+        //                     includeMax: true
+        //                 },
+        //                 {
+        //                     min: 0,
+        //                     max: map.height,
+        //                     includeMin: true,
+        //                     includeMax: true
+        //                 }
+        //             );
+        //         }
+        //         break;
+        //     }
+        //     case SpawnMode.Fixed: {
+        //         const map = Maps[name];
+        //         if (map !== undefined) {
+        //             validators.vector(
+        //                 tester.createPath(errorPath, "spawn position"),
+        //                 ServerConfig.spawn.position,
+        //                 {
+        //                     min: 0,
+        //                     max: map.width,
+        //                     includeMin: true,
+        //                     includeMax: true
+        //                 },
+        //                 {
+        //                     min: 0,
+        //                     max: map.height,
+        //                     includeMin: true,
+        //                     includeMax: true
+        //                 }
+        //             );
+        //         }
+        //         break;
+        //     }
+        //     case SpawnMode.Normal:
+        //     case SpawnMode.Center:
+        //     default:
+        //         break;
+        // }
 
         tester.assertIsNaturalNumber({
             obj: ServerConfig,

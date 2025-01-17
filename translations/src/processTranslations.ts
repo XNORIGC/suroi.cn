@@ -16,16 +16,23 @@ export const LANGUAGES_DIRECTORY = "../languages/";
 
 const files = readdirSync(LANGUAGES_DIRECTORY).filter(file => file.endsWith(".hjson"));
 
+const metadataKeys = ["name", "flag", "mandatory", "no_space", "no_resize", "html_lang", "percentage"];
+
 const keyFilter = (key: string): boolean => !(
-    ["name", "flag", "mandatory", "no_space", "no_resize", "html_lang"].includes(key)
+    metadataKeys.includes(key)
     || [Ammos, Badges, Emotes, Explosions, Guns, Melees, Skins, Throwables].some(d => d.hasString(key))
     || ["deathray", "developr_vest", "32x_scope", "msg_lost_connection", "region_hk", "username_input"].includes(key)
     || (key.startsWith("settings_") && ((a, f) => f(a))(key.slice("settings_".length), (key: string) => ["brightness", "colorful_bullets", "saturate", "self_deception_ping"].includes(key) || key.startsWith("menu_music")))
     || key.startsWith("news_") || key.startsWith("time_")
+
 );
 
 const ValidKeys: readonly string[] = Object.keys(parse(readFileSync(`${LANGUAGES_DIRECTORY + REFERENCE_LANGUAGE}.hjson`, "utf8")) as Record<string, unknown>)
     .filter(keyFilter);
+
+function calculateValidRatio(keys: string[]): number {
+    return keys.filter(key => ValidKeys.includes(key)).length / ValidKeys.length;
+}
 
 export type TranslationManifest = {
     readonly name: string
@@ -56,7 +63,7 @@ This file is a report of all errors and missing keys in the translation files of
     ) {
         const keys = Object.keys(content).filter(keyFilter);
 
-        let languageReportBuffer = `## ${content.flag} <span lang="${content.html_lang ?? ""}">${content.name}</span> (${Math.round(100 * keys.length / ValidKeys.length)}% Complete) - ${filename}\n\n`;
+        let languageReportBuffer = `## ${content.flag} <span lang="${content.html_lang ?? ""}">${content.name}</span> (${Math.round(100 * calculateValidRatio(keys))}% Complete) - ${filename}\n\n`;
 
         // Find invalid keys
         const invalidKeys = keys.filter(k => !ValidKeys.includes(k)).map(key => `- Key \`${key}\` is not a valid key`).join("\n");
@@ -78,12 +85,17 @@ This file is a report of all errors and missing keys in the translation files of
 }
 
 export async function buildTranslations(): Promise<void> {
-    const languages: Record<string, Record<string, string>> = {};
-
-    await Promise.all(
-        files.map(async file => {
-            languages[file.slice(0, -".hjson".length)] = parse(await readFile(LANGUAGES_DIRECTORY + file, "utf8")) as Record<string, string>;
-        })
+    const languages = Object.fromEntries(
+        (
+            await Promise.all(
+                files.map(async file =>
+                    [
+                        file.slice(0, -".hjson".length),
+                        parse(await readFile(LANGUAGES_DIRECTORY + file, "utf8")) as Record<string, string>
+                    ] as const
+                )
+            )
+        ).sort(([nameA], [nameB]) => nameA < nameB ? -1 : 1)
     );
 
     const manifest: TranslationsManifest = {};
@@ -97,15 +109,15 @@ export async function buildTranslations(): Promise<void> {
             no_resize: Boolean(content.no_resize),
             no_space: Boolean(content.no_space),
             html_lang: content.html_lang,
-            percentage: content.percentage ?? `${Math.round(100 * Object.keys(content).filter(keyFilter).length / ValidKeys.length)}%`
+            percentage: content.percentage ?? `${Math.round(100 * calculateValidRatio(Object.keys(content)))}%`
         };
 
-        filePromises.push(writeFile(`../../client/public/translations/${language}.json`, JSON.stringify(content)));
+        filePromises.push(writeFile(`../../client/public/translations/${language}.json`, JSON.stringify(content, null, 2)));
     }
 
     await Promise.all([
         ...filePromises,
-        writeFile("../../client/src/translationsManifest.json", JSON.stringify(manifest))
+        writeFile("../../client/src/translationsManifest.json", JSON.stringify(manifest, null, 2))
     ]);
 }
 
@@ -118,7 +130,7 @@ export async function buildTypings(keys: readonly string[]): Promise<void> {
         ...Guns.definitions.map(({ idString }) => idString),
         ...Melees.definitions.map(({ idString }) => idString),
         ...Throwables.definitions.map(({ idString }) => idString)
-    ].map(key => `"${key}"`).join("|");
+    ].map(key => `"${key}"`).join("|\n");
     buffer += ";";
 
     await writeFile("../../client/src/typings/translations.ts", buffer);

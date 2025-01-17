@@ -1,30 +1,17 @@
-import { Layer, TeamSize } from "@common/constants";
-import { type Vector } from "@common/utils/vector";
+import { TeamSize } from "@common/constants";
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
 import { BarrelObstaclesPlugin } from "./plugins/barrelObstaclesPlugin";
 import { InfiniteThrowablesPlugin } from "./plugins/infiniteThrowablesPlugin";
 
-export const enum SpawnMode {
-    Normal,
-    Radius,
-    Fixed,
-    Center
-}
-export const enum GasMode {
-    Normal,
-    Debug,
-    Disabled
-}
-
 export const Config = {
     host: "0.0.0.0",
     port: 8000,
 
-    map: "fall",
+    map: "normal",
 
-    spawn: { mode: SpawnMode.Normal },
+    spawn: { mode: SpawnMode.Default },
 
     maxTeamSize: TeamSize.Solo,
 
@@ -38,32 +25,55 @@ export const Config = {
 
     plugins: [BarrelObstaclesPlugin, InfiniteThrowablesPlugin],
 
-    disableLobbyClearing: true,
-
     roles: {
-        developr: { password: "meow", isDev: true },
-        designr: { password: "meow" },
-        lead_designr: { password: "meow" },
-        vip_designr: { password: "meow" },
-        lead_composr: { password: "meow" },
-        composr: { password: "meow" },
-        sound_designr: { password: "meow" },
-        moderatr: { password: "meow" },
-        administratr: { password: "meow" },
-        content_creatr: { password: "meow" },
-        donatr: { password: "meow" },
+        developr: { isDev: true, password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        designr: { password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        lead_designr: { password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        vip_designr: { password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        sound_designr: { password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        moderatr: { password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        administratr: { password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        content_creatr: { password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        donatr: { password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
 
-        hasanger: { password: "meow", isDev: true },
-        pap: { password: "meow", isDev: true },
-        error: { password: "meow", isDev: true },
-        limenade: { password: "meow", isDev: true },
-        solstice: { password: "meow", isDev: true }
+        xnor: { isDev: true, password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        hasanger: { isDev: true, password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        pap: { isDev: true, password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        error: { isDev: true, password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        limenade: { isDev: true, password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" },
+        solstice: { isDev: true, password: "60a7feb52aeb8a1d400170ecfdccbd56663d87f5c8b10ec64e16c6720300761a" }
     },
-
-    authServer: {
-        address: "http://localhost:8080"
-    }
 } satisfies ConfigType as ConfigType;
+
+export type MapWithParams = `${keyof typeof Maps}${string}`;
+
+export const enum SpawnMode {
+    Normal,
+    Radius,
+    Fixed,
+    Center,
+    Default
+}
+
+export type SpawnOptions =
+    | {
+        readonly mode: SpawnMode.Normal | SpawnMode.Center
+    }
+    | {
+        readonly mode: SpawnMode.Radius
+        readonly position: [number, number, number?]
+        readonly radius: number
+    }
+    | {
+        readonly mode: SpawnMode.Fixed
+        readonly position: [number, number, number?]
+    };
+
+export const enum GasMode {
+    Normal,
+    Debug,
+    Disabled
+}
 
 export interface ConfigType {
     /**
@@ -91,28 +101,26 @@ export interface ConfigType {
      * Example: `"main"` for the main map or `"debug"` for the debug map.
      * Parameters can also be specified for certain maps, separated by colons (e.g. `singleObstacle:rock`)
      */
-    readonly map: `${keyof typeof Maps}${string}`
+    readonly map: MapWithParams | {
+        /**
+        * The duration between switches. Must be a cron pattern.
+        */
+        readonly switchSchedule: string
+        /**
+        * The modes to switch between.
+        */
+        readonly rotation: MapWithParams[]
+    }
 
     /**
-     * There are 4 spawn modes: `Normal`, `Radius`, `Fixed`, and `Center`.
+     * There are 5 spawn modes: `Normal`, `Radius`, `Fixed`, `Center`, and `Default`.
      * - `SpawnMode.Normal` spawns the player at a random location that is at least 50 units away from other players.
      * - `SpawnMode.Radius` spawns the player at a random location within the circle with the given position and radius.
      * - `SpawnMode.Fixed` always spawns the player at the exact position given.
      * - `SpawnMode.Center` always spawns the player in the center of the map.
+     * - `SpawnMode.Default` uses the spawn options specified in the map definition, or `SpawnMode.Normal` if none are specified.
      */
-    readonly spawn:
-        | { readonly mode: SpawnMode.Normal }
-        | {
-            readonly mode: SpawnMode.Radius
-            readonly position: Vector
-            readonly radius: number
-        }
-        | {
-            readonly mode: SpawnMode.Fixed
-            readonly position: Vector
-            readonly layer?: Layer
-        }
-        | { readonly mode: SpawnMode.Center }
+    readonly spawn: SpawnOptions | { readonly mode: SpawnMode.Default }
 
     /**
      * The maximum number of players allowed to join a team.

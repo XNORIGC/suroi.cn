@@ -62,6 +62,8 @@ export type DeepMutable<T> = (T extends ReadonlyArray<infer I> ? Array<DeepMutab
     -readonly [K in keyof T]: DeepMutable<T[K]>;
 };
 
+export type WithPartial<O extends object, K extends keyof O> = Omit<O, K> & { [L in K]?: O[L] };
+
 /**
  * Same as {@link Mutable} but descendants of {@link ObjectDefinition} remain untouched
  */
@@ -105,7 +107,12 @@ export function handleResult<Res>(result: Result<Res, unknown>, fallbackSupplier
     return "err" in result ? fallbackSupplier() : result.res;
 }
 
-export function mergeDeep<T extends object>(target: T, ...sources: Array<DeepPartial<T>>): T {
+// from https://stackoverflow.com/a/50375286
+type UnionToIntersection<U> = (U extends unknown ? (x: U) => void : never) extends ((x: infer I) => void) ? I : never;
+
+export function mergeDeep<A extends readonly object[]>(target: Record<PrimitiveKey, never>, ...sources: A): UnionToIntersection<A[number]>;
+export function mergeDeep<T extends object>(target: T, ...sources: ReadonlyArray<DeepPartial<T>>): T;
+export function mergeDeep<T extends object>(target: T, ...sources: ReadonlyArray<DeepPartial<T>>): T {
     if (!sources.length) return target;
 
     const [source, ...rest] = sources;
@@ -278,6 +285,59 @@ export function freezeDeep<T>(object: T): DeepReadonly<T> {
     return object as DeepReadonly<T>;
 }
 
+// skull
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type PrimitiveKey = keyof any;
+
+export function splitArray<In, Narrow extends In>(target: In[], predicate: (ele: In, index: number, array: In[]) => ele is Narrow): {
+    true: Narrow[]
+    false: Array<Exclude<In, Narrow>>
+};
+export function splitArray<In, const Out extends PrimitiveKey>(target: In[], predicate: (ele: In, index: number, array: In[]) => Out): Record<Out, In[]>;
+/**
+ * Splits an array into two subarrays based on a predicate. If `Out` is not assignable to `string | number | symbol`, use {@link groupArray} instead
+ * @param target The array to split
+ * @param predicate A function deciding which subarray to put each element in
+ * @returns The two subarrays
+ */
+export function splitArray<In, const Out extends PrimitiveKey>(target: In[], predicate: (ele: In, index: number, array: In[]) => Out): Record<Out, In[]> {
+    const length = target.length;
+    const obj = Object.create(null) as Record<PrimitiveKey, In[]>;
+
+    for (let i = 0; i < length; i++) {
+        const ele = target[i];
+        (obj[predicate(ele, i, target)] ??= []).push(ele);
+    }
+
+    return obj;
+}
+
+/**
+ * Groups an array's elements based on the result of a picker function. If `Out` is assignable to `string | number | symbol`, favor the use
+ * of {@link splitArray} instead
+ * @param target The array to split
+ * @param picker A function deciding which subarray to put each element in
+ * @returns The two subarrays
+ */
+export function groupArray<In, Out>(target: In[], picker: (ele: In, index: number, array: In[]) => Out): Map<Out, In[]> {
+    const length = target.length;
+    const map = new Map<Out, In[]>();
+
+    for (let i = 0; i < length; i++) {
+        const ele = target[i];
+        const key = picker(ele, i, target);
+        if (map.has(key)) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            map.get(key)!.push(ele);
+            continue;
+        }
+
+        map.set(key, [ele]);
+    }
+
+    return map;
+}
+
 export class Timeout {
     callback: () => void;
     end: number;
@@ -337,7 +397,7 @@ export class Stack<T> implements DeepCloneable<Stack<T>>, Cloneable<Stack<T>> {
      */
     pop(): T {
         const head = this._head;
-        if (!head) throw new Error("Empty stack");
+        if (head === undefined) throw new Error("Empty stack");
 
         const value = head.value;
         this._head = head.next;
@@ -350,7 +410,7 @@ export class Stack<T> implements DeepCloneable<Stack<T>>, Cloneable<Stack<T>> {
      * @throws {Error} If the stack is empty
      */
     peek(): T {
-        if (!this._head) throw new Error("Empty stack");
+        if (this._head === undefined) throw new Error("Empty stack");
 
         return this._head.value;
     }
@@ -361,7 +421,7 @@ export class Stack<T> implements DeepCloneable<Stack<T>>, Cloneable<Stack<T>> {
      * `pop` and `peek` are guaranteed to throw an error
      */
     has(): boolean {
-        return !!this._head;
+        return this._head !== undefined;
     }
 
     /**
@@ -374,9 +434,7 @@ export class Stack<T> implements DeepCloneable<Stack<T>>, Cloneable<Stack<T>> {
         let current: LinkedList<T> | undefined = this._head;
         let currentClone: LinkedList<T> | undefined;
         while (current !== undefined) {
-            const node = deep
-                ? { value: cloneDeep(current.value) }
-                : current;
+            const node = { value: deep ? cloneDeep(current.value) : current.value };
 
             currentClone = currentClone
                 ? currentClone.next = node
@@ -425,7 +483,7 @@ export class Queue<T> implements DeepCloneable<Queue<T>>, Cloneable<Queue<T>> {
     enqueue(value: T): void {
         const node = { value };
 
-        if (!this._tail) {
+        if (this._tail === undefined) {
             this._tail = this._head = node;
             return;
         }
@@ -439,7 +497,7 @@ export class Queue<T> implements DeepCloneable<Queue<T>>, Cloneable<Queue<T>> {
      * @throws {Error} If the queue is empty
      */
     dequeue(): T {
-        if (!this._head) throw new Error("Empty queue");
+        if (this._head === undefined) throw new Error("Empty queue");
 
         const value = this._head.value;
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -454,7 +512,7 @@ export class Queue<T> implements DeepCloneable<Queue<T>>, Cloneable<Queue<T>> {
      * @throws {Error} If the queue is empty
      */
     peek(): T {
-        if (!this._head) throw new Error("Empty queue");
+        if (this._head === undefined) throw new Error("Empty queue");
 
         return this._head.value;
     }
@@ -465,7 +523,7 @@ export class Queue<T> implements DeepCloneable<Queue<T>>, Cloneable<Queue<T>> {
      * `dequeue` and `peek` are guaranteed to throw an error
      */
     has(): boolean {
-        return !!this._head;
+        return this._head !== undefined;
     }
 
     /**
@@ -478,7 +536,7 @@ export class Queue<T> implements DeepCloneable<Queue<T>>, Cloneable<Queue<T>> {
         let current: LinkedList<T> | undefined = this._head;
         let currentClone: LinkedList<T> | undefined;
         while (current !== undefined) {
-            const node = { value: cloneDeep(current.value) };
+            const node = { value: deep ? cloneDeep(current.value) : current.value };
 
             currentClone = currentClone
                 ? currentClone.next = node

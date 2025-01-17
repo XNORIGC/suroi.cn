@@ -9,7 +9,6 @@ import { HealingItems } from "@common/definitions/healingItems";
 import { Loots, type WeaponDefinition } from "@common/definitions/loots";
 import { type PlayerPing } from "@common/definitions/mapPings";
 import { Melees, type MeleeDefinition } from "@common/definitions/melees";
-import { Modes } from "@common/definitions/modes";
 import { Obstacles, type ObstacleDefinition } from "@common/definitions/obstacles";
 import { PerkCategories, PerkIds, Perks, type PerkDefinition, type PerkNames } from "@common/definitions/perks";
 import { DEFAULT_SCOPE, Scopes, type ScopeDefinition } from "@common/definitions/scopes";
@@ -17,7 +16,7 @@ import { type SkinDefinition } from "@common/definitions/skins";
 import { SyncedParticles, type SyncedParticleDefinition } from "@common/definitions/syncedParticles";
 import { Throwables, type ThrowableDefinition } from "@common/definitions/throwables";
 import { DisconnectPacket } from "@common/packets/disconnectPacket";
-import { GameOverPacket, type GameOverData } from "@common/packets/gameOverPacket";
+import { GameOverPacket, TeammateGameOverData, type GameOverData } from "@common/packets/gameOverPacket";
 import { type AllowedEmoteSources, type NoMobile, type PlayerInputData } from "@common/packets/inputPacket";
 import { createKillfeedMessage, KillFeedPacket, type ForEventType } from "@common/packets/killFeedPacket";
 import { type InputPacket } from "@common/packets/packet";
@@ -96,6 +95,8 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     lastRateLimitUpdate = 0;
     blockEmoting = false;
 
+    initializedSpecialSpectatingCase = false;
+
     readonly loadout: {
         badge?: BadgeDefinition
         skin: SkinDefinition
@@ -114,6 +115,8 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
             return;
         }
 
+        if (this._team === this.team) return;
+
         this.dirty.teammates = true;
         this._team = value;
     }
@@ -121,6 +124,8 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     private _kills = 0;
     get kills(): number { return this._kills; }
     set kills(kills: number) {
+        if (this._kills === kills) return;
+
         this._kills = kills;
         this.game.updateKillLeader(this);
     }
@@ -128,20 +133,26 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     private _maxHealth = GameConstants.player.defaultHealth;
     get maxHealth(): number { return this._maxHealth; }
     set maxHealth(maxHealth: number) {
-        this._maxHealth = maxHealth;
-        this.dirty.maxMinStats = true;
-        this._team?.setDirty();
+        if (this._maxHealth !== maxHealth) {
+            this._maxHealth = maxHealth;
+            this.dirty.maxMinStats = true;
+            this._team?.setDirty();
+        }
+
         this.health = this._health;
     }
 
     private _health = this._maxHealth;
 
-    private _normalizedHealth = 0;
+    private _normalizedHealth = Numeric.remap(this._health, 0, this._maxHealth, 0, 1);
     get normalizedHealth(): number { return this._normalizedHealth; }
 
     get health(): number { return this._health; }
     set health(health: number) {
-        this._health = Numeric.min(health, this._maxHealth);
+        const clamped = Numeric.min(health, this._maxHealth);
+        if (this._health === clamped) return;
+
+        this._health = clamped;
         this._team?.setDirty();
         this.dirty.health = true;
         this._normalizedHealth = Numeric.remap(this.health, 0, this.maxHealth, 0, 1);
@@ -154,23 +165,33 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
 
     get maxAdrenaline(): number { return this._maxAdrenaline; }
     set maxAdrenaline(maxAdrenaline: number) {
-        this._maxAdrenaline = maxAdrenaline;
-        this.dirty.maxMinStats = true;
+        if (this._maxAdrenaline !== maxAdrenaline) {
+            this._maxAdrenaline = maxAdrenaline;
+            this.dirty.maxMinStats = true;
+        }
+
         this.adrenaline = this._adrenaline;
     }
 
     private _minAdrenaline = 0;
     get minAdrenaline(): number { return this._minAdrenaline; }
     set minAdrenaline(minAdrenaline: number) {
-        this._minAdrenaline = Numeric.min(minAdrenaline, this._maxAdrenaline);
-        this.dirty.maxMinStats = true;
+        const min = Numeric.min(minAdrenaline, this._maxAdrenaline);
+        if (this._minAdrenaline !== min) {
+            this._minAdrenaline = min;
+            this.dirty.maxMinStats = true;
+        }
+
         this.adrenaline = this._adrenaline;
     }
 
     private _adrenaline = this._minAdrenaline;
     get adrenaline(): number { return this._adrenaline; }
     set adrenaline(adrenaline: number) {
-        this._adrenaline = Numeric.clamp(adrenaline, this._minAdrenaline, this._maxAdrenaline);
+        const clamped = Numeric.clamp(adrenaline, this._minAdrenaline, this._maxAdrenaline);
+        if (this._adrenaline === clamped) return;
+
+        this._adrenaline = clamped;
         this.dirty.adrenaline = true;
         this._normalizedAdrenaline = Numeric.remap(this.adrenaline, this.minAdrenaline, this.maxAdrenaline, 0, 1);
     }
@@ -179,6 +200,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     get sizeMod(): number { return this._sizeMod; }
     set sizeMod(size: number) {
         if (this._sizeMod === size) return;
+
         this._sizeMod = size;
         this._hitbox = Player.baseHitbox.transform(this._hitbox.position, size);
         this.dirty.size = true;
@@ -412,6 +434,8 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     readonly perks = new ServerPerkManager(this, Perks.defaults);
     perkUpdateMap?: Map<UpdatablePerkDefinition, number>; // key = perk, value = last updated
 
+    private _pingSeq = 0;
+
     constructor(game: Game, socket: WebSocket<PlayerContainer>, position: Vector, layer?: Layer, team?: Team) {
         super(game, position);
 
@@ -455,7 +479,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
 
         this.inventory.addOrReplaceWeapon(2, "fists");
 
-        const defaultScope = Modes[GameConstants.modeName].defaultScope;
+        const defaultScope = game.mode.defaultScope;
         if (defaultScope) {
             this.inventory.scope = defaultScope;
             this.inventory.items.setItem(defaultScope, 1);
@@ -1261,12 +1285,13 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
         }
 
         packet.playerData = {
+            pingSeq: this._pingSeq,
             ...(
                 player.dirty.maxMinStats || forceInclude
                     ? { minMax: {
-                        maxHealth: player.maxHealth,
-                        minAdrenaline: player.minAdrenaline,
-                        maxAdrenaline: player.maxAdrenaline
+                        maxHealth: player._maxHealth,
+                        minAdrenaline: player._minAdrenaline,
+                        maxAdrenaline: player._maxAdrenaline
                     } }
                     : {}
             ),
@@ -1603,6 +1628,10 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
         }
 
         if (toSpectate === undefined) return;
+        if (this.spectating !== undefined && !this.initializedSpecialSpectatingCase) {
+            toSpectate = this.spectating;
+            this.initializedSpecialSpectatingCase = true;
+        }
 
         if (this.game.teamMode) {
             this.teamID = toSpectate.teamID;
@@ -2157,6 +2186,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                 if (
                     def.noDrop
                     || ("ephemeral" in def && def.ephemeral)
+                    || def.idString === this.game.mode.defaultScope
                 ) continue;
 
                 if (def.itemType === ItemType.Ammo && count !== Infinity) {
@@ -2226,7 +2256,17 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
             c4.damage({ amount: Infinity });
         }
 
-        // Send game over to dead player
+        if (this.team) {
+            if (this.team.hasLivingPlayers()) {
+                this.spectating?.spectators.delete(this);
+                this.updateObjects = true;
+                this.startedSpectating = true;
+                const toSpectate = this.team.getLivingPlayers()[0];
+                toSpectate.spectators.add(this);
+                this.spectating = toSpectate;
+            }
+        }
+
         if (!this.disconnected) {
             this.sendGameOverPacket();
         }
@@ -2327,7 +2367,52 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     }
 
     sendGameOverPacket(won = false): void {
-        const packet = GameOverPacket.create({
+        const teammates: TeammateGameOverData[] = [];
+        let packet;
+        if (this.team && (this.game.teamMode && this.spectating === undefined)) {
+            for (const player of this.team.players) {
+                const playerID = player.id;
+                const kills = player.kills;
+                const damageDone = player.damageDone;
+                const damageTaken = player.damageTaken;
+                const timeAlive = (this.game.now - player.joinTime) / 1000;
+                teammates.push({
+                    playerID,
+                    kills,
+                    damageDone,
+                    damageTaken,
+                    timeAlive
+                });
+            }
+
+            packet = GameOverPacket.create({
+                won,
+                rank: won ? 1 as const : this.game.aliveCount + 1,
+                numberTeammates: teammates.length,
+                teammates: teammates
+            } as GameOverData);
+        } else {
+            const playerID = this.id;
+            const kills = this.kills;
+            const damageDone = this.damageDone;
+            const damageTaken = this.damageTaken;
+            const timeAlive = (this.game.now - this.joinTime) / 1000;
+            teammates.push({
+                playerID,
+                kills,
+                damageDone,
+                damageTaken,
+                timeAlive
+            });
+            packet = GameOverPacket.create({
+                won,
+                rank: won ? 1 as const : this.game.aliveCount + 1,
+                numberTeammates: 1,
+                teammates: teammates
+            } as GameOverData);
+        }
+
+        /* const packet = GameOverPacket.create({
             won,
             playerID: this.id,
             kills: this.kills,
@@ -2336,6 +2421,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
             timeAlive: (this.game.now - this.joinTime) / 1000,
             rank: won ? 1 as const : this.game.aliveCount + 1
         } as GameOverData);
+         */
 
         this.sendPacket(packet);
 
@@ -2349,6 +2435,8 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
             ...packet.movement,
             ...(packet.isMobile ? packet.mobile : { moving: false, angle: 0 })
         };
+
+        this._pingSeq = packet.pingSeq;
 
         const wasAttacking = this.attacking;
         const isAttacking = packet.attacking;

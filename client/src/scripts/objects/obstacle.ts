@@ -1,4 +1,4 @@
-import { GameConstants, Layer, Layers, ObjectCategory, ZIndexes } from "@common/constants";
+import { Layer, Layers, ObjectCategory, ZIndexes } from "@common/constants";
 import { MaterialSounds, type ObstacleDefinition } from "@common/definitions/obstacles";
 import { type Orientation, type Variation } from "@common/typings";
 import { CircleHitbox, RectangleHitbox, type Hitbox } from "@common/utils/hitbox";
@@ -190,7 +190,7 @@ export class Obstacle extends GameObject.derive(ObjectCategory.Obstacle) {
 
                         texture = "airdrop_crate_unlocking";
 
-                        if (GameConstants.modeName === "winter") {
+                        if (this.game.modeName === "winter") {
                             this.game.particleManager.spawnParticles(1, () => ({
                                 frames: "airdrop_particle_4",
                                 position: this.hitbox.randomPoint(),

@@ -43,10 +43,10 @@ const inventorySlotTypings = Object.freeze([ItemType.Gun, ItemType.Gun, ItemType
 export const GameConstants = freezeDeep({
     // !!!!! NOTE: Increase this every time a bit stream change is made between latest release and master
     // or a new item is added to a definition list
-    protocolVersion: 43,
+    protocolVersion: 45,
     gridSize: 32,
     maxPosition: Constants.MAX_POSITION,
-    modeName: "fall" satisfies Mode as Mode,
+    defaultMode: "normal" satisfies Mode as Mode,
     player: {
         radius: 2.25,
         baseSpeed: 0.02655,
