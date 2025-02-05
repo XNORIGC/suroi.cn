@@ -46,7 +46,7 @@ export const Modes: Record<Mode, ModeDefinition> = {
         sounds: {
             foldersToLoad: ["shared", "normal"]
         },
-        spriteSheets: ["shared", "normal"]
+        spriteSheets: ["fall", "shared", "normal"]
     },
     fall: {
         colors: {

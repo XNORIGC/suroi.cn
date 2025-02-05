@@ -26,10 +26,12 @@ export const JoinedPacket = createPacket("JoinedPacket")<JoinedPacketData>({
             emotes[2] !== undefined,
             emotes[3] !== undefined,
             emotes[4] !== undefined,
-            emotes[5] !== undefined
+            emotes[5] !== undefined,
+            emotes[6] !== undefined,
+            emotes[7] !== undefined
         );
 
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 8; i++) {
             const emote = emotes[i];
             if (emote !== undefined) {
                 Emotes.writeToStream(stream, emote);
@@ -46,7 +48,7 @@ export const JoinedPacket = createPacket("JoinedPacket")<JoinedPacketData>({
         const data = {
             maxTeamSize,
             teamID,
-            emotes: Array.from({ length: 6 }, (_, i) => emoteSlots[i] ? Emotes.readFromStream(stream) : undefined)
+            emotes: Array.from({ length: 8 }, (_, i) => emoteSlots[i] ? Emotes.readFromStream(stream) : undefined)
         } as JoinedPacketData;
 
         recordTo(DataSplitTypes.PlayerData);

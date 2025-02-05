@@ -2,12 +2,13 @@ import { TeamSize } from "@common/constants";
 import { type Maps } from "./data/maps";
 import { type Game } from "./game";
 import { type GamePlugin } from "./pluginManager";
+import { TeleportPlugin } from "./defaultPlugins/teleportPlugin";
 
 export const Config = {
     host: "127.0.0.1",
     port: 8000,
 
-    map: "normal",
+    map: "arena",
 
     spawn: { mode: SpawnMode.Default },
 
@@ -20,7 +21,7 @@ export const Config = {
 
     tps: 40,
 
-    plugins: [],
+    plugins: [TeleportPlugin],
 
     disableLobbyClearing: true,
 

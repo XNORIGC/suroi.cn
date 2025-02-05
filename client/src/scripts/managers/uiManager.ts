@@ -190,7 +190,7 @@ export class UIManager {
         menuButton: $<HTMLButtonElement>("#btn-game-menu"),
 
         emoteWheel: $<HTMLDivElement>("#emote-wheel"),
-        emoteSelectors: [".emote-top", ".emote-right", ".emote-bottom", ".emote-left"]
+        emoteSelectors: [".emote-top_left", ".emote-top", ".emote-top_right", ".emote-bottom_right", ".emote-bottom", ".emote-bottom_left"]
             .map(selector => $<HTMLDivElement>(`#emote-wheel > ${selector}`)),
 
         actionContainer: $<HTMLDivElement>("#action-container"),
@@ -588,10 +588,12 @@ export class UIManager {
     // I'd rewrite this as MapPings.filter(…), but it's not really clear how
     // > 4 player pings is _meant_ to be handled, so I'll begrudgingly leave this alone
     readonly mapPings: readonly PlayerPing[] = [
+        "heal_ping",
         "warning_ping",
         "arrow_ping",
+        "colon_three_ping",
         "gift_ping",
-        "heal_ping"
+        "question_mark_ping"
     ].map(ping => MapPings.fromString<PlayerPing>(ping));
 
     updateEmoteWheel(): void {
@@ -604,7 +606,7 @@ export class UIManager {
                 else if (ammo.hideUnlessPresent && this.inventory.items[ammo.idString] === 0) itemSlot.css("visibility", "hidden");
             }
         }
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 6; i++) {
             const definition = (pingWheelActive ? this.mapPings : this.emotes)[i];
 
             this.ui.emoteSelectors[i].css(

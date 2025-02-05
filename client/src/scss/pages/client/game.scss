@@ -1932,14 +1932,24 @@
         position: absolute;
     }
 
+    .emote-top_left {
+        top: 57px;
+        left: 14px;
+    }
+
     .emote-top {
         top: 14px;
         left: 101px;
     }
 
-    .emote-right {
+    .emote-top_right {
+        top: 57px;
         right: 14px;
-        top: 101px;
+    }
+
+    .emote-bottom_right {
+        bottom: 57px;
+        right: 14px;
     }
 
     .emote-bottom {
@@ -1947,9 +1957,9 @@
         left: 101px;
     }
 
-    .emote-left {
+    .emote-bottom_left {
+        bottom: 57px;
         left: 14px;
-        top: 101px;
     }
 
     .button-center {

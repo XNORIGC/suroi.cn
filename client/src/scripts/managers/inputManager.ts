@@ -220,10 +220,12 @@ export class InputManager {
             $("#emote-wheel").hide();
         });
 
-        const FIRST_EMOTE_ANGLE = Math.atan2(-1, -1);
-        const SECOND_EMOTE_ANGLE = Math.atan2(1, 1);
-        const THIRD_EMOTE_ANGLE = Math.atan2(-1, 1);
-        const FOURTH_EMOTE_ANGLE = Math.atan2(1, -1);
+        const FIRST_EMOTE_ANGLE = Math.atan2(0, 2);
+        const SECOND_EMOTE_ANGLE = Math.atan2(Math.sqrt(3), 1);
+        const THIRD_EMOTE_ANGLE = Math.atan2(Math.sqrt(3), -1);
+        const FOURTH_EMOTE_ANGLE = Math.atan2(0, -2);
+        const FIFTH_EMOTE_ANGLE = Math.atan2(-Math.sqrt(3), -1);
+        const SIXTH_EMOTE_ANGLE = Math.atan2(-Math.sqrt(3), 1);
 
         gameContainer.addEventListener("pointermove", (e: MouseEvent) => {
             if (this.isMobile) return;
@@ -235,18 +237,24 @@ export class InputManager {
                 if (Geometry.distanceSquared(this.emoteWheelPosition, mousePosition) > 500 && this.game.activePlayer && !this.game.activePlayer.blockEmoting) {
                     const angle = Angle.betweenPoints(this.emoteWheelPosition, mousePosition);
                     let slotName: string | undefined;
-                    if (SECOND_EMOTE_ANGLE <= angle && angle <= FOURTH_EMOTE_ANGLE) {
+                    if (FIRST_EMOTE_ANGLE <= angle && angle < SECOND_EMOTE_ANGLE) {
                         this.selectedEmote = 0;
-                        slotName = "top";
-                    } else if (!(angle >= FIRST_EMOTE_ANGLE && angle <= FOURTH_EMOTE_ANGLE)) {
+                        slotName = "top_left";
+                    } else if (SECOND_EMOTE_ANGLE <= angle && angle < THIRD_EMOTE_ANGLE) {
                         this.selectedEmote = 1;
-                        slotName = "right";
-                    } else if (FIRST_EMOTE_ANGLE <= angle && angle <= THIRD_EMOTE_ANGLE) {
+                        slotName = "top";
+                    } else if (THIRD_EMOTE_ANGLE <= angle && angle < FOURTH_EMOTE_ANGLE) {
                         this.selectedEmote = 2;
-                        slotName = "bottom";
-                    } else if (THIRD_EMOTE_ANGLE <= angle && angle <= SECOND_EMOTE_ANGLE) {
+                        slotName = "top_right";
+                    } else if (FOURTH_EMOTE_ANGLE == angle || angle < FIFTH_EMOTE_ANGLE) {
                         this.selectedEmote = 3;
-                        slotName = "left";
+                        slotName = "bottom_right";
+                    } else if (FIFTH_EMOTE_ANGLE <= angle && angle < SIXTH_EMOTE_ANGLE) {
+                        this.selectedEmote = 4;
+                        slotName = "bottom";
+                    } else {
+                        this.selectedEmote = 5;
+                        slotName = "bottom_left";
                     }
                     $("#emote-wheel").css("background-image", `url("./img/misc/emote_wheel_highlight_${slotName ?? "top"}.svg"), url("./img/misc/emote_wheel.svg")`);
                 } else {

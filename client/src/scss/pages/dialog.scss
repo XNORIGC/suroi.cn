@@ -377,10 +377,12 @@
         flex-shrink: 0;
         transform: none;
 
+        .emote-top_left,
         .emote-top,
-        .emote-right,
+        .emote-top_right,
+        .emote-bottom_right,
         .emote-bottom,
-        .emote-left {
+        .emote-bottom_left {
             cursor: pointer;
             z-index: 10;
         }
@@ -649,14 +651,24 @@
                 background-size: contain;
             }
 
+            .emote-top_left {
+                top: 38px;
+                left: 9px;
+            }
+
             .emote-top {
                 top: 9px;
                 left: 67px;
             }
 
-            .emote-right {
+            .emote-top_right {
+                top: 38px;
                 right: 9px;
-                top: 67px;
+            }
+
+            .emote-bottom_right {
+                bottom: 38px;
+                right: 9px;
             }
 
             .emote-bottom {
@@ -664,9 +676,9 @@
                 left: 67px;
             }
 
-            .emote-left {
+            .emote-bottom_left {
+                bottom: 38px;
                 left: 9px;
-                top: 67px;
             }
         }
     }
@@ -681,14 +693,24 @@
                 height: 42px;
             }
 
+            .emote-top_left {
+                top: 29px;
+                left: 7px;
+            }
+
             .emote-top {
                 top: 7px;
                 left: 51px;
             }
 
-            .emote-right {
+            .emote-top_right {
+                top: 29px;
                 right: 7px;
-                top: 51px;
+            }
+
+            .emote-bottom_right {
+                bottom: 29px;
+                right: 7px;
             }
 
             .emote-bottom {
@@ -696,9 +718,9 @@
                 left: 51px;
             }
 
-            .emote-left {
+            .emote-bottom_left {
+                bottom: 29px;
                 left: 7px;
-                top: 51px;
             }
         }
     }

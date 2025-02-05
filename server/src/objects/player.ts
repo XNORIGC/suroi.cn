@@ -484,10 +484,12 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
         this.loadout = {
             skin: Loots.fromString("hazel_jumpsuit"),
             emotes: [
+                Emotes.fromStringSafe("sad_face"),
                 Emotes.fromStringSafe("happy_face"),
                 Emotes.fromStringSafe("thumbs_up"),
+                Emotes.fromStringSafe("bleh"),
                 Emotes.fromStringSafe("suroi_logo"),
-                Emotes.fromStringSafe("sad_face"),
+                Emotes.fromStringSafe("joyful_face"),
                 undefined,
                 undefined
             ]
@@ -803,7 +805,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
             && !this.game.teamMode) return;
 
         const indexOf = this.loadout.emotes.indexOf(source as EmoteDefinition);
-        if (!isFromServer && (indexOf < 0 || indexOf > 3)) return;
+        if (!isFromServer && (indexOf < 0 || indexOf > 5)) return;
 
         if (this.game.pluginManager.emit("player_will_emote", { player: this, emote: source })) return;
 
@@ -2190,7 +2192,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
         this.adrenaline = 0;
         this.dirty.items = true;
         this.action?.cancel();
-        this.sendEmote(this.loadout.emotes[5], true);
+        this.sendEmote(this.loadout.emotes[7], true);
 
         this.game.livingPlayers.delete(this);
         this.game.updateGameData({ aliveCount: this.game.aliveCount });

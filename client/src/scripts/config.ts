@@ -7,29 +7,9 @@ export const Config = {
             name: "Local Server",
             mainAddress: "http://127.0.0.1:8000",
             gameAddress: "ws://127.0.0.1:800<ID>"
-        },
-        na: {
-            name: "North America",
-            mainAddress: "https://na.suroi.io",
-            gameAddress: "wss://<ID>.na.suroi.io"
-        },
-        eu: {
-            name: "Europe",
-            mainAddress: "https://eu.suroi.io",
-            gameAddress: "wss://<ID>.eu.suroi.io"
-        },
-        sa: {
-            name: "South America",
-            mainAddress: "https://sa.suroi.io",
-            gameAddress: "wss://<ID>.sa.suroi.io"
-        },
-        as: {
-            name: "Asia",
-            mainAddress: "https://as.suroi.io",
-            gameAddress: "wss://<ID>.as.suroi.io"
         }
     },
-    defaultRegion: "na"
+    defaultRegion: "dev"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {

@@ -34,6 +34,10 @@ export const JoinPacket = createPacket("JoinPacket")<JoinPacketCreation, JoinPac
             emotes[4] !== undefined,
             emotes[5] !== undefined
         );
+        stream.writeBooleanGroup(
+            emotes[6] !== undefined,
+            emotes[7] !== undefined
+        )
 
         stream.writeUint16(GameConstants.protocolVersion);
         stream.writePlayerName(data.name);
@@ -44,7 +48,7 @@ export const JoinPacket = createPacket("JoinPacket")<JoinPacketCreation, JoinPac
             Badges.writeToStream(stream, data.badge);
         }
 
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 8; i++) {
             const emote = emotes[i];
             if (emote !== undefined) {
                 Emotes.writeToStream(stream, emote);
@@ -57,7 +61,7 @@ export const JoinPacket = createPacket("JoinPacket")<JoinPacketCreation, JoinPac
             isMobile,
             hasBadge,
             ...emotes
-        ] = stream.readBooleanGroup();
+        ] = [...stream.readBooleanGroup(), ...stream.readBooleanGroup()];
 
         return {
             protocolVersion: stream.readUint16(),
@@ -67,7 +71,7 @@ export const JoinPacket = createPacket("JoinPacket")<JoinPacketCreation, JoinPac
             skin: Loots.readFromStream(stream),
             badge: hasBadge ? Badges.readFromStream(stream) : undefined,
 
-            emotes: Array.from({ length: 6 }, (_, i) => emotes[i] ? Emotes.readFromStream(stream) : undefined)
+            emotes: Array.from({ length: 8 }, (_, i) => emotes[i] ? Emotes.readFromStream(stream) : undefined)
         };
     }
 });

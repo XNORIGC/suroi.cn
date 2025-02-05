@@ -97,7 +97,7 @@ class Bot {
 
         this._ws.binaryType = "arraybuffer";
 
-        this._emotes = Array.from({ length: 6 }, () => pickRandomInArray(emotes));
+        this._emotes = Array.from({ length: 8 }, () => pickRandomInArray(emotes));
 
         this._ws.onmessage = (message: MessageEvent): void => {
             const stream = new PacketStream(message.data as ArrayBuffer);

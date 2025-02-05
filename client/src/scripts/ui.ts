@@ -1183,7 +1183,7 @@ export async function setUpUI(game: Game): Promise<void> {
 
                 updateEmotesList();
 
-                if (EMOTE_SLOTS.indexOf(slot) > 3) {
+                if (EMOTE_SLOTS.indexOf(slot) > 5) {
                     // win / death emote
                     customizeEmote.css(
                         "background-image",
@@ -2259,10 +2259,12 @@ export async function setUpUI(game: Game): Promise<void> {
             });
         };
 
-        createEmoteWheelListener("top", 0);
-        createEmoteWheelListener("right", 1);
-        createEmoteWheelListener("bottom", 2);
-        createEmoteWheelListener("left", 3);
+        createEmoteWheelListener("top_left", 0);
+        createEmoteWheelListener("top", 1);
+        createEmoteWheelListener("top_right", 2);
+        createEmoteWheelListener("bottom_right", 3);
+        createEmoteWheelListener("bottom", 4);
+        createEmoteWheelListener("bottom_left", 5);
 
         $("#mobile-options").show();
 
