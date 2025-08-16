@@ -189,7 +189,7 @@ export class Game implements GameData {
     }
 
     private _started = false;
-    private _stopped = false;
+    public _stopped = false;
 
     startedTime = Number.MAX_VALUE; // Default of Number.MAX_VALUE makes it so games that haven't started yet are joined first
     allowJoin = false;
@@ -316,10 +316,6 @@ export class Game implements GameData {
                 timeout.callback();
                 this._timeouts.delete(timeout);
             }
-        }
-
-        for (const loot of this.grid.pool.getCategory(ObjectCategory.Loot)) {
-            loot.update();
         }
 
         for (const parachute of this.grid.pool.getCategory(ObjectCategory.Parachute)) {
