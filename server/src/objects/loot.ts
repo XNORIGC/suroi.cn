@@ -88,6 +88,8 @@ export class Loot<Def extends LootDefinition = LootDefinition> extends BaseGameO
     }
 
     update(): void {
+        return;
+
         const moving = Math.abs(this.velocity.x) > 0.001
             || Math.abs(this.velocity.y) > 0.001
             || !Vec.equals(this._oldPosition, this.position);

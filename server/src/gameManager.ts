@@ -181,7 +181,7 @@ if (!Cluster.isPrimary) {
         ? new RateLimiter(maxJoinAttempts.count, maxJoinAttempts.duration)
         : undefined;
 
-    App().ws("/play", {
+    App().ws("/play-1v1", {
         async upgrade(res, req, context) {
             let aborted = false;
             res.onAborted(() => aborted = true);

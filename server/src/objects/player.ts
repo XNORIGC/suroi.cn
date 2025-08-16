@@ -1994,7 +1994,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                     }
                 }
 
-                this.die(params);
+                this.disconnected ? this.die(params) : this.customDie(params);
             }
         }
 
@@ -2405,6 +2405,173 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
         if (this === this.game.killLeader) {
             this.game.findNewKillLeader();
         }
+
+        this.game.pluginManager.emit("player_did_die", {
+            player: this,
+            ...params
+        });
+    }
+
+    customDie(params: Omit<DamageParams, "amount">): void {
+        if (this.health > 0 || this.dead) return;
+
+        this.game.pluginManager.emit("player_will_die", {
+            player: this,
+            ...params
+        });
+
+        const { source, weaponUsed } = params;
+
+        const wasDowned = this.downed;
+
+        const action = this.beingRevivedBy?.action;
+        if (action instanceof ReviveAction) {
+            action.cancel();
+        }
+
+        this.revive();
+        this.health = this.maxHealth;
+
+        const packet = KillPacket.create();
+        packet.victimId = this.id;
+        packet.downed = wasDowned;
+        packet.killed = true;
+
+        if (weaponUsed) {
+            packet.weaponUsed = weaponUsed.definition;
+            packet.damageSource = Player._itemToDamageSource(weaponUsed);
+        }
+
+        const downedBy = this.downedBy?.player;
+        if (
+            source === DamageSources.Gas
+            || source === DamageSources.Airdrop
+            || source === DamageSources.BleedOut
+            || source === DamageSources.FinallyKilled
+        ) {
+            packet.damageSource = source;
+
+            if (downedBy !== undefined) {
+                packet.creditedId = downedBy.id;
+                if (downedBy !== this) packet.kills = ++downedBy.kills;
+            }
+
+            if (this.game.mode.weaponSwap && downedBy !== undefined) {
+                if (!(weaponUsed instanceof Explosion)) {
+                    downedBy.swapWeaponRandomly(weaponUsed, true);
+                } else if (weaponUsed.weapon) {
+                    downedBy.swapWeaponRandomly(weaponUsed.weapon, true);
+                }
+            }
+        } else if (source instanceof Player && source !== this) {
+            this.killedBy = source;
+
+            packet.attackerId = source.id;
+
+            // Give kill credit to the player who downed if they're on the same team as the killer.
+            // Otherwise, the killer always gets credit.
+            if (downedBy && downedBy.teamID === source.teamID) {
+                packet.creditedId = downedBy.id;
+                packet.kills = ++downedBy.kills;
+            } else {
+                packet.kills = ++source.kills;
+            }
+
+            // Killstreak credit always goes to the killer regardless of the above.
+            if (
+                weaponUsed !== undefined
+                && weaponUsed.definition.defType !== DefinitionType.Explosion
+                && weaponUsed instanceof InventoryItemBase
+            ) {
+                packet.killstreak = weaponUsed.stats.kills;
+            }
+
+            // Apply perk effects. Perk effects are also always applied to the killer.
+            for (const perk of source.perks) {
+                switch (perk.idString) {
+                    case PerkIds.BabyPlumpkinPie: {
+                        source.swapWeaponRandomly(undefined, true);
+                        break;
+                    }
+
+                    case PerkIds.Engorged: {
+                        if (source.kills <= perk.killsLimit) {
+                            source.sizeMod *= perk.sizeMod;
+                            source.maxHealth *= perk.healthMod;
+                            source.updateAndApplyModifiers();
+                        }
+                        break;
+                    }
+
+                    case PerkIds.Bloodthirst: {
+                        if (source.activeBloodthirstEffect) break;
+
+                        source.activeBloodthirstEffect = true;
+                        source.health += perk.healBonus;
+                        source.adrenaline += perk.adrenalineBonus;
+                        source.baseSpeed *= perk.speedMod;
+
+                        this.game.addTimeout(() => {
+                            source.baseSpeed /= perk.speedMod;
+                            source.activeBloodthirstEffect = false;
+                        }, perk.speedBoostDuration);
+                        break;
+                    }
+                }
+            }
+
+            // Weapon swap
+            if (this.game.mode.weaponSwap) {
+                if (!(weaponUsed instanceof Explosion)) {
+                    source.swapWeaponRandomly(weaponUsed, true);
+                } else if (weaponUsed.weapon) {
+                    source.swapWeaponRandomly(weaponUsed.weapon, true);
+                }
+            }
+
+            source.updateAndApplyModifiers();
+        }
+
+        this.game.packets.push(packet);
+
+        this.adrenaline = this.maxAdrenaline;
+        this.sendEmote(this.loadout.emotes[7], true);
+
+        for (let i = 0; i < 2; i++) {
+            const gun = this.inventory.weapons[i];
+            if (!gun) continue;
+
+            gun.ammo = this.hasPerk(PerkIds.ExtendedMags) ? gun.definition.extendedCapacity ?? gun.definition.capacity : gun.definition.capacity;
+        }
+
+        this.dirty.weapons = true;
+
+        this.game.fullDirtyObjects.add(this);
+
+        const { position, layer } = this;
+
+        // Disguise funnies
+        if (this.activeDisguise !== undefined) {
+            const disguiseObstacle = this.game.map.generateObstacle(this.activeDisguise?.idString, this.position, { layer: this.layer });
+            const disguiseDef = Obstacles.reify(this.activeDisguise);
+
+            if (disguiseObstacle !== undefined) {
+                this.game.addTimeout(() => {
+                    disguiseObstacle.damage({
+                        amount: disguiseObstacle.health
+                    });
+                }, 10); // small delay so sound plays
+            }
+
+            if (disguiseDef.explosion) {
+                this.game.addExplosion(disguiseDef.explosion, this.position, this, this.layer);
+            }
+        }
+
+        // Create death marker
+        this.game.grid.addObject(new DeathMarker(this, layer));
+
+        this.position = Vec(this.game.map.width / 2, this.game.map.height / 2);
 
         this.game.pluginManager.emit("player_did_die", {
             player: this,

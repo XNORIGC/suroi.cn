@@ -113,7 +113,7 @@ if (Cluster.isPrimary && require.main === module) {
 
     const app = App();
 
-    app.get("/api/serverInfo", async(res, req) => {
+    app.get("/api-1v1/serverInfo", async(res, req) => {
         let aborted = false;
         res.onAborted(() => aborted = true);
 
@@ -140,7 +140,7 @@ if (Cluster.isPrimary && require.main === module) {
         });
     });
 
-    app.get("/api/getGame", async(res, req) => {
+    app.get("/api-1v1/getGame", async(res, req) => {
         let aborted = false;
         res.onAborted(() => aborted = true);
 
@@ -164,7 +164,7 @@ if (Cluster.isPrimary && require.main === module) {
         });
     });
 
-    app.ws("/team", {
+    app.ws("/team-1v1", {
         async upgrade(res, req, context) {
             let aborted = false;
             res.onAborted(() => aborted = true);

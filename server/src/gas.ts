@@ -140,6 +140,28 @@ export class Gas {
         // Start the next stage
         if (duration !== 0) {
             this.game.addTimeout(() => this.advanceGasStage(), duration * 1000);
+        } else {
+            for (const player of this.game.livingPlayers) {
+                const { movement } = player;
+                movement.up = movement.down = movement.left = movement.right = false;
+                player.attacking = false;
+                player.sendEmote(player.loadout.emotes[6], true);
+                player.sendGameOverPacket(true);
+                this.game.pluginManager.emit("player_did_win", player);
+            }
+
+            this.game.pluginManager.emit("game_end", this);
+
+            this.game.setGameData({ allowJoin: false, over: true });
+
+            // End the game in 1 second
+            this.game.addTimeout(() => {
+                for (const player of this.game.connectedPlayers) {
+                    player.disconnect("Game ended");
+                }
+                this.game._stopped = true;
+                this.game.log("Ended");
+            }, 1000);
         }
     }
 

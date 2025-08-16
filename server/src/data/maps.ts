@@ -118,6 +118,173 @@ export const enum SpawnMode {
 export type SpawnOptions = ConfigSchema["spawn"];
 
 const maps = {
+    arena2: {
+        width: 512,
+        height: 512,
+        spawn: { mode: "fixed" },
+        beachSize: 16,
+        oceanSize: 40,
+        onGenerate(map) {
+            // Function to generate all game loot items
+            const genLoots = (pos: Vector, ySpacing: number, xSpacing: number): void => {
+                const width = 80;
+
+                const startPos = Vec.clone(pos);
+                startPos.x -= width / 2;
+                const itemPos = Vec.clone(startPos);
+
+                const countMap = Object.fromEntries(Object.entries({
+                    [DefinitionType.Gun]: 1,
+                    [DefinitionType.Ammo]: Infinity,
+                    [DefinitionType.Melee]: 1,
+                    [DefinitionType.Throwable]: Infinity,
+                    [DefinitionType.HealingItem]: Infinity,
+                    [DefinitionType.Armor]: 1,
+                    [DefinitionType.Backpack]: 1,
+                    [DefinitionType.Scope]: 1,
+                    [DefinitionType.Skin]: 1,
+                    [DefinitionType.Perk]: Infinity
+                }).map(([k, v]) => [k, Infinity]));
+
+                const game = map.game;
+                for (const item of Loots.definitions) {
+                    if (
+                        ((item.defType === DefinitionType.Melee || item.defType === DefinitionType.Scope) && item.noDrop)
+                        || (item.defType === DefinitionType.Ammo && item.ephemeral)
+                        || (item.defType === DefinitionType.Backpack && item.level === 0)
+                        || (item.defType === DefinitionType.Perk && item.category === PerkCategories.Halloween)
+                        || item.defType === DefinitionType.Skin
+                        || item.devItem
+                    ) continue;
+
+                    game.addLoot(item, itemPos, 0, { count: countMap[item.defType] ?? 1, pushVel: 0, jitterSpawn: false });
+
+                    itemPos.x += xSpacing;
+                    if (
+                        (xSpacing > 0 && itemPos.x > startPos.x + width)
+                        || (xSpacing < 0 && itemPos.x < startPos.x - width)
+                    ) {
+                        itemPos.x = startPos.x;
+                        itemPos.y -= ySpacing;
+                    }
+                }
+            };
+
+            const center = Vec(map.width / 2, map.height / 2);
+
+            genLoots(Vec.add(center, Vec(0, -40)), -8, 8);
+
+            {
+                const randomObstacles: MapDefinition["obstacles"] = Object.fromEntries(Object.entries({
+                    rock: 5,
+                    regular_crate: 1,
+                    barrel: 1,
+                    oak_tree: 1,
+                    oil_tank: 1,
+                    birch_tree: 1,
+                }).map(([k, v]) => [k, v * 2]));
+
+                for (const obstacle in randomObstacles) {
+                    const limit = randomObstacles[obstacle];
+                    const definition = Obstacles.fromString(obstacle);
+
+                    for (let i = 0; i < limit; i++) {
+                        const pos = map.getRandomPosition(
+                            definition.spawnHitbox ?? definition.hitbox,
+                            {
+                                collides: pos =>
+                                !  Collision.rectangleCollision(Vec.add(center, Vec(-65, -65)), Vec.add(center, Vec(65, 65)), pos, 1)
+                                || Collision.rectangleCollision(Vec.add(center, Vec(-55, -55)), Vec.add(center, Vec(55, 55)), pos, 1)
+                            }
+                        );
+
+                        if (!pos) continue;
+
+                        map.generateObstacle(definition, pos);
+                    }
+                }
+            }
+
+            const randomBuildings: MapDefinition["buildings"] = {
+                blue_house: 1,
+                blue_house_special: 1,
+            };
+
+            const randomBuildings2: MapDefinition["buildings"] = {
+                red_house: 1,
+                red_house_v2: 1,
+                warehouse: 2,
+                porta_potty: 6,
+            };
+
+            for (const building in randomBuildings) {
+                const limit = randomBuildings[building];
+                const definition = Buildings.fromString(building);
+
+                for (let i = 0; i < limit; i++) {
+                    const pos = map.getRandomPosition(
+                        definition.spawnHitbox ?? definition.hitbox,
+                        {
+                            collides: pos => Collision.rectangleCollision(Vec.add(center, Vec(-50, -50)), Vec.add(center, Vec(50, 50)), pos, 1)
+                        }
+                    );
+
+                    if (!pos) continue;
+
+                    map.generateBuilding(building, pos);
+                }
+            }
+
+            for (const building in randomBuildings2) {
+                const limit = randomBuildings2[building];
+                const definition = Buildings.fromString(building);
+
+                for (let i = 0; i < limit; i++) {
+                    const pos = map.getRandomPosition(
+                        definition.spawnHitbox ?? definition.hitbox,
+                        {
+                            collides: pos => Collision.rectangleCollision(Vec.add(center, Vec(-50, -50)), Vec.add(center, Vec(50, 50)), pos, 1)
+                        }
+                    );
+
+                    if (!pos) continue;
+
+                    map.generateBuilding(building, pos);
+                }
+            }
+
+            // Generate random obstacles around the center
+            const randomObstacles: MapDefinition["obstacles"] = Object.fromEntries(Object.entries({
+                oak_tree: 50,
+                rock: 50,
+                bush: 20,
+                birch_tree: 5,
+                barrel: 15,
+                super_barrel: 2
+            }).map(([k, v]) => [k, v]));
+
+            for (const obstacle in randomObstacles) {
+                const limit = randomObstacles[obstacle];
+                const definition = Obstacles.fromString(obstacle);
+
+                for (let i = 0; i < limit; i++) {
+                    const pos = map.getRandomPosition(
+                        definition.spawnHitbox ?? definition.hitbox,
+                        {
+                            collides: pos => Collision.circleCollision(center, 65, pos, 1)
+                        }
+                    );
+
+                    if (!pos) continue;
+
+                    map.generateObstacle(definition, pos);
+                }
+            }
+        },
+        places: [
+            { name: "stark is pro", position: Vec(0.5, 0.5) }
+        ]
+    },
     normal: {
         width: 1632,
         height: 1632,
