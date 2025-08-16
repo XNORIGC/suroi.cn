@@ -167,7 +167,7 @@ export async function fetchServerData(): Promise<void> {
         for (let attempts = 0; attempts < 3; attempts++) {
             console.log(`Loading server info for region ${regionID}: ${region.mainAddress} (attempt ${attempts + 1} of 3)`);
             try {
-                const response = await fetch(`${region.mainAddress}/api/serverInfo${regionID === selectedRegionID ? "?checkPunishments=true" : ""}`, { signal: AbortSignal.timeout(10000) });
+                const response = await fetch(`${region.mainAddress}/${({ hk: "api", "hk_custom": "api-custom" })[regionID]}/serverInfo${regionID === selectedRegionID ? "?checkPunishments=true" : ""}`, { signal: AbortSignal.timeout(10000) });
                 info = await response.json() as ServerInfoResponse;
                 if (info) break;
             } catch (e) {
@@ -447,7 +447,7 @@ export async function setUpUI(): Promise<void> {
         let response: GetGameResponse | undefined;
         try {
             const [res] = await Promise.all([
-                fetch(`${selectedRegion.mainAddress}/api/getGame${teamID ? `?teamID=${teamID}` : ""}`),
+                fetch(`${selectedRegion.mainAddress}/${({ hk: "api", "hk_custom": "api-custom" })[GameConsole.getBuiltInCVar("cv_region") || Config.defaultRegion]}/getGame${teamID ? `?teamID=${teamID}` : ""}`),
                 spritesheetLoadPromise()
             ]);
             if (res.ok) response = await res.json() as GetGameResponse;
@@ -496,7 +496,7 @@ export async function setUpUI(): Promise<void> {
             }
         }
 
-        Game.connect(`${selectedRegion.gameAddress.replace("<gameID>", (response.gameID + selectedRegion.offset).toString())}/play?${params.toString()}`);
+        Game.connect(`${selectedRegion.gameAddress.replace("<gameID>", (response.gameID + selectedRegion.offset).toString())}/${({ hk: "play", hk_custom: "play-custom" })[GameConsole.getBuiltInCVar("cv_region") || Config.defaultRegion]}?${params.toString()}`);
         ui.splashMsg.hide();
 
         // Check again because there is a small chance that the create-team-menu element won't hide.
@@ -573,7 +573,7 @@ export async function setUpUI(): Promise<void> {
             }
         }
 
-        teamSocket = new WebSocket(`${selectedRegion.mainAddress.replace("http", "ws")}/team?${params.toString()}`);
+        teamSocket = new WebSocket(`${selectedRegion.mainAddress.replace("http", "ws")}/${({ hk: "team", hk_custom: "team-custom" })[GameConsole.getBuiltInCVar("cv_region") || Config.defaultRegion]}?${params.toString()}`);
 
         const updateTeamStartButton = (isLeader: boolean, ready: boolean, forceStart: boolean): void => {
             let str: TranslationKeys;

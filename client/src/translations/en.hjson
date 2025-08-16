@@ -359,6 +359,8 @@
 "confetti_grenade": "Confetti Grenade"
 "flare": "Flare"
 "dual_template": "Dual <gun>"
+"region_hk": "Hong Kong"
+"region_hk_custom": "Hong Kong (Custom)"
 "region_dev": "Localhost Server"
 "region_na": "North America"
 "region_eu": "Europe"

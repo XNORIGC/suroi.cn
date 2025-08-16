@@ -3,56 +3,22 @@ import type { ModeName } from "@common/definitions/modes";
 
 export const Config = {
     regions: {
-        dev: {
-            name: "Local Server",
-            mainAddress: "http://127.0.0.1:8000",
-            gameAddress: "ws://127.0.0.1:<gameID>",
-            offset: 8001
-        }/* ,
-        na: {
-            name: "North America",
-            flag: "🇺🇸 ",
-            mainAddress: "https://na.suroi.io",
-            gameAddress: "wss://na.suroi.io/game/<gameID>",
-            offset: 1
-        },
-        eu: {
-            name: "Europe",
-            flag: "🇩🇪 ",
-            mainAddress: "https://eu.suroi.io",
-            gameAddress: "wss://eu.suroi.io/game/<gameID>",
-            offset: 1
-        },
-        sa: {
-            name: "South America",
-            flag: "🇧🇷 ",
-            mainAddress: "https://sa.suroi.io",
-            gameAddress: "wss://sa.suroi.io/game/<gameID>",
-            offset: 1
-        },
-        as: {
-            name: "Asia",
-            flag: "🇻🇳 ",
-            mainAddress: "https://as.suroi.io",
-            gameAddress: "wss://as.suroi.io/game/<gameID>",
-            offset: 1
-        },
-        ea: {
-            name: "East Asia",
+        hk: {
+            name: "Hong Kong",
             flag: "🇭🇰 ",
-            mainAddress: "https://ea.suroi.io",
-            gameAddress: "wss://ea.suroi.io/game/<gameID>",
-            offset: 1
+            mainAddress: "http://154.12.60.44:8000",
+            gameAddress: "ws://154.12.60.44:<gameID>",
+            offset: 8001
         },
-        oc: {
-            name: "Oceania",
-            flag: "🇦🇺 ",
-            mainAddress: "https://oc.suroi.io",
-            gameAddress: "wss://oc.suroi.io/game/<gameID>",
-            offset: 1
-        } */
+        hk_custom: {
+            name: "Hong Kong (Custom)",
+            flag: "🇭🇰 ",
+            mainAddress: "http://154.12.60.44:8006",
+            gameAddress: "ws://154.12.60.44:<gameID>",
+            offset: 8007
+        }
     },
-    defaultRegion: "dev"
+    defaultRegion: "hk"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {

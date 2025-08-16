@@ -90,6 +90,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -165,7 +167,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇧🇷 Português (Brasil) (94% Complete) - br.hjson
+## 🇧🇷 Português (Brasil) (93% Complete) - br.hjson
 
 ### Invalid Keys
 
@@ -193,6 +195,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_screen_record` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `tt_desc` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -277,6 +281,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -400,6 +406,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `km_saw_kill_you` is not defined
 - Key `km_saw_down_you` is not defined
 - Key `tt_desc` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -544,6 +552,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -793,6 +803,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_saw_down` is not defined
 - Key `km_saw_kill_you` is not defined
 - Key `km_saw_down_you` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined
@@ -806,11 +818,14 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
 
-## 🇮🇷 فارسی (100% Complete) - fa.hjson
+## 🇮🇷 فارسی (99% Complete) - fa.hjson
 
 ### (No Invalid Keys)
 
-### (No Undefined Keys)
+### Undefined Keys
+
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 
 ## 🇫🇮 suomi (65% Complete) - fi.hjson
 
@@ -880,6 +895,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -980,6 +997,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `km_saw_kill_you` is not defined
 - Key `km_saw_down_you` is not defined
 - Key `tt_desc` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -996,6 +1015,8 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `second_wind_desc` is not defined
 - Key `flechettes` is not defined
 - Key `flechettes_desc` is not defined
@@ -1143,6 +1164,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1218,7 +1241,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇭🇺 Magyar (93% Complete) - hu.hjson
+## 🇭🇺 Magyar (92% Complete) - hu.hjson
 
 ### Invalid Keys
 
@@ -1239,6 +1262,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_saw_down` is not defined
 - Key `km_saw_kill_you` is not defined
 - Key `km_saw_down_you` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined
@@ -1254,7 +1279,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇮🇹 Italiano (60% Complete) - it.hjson
+## 🇮🇹 Italiano (59% Complete) - it.hjson
 
 ### Invalid Keys
 
@@ -1350,6 +1375,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1425,7 +1452,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇯🇵 日本語 (100% Complete) - jp.hjson
+## 🇯🇵 日本語 (99% Complete) - jp.hjson
 
 ### Invalid Keys
 
@@ -1701,7 +1728,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `region_ea1v1` is not a valid key
 - Key `region_test` is not a valid key
 
-### (No Undefined Keys)
+### Undefined Keys
+
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 
 ## 🇱🇹 Lietuvių (62% Complete) - lt.hjson
 
@@ -1782,6 +1812,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1936,6 +1968,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -2031,6 +2065,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `km_saw_kill_you` is not defined
 - Key `km_saw_down_you` is not defined
 - Key `tt_desc` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2106,6 +2142,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -2234,6 +2272,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -2309,7 +2349,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇷🇴 Română (99% Complete) - ro.hjson
+## 🇷🇴 Română (98% Complete) - ro.hjson
 
 ### Invalid Keys
 
@@ -2322,6 +2362,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_shake_count` is not defined
 - Key `settings_shake_force` is not defined
 - Key `settings_shake_delay` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `baby_plumpkin_pie_desc` is not defined
 
 ## 🇷🇺 Русский (95% Complete) - ru.hjson
@@ -2348,6 +2390,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `km_saw_kill_you` is not defined
 - Key `km_saw_down_you` is not defined
 - Key `tt_desc` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2355,7 +2399,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `loot_baron_desc` is not defined
 - Key `baby_plumpkin_pie_desc` is not defined
 
-## 🇮🇳 தமிழ் (98% Complete) - ta.hjson
+## 🇮🇳 தமிழ் (97% Complete) - ta.hjson
 
 ### Invalid Keys
 
@@ -2370,6 +2414,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_shake_delay` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `kf_impact_of` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `berserker` is not defined
 - Key `berserker_desc` is not defined
 - Key `plumpkin_bomb` is not defined
@@ -2404,6 +2450,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2519,6 +2567,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2593,7 +2643,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇻🇳 Tiếng Việt (94% Complete) - vi.hjson
+## 🇻🇳 Tiếng Việt (93% Complete) - vi.hjson
 
 ### Invalid Keys
 
@@ -2614,6 +2664,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_saw_down` is not defined
 - Key `km_saw_kill_you` is not defined
 - Key `km_saw_down_you` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_custom` is not defined
 - Key `region_ea` is not defined
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined
