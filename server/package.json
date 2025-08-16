@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "croner": "^9.1.0",
-    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.52.0"
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.51.0"
   }
 }

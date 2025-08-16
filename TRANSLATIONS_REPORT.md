@@ -2,10 +2,11 @@
 
 This file is a report of all errors and missing keys in the translation files of this game.
 
-## 🇦🇱 Shqip (63% Complete) - ab.hjson
+## 🇦🇱 Shqip (62% Complete) - ab.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -22,6 +23,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `wiki` is not defined
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
 - Key `settings_show_inout` is not defined
@@ -81,6 +86,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
 - Key `m16a4` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -145,10 +152,11 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇧🇷 Português (Brasil) (95% Complete) - br.hjson
+## 🇧🇷 Português (Brasil) (93% Complete) - br.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 - Key `baby_plumpkin_pie_desc` is not a valid key
 
@@ -156,6 +164,10 @@ This file is a report of all errors and missing keys in the translation files of
 
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_lock_joysticks` is not defined
 - Key `settings_switch_joysticks` is not defined
@@ -169,15 +181,18 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_screen_record` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `tt_desc` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
 
-## 🇨🇿 Čeština (66% Complete) - cz.hjson
+## 🇨🇿 Čeština (65% Complete) - cz.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -195,6 +210,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
 - Key `settings_ambience_volume` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_ambient_particles` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
@@ -242,6 +261,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -306,10 +327,11 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇩🇪 Deutsch (74% Complete) - de.hjson
+## 🇩🇪 Deutsch (73% Complete) - de.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -321,6 +343,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `wiki` is not defined
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_show_inout` is not defined
 - Key `settings_gyro_angle` is not defined
@@ -343,6 +369,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `tt_desc` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -413,10 +441,11 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### (No Undefined Keys)
 
-## 🇪🇸 Español (70% Complete) - es.hjson
+## 🇪🇸 Español (69% Complete) - es.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -429,6 +458,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `wiki` is not defined
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
 - Key `settings_show_inout` is not defined
@@ -465,6 +498,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -529,11 +564,12 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇪🇪 eesti (99% Complete) - et.hjson
+## 🇪🇪 eesti (97% Complete) - et.hjson
 
 ### Invalid Keys
 
 - Key `create_team_waiting` is not a valid key
+- Key `settings_old_menu_music` is not a valid key
 - Key `kf_message_grammar` is not a valid key
 - Key `developr_vest` is not a valid key
 - Key `mp40` is not a valid key
@@ -690,16 +726,23 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `kf_suicide_finished_off` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `m16a4` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 
-## 🇫🇮 suomi (69% Complete) - fi.hjson
+## 🇫🇮 suomi (68% Complete) - fi.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -713,6 +756,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `wiki` is not defined
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
 - Key `settings_show_inout` is not defined
@@ -753,6 +800,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -817,10 +866,11 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇫🇷 Français (98% Complete) - fr.hjson
+## 🇫🇷 Français (97% Complete) - fr.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `msg_cannot_use_radio` is not a valid key
 - Key `msg_radio_overused` is not a valid key
 - Key `radio` is not a valid key
@@ -829,21 +879,34 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `tt_desc` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
 
-## 🇬🇷 Ελληνικά (84% Complete) - gr.hjson
+## 🇬🇷 Ελληνικά (82% Complete) - gr.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `second_wind_desc` is not defined
 - Key `flechettes` is not defined
 - Key `flechettes_desc` is not defined
@@ -903,10 +966,11 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇭🇰 🇲🇴 廣東話(香港/澳門) (65% Complete) - hk_mo.hjson
+## 🇭🇰 🇲🇴 廣東話(香港/澳門) (64% Complete) - hk_mo.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -926,6 +990,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `recording` is not defined
 - Key `copied` is not defined
 - Key `settings_ambience_volume` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_ambient_particles` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
@@ -975,6 +1043,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1039,20 +1109,28 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇭🇺 Magyar (98% Complete) - hu.hjson
+## 🇭🇺 Magyar (97% Complete) - hu.hjson
 
-### (No Invalid Keys)
+### Invalid Keys
+
+- Key `settings_old_menu_music` is not a valid key
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `msg_cannot_use_flare` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `kf_were_finally_killed` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇮🇹 Italiano (63% Complete) - it.hjson
+## 🇮🇹 Italiano (62% Complete) - it.hjson
 
 ### Invalid Keys
 
@@ -1062,6 +1140,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_temp_ban_msg` is not a valid key
 - Key `msg_perma_ban` is not a valid key
 - Key `msg_perma_ban_msg` is not a valid key
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 - Key `saf_200` is not a valid key
 - Key `desstroyer_of_worlds` is not a valid key
@@ -1088,6 +1167,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
 - Key `settings_ambience_volume` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_ambient_particles` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
@@ -1139,6 +1222,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
 - Key `m16a4` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1203,10 +1288,11 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇯🇵 日本語 (99% Complete) - jp.hjson
+## 🇯🇵 日本語 (98% Complete) - jp.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key ``"kf_were_finally_killed"` is not a valid key
 - Key `12g` is not a valid key
 - Key `556mm` is not a valid key
@@ -1461,13 +1547,20 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `kf_were_finally_killed` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 
-## 🇱🇹 Lietuvių (66% Complete) - lt.hjson
+## 🇱🇹 Lietuvių (65% Complete) - lt.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -1485,6 +1578,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
 - Key `settings_ambience_volume` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_ambient_particles` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
@@ -1532,6 +1629,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1596,10 +1695,11 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇱🇻 Latviešu (66% Complete) - lv.hjson
+## 🇱🇻 Latviešu (65% Complete) - lv.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -1617,6 +1717,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
 - Key `settings_ambience_volume` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_ambient_particles` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
@@ -1664,6 +1768,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1728,23 +1834,32 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇳🇱 Nederlands (98% Complete) - nl.hjson
+## 🇳🇱 Nederlands (97% Complete) - nl.hjson
 
-### (No Invalid Keys)
+### Invalid Keys
+
+- Key `settings_old_menu_music` is not a valid key
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `tt_desc` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
 
-## 🇵🇱 Polski (69% Complete) - pl.hjson
+## 🇵🇱 Polski (68% Complete) - pl.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -1758,6 +1873,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `wiki` is not defined
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
 - Key `settings_show_inout` is not defined
@@ -1798,6 +1917,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1862,10 +1983,11 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🎀 Cute Engwish (73% Complete) - qen.hjson
+## 🎀 Cute Engwish (72% Complete) - qen.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
@@ -1873,6 +1995,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_error_kicked_team` is not defined
 - Key `bindings_fullscreen` is not defined
 - Key `recording` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_record_res` is not defined
 - Key `settings_alt_texture_loading` is not defined
 - Key `settings_lock_joysticks` is not defined
@@ -1904,6 +2030,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1968,47 +2096,66 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇷🇴 Română (98% Complete) - ro.hjson
+## 🇷🇴 Română (97% Complete) - ro.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `tt_desc` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
 
-## 🇷🇺 Русский (98% Complete) - ru.hjson
+## 🇷🇺 Русский (96% Complete) - ru.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_show_inout` is not defined
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `tt_desc` is not defined
 - Key `m16a4` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
 
-## 🇮🇳 தமிழ் (77% Complete) - ta.hjson
+## 🇮🇳 தமிழ் (75% Complete) - ta.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
 
 - Key `msg_error_kicked_team` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_alt_texture_loading` is not defined
 - Key `msg_cannot_use_flare` is not defined
 - Key `action_vaccine_syringe_use` is not defined
@@ -2030,6 +2177,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2093,16 +2242,21 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇹🇷 Turkısh (81% Complete) - tr.hjson
+## 🇹🇷 Turkısh (79% Complete) - tr.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `kf_message_grammar` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
 
 - Key `msg_error_kicked_team` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `msg_cannot_use_flare` is not defined
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
@@ -2110,6 +2264,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2173,15 +2329,20 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇹🇼 中文（繁體） (77% Complete) - tw.hjson
+## 🇹🇼 中文（繁體） (75% Complete) - tw.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
 
 - Key `msg_error_kicked_team` is not defined
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `settings_alt_texture_loading` is not defined
 - Key `msg_cannot_use_flare` is not defined
 - Key `action_vaccine_syringe_use` is not defined
@@ -2203,6 +2364,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2266,16 +2429,23 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
 
-## 🇻🇳 Tiếng Việt (99% Complete) - vi.hjson
+## 🇻🇳 Tiếng Việt (98% Complete) - vi.hjson
 
 ### Invalid Keys
 
+- Key `settings_old_menu_music` is not a valid key
 - Key `create_team_waiting` is not a valid key
 
 ### Undefined Keys
 
+- Key `settings_menu_music_select` is not defined
+- Key `settings_menu_music` is not defined
+- Key `settings_menu_music_old` is not defined
+- Key `settings_menu_music_older` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `kf_were_finally_killed` is not defined
+- Key `region_sq` is not defined
+- Key `region_sq_1v1` is not defined
 - Key `region_ea` is not defined
 
 ## 🇨🇳 中文（简体） (99% Complete) - zh.hjson

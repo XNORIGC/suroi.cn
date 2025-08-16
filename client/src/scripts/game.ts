@@ -297,12 +297,10 @@ export const Game = new (class Game {
         };
 
         let menuMusicSuffix: string;
-        if (GameConsole.getBuiltInCVar("cv_use_old_menu_music")) {
-            menuMusicSuffix = "_old";
-        } else if (this.mode.sounds?.replaceMenuMusic) {
+        if (this.mode.sounds?.replaceMenuMusic) {
             menuMusicSuffix = `_${this.modeName}`;
         } else {
-            menuMusicSuffix = "";
+            menuMusicSuffix = GameConsole.getBuiltInCVar("cv_menu_music");
         }
         this.music = sound.add("menu_music", {
             url: `./audio/music/menu_music${menuMusicSuffix}.mp3`,
