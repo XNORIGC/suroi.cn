@@ -393,8 +393,8 @@
 "confetti_grenade": "彩屑手榴弹"
 "dual_template": "双持<gun>"
 
-"region_sq": "宿迁"
-"region_sq_1v1": "宿迁（单挑或自定义）"
+"region_hk": "香港"
+"region_hk_1v1": "香港（单挑）"
 "region_dev": "本地"
 "region_na": "北美"
 "region_eu": "欧洲"

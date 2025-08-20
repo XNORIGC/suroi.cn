@@ -86,8 +86,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
 - Key `m16a4` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -181,8 +181,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_screen_record` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `tt_desc` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -261,8 +261,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -369,8 +369,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `tt_desc` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -498,8 +498,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -734,8 +734,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_suicide_finished_off` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `m16a4` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 
 ## 🇫🇮 suomi (68% Complete) - fi.hjson
@@ -800,8 +800,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -886,8 +886,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `tt_desc` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -905,8 +905,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_menu_music` is not defined
 - Key `settings_menu_music_old` is not defined
 - Key `settings_menu_music_older` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `second_wind_desc` is not defined
 - Key `flechettes` is not defined
 - Key `flechettes_desc` is not defined
@@ -1043,8 +1043,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1124,8 +1124,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_cannot_use_flare` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `kf_were_finally_killed` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `partners` is not defined
 - Key `username_placeholder` is not defined
@@ -1222,8 +1222,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
 - Key `m16a4` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1553,8 +1553,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_menu_music_older` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `kf_were_finally_killed` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 
 ## 🇱🇹 Lietuvių (65% Complete) - lt.hjson
 
@@ -1629,8 +1629,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1768,8 +1768,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `create_team_force_start` is not defined
 - Key `create_team_ready` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -1849,8 +1849,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `tt_desc` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -1917,8 +1917,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -2030,8 +2030,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `vaccine_syringe` is not defined
@@ -2112,8 +2112,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `tt_desc` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2136,8 +2136,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_recorder_interactable` is not defined
 - Key `tt_desc` is not defined
 - Key `m16a4` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2177,8 +2177,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2264,8 +2264,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2364,8 +2364,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `tt_desc` is not defined
 - Key `create_team_force_start` is not defined
 - Key `create_team_not_ready` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 - Key `vaccine_syringe` is not defined
 - Key `vaccine_syringe_desc` is not defined
@@ -2444,8 +2444,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_menu_music_older` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `kf_were_finally_killed` is not defined
-- Key `region_sq` is not defined
-- Key `region_sq_1v1` is not defined
+- Key `region_hk` is not defined
+- Key `region_hk_1v1` is not defined
 - Key `region_ea` is not defined
 
 ## 🇨🇳 中文（简体） (99% Complete) - zh.hjson

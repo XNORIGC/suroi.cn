@@ -2746,6 +2746,49 @@ export const Guns = new InventoryItemDefinitions<GunDefinition>(([
         }
     },
     {
+        idString: "unnamed_gun",
+        name: "Unnamed Gun",
+        defType: DefinitionType.Gun,
+        tier: Tier.S,
+        ammoType: "power_cell",
+        ammoSpawnAmount: 0,
+        noSwap: true,
+        devItem: true,
+        capacity: 30,
+        reloadTime: 8.5,
+        fireDelay: 400,
+        switchDelay: 500,
+        speedMultiplier: 1,
+        recoilMultiplier: 0.8,
+        recoilDuration: 100,
+        fireMode: FireMode.Auto,
+	shotSpread: 0.15,
+        moveSpread: 0.1,
+        killstreak: true,
+        length: 8.4,
+        fists: {
+            left: Vec(130, -3),
+            right: Vec(60, 0),
+            animationDuration: 100
+        },
+	image: { position: Vec(87, 1) },
+        noMuzzleFlash: true,
+        casingParticles: [{
+            position: Vec(4.5, 0.6),
+            on: "reload"
+        }],
+	ballistics: {
+            damage: 140,
+            obstacleMultiplier: 2,
+            speed: 2,
+            range: 800,
+            tracer: {
+                image: "power_cell_trail",
+                length: 10
+            }
+        }
+    },
+    {
         idString: "revitalizer",
         name: "Revitalizer",
         defType: DefinitionType.Gun,

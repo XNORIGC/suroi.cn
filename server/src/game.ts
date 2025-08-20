@@ -772,7 +772,7 @@ export class Game implements GameData {
             }, 3000);
         }
 
-        this.log(`"${player.name}" joined`);
+        this.log(`"${player.name}" (${player.ip}) joined`);
         // Access log to store usernames for this connection
         if (Config.apiServer) {
             const username = player.name;

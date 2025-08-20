@@ -3,19 +3,19 @@ import type { ModeName } from "@common/definitions/modes";
 
 export const Config = {
     regions: {
-        sq: {
-            name: "Suqian",
-            flag: "🇨🇳 ",
-            mainAddress: "http://61.147.247.7:10720",
-            gameAddress: "ws://61.147.247.7:<gameID>",
-            offset: 10721
+        hk: {
+            name: "Hong Kong",
+            flag: "🇭🇰 ",
+            mainAddress: "http://suroi.camvan.xyz:8000",
+            gameAddress: "ws://suroi.camvan.xyz:<gameID>",
+            offset: 8001
         },
-        sq_1v1: {
-            name: "Suqian (1v1 or Custom)",
-            flag: "🇨🇳 ",
-            mainAddress: "http://61.147.247.7:10723",
-            gameAddress: "ws://61.147.247.7:<gameID>",
-            offset: 10724
+        hk_1v1: {
+            name: "Hong Kong (1v1)",
+            flag: "🇭🇰 ",
+            mainAddress: "http://suroi.camvan.xyz:8006",
+            gameAddress: "ws://suroi.camvan.xyz:<gameID>",
+            offset: 8007
         }/* ,
         na: {
             name: "North America",
@@ -60,7 +60,7 @@ export const Config = {
             offset: 1
         } */
     },
-    defaultRegion: "sq"
+    defaultRegion: "hk"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {
