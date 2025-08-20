@@ -123,7 +123,7 @@ const maps = {
     custom: {
         width: 512,
         height: 512,
-        mode: "normal",
+        mode: "hunted",
         spawn: { mode: "fixed" },
         beachSize: 16,
         oceanSize: 40,
