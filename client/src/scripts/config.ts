@@ -6,15 +6,15 @@ export const Config = {
         hk: {
             name: "Hong Kong",
             flag: "🇭🇰 ",
-            mainAddress: "http://154.12.60.44:8000",
-            gameAddress: "ws://154.12.60.44:<gameID>",
+            mainAddress: "http://suroi.camvan.xyz:8000",
+            gameAddress: "ws://suroi.camvan.xyz:<gameID>",
             offset: 8001
         },
         hk_custom: {
             name: "Hong Kong (Custom)",
             flag: "🇭🇰 ",
-            mainAddress: "http://154.12.60.44:8006",
-            gameAddress: "ws://154.12.60.44:<gameID>",
+            mainAddress: "http://suroi.camvan.xyz:8006",
+            gameAddress: "ws://suroi.camvan.xyz:<gameID>",
             offset: 8007
         }
     },

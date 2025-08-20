@@ -1073,5 +1073,40 @@ export const Melees = new InventoryItemDefinitions<MeleeDefinition>([
                 }
             }
         ]
+    },
+    {	idString: "surper_fists",
+        name: "SUPER Fists",
+        defType: DefinitionType.Melee,
+        tier: Tier.D,
+        damage: 648,
+        speedMultiplier: 1,
+        obstacleMultiplier: 1,
+        iceMultiplier: 0.01,
+        radius: 1.5,
+        offset: Vec(2.5, 0),
+        cooldown: 250,
+        noDrop: true,
+	fists: {
+            animationDuration: 125,
+            randomFist: true,
+            ...DEFAULT_HAND_RIGGING
+        },
+        animation: [
+            {
+                duration: 125,
+                fists: {
+                    left: Vec(75, -10),
+                    right: Vec(75, 10)
+                }
+            },
+	    {
+                duration: 125,
+                fists: {
+                    left: Vec(38, -35),
+                    right: Vec(38, 35)
+                }
+            }
+        ],
+        image: undefined
     }
 ]);
