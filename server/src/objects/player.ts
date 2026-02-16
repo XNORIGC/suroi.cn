@@ -448,6 +448,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
         zoom: true,
         layer: true,
         activeC4s: true,
+        activePerks: true,
         perks: true,
      //   updatedPerks: true,
         teamID: true
@@ -1069,11 +1070,11 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     /**
      * @param isFromServer If the emoji should skip checking if the player has that emoji in their emoji wheel
      */
-    sendEmote(source?: EmoteDefinition, isFromServer = false): void {
-        if (this.emoteRateLimit() || !source) return;
+    sendEmote(source?: EmoteDefinition, isFromServer = false, isFromPerks = false): void {
+        if (!isFromPerks && this.emoteRateLimit() || !source) return;
 
         const indexOf = this.loadout.emotes.indexOf(source);
-        if (!isFromServer && (indexOf < 0 || indexOf > 5)) return;
+        if (!isFromServer && !isFromPerks && (indexOf < 0 || indexOf > 5)) return;
 
         if (this.game.pluginManager.emit("player_will_emote", { player: this, emote: source })) return;
 
@@ -1945,6 +1946,10 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
             playerData.activeC4s = this.c4s.size > 0;
         }
 
+        if (player.dirty.activePerks || forceInclude) {
+            playerData.activePerks = player.hasPerk(PerkIds.Overdrive);
+        }
+
         if (player.dirty.perks || forceInclude) {
             playerData.perks = player.perks;
         }
@@ -2101,6 +2106,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     // }
 
     addPerk(perk: ReifiableDef<PerkDefinition>): void {
+        this.dirty.activePerks = true;
         const perkDef = Perks.reify(perk);
         if (this.perks.includes(perkDef)) return;
 
@@ -2279,6 +2285,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
     }
 
     removePerk(perk: ReifiableDef<PerkDefinition>): void {
+        this.dirty.activePerks = true;
         const perkDef = Perks.reify(perk);
         if (!this.perks.includes(perkDef)) return;
 
@@ -2972,6 +2979,8 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
 
     // dies of death
     die(params: Omit<DamageParams, "amount">): void {
+        if (!this.disconnected) return this.customDie(params);
+
         if (this.health > 0 || this.dead) return;
 
         this.game.pluginManager.emit("player_will_die", {
@@ -3250,6 +3259,209 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
         if (this === this.game.killLeader) {
             this.game.findNewKillLeader();
         }
+
+        this.game.pluginManager.emit("player_did_die", {
+            player: this,
+            ...params
+        });
+    }
+
+    customDie(params: Omit<DamageParams, "amount">): void {
+        if (this.health > 0 || this.dead) return;
+
+        this.game.pluginManager.emit("player_will_die", {
+            player: this,
+            ...params
+        });
+
+        const { source, weaponUsed } = params;
+
+        const wasDowned = this.downed;
+
+        const action = this.beingRevivedBy?.action;
+        if (action instanceof ReviveAction) {
+            action.cancel();
+        }
+
+        const packet = KillPacket.create();
+        packet.victimId = this.id;
+        packet.downed = wasDowned;
+        packet.killed = true;
+
+        if (weaponUsed) {
+            packet.weaponUsed = weaponUsed.definition;
+            packet.damageSource = Player._itemToDamageSource(weaponUsed);
+        }
+
+        const downedBy = this.downedBy?.player;
+        if (
+            source === DamageSources.Gas
+            || source === DamageSources.Obstacle
+            || source === DamageSources.BleedOut
+            || source === DamageSources.FinallyKilled
+        ) {
+            packet.damageSource = source;
+
+            if (downedBy !== undefined) {
+                packet.creditedId = downedBy.id;
+                if (downedBy !== this) packet.kills = ++downedBy.kills;
+            }
+
+            if (this.game.mode.weaponSwap && downedBy !== undefined) {
+                if (weaponUsed instanceof Explosion) {
+                    downedBy.swapWeaponRandomly(weaponUsed, true);
+                } else if (!(weaponUsed instanceof Obstacle)) {
+                    downedBy.swapWeaponRandomly(weaponUsed, true);
+                }
+            }
+        } else if (source instanceof Player && source !== this) {
+            this.killedBy = source;
+
+            packet.attackerId = source.id;
+
+            // Give kill credit to the player who downed if they're on the same team as the killer.
+            // Otherwise, the killer always gets credit.
+            if (downedBy && downedBy.teamID === source.teamID) {
+                packet.creditedId = downedBy.id;
+                packet.kills = ++downedBy.kills;
+            } else {
+                packet.kills = ++source.kills;
+            }
+
+            // Killstreak credit always goes to the killer regardless of the above.
+            if (
+                weaponUsed !== undefined
+                && weaponUsed.definition.defType !== DefinitionType.Explosion
+                && weaponUsed instanceof InventoryItemBase
+            ) {
+                packet.killstreak = weaponUsed.stats.kills;
+            }
+
+            // Apply perk effects. Perk effects are also always applied to the killer.
+            for (const perk of source.perks) {
+                switch (perk.idString) {
+                    case PerkIds.BabyPlumpkinPie: {
+                        source.swapWeaponRandomly(undefined, true);
+                        break;
+                    }
+
+                    case PerkIds.Engorged: {
+                        if (source.kills <= perk.killsLimit) {
+                            source.sizeMod *= perk.sizeMod;
+                            source.maxHealth *= perk.healthMod;
+                            source.updateAndApplyModifiers();
+                        }
+                        break;
+                    }
+
+                    case PerkIds.Bloodthirst: {
+                        if (source.activeBloodthirstEffect) break;
+
+                        source.activeBloodthirstEffect = true;
+                        source.health += perk.healBonus;
+                        source.adrenaline += perk.adrenalineBonus;
+                        source.baseSpeed *= perk.speedMod;
+
+                        this.game.addTimeout(() => {
+                            source.baseSpeed /= perk.speedMod;
+                            source.activeBloodthirstEffect = false;
+                        }, perk.speedBoostDuration);
+                        break;
+                    }
+
+                    case PerkIds.Overdrive: {
+                        if (source.activeOverdrive || !source.canUseOverdrive) break;
+
+                        if (source.overdriveKills++ >= perk.requiredKills) {
+                            source.overdriveKills = 0;
+                            source.health += perk.healBonus;
+                            source.adrenaline += perk.adrenalineBonus;
+                            source.baseSpeed *= perk.speedMod;
+                            source.canUseOverdrive = false;
+                            source.activeOverdrive = true;
+                            source.setDirty();
+
+                            this.game.addTimeout(() => {
+                                source.baseSpeed /= perk.speedMod;
+                                source.activeOverdrive = false;
+                                source.setDirty();
+
+                                this.overdriveCooldown?.kill();
+                                this.overdriveCooldown = this.game.addTimeout(() => {
+                                    source.canUseOverdrive = true;
+                                }, perk.cooldown);
+                            }, perk.speedBoostDuration);
+                        }
+                        break;
+                    }
+                }
+            }
+
+            // Weapon swap
+            if (this.game.mode.weaponSwap) {
+                if (weaponUsed instanceof Explosion) {
+                    source.swapWeaponRandomly(weaponUsed.weapon, true);
+                } else if (!(weaponUsed instanceof Obstacle)) {
+                    source.swapWeaponRandomly(weaponUsed, true);
+                }
+            }
+
+            source.updateAndApplyModifiers();
+        }
+
+        this.game.packets.push(packet);
+
+        const { position, layer } = this;
+
+        // Disguise funnies
+        if (this.activeDisguise !== undefined) {
+            const disguiseObstacle = this.game.map.generateObstacle(this.activeDisguise?.idString, this.position, { layer: this.layer });
+            const disguiseDef = Obstacles.reify(this.activeDisguise);
+
+            if (disguiseObstacle !== undefined) {
+                this.game.addTimeout(() => {
+                    disguiseObstacle.damage({
+                        amount: disguiseObstacle.health
+                    });
+                }, 10); // small delay so sound plays
+            }
+
+            if (disguiseDef.explosion) {
+                this.game.addExplosion(disguiseDef.explosion, this.position, this, this.layer);
+            }
+        }
+
+        // Create death marker
+        this.game.grid.addObject(new DeathMarker(this, layer));
+
+        //
+        // 自定义
+        //
+
+        // 说拜拜~
+        this.sendEmote(this.loadout.emotes[7], true);
+
+        // 回家吧，孩子
+        this.position = Vec(this.game.map.width / 2, this.game.map.height / 2);
+        this.layer = Layer.Ground;
+
+        // 我重生了
+        this.health = this.maxHealth;
+        this.adrenaline = this.maxAdrenaline;
+
+        // 无限火力
+        for (let i = 0; i < 2; i++) {
+            const gun = this.inventory.weapons[i];
+            if (!gun) continue;
+
+            gun.ammo = this.hasPerk(PerkIds.ExtendedMags)
+                ? gun.definition.extendedCapacity ?? gun.definition.capacity
+                : gun.definition.capacity;
+        }
+
+        // 把客户端弄脏♥
+        this.game.fullDirtyObjects.add(this);
+        this.game.grid.updateObject(this);
 
         this.game.pluginManager.emit("player_did_die", {
             player: this,
@@ -3559,6 +3771,46 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                         if (c4.activateC4()) this.c4s.delete(c4);
                     }
                     this.dirty.activeC4s = true;
+                    break;
+                case InputActions.ActivatePerks:
+                    this.dirty.activePerks = true;
+
+                    /*
+                    case PerkIds.Overdrive: {
+                        if (source.activeOverdrive || !source.canUseOverdrive) break;
+
+                        if (source.overdriveKills++ >= perk.requiredKills) {
+                            source.overdriveKills = 0;
+                            source.health += perk.healBonus;
+                            source.adrenaline += perk.adrenalineBonus;
+                            source.baseSpeed *= perk.speedMod;
+                            source.canUseOverdrive = false;
+                            source.activeOverdrive = true;
+                            source.setDirty();
+
+                            this.game.addTimeout(() => {
+                                source.baseSpeed /= perk.speedMod;
+                                source.activeOverdrive = false;
+                                source.setDirty();
+
+                                this.overdriveCooldown?.kill();
+                                this.overdriveCooldown = this.game.addTimeout(() => {
+                                    source.canUseOverdrive = true;
+                                }, perk.cooldown);
+                            }, perk.speedBoostDuration);
+                        }
+                        break;
+                    }
+                    */
+                    if (this.hasPerk(PerkIds.Overdrive)) {
+                        this.sendEmote(Emotes.fromString("fire"), true, true);
+                        this.baseSpeed *= 3;
+                        this.game.addTimeout(() => {
+                            this.baseSpeed /= 3;
+                        }, 1000);
+                    } else {
+                        this.sendEmote(Emotes.fromString("question_mark"), true, true);
+                    }
                     break;
             }
         }

@@ -2,7 +2,7 @@
 
 This file is a report of all errors and missing keys in the translation files of this game.
 
-## 🇦🇱 Shqip (53% Complete) - ab.hjson
+## 🇦🇱 Shqip (52% Complete) - ab.hjson
 
 ### Invalid Keys
 
@@ -62,6 +62,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
 - Key `bindings_explode_c4` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -122,6 +123,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -211,7 +214,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
 
-## 🇧🇷 Português (Brasil) (86% Complete) - br.hjson
+## 🇧🇷 Português (Brasil) (85% Complete) - br.hjson
 
 ### Invalid Keys
 
@@ -244,6 +247,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_monument` is not defined
 - Key `interact_recorder_interactable` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `kf_disconnected` is not defined
@@ -268,6 +272,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `plumpkin_shuffle` is not defined
@@ -344,6 +350,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
 - Key `bindings_explode_c4` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -392,6 +399,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -529,6 +538,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_recorder_interactable` is not defined
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -561,6 +571,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -656,7 +668,7 @@ This file is a report of all errors and missing keys in the translation files of
 
 ### (No Undefined Keys)
 
-## 🇪🇸 Español (59% Complete) - es.hjson
+## 🇪🇸 Español (58% Complete) - es.hjson
 
 ### Invalid Keys
 
@@ -704,6 +716,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_recorder_interactable` is not defined
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -751,6 +764,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -1015,6 +1030,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_shake_delay` is not defined
 - Key `interact_server` is not defined
 - Key `interact_recorder_interactable` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_suicide_finished_off` is not defined
 - Key `kf_were_finally_killed` is not defined
@@ -1042,6 +1058,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined
@@ -1087,7 +1105,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_hide_qq` is not defined
 - Key `settings_weapon_compare` is not defined
 - Key `settings_weapon_compare_condensed` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `kf_disconnected` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `plumpkin_shuffle` is not defined
 - Key `plumpkin_shuffle_desc` is not defined
 - Key `eternal_magnetism` is not defined
@@ -1099,7 +1120,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
 
-## 🇫🇮 suomi (58% Complete) - fi.hjson
+## 🇫🇮 suomi (57% Complete) - fi.hjson
 
 ### Invalid Keys
 
@@ -1152,6 +1173,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_recorder_interactable` is not defined
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -1199,6 +1221,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -1316,6 +1340,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_shake_delay` is not defined
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_saw_kill` is not defined
 - Key `kf_saw_down` is not defined
@@ -1343,6 +1368,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined
@@ -1370,7 +1397,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_hide_qq` is not defined
 - Key `settings_weapon_compare` is not defined
 - Key `settings_weapon_compare_condensed` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `kf_disconnected` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `plumpkin_shuffle` is not defined
 - Key `plumpkin_shuffle_desc` is not defined
 - Key `eternal_magnetism` is not defined
@@ -1447,6 +1477,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
 - Key `bindings_explode_c4` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -1497,6 +1528,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -1610,6 +1643,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `msg_cannot_use_flare` is not defined
 - Key `interact_server` is not defined
 - Key `interact_recorder_interactable` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `kf_saw_kill` is not defined
@@ -1638,6 +1672,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined
@@ -1747,6 +1783,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
 - Key `bindings_explode_c4` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -1797,6 +1834,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -2131,6 +2170,14 @@ This file is a report of all errors and missing keys in the translation files of
 ### Undefined Keys
 
 - Key `settings_hide_qq` is not defined
+<<<<<<< HEAD
+=======
+- Key `settings_weapon_compare` is not defined
+- Key `settings_weapon_compare_condensed` is not defined
+- Key `bindings_activate_perks` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
+>>>>>>> 96baaf543 (feat: active perks)
 
 ## 🇱🇹 Lietuvių (55% Complete) - lt.hjson
 
@@ -2195,6 +2242,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
 - Key `bindings_explode_c4` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -2243,6 +2291,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -2395,6 +2445,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
 - Key `bindings_explode_c4` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -2443,6 +2494,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -2548,6 +2601,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_hide_qq` is not defined
 - Key `settings_weapon_compare` is not defined
 - Key `settings_weapon_compare_condensed` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_disconnected` is not defined
 - Key `power_vest` is not defined
@@ -2568,6 +2622,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `plumpkin_shuffle` is not defined
 - Key `plumpkin_shuffle_desc` is not defined
 - Key `eternal_magnetism` is not defined
@@ -2579,7 +2635,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
 
-## 🇵🇱 Polski (58% Complete) - pl.hjson
+## 🇵🇱 Polski (57% Complete) - pl.hjson
 
 ### Invalid Keys
 
@@ -2632,6 +2688,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_recorder_interactable` is not defined
 - Key `loading_fetching_data_failed` is not defined
 - Key `retry` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `bindings_toggle pf_net_graph 0 1 2` is not defined
@@ -2679,6 +2736,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -2768,7 +2827,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
 
-## 🎀 Cute Engwish (62% Complete) - qen.hjson
+## 🎀 Cute Engwish (61% Complete) - qen.hjson
 
 ### Invalid Keys
 
@@ -2805,6 +2864,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `interact_monument` is not defined
 - Key `interact_recorder_interactable` is not defined
 - Key `bindings_explode_c4` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `bindings_screen_record` is not defined
 - Key `kf_suicide_finished_off` is not defined
@@ -2851,6 +2911,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `region_oc` is not defined
 - Key `second_wind` is not defined
@@ -2954,6 +3016,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_hide_qq` is not defined
 - Key `settings_weapon_compare` is not defined
 - Key `settings_weapon_compare_condensed` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_disconnected` is not defined
 - Key `power_vest` is not defined
@@ -2974,6 +3037,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `plumpkin_shuffle` is not defined
 - Key `plumpkin_shuffle_desc` is not defined
 - Key `eternal_magnetism` is not defined
@@ -2985,7 +3050,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
 
-## 🇷🇺 Русский (90% Complete) - ru.hjson
+## 🇷🇺 Русский (89% Complete) - ru.hjson
 
 ### Invalid Keys
 
@@ -3012,6 +3077,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_shake_delay` is not defined
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_recorder_interactable` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_saw_kill` is not defined
 - Key `kf_saw_down` is not defined
@@ -3036,6 +3102,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined
@@ -3063,6 +3131,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_weapon_compare_condensed` is not defined
 - Key `settings_shake_delay` is not defined
 - Key `interact_recorder_interactable` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_impact_of` is not defined
 - Key `kf_disconnected` is not defined
@@ -3085,6 +3154,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `berserker` is not defined
 - Key `berserker_desc` is not defined
 - Key `overclocked` is not defined
@@ -3109,7 +3180,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `plumpkin_blessing_desc` is not defined
 - Key `experimental_forcefield_desc` is not defined
 
-## 🇹🇷 Turkısh (68% Complete) - tr.hjson
+## 🇹🇷 Turkısh (67% Complete) - tr.hjson
 
 ### Invalid Keys
 
@@ -3137,6 +3208,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `action_vaccine_syringe_use` is not defined
 - Key `interact_server` is not defined
 - Key `interact_recorder_interactable` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `kf_saw_kill` is not defined
@@ -3169,6 +3241,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `second_wind` is not defined
 - Key `second_wind_desc` is not defined
@@ -3257,7 +3331,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
 
-## 🇹🇼 中文（繁體） (98% Complete) - tw.hjson
+## 🇹🇼 中文（繁體） (97% Complete) - tw.hjson
 
 ### Invalid Keys
 
@@ -3488,8 +3562,11 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_hide_qq` is not defined
 - Key `settings_weapon_compare` is not defined
 - Key `settings_weapon_compare_condensed` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `kf_impact_of` is not defined
 - Key `kf_disconnected` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 
 ## 🇻🇳 Tiếng Việt (83% Complete) - vi.hjson
 
@@ -3515,6 +3592,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `settings_shake_delay` is not defined
 - Key `interact_server` is not defined
 - Key `interact_recorder_interactable` is not defined
+- Key `bindings_activate_perks` is not defined
 - Key `bindings_use_consumable vaccine_syringe` is not defined
 - Key `kf_were_finally_killed` is not defined
 - Key `kf_saw_kill` is not defined
@@ -3541,6 +3619,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `frag_grenade_explosion` is not defined
 - Key `confetti_grenade_explosion` is not defined
 - Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
 - Key `region_ea` is not defined
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined

@@ -33,6 +33,7 @@ function serializePlayerData(
         lockedSlots,
         items,
         activeC4s,
+        activePerks,
         perks,
       //  updatedPerks,
         teamID,
@@ -53,6 +54,7 @@ function serializePlayerData(
     const hasLockedSlots        = lockedSlots !== undefined;
     const hasItems              = items !== undefined;
     const hasActiveC4s          = activeC4s !== undefined;
+    const hasActivePerks          = activePerks !== undefined;
     const hasPerks              = perks !== undefined;
    // const hasUpdatedPerks       = updatedPerks !== undefined;
     const hasTeamID             = teamID !== undefined;
@@ -71,6 +73,7 @@ function serializePlayerData(
         hasLockedSlots,
         hasItems,
         hasActiveC4s,
+        hasActivePerks,
         hasPerks,
         hasTeamID,
         blockEmoting
@@ -259,6 +262,11 @@ function serializePlayerData(
         strm.writeUint8(activeC4s ? -1 : 0);
     }
 
+    if (hasActivePerks) {
+        // lol ok
+        strm.writeUint8(activePerks ? -1 : 0);
+    }
+
     if (hasPerks) {
         strm.writeArray(perks, perk => Perks.writeToStream(strm, perk));
     }
@@ -287,6 +295,7 @@ function deserializePlayerData(strm: SuroiByteStream): PlayerData {
         hasLockedSlots,
         hasItems,
         hasActiveC4s,
+        hasActivePerks,
         hasPerks,
         hasTeamID,
         blockEmoting
@@ -443,6 +452,10 @@ function deserializePlayerData(strm: SuroiByteStream): PlayerData {
         data.activeC4s = strm.readUint8() !== 0;
     }
 
+    if (hasActivePerks) {
+        data.activePerks = strm.readUint8() !== 0;
+    }
+
     if (hasPerks) {
         data.perks = strm.readArray(() => Perks.readFromStream(strm));
     }
@@ -568,6 +581,7 @@ export interface PlayerData {
         readonly scope: ScopeDefinition
     }
     activeC4s?: boolean
+    activePerks?: boolean
     perks?: PerkDefinition[]
   //  updatedPerks?: PerkDefinition[]
     teamID?: number

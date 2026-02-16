@@ -300,6 +300,9 @@ class UIManagerClass {
         c4Button: $<HTMLButtonElement>("#c4-detonate-btn"),
         detonateKey: $<HTMLDivElement>("#detonate-key"),
 
+        perksButton: $<HTMLButtonElement>("#activate-perks-btn"),
+        activateKey: $<HTMLDivElement>("#activate-key"),
+
         inventoryMsg: $<HTMLSpanElement>("#inventory-message"),
 
         debugPos: $<HTMLSpanElement>("#coordinates-hud"),
@@ -628,6 +631,7 @@ class UIManagerClass {
             lockedSlots,
             items,
             activeC4s,
+            activePerks,
             perks,
            // updatedPerks,
             blockEmoting
@@ -855,6 +859,11 @@ class UIManagerClass {
         if (activeC4s !== undefined && !UI_DEBUG_MODE) {
             this.ui.c4Button.toggle(activeC4s);
             this.hasC4s = activeC4s;
+        }
+
+        if (activePerks !== undefined && !UI_DEBUG_MODE) {
+            this.ui.perksButton.toggle(activePerks);
+            this.hasPerks = activePerks;
         }
 
         if (perks) {

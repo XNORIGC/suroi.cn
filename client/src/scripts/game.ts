@@ -1460,8 +1460,13 @@ export const Game = new (class Game {
             bind?: string
         } = {};
 
+        const funnyActivateButtonCache: {
+            bind?: string
+        } = {};
+
         // keep image thingy around to consult (and therefore lazily change) src
         let detonateBindIcon: JQuery<HTMLImageElement> | undefined;
+        let activateBindIcon: JQuery<HTMLImageElement> | undefined;
 
         return () => {
             if (!this.gameStarted || (this.gameOver && !this.spectating)) return;
@@ -1826,6 +1831,7 @@ export const Game = new (class Game {
 
             // funny detonate button stuff
             const detonateKey = UIManager.ui.detonateKey;
+            const activateKey = UIManager.ui.activateKey;
             if (!InputManager.isMobile) {
                 const boomBind: string | undefined = InputManager.binds.getInputsBoundToAction("explode_c4")[0];
 
@@ -1856,8 +1862,39 @@ export const Game = new (class Game {
                         detonateKey.hide();
                     }
                 }
+
+                const meowBind: string | undefined = InputManager.binds.getInputsBoundToAction("activate_perks")[0];
+
+                if (funnyActivateButtonCache.bind !== meowBind) {
+                    funnyActivateButtonCache.bind = bind;
+
+                    if (meowBind !== undefined) {
+                        const bindImg = InputManager.getIconFromInputName(meowBind);
+
+                        activateKey.show();
+
+                        if (bindImg === undefined) {
+                            activateKey.text(meowBind ?? "");
+                            if (activateBindIcon !== undefined) {
+                                activateKey.empty();
+                                activateBindIcon = undefined;
+                            }
+                        } else {
+                            if (activateBindIcon === undefined) {
+                                activateKey.children().add(activateBindIcon = $(`<img src="${bindImg}" alt=${meowBind} />`));
+                            }
+
+                            if (activateBindIcon.attr("src") !== bindImg) {
+                                activateBindIcon.attr("src", bindImg);
+                            }
+                        }
+                    } else {
+                        activateKey.hide();
+                    }
+                }
             } else {
                 detonateKey.hide();
+                activateKey.hide();
             }
         };
     })();

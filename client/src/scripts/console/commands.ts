@@ -701,6 +701,19 @@ export function setUpCommands(): void {
         }
     );
 
+    Command.createCommand(
+        "activate_perks",
+        function() {
+            InputManager.addAction(InputActions.ActivatePerks);
+        },
+        {
+            short: "",
+            long: "",
+            allowOnlyWhenGameStarted: true,
+            signatures: [{ args: [], noexcept: true }]
+        }
+    );
+
     Command.createInvertiblePair(
         "emote_wheel",
         function() {
