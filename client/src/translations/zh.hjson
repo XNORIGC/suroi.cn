@@ -202,6 +202,7 @@
 "bindings_drop": "丢弃武器"
 "bindings_reload": "装填弹药"
 "bindings_explode_c4": "引爆C4"
+"bindings_activate_perks": "激活技能"
 "bindings_cycle_scopes -1": "前一倍镜"
 "bindings_cycle_scopes 1": "后一倍镜"
 "bindings_use_consumable gauze": "使用纱布"
@@ -612,6 +613,8 @@
     SERVER REGIONS - 服务器地区
 */
 
+"region_bjcustom": "北京（自定义）"
+"region_bj1v1": "北京（单挑）"
 "region_dev": "本地"
 "region_na": "北美"
 "region_eu": "欧洲"

@@ -18,7 +18,7 @@ const config = {
     mainAddress: "http://127.0.0.1:8000",
     gameAddress: "ws://127.0.0.1:<gameID>",
     offset: 8001,
-    botCount: 70,
+    botCount: 10,
     joinDelay: 10,
     rejoinOnDeath: false
 };

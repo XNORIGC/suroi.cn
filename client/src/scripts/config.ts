@@ -3,11 +3,19 @@ import type { ModeName } from "@common/definitions/modes";
 
 export const Config = {
     regions: {
-        dev: {
-            name: "Local Server",
-            mainAddress: "http://127.0.0.1:8000",
-            gameAddress: "ws://127.0.0.1:<gameID>",
+        bjcustom: {
+            name: "Beijing (Custom)",
+            flag: "🇨🇳 ",
+            mainAddress: "http://8.140.211.228:8000",
+            gameAddress: "ws://8.140.211.228:<gameID>",
             offset: 8001
+        },
+        bj1v1: {
+            name: "Beijing (1v1)",
+            flag: "🇨🇳 ",
+            mainAddress: "http://8.140.211.228:8002",
+            gameAddress: "ws://8.140.211.228:<gameID>",
+            offset: 8003
         }/* ,
         na: {
             name: "North America",
@@ -29,14 +37,14 @@ export const Config = {
             mainAddress: "https://sa.suroi.io",
             gameAddress: "wss://sa.suroi.io/game/<gameID>",
             offset: 1
-        },
+        } */,
         as: {
             name: "Asia",
             flag: "🇭🇰 ",
             mainAddress: "https://as.suroi.io",
             gameAddress: "wss://as.suroi.io/game/<gameID>",
             offset: 1
-        },
+        }/* ,
         oc: {
             name: "Oceania",
             flag: "🇦🇺 ",
@@ -45,7 +53,7 @@ export const Config = {
             offset: 1
         } */
     },
-    defaultRegion: "dev"
+    defaultRegion: "bjcustom"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {

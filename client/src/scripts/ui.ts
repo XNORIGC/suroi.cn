@@ -2257,6 +2257,16 @@ export async function setUpUI(): Promise<void> {
         }
     });
 
+    slotListener($<HTMLDivElement>("#activate-perks-btn"), button => {
+        const isPrimary = button === 0;
+
+        if (isPrimary) {
+            InputManager.addAction({
+                type: InputActions.ActivatePerks
+            });
+        }
+    });
+
     for (
         const [ele, type] of [
             [$<HTMLDivElement>("#helmet-slot"), "helmet"],
