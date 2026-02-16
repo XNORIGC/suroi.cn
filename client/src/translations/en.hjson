@@ -206,6 +206,7 @@
 "bindings_drop": "Drop Active Weapon"
 "bindings_reload": "Reload"
 "bindings_explode_c4": "Detonate C4"
+"bindings_activate_perks": "Activate Perks"
 "bindings_cycle_scopes -1": "Previous Scope"
 "bindings_cycle_scopes 1": "Next Scope"
 "bindings_use_consumable gauze": "Use Gauze"
@@ -456,6 +457,8 @@
 "dual_template": "Dual <gun>"
 
 // Regions
+"region_bjcustom": "Beijing (Custom)"
+"region_bj1v1": "Beijing (1v1)"
 "region_dev": "Localhost Server"
 "region_na": "North America"
 "region_eu": "Europe"

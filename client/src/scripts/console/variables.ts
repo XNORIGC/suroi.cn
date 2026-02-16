@@ -440,6 +440,7 @@ export const defaultBinds = Object.freeze({
     "drop": [],
     "reload": ["R"],
     "explode_c4": ["Z"],
+    "activate_perks": ["P"],
     "cycle_scopes -1": [],
     "cycle_scopes 1": [],
     "use_consumable gauze": ["7"],
