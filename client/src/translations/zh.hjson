@@ -1029,3 +1029,6 @@
 "plumpkin_blessing_desc": "变幻物品与破坏南瓜类障碍物时掉落高品质战利品。受到1.5倍伤害。"
 "weak_stomach": "胃病"
 "weak_stomach_desc": "每五秒在地上留下一滩呕吐物。<br>增大武器扩散。"
+"sniper_deterrence": "狙击威慑"
+"sniper_deterrence_desc": "用狙击步枪击中敌人会使其肾上腺素减少25%。"
+

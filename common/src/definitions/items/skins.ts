@@ -32,7 +32,6 @@ const skin = (
     baseTint,
     fistTint: fistTint,
     backpackTint,
-    rolesRequired
 });
 
 export const Skins = new ObjectDefinitions<SkinDefinition>([
@@ -136,25 +135,25 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
         ["Haunted",               undefined, undefined, 0x9a9a9a],
         ["Overgrown",             undefined, undefined, 0x744475]
     ] satisfies ReadonlyArray<readonly [string, number?, number?, number?]>)
-        .map(([name, baseTint, fistsTint, backpackTint]) => ({ ...skin(name, baseTint, fistsTint, backpackTint), hideFromLoadout: true })),
+        .map(([name, baseTint, fistsTint, backpackTint]) => ({ ...skin(name, baseTint, fistsTint, backpackTint), hideFromLoadout: false })),
 
     // Special skins
     {
         ...skin("Werewolf", undefined, undefined, 0x323232),
-        hideFromLoadout: true,
+        hideFromLoadout: false,
         noSwap: true,
         noDrop: true
     },
     {
         ...skin("Ghillie Suit", 0xffffff, 0xffffff, 0xffffff),
-        hideFromLoadout: true,
+        hideFromLoadout: false,
         grassTint: true,
         hideEquipment: true,
         hideBlood: true
     },
     {
         ...skin("Henry's Little Helper", 0xc30000,  0x059100,  0x059100),
-        hideFromLoadout: true,
+        hideFromLoadout: false,
         sound: true
     }
 ]);

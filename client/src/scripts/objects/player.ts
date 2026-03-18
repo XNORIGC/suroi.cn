@@ -1219,13 +1219,9 @@ export class Player extends GameObject.derive(ObjectCategory.Player) {
 
     updateTeammateName(): void {
         if (
-            Game.isTeamMode
-            && (
-                !this.isActivePlayer
-                && !this.teammateName
-                && !this.dead
-                && this.teamID === Game.teamID
-            )
+            !this.isActivePlayer
+            && !this.teammateName
+            && !this.dead
         ) {
             const name = Game.playerNames.get(this.id);
 
@@ -1270,7 +1266,6 @@ export class Player extends GameObject.derive(ObjectCategory.Player) {
             && (
                 this.isActivePlayer
                 || this.dead
-                || this.teamID !== Game.teamID
             )
         ) {
             const { text, badge, container } = this.teammateName;
@@ -1586,7 +1581,7 @@ export class Player extends GameObject.derive(ObjectCategory.Player) {
             "pointerdown",
             e => {
                 e.stopImmediatePropagation();
-                if (e.button === 2 && def && Game.isTeamMode) {
+                if (e.button === 2 && def) {
                     InputManager.addAction({
                         type: InputActions.DropItem,
                         item: def

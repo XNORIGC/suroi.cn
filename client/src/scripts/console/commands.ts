@@ -707,8 +707,8 @@ export function setUpCommands(): void {
             InputManager.addAction(InputActions.ActivatePerks);
         },
         {
-            short: "",
-            long: "",
+            short: "Activate all activable perks belonging to this player",
+            long: "When invoked, the game will attempt to activate all the perks this player has.",
             allowOnlyWhenGameStarted: true,
             signatures: [{ args: [], noexcept: true }]
         }

@@ -2124,10 +2124,10 @@ export async function setUpUI(): Promise<void> {
                         item: scope
                     });
 
-                    mobileDropItem(button, isTeamMode, scope);
+                    mobileDropItem(button, true, scope);
                 }
 
-                if (isSecondary && isTeamMode) {
+                if (isSecondary) {
                     InputManager.addAction({
                         type: InputActions.DropItem,
                         item: scope
@@ -2170,7 +2170,7 @@ export async function setUpUI(): Promise<void> {
                 const isTeamMode = Game.isTeamMode;
 
                 if (isPrimary) {
-                    if (MapPingWheelManager.enabled && Game.isTeamMode) {
+                    if (MapPingWheelManager.enabled) {
                         InputManager.addAction({
                             type: InputActions.Emote,
                             emote: Emotes.fromString(item.idString)
@@ -2184,10 +2184,10 @@ export async function setUpUI(): Promise<void> {
                         });
                     }
 
-                    mobileDropItem(button, isTeamMode, item);
+                    mobileDropItem(button, true, item);
                 }
 
-                if (isSecondary && isTeamMode) {
+                if (isSecondary) {
                     InputManager.addAction({
                         type: InputActions.DropItem,
                         item
@@ -2226,7 +2226,7 @@ export async function setUpUI(): Promise<void> {
             const isTeamMode = Game.isTeamMode;
 
             if (isPrimary) {
-                if (MapPingWheelManager.enabled && Game.isTeamMode) {
+                if (MapPingWheelManager.enabled) {
                     InputManager.addAction({
                         type: InputActions.Emote,
                         emote: Emotes.fromString(ammo.idString)
@@ -2235,10 +2235,10 @@ export async function setUpUI(): Promise<void> {
                     UIManager.updateRequestableItems();
                 }
 
-                mobileDropItem(button, isTeamMode, ammo);
+                mobileDropItem(button, true, ammo);
             }
 
-            if (isSecondary && isTeamMode) {
+            if (isSecondary) {
                 InputManager.addAction({
                     type: InputActions.DropItem,
                     item: ammo
@@ -2278,7 +2278,7 @@ export async function setUpUI(): Promise<void> {
 
         slotListener(ele, button => {
             const isSecondary = button === 2;
-            const shouldDrop = Game.activePlayer && Game.isTeamMode;
+            const shouldDrop = Game.activePlayer;
 
             if (isSecondary && shouldDrop) {
                 const item = Game.activePlayer?.equipment[type];

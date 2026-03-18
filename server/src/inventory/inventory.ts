@@ -372,7 +372,7 @@ export class Inventory {
         const slotObj = this.weapons[slot];
         if (
             // If the active weapon is being replaced, then we want to swap to the new item when done
-            (slot === this._activeWeaponIndex && slotObj?.definition.noDrop !== true)
+            (slot === this._activeWeaponIndex/* && slotObj?.definition.noDrop !== true */)
 
             // Only melee in inventory, swap to new item's slot
             || this.weaponCount === 1
@@ -567,7 +567,7 @@ export class Inventory {
         const definition = Loots.reify(itemString);
         const { idString, defType } = definition;
 
-        if (
+        /* if (
             (
                 !this.items.hasItem(idString)
                 && defType !== DefinitionType.Armor
@@ -575,7 +575,7 @@ export class Inventory {
                 && defType !== DefinitionType.Perk
             )
             || definition.noDrop
-        ) return;
+        ) return; */
 
         switch (defType) {
             case DefinitionType.HealingItem:
@@ -656,11 +656,11 @@ export class Inventory {
 
                 for (const item in this.items.asRecord()) {
                     const def = Loots.fromString(item);
-                    if (
+                    /* if (
                         def.noDrop
                         || ("ephemeral" in def && def.ephemeral)
                         || !validDefTypes.includes(def.defType)
-                    ) continue;
+                    ) continue; */
 
                     const count = this.items.getItem(item);
                     if (count <= 0) continue;
