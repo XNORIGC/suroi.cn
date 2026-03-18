@@ -1103,7 +1103,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `sniper_deterrence` is not defined
 - Key `sniper_deterrence_desc` is not defined
 
-## 🇮🇷 فارسی (95% Complete) - fa.hjson
+## 🇮🇷 فارسی (94% Complete) - fa.hjson
 
 ### (No Invalid Keys)
 
@@ -1401,7 +1401,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `sniper_deterrence` is not defined
 - Key `sniper_deterrence_desc` is not defined
 
-## 🇬🇷 Ελληνικά (95% Complete) - gr.hjson
+## 🇬🇷 Ελληνικά (94% Complete) - gr.hjson
 
 ### (No Invalid Keys)
 
@@ -1432,7 +1432,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `sniper_deterrence` is not defined
 - Key `sniper_deterrence_desc` is not defined
 
-## 🇭🇰 🇲🇴 廣東話(香港/澳門) (54% Complete) - hk_mo.hjson
+## 🇭🇰 🇲🇴 廣東話(香港/澳門) (53% Complete) - hk_mo.hjson
 
 ### Invalid Keys
 
@@ -1641,7 +1641,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `sniper_deterrence` is not defined
 - Key `sniper_deterrence_desc` is not defined
 
-## 🇭🇺 Magyar (82% Complete) - hu.hjson
+## 🇭🇺 Magyar (81% Complete) - hu.hjson
 
 ### Invalid Keys
 
@@ -3384,7 +3384,7 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `sniper_deterrence` is not defined
 - Key `sniper_deterrence_desc` is not defined
 
-## 🇹🇼 中文（繁體） (97% Complete) - tw.hjson
+## 🇹🇼 中文（繁體） (96% Complete) - tw.hjson
 
 ### Invalid Keys
 

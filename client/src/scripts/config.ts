@@ -6,52 +6,10 @@ export const Config = {
         bjcustom: {
             name: "Beijing (Custom)",
             flag: "🇨🇳 ",
-            mainAddress: "http://8.140.211.228:8000",
-            gameAddress: "ws://8.140.211.228:<gameID>",
-            offset: 8001
-        },
-        bj1v1: {
-            name: "Beijing (1v1)",
-            flag: "🇨🇳 ",
-            mainAddress: "http://8.140.211.228:8002",
-            gameAddress: "ws://8.140.211.228:<gameID>",
-            offset: 8003
-        }/* ,
-        na: {
-            name: "North America",
-            flag: "🇺🇸 ",
-            mainAddress: "https://na.suroi.io",
-            gameAddress: "wss://na.suroi.io/game/<gameID>",
+            mainAddress: "https://suroi.camvan.xyz:7000",
+            gameAddress: "wss://suroi.camvan.xyz:7000/game/<gameID>",
             offset: 1
-        },
-        eu: {
-            name: "Europe",
-            flag: "🇩🇪 ",
-            mainAddress: "https://eu.suroi.io",
-            gameAddress: "wss://eu.suroi.io/game/<gameID>",
-            offset: 1
-        },
-        sa: {
-            name: "South America",
-            flag: "🇧🇷 ",
-            mainAddress: "https://sa.suroi.io",
-            gameAddress: "wss://sa.suroi.io/game/<gameID>",
-            offset: 1
-        } */,
-        as: {
-            name: "Asia",
-            flag: "🇭🇰 ",
-            mainAddress: "https://as.suroi.io",
-            gameAddress: "wss://as.suroi.io/game/<gameID>",
-            offset: 1
-        }/* ,
-        oc: {
-            name: "Oceania",
-            flag: "🇦🇺 ",
-            mainAddress: "https://oc.suroi.io",
-            gameAddress: "wss://oc.suroi.io/game/<gameID>",
-            offset: 1
-        } */
+        }
     },
     defaultRegion: "bjcustom"
 } satisfies ConfigType as ConfigType;
