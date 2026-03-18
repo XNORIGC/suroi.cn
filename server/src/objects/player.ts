@@ -2756,6 +2756,9 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                         time: this.game.now
                     }
                 }
+                if (source.hasPerk(PerkIds.SniperDeterrence) && ["mosin_nagant", "tango_51", "cz600", "l115a1", "rgs", "vks", "ulr338"].includes(weaponUsed.definition.idString)) {
+                    this.adrenaline *= 0.75;
+                }
             }
         }
 
@@ -3652,7 +3655,6 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                     break;
                 }
                 case InputActions.DropItem: {
-                    if (!this.game.isTeamMode && action.item.defType !== DefinitionType.Perk) break;
                     this.action?.cancel();
                     inventory.dropItem(action.item);
                     break;
@@ -3774,34 +3776,6 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                     break;
                 case InputActions.ActivatePerks:
                     this.dirty.activePerks = true;
-
-                    /*
-                    case PerkIds.Overdrive: {
-                        if (source.activeOverdrive || !source.canUseOverdrive) break;
-
-                        if (source.overdriveKills++ >= perk.requiredKills) {
-                            source.overdriveKills = 0;
-                            source.health += perk.healBonus;
-                            source.adrenaline += perk.adrenalineBonus;
-                            source.baseSpeed *= perk.speedMod;
-                            source.canUseOverdrive = false;
-                            source.activeOverdrive = true;
-                            source.setDirty();
-
-                            this.game.addTimeout(() => {
-                                source.baseSpeed /= perk.speedMod;
-                                source.activeOverdrive = false;
-                                source.setDirty();
-
-                                this.overdriveCooldown?.kill();
-                                this.overdriveCooldown = this.game.addTimeout(() => {
-                                    source.canUseOverdrive = true;
-                                }, perk.cooldown);
-                            }, perk.speedBoostDuration);
-                        }
-                        break;
-                    }
-                    */
                     if (this.hasPerk(PerkIds.Overdrive)) {
                         this.sendEmote(Emotes.fromString("fire"), true, true);
                         this.baseSpeed *= 3;

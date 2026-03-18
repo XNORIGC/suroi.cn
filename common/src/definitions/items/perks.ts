@@ -101,7 +101,10 @@ export const enum PerkIds {
     HollowPoints = "hollow_points",
     ExperimentalForcefield = "experimental_forcefield",
     ThermalGoggles = "thermal_goggles",
-    Overdrive = "overdrive"
+    Overdrive = "overdrive",
+
+    // Custom
+    SniperDeterrence = "sniper_deterrence"
 }
 
 const perks = [
@@ -682,6 +685,12 @@ const perks = [
         adrenalineBonus: 25,
         // achieveTime: 30e3, // msec
         cooldown: 12e3 // msec
+    },
+    {
+        idString: PerkIds.SniperDeterrence,
+        name: "Sniper Deterrence",
+        defType: DefinitionType.Perk,
+        category: PerkCategories.Normal
     }
 ] as const satisfies ReadonlyArray<BasePerkDefinition & Record<string, unknown>>;
 

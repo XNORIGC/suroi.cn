@@ -213,6 +213,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇧🇷 Português (Brasil) (85% Complete) - br.hjson
 
@@ -286,8 +288,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `aching_knees_desc` is not defined
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
-## 🇨🇿 Čeština (55% Complete) - cz.hjson
+## 🇨🇿 Čeština (54% Complete) - cz.hjson
 
 ### Invalid Keys
 
@@ -489,6 +493,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇩🇪 Deutsch (62% Complete) - de.hjson
 
@@ -661,6 +667,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇬🇧 English (100% Complete) - en.hjson
 
@@ -854,8 +862,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
-## 🇪🇪 eesti (83% Complete) - et.hjson
+## 🇪🇪 eesti (82% Complete) - et.hjson
 
 ### Invalid Keys
 
@@ -1090,6 +1100,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇮🇷 فارسی (95% Complete) - fa.hjson
 
@@ -1119,6 +1131,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `aching_knees_desc` is not defined
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇫🇮 suomi (57% Complete) - fi.hjson
 
@@ -1311,8 +1325,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
-## 🇫🇷 Français (87% Complete) - fr.hjson
+## 🇫🇷 Français (86% Complete) - fr.hjson
 
 ### Invalid Keys
 
@@ -1382,6 +1398,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `butterfingers_desc` is not defined
 - Key `overweight` is not defined
 - Key `overweight_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇬🇷 Ελληνικά (95% Complete) - gr.hjson
 
@@ -1411,6 +1429,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `aching_knees_desc` is not defined
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇭🇰 🇲🇴 廣東話(香港/澳門) (54% Complete) - hk_mo.hjson
 
@@ -1618,6 +1638,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇭🇺 Magyar (82% Complete) - hu.hjson
 
@@ -1704,8 +1726,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
-## 🇮🇹 Italiano (53% Complete) - it.hjson
+## 🇮🇹 Italiano (52% Complete) - it.hjson
 
 ### Invalid Keys
 
@@ -1924,8 +1948,14 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
+<<<<<<< HEAD
 ## 🇯🇵 日本語 (100% Complete) - jp.hjson
+=======
+## 🇯🇵 日本語 (97% Complete) - jp.hjson
+>>>>>>> 3245043a3 (meow)
 
 ### Invalid Keys
 
@@ -2177,212 +2207,14 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `bindings_activate_perks` is not defined
 - Key `region_bjcustom` is not defined
 - Key `region_bj1v1` is not defined
+<<<<<<< HEAD
 >>>>>>> 96baaf543 (feat: active perks)
+=======
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
+>>>>>>> 3245043a3 (meow)
 
-## 🇱🇹 Lietuvių (55% Complete) - lt.hjson
-
-### Invalid Keys
-
-- Key `create_team_waiting` is not a valid key
-- Key `m16a4` is not a valid key
-
-### Undefined Keys
-
-- Key `msg_error_kicked_team` is not defined
-- Key `msg_punishment_noname_reason` is not defined
-- Key `msg_punishment_vpn` is not defined
-- Key `msg_punishment_vpn_reason` is not defined
-- Key `msg_punishment_warn_agreement` is not defined
-- Key `warning_hw_accel_1` is not defined
-- Key `warning_hw_accel_2` is not defined
-- Key `warning_hw_accel_link` is not defined
-- Key `privacy` is not defined
-- Key `contact` is not defined
-- Key `donate` is not defined
-- Key `wiki` is not defined
-- Key `bindings_fullscreen` is not defined
-- Key `recording` is not defined
-- Key `settings_ambience_volume` is not defined
-- Key `settings_explosion_shockwaves` is not defined
-- Key `settings_bullet_trail_bloom` is not defined
-- Key `settings_blood_splatter` is not defined
-- Key `settings_cooler_weapon_gas` is not defined
-- Key `settings_ambient_particles` is not defined
-- Key `settings_record_res` is not defined
-- Key `settings_alt_texture_loading` is not defined
-- Key `settings_hide_qq` is not defined
-- Key `settings_show_inout` is not defined
-- Key `settings_weapon_compare` is not defined
-- Key `settings_weapon_compare_condensed` is not defined
-- Key `settings_gyro_angle` is not defined
-- Key `settings_lock_joysticks` is not defined
-- Key `settings_switch_joysticks` is not defined
-- Key `settings_left_joystick_color` is not defined
-- Key `settings_right_joystick_color` is not defined
-- Key `settings_normal_joystick_info` is not defined
-- Key `settings_switched_joystick_info` is not defined
-- Key `settings_haptics` is not defined
-- Key `settings_shake_to_reload` is not defined
-- Key `settings_shake_count` is not defined
-- Key `settings_shake_force` is not defined
-- Key `settings_shake_delay` is not defined
-- Key `msg_your_team_eliminated` is not defined
-- Key `msg_the_team_eliminated` is not defined
-- Key `msg_not_enough_space` is not defined
-- Key `msg_item_already_equipped` is not defined
-- Key `msg_better_item_equipped` is not defined
-- Key `msg_cannot_use_flare` is not defined
-- Key `final_gas_waiting` is not defined
-- Key `final_gas_advancing` is not defined
-- Key `action_vaccine_syringe_use` is not defined
-- Key `interact_server` is not defined
-- Key `interact_speaker` is not defined
-- Key `interact_monument` is not defined
-- Key `interact_recorder_interactable` is not defined
-- Key `loading_fetching_data_failed` is not defined
-- Key `retry` is not defined
-- Key `bindings_explode_c4` is not defined
-- Key `bindings_activate_perks` is not defined
-- Key `bindings_use_consumable vaccine_syringe` is not defined
-- Key `bindings_screen_record` is not defined
-- Key `bindings_toggle pf_net_graph 0 1 2` is not defined
-- Key `kf_suicide_finished_off` is not defined
-- Key `kf_were_finally_killed` is not defined
-- Key `kf_saw_kill` is not defined
-- Key `kf_saw_down` is not defined
-- Key `kf_impact_of` is not defined
-- Key `kf_disconnected` is not defined
-- Key `km_finally_ended_yourself` is not defined
-- Key `km_finally_killed` is not defined
-- Key `km_gas_kill_you` is not defined
-- Key `km_gas_down_you` is not defined
-- Key `km_airdrop_crate_locked_kill_you` is not defined
-- Key `km_airdrop_crate_locked_down_you` is not defined
-- Key `km_saw_kill_you` is not defined
-- Key `km_saw_down_you` is not defined
-- Key `km_knocked_you` is not defined
-- Key `km_finished_off_you` is not defined
-- Key `km_killed_you` is not defined
-- Key `km_suicide_down` is not defined
-- Key `km_suicide_finished_off` is not defined
-- Key `tt_desc` is not defined
-- Key `vaccine_syringe_desc` is not defined
-- Key `create_team_force_start` is not defined
-- Key `create_team_ready` is not defined
-- Key `create_team_not_ready` is not defined
-- Key `partners` is not defined
-- Key `username_placeholder` is not defined
-- Key `msg_contact` is not defined
-- Key `power_vest` is not defined
-- Key `power_helmet` is not defined
-- Key `power_pack` is not defined
-- Key `barrel_explosion` is not defined
-- Key `stove_explosion` is not defined
-- Key `fireplace_explosion` is not defined
-- Key `control_panel_explosion` is not defined
-- Key `super_barrel_explosion` is not defined
-- Key `small_refinery_barrel_explosion` is not defined
-- Key `large_refinery_barrel_explosion` is not defined
-- Key `silo_explosion` is not defined
-- Key `propane_tank_explosion` is not defined
-- Key `firework_launcher_explosion` is not defined
-- Key `seed_explosion` is not defined
-- Key `coal_explosion` is not defined
-- Key `frag_grenade_explosion` is not defined
-- Key `confetti_grenade_explosion` is not defined
-- Key `pumpkin_explosion` is not defined
-- Key `region_bjcustom` is not defined
-- Key `region_bj1v1` is not defined
-- Key `region_ea` is not defined
-- Key `region_oc` is not defined
-- Key `second_wind` is not defined
-- Key `second_wind_desc` is not defined
-- Key `flechettes` is not defined
-- Key `flechettes_desc` is not defined
-- Key `sabot_rounds` is not defined
-- Key `sabot_rounds_desc` is not defined
-- Key `extended_mags` is not defined
-- Key `extended_mags_desc` is not defined
-- Key `demo_expert` is not defined
-- Key `demo_expert_desc` is not defined
-- Key `advanced_athletics` is not defined
-- Key `advanced_athletics_desc` is not defined
-- Key `toploaded` is not defined
-- Key `toploaded_desc` is not defined
-- Key `infinite_ammo` is not defined
-- Key `infinite_ammo_desc` is not defined
-- Key `field_medic` is not defined
-- Key `field_medic_desc` is not defined
-- Key `berserker` is not defined
-- Key `berserker_desc` is not defined
-- Key `close_quarters_combat` is not defined
-- Key `close_quarters_combat_desc` is not defined
-- Key `low_profile` is not defined
-- Key `low_profile_desc` is not defined
-- Key `tactical_reload` is not defined
-- Key `tactical_reload_desc` is not defined
-- Key `precision_recycling` is not defined
-- Key `precision_recycling_desc` is not defined
-- Key `loot_baron` is not defined
-- Key `loot_baron_desc` is not defined
-- Key `overclocked` is not defined
-- Key `overclocked_desc` is not defined
-- Key `plumpkin_gamble` is not defined
-- Key `plumpkin_gamble_desc` is not defined
-- Key `plumpkin_shuffle` is not defined
-- Key `plumpkin_shuffle_desc` is not defined
-- Key `lycanthropy` is not defined
-- Key `lycanthropy_desc` is not defined
-- Key `bloodthirst` is not defined
-- Key `bloodthirst_desc` is not defined
-- Key `plumpkin_bomb` is not defined
-- Key `plumpkin_bomb_desc` is not defined
-- Key `shrouded` is not defined
-- Key `shrouded_desc` is not defined
-- Key `experimental_treatment` is not defined
-- Key `experimental_treatment_desc` is not defined
-- Key `engorged` is not defined
-- Key `engorged_desc` is not defined
-- Key `baby_plumpkin_pie` is not defined
-- Key `baby_plumpkin_pie_desc` is not defined
-- Key `costumed` is not defined
-- Key `costumed_desc` is not defined
-- Key `torn_pockets` is not defined
-- Key `torn_pockets_desc` is not defined
-- Key `claustrophobic` is not defined
-- Key `claustrophobic_desc` is not defined
-- Key `laced_stimulants` is not defined
-- Key `laced_stimulants_desc` is not defined
-- Key `rotten_plumpkin` is not defined
-- Key `rotten_plumpkin_desc` is not defined
-- Key `priority_target` is not defined
-- Key `priority_target_desc` is not defined
-- Key `butterfingers` is not defined
-- Key `butterfingers_desc` is not defined
-- Key `overweight` is not defined
-- Key `overweight_desc` is not defined
-- Key `eternal_magnetism` is not defined
-- Key `eternal_magnetism_desc` is not defined
-- Key `last_stand` is not defined
-- Key `last_stand_desc` is not defined
-- Key `aching_knees` is not defined
-- Key `aching_knees_desc` is not defined
-- Key `plumpkin_blessing` is not defined
-- Key `plumpkin_blessing_desc` is not defined
-- Key `infected` is not defined
-- Key `infected_desc` is not defined
-- Key `immunity` is not defined
-- Key `immunity_desc` is not defined
-- Key `hollow_points` is not defined
-- Key `hollow_points_desc` is not defined
-- Key `experimental_forcefield` is not defined
-- Key `experimental_forcefield_desc` is not defined
-- Key `thermal_goggles` is not defined
-- Key `thermal_goggles_desc` is not defined
-- Key `overdrive` is not defined
-- Key `overdrive_desc` is not defined
-
-## 🇱🇻 Latviešu (55% Complete) - lv.hjson
+## 🇱🇹 Lietuvių (54% Complete) - lt.hjson
 
 ### Invalid Keys
 
@@ -2584,8 +2416,215 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
-## 🇳🇱 Nederlands (91% Complete) - nl.hjson
+## 🇱🇻 Latviešu (54% Complete) - lv.hjson
+
+### Invalid Keys
+
+- Key `create_team_waiting` is not a valid key
+- Key `m16a4` is not a valid key
+
+### Undefined Keys
+
+- Key `msg_error_kicked_team` is not defined
+- Key `msg_punishment_noname_reason` is not defined
+- Key `msg_punishment_vpn` is not defined
+- Key `msg_punishment_vpn_reason` is not defined
+- Key `msg_punishment_warn_agreement` is not defined
+- Key `warning_hw_accel_1` is not defined
+- Key `warning_hw_accel_2` is not defined
+- Key `warning_hw_accel_link` is not defined
+- Key `privacy` is not defined
+- Key `contact` is not defined
+- Key `donate` is not defined
+- Key `wiki` is not defined
+- Key `bindings_fullscreen` is not defined
+- Key `recording` is not defined
+- Key `settings_ambience_volume` is not defined
+- Key `settings_explosion_shockwaves` is not defined
+- Key `settings_bullet_trail_bloom` is not defined
+- Key `settings_blood_splatter` is not defined
+- Key `settings_cooler_weapon_gas` is not defined
+- Key `settings_ambient_particles` is not defined
+- Key `settings_record_res` is not defined
+- Key `settings_alt_texture_loading` is not defined
+- Key `settings_hide_qq` is not defined
+- Key `settings_show_inout` is not defined
+- Key `settings_weapon_compare` is not defined
+- Key `settings_weapon_compare_condensed` is not defined
+- Key `settings_gyro_angle` is not defined
+- Key `settings_lock_joysticks` is not defined
+- Key `settings_switch_joysticks` is not defined
+- Key `settings_left_joystick_color` is not defined
+- Key `settings_right_joystick_color` is not defined
+- Key `settings_normal_joystick_info` is not defined
+- Key `settings_switched_joystick_info` is not defined
+- Key `settings_haptics` is not defined
+- Key `settings_shake_to_reload` is not defined
+- Key `settings_shake_count` is not defined
+- Key `settings_shake_force` is not defined
+- Key `settings_shake_delay` is not defined
+- Key `msg_your_team_eliminated` is not defined
+- Key `msg_the_team_eliminated` is not defined
+- Key `msg_not_enough_space` is not defined
+- Key `msg_item_already_equipped` is not defined
+- Key `msg_better_item_equipped` is not defined
+- Key `msg_cannot_use_flare` is not defined
+- Key `final_gas_waiting` is not defined
+- Key `final_gas_advancing` is not defined
+- Key `action_vaccine_syringe_use` is not defined
+- Key `interact_server` is not defined
+- Key `interact_speaker` is not defined
+- Key `interact_monument` is not defined
+- Key `interact_recorder_interactable` is not defined
+- Key `loading_fetching_data_failed` is not defined
+- Key `retry` is not defined
+- Key `bindings_explode_c4` is not defined
+- Key `bindings_activate_perks` is not defined
+- Key `bindings_use_consumable vaccine_syringe` is not defined
+- Key `bindings_screen_record` is not defined
+- Key `bindings_toggle pf_net_graph 0 1 2` is not defined
+- Key `kf_suicide_finished_off` is not defined
+- Key `kf_were_finally_killed` is not defined
+- Key `kf_saw_kill` is not defined
+- Key `kf_saw_down` is not defined
+- Key `kf_impact_of` is not defined
+- Key `kf_disconnected` is not defined
+- Key `km_finally_ended_yourself` is not defined
+- Key `km_finally_killed` is not defined
+- Key `km_gas_kill_you` is not defined
+- Key `km_gas_down_you` is not defined
+- Key `km_airdrop_crate_locked_kill_you` is not defined
+- Key `km_airdrop_crate_locked_down_you` is not defined
+- Key `km_saw_kill_you` is not defined
+- Key `km_saw_down_you` is not defined
+- Key `km_knocked_you` is not defined
+- Key `km_finished_off_you` is not defined
+- Key `km_killed_you` is not defined
+- Key `km_suicide_down` is not defined
+- Key `km_suicide_finished_off` is not defined
+- Key `tt_desc` is not defined
+- Key `vaccine_syringe_desc` is not defined
+- Key `create_team_force_start` is not defined
+- Key `create_team_ready` is not defined
+- Key `create_team_not_ready` is not defined
+- Key `partners` is not defined
+- Key `username_placeholder` is not defined
+- Key `msg_contact` is not defined
+- Key `power_vest` is not defined
+- Key `power_helmet` is not defined
+- Key `power_pack` is not defined
+- Key `barrel_explosion` is not defined
+- Key `stove_explosion` is not defined
+- Key `fireplace_explosion` is not defined
+- Key `control_panel_explosion` is not defined
+- Key `super_barrel_explosion` is not defined
+- Key `small_refinery_barrel_explosion` is not defined
+- Key `large_refinery_barrel_explosion` is not defined
+- Key `silo_explosion` is not defined
+- Key `propane_tank_explosion` is not defined
+- Key `firework_launcher_explosion` is not defined
+- Key `seed_explosion` is not defined
+- Key `coal_explosion` is not defined
+- Key `frag_grenade_explosion` is not defined
+- Key `confetti_grenade_explosion` is not defined
+- Key `pumpkin_explosion` is not defined
+- Key `region_bjcustom` is not defined
+- Key `region_bj1v1` is not defined
+- Key `region_ea` is not defined
+- Key `region_oc` is not defined
+- Key `second_wind` is not defined
+- Key `second_wind_desc` is not defined
+- Key `flechettes` is not defined
+- Key `flechettes_desc` is not defined
+- Key `sabot_rounds` is not defined
+- Key `sabot_rounds_desc` is not defined
+- Key `extended_mags` is not defined
+- Key `extended_mags_desc` is not defined
+- Key `demo_expert` is not defined
+- Key `demo_expert_desc` is not defined
+- Key `advanced_athletics` is not defined
+- Key `advanced_athletics_desc` is not defined
+- Key `toploaded` is not defined
+- Key `toploaded_desc` is not defined
+- Key `infinite_ammo` is not defined
+- Key `infinite_ammo_desc` is not defined
+- Key `field_medic` is not defined
+- Key `field_medic_desc` is not defined
+- Key `berserker` is not defined
+- Key `berserker_desc` is not defined
+- Key `close_quarters_combat` is not defined
+- Key `close_quarters_combat_desc` is not defined
+- Key `low_profile` is not defined
+- Key `low_profile_desc` is not defined
+- Key `tactical_reload` is not defined
+- Key `tactical_reload_desc` is not defined
+- Key `precision_recycling` is not defined
+- Key `precision_recycling_desc` is not defined
+- Key `loot_baron` is not defined
+- Key `loot_baron_desc` is not defined
+- Key `overclocked` is not defined
+- Key `overclocked_desc` is not defined
+- Key `plumpkin_gamble` is not defined
+- Key `plumpkin_gamble_desc` is not defined
+- Key `plumpkin_shuffle` is not defined
+- Key `plumpkin_shuffle_desc` is not defined
+- Key `lycanthropy` is not defined
+- Key `lycanthropy_desc` is not defined
+- Key `bloodthirst` is not defined
+- Key `bloodthirst_desc` is not defined
+- Key `plumpkin_bomb` is not defined
+- Key `plumpkin_bomb_desc` is not defined
+- Key `shrouded` is not defined
+- Key `shrouded_desc` is not defined
+- Key `experimental_treatment` is not defined
+- Key `experimental_treatment_desc` is not defined
+- Key `engorged` is not defined
+- Key `engorged_desc` is not defined
+- Key `baby_plumpkin_pie` is not defined
+- Key `baby_plumpkin_pie_desc` is not defined
+- Key `costumed` is not defined
+- Key `costumed_desc` is not defined
+- Key `torn_pockets` is not defined
+- Key `torn_pockets_desc` is not defined
+- Key `claustrophobic` is not defined
+- Key `claustrophobic_desc` is not defined
+- Key `laced_stimulants` is not defined
+- Key `laced_stimulants_desc` is not defined
+- Key `rotten_plumpkin` is not defined
+- Key `rotten_plumpkin_desc` is not defined
+- Key `priority_target` is not defined
+- Key `priority_target_desc` is not defined
+- Key `butterfingers` is not defined
+- Key `butterfingers_desc` is not defined
+- Key `overweight` is not defined
+- Key `overweight_desc` is not defined
+- Key `eternal_magnetism` is not defined
+- Key `eternal_magnetism_desc` is not defined
+- Key `last_stand` is not defined
+- Key `last_stand_desc` is not defined
+- Key `aching_knees` is not defined
+- Key `aching_knees_desc` is not defined
+- Key `plumpkin_blessing` is not defined
+- Key `plumpkin_blessing_desc` is not defined
+- Key `infected` is not defined
+- Key `infected_desc` is not defined
+- Key `immunity` is not defined
+- Key `immunity_desc` is not defined
+- Key `hollow_points` is not defined
+- Key `hollow_points_desc` is not defined
+- Key `experimental_forcefield` is not defined
+- Key `experimental_forcefield_desc` is not defined
+- Key `thermal_goggles` is not defined
+- Key `thermal_goggles_desc` is not defined
+- Key `overdrive` is not defined
+- Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
+
+## 🇳🇱 Nederlands (90% Complete) - nl.hjson
 
 ### Invalid Keys
 
@@ -2634,6 +2673,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `aching_knees_desc` is not defined
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇵🇱 Polski (57% Complete) - pl.hjson
 
@@ -2826,6 +2867,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🎀 Cute Engwish (61% Complete) - qen.hjson
 
@@ -3001,8 +3044,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
-## 🇷🇴 Română (91% Complete) - ro.hjson
+## 🇷🇴 Română (90% Complete) - ro.hjson
 
 ### (No Invalid Keys)
 
@@ -3049,6 +3094,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `aching_knees_desc` is not defined
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇷🇺 Русский (89% Complete) - ru.hjson
 
@@ -3108,8 +3155,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `loot_baron` is not defined
 - Key `loot_baron_desc` is not defined
 - Key `baby_plumpkin_pie_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
-## 🇮🇳 தமிழ் (87% Complete) - ta.hjson
+## 🇮🇳 தமிழ் (86% Complete) - ta.hjson
 
 ### Invalid Keys
 
@@ -3179,6 +3228,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `plumpkin_blessing` is not defined
 - Key `plumpkin_blessing_desc` is not defined
 - Key `experimental_forcefield_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇹🇷 Turkısh (67% Complete) - tr.hjson
 
@@ -3330,6 +3381,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇹🇼 中文（繁體） (97% Complete) - tw.hjson
 
@@ -3567,8 +3620,10 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `kf_disconnected` is not defined
 - Key `region_bjcustom` is not defined
 - Key `region_bj1v1` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
-## 🇻🇳 Tiếng Việt (83% Complete) - vi.hjson
+## 🇻🇳 Tiếng Việt (82% Complete) - vi.hjson
 
 ### Invalid Keys
 
@@ -3651,6 +3706,8 @@ This file is a report of all errors and missing keys in the translation files of
 - Key `thermal_goggles_desc` is not defined
 - Key `overdrive` is not defined
 - Key `overdrive_desc` is not defined
+- Key `sniper_deterrence` is not defined
+- Key `sniper_deterrence_desc` is not defined
 
 ## 🇨🇳 中文（简体） (99% Complete) - zh.hjson
 

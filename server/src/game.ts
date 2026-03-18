@@ -191,7 +191,7 @@ export class Game implements GameData {
     }
 
     private _started = false;
-    public _stopped = false;
+    private _stopped = false;
 
     startedTime = Number.MAX_VALUE; // Default of Number.MAX_VALUE makes it so games that haven't started yet are joined first
     allowJoin = false;
@@ -519,27 +519,7 @@ export class Game implements GameData {
             )
             && this.now - this.startedTime > 5000
         ) {
-            for (const player of this.livingPlayers) {
-                const { movement } = player;
-                movement.up = movement.down = movement.left = movement.right = false;
-                player.attacking = false;
-                player.sendEmote(player.loadout.emotes[6], true);
-                player.sendGameOverPacket(true);
-                this.pluginManager.emit("player_did_win", player);
-            }
-
-            this.pluginManager.emit("game_end", this);
-
-            this.setGameData({ allowJoin: false, over: true });
-
-            // End the game in 1 second
-            this.addTimeout(() => {
-                for (const player of this.connectedPlayers) {
-                    player.disconnect("Game ended");
-                }
-                this._stopped = true;
-                this.log("Ended");
-            }, 1000);
+            win();
         }
 
         // Record performance and start the next tick
@@ -560,6 +540,30 @@ export class Game implements GameData {
         if (!this._stopped) {
             setTimeout(this.tick.bind(this), this.idealDt - (Date.now() - now));
         }
+    }
+
+    win(): void {
+        for (const player of this.livingPlayers) {
+            const { movement } = player;
+            movement.up = movement.down = movement.left = movement.right = false;
+            player.attacking = false;
+            player.sendEmote(player.loadout.emotes[6], true);
+            player.sendGameOverPacket(true);
+            this.pluginManager.emit("player_did_win", player);
+        }
+
+        this.pluginManager.emit("game_end", this);
+
+        this.setGameData({ allowJoin: false, over: true });
+
+        // End the game in 1 second
+        this.addTimeout(() => {
+            for (const player of this.connectedPlayers) {
+                player.disconnect("Game ended");
+            }
+            this._stopped = true;
+            this.log("Ended");
+        }, 1000);
     }
 
     setGameData(data: Partial<Omit<GameData, "aliveCount">>): void {

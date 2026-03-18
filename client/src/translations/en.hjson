@@ -558,3 +558,6 @@
 "thermal_goggles_desc": "Reveals nearby players' healthbars, and their locations on the map."
 "overdrive": "Overdrive"
 "overdrive_desc": "Gain a boost in speed, health, and adrenaline when getting a kill. Cooldown of <seconds> seconds."
+"sniper_deterrence": "Sniper Deterrence"
+"sniper_deterrence_desc": "Hitting an enemy with a sniper rifle reduces their adrenaline by 25%."
+
