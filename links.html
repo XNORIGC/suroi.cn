@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>链接大全 | Suroi Survev Surviv.io</title>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        body > table {
+            width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        body > table > tbody > tr > :is(td, th) {
+            border: 1px solid #FFFFFF;
+            padding: 5px;
+        }
+
+        th {
+            color: #008AFF;
+        }
+
+        body > table > tbody > tr > td:nth-child(2) {
+            width: 350px;
+            /* 设置一个合适的最大宽度，这个值等于"https://github.com/HasangerGames/suroi"的宽度 */
+            word-break: break-all;
+            /* 允许在任意字符间断行 */
+            overflow-wrap: break-word;
+            /* 对于非CJK文本，优先在单词间断行 */
+        }
+
+        caption {
+            white-space: nowrap;
+        }
+
+        a {
+            color: #FF7500;
+            text-decoration: none;
+        }
+
+        body {
+            background: #121212;
+            color: #FFFFFF;
+            margin: 0;
+            overflow: auto;
+        }
+
+
+        .copy-cell {
+            width: 50px;
+            text-align: center;
+        }
+
+        .copy-link {
+            color: #FF7500;
+            cursor: pointer;
+        }
+
+        .copied-link {
+            color: #008AFF;
+            cursor: pointer;
+        }
+
+        .content-hidden {
+            opacity: 0;
+            transition: opacity .5s ease-in;
+        }
+
+        .content-visible {
+            opacity: 1;
+            transition: opacity .5s ease-in;
+        }
+    </style>
+    <script>
+        function copyToClipboard(text, link) {
+            // 创建一个临时textarea元素
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+
+            // 选择并复制文本
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                link.className = 'copied-link';
+                link.textContent = '已复制';
+                setTimeout(() => {
+                    link.className = 'copy-link';
+                    link.textContent = '复制';
+                }, 2000); // 2秒后恢复
+            } catch (err) {
+                console.error('复制失败:', err);
+            }
+
+            // 清理
+            document.body.removeChild(textarea);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // 选择所有顶层表格（不包括嵌套表格）中的行
+            const mainTables = Array.from(document.querySelectorAll('body > table, body > * > table')).filter(table => {
+                // 确保这个表格不是嵌套在另一个表格内的
+                return !table.closest('td');
+            });
+
+            // 处理完成后显示内容
+            const showContent = () => {
+                mainTables.forEach(table => {
+                    table.classList.add('content-visible');
+                });
+            };
+
+            mainTables.forEach(table => {
+                const rows = table.getElementsByTagName('tr');
+
+                for (let row of rows) {
+                    const cells = row.cells;
+
+                    // 处理标题行
+                    if (cells.length === 1 && cells[0].tagName.toLowerCase() === 'th') {
+                        cells[0].setAttribute('colspan', '2');
+                        // 在表格的第一个标题行前插入一个空行
+                        const emptyRow = document.createElement('tr');
+                        const emptyCell = document.createElement('td');
+                        emptyCell.setAttribute('colspan', '2');
+                        emptyRow.appendChild(emptyCell);
+                        //row.insertBefore(emptyRow, row);
+
+                        continue;
+                    }
+
+                    // 处理普通数据行
+                    if (cells.length === 2 && !cells[0].hasAttribute('colspan')) {
+                        const url = cells[0].textContent.trim();
+
+                        // 创建复制链接单元格
+                        const copyCell = document.createElement('td');
+                        copyCell.className = 'copy-cell';
+                        const copyLink = document.createElement('a');
+                        copyLink.textContent = '复制';
+                        copyLink.className = 'copy-link';
+                        copyLink.onclick = (e) => {
+                            e.preventDefault();
+                            copyToClipboard(url, copyLink);
+                        };
+                        copyCell.appendChild(copyLink);
+
+                        // 将第一列的文本转换为链接
+                        const urlCell = cells[0];
+                        urlCell.innerHTML = ''; // 清空单元格
+                        const urlLink = document.createElement('a');
+                        urlLink.textContent = url;
+                        urlLink.href = url;
+                        urlLink.target = '_blank';
+                        urlCell.appendChild(urlLink);
+
+                        // 在行的开头插入复制列
+                        row.insertBefore(copyCell, row.firstChild);
+                    }
+                }
+            });
+
+            // 所有处理完成后显示内容
+            requestAnimationFrame(() => {
+                showContent();
+            });
+        });
+    </script>
+</head>
+<body>
+    <table class="content-hidden">
+        <tr>
+            <td>https://as.suroi.io/links</td>
+            <td>
+                Suroi Survev Surviv.io链接大全<br />
+                <img loading="lazy" src="Welcome!" alt="欢迎！（七濑胡桃打手枪）" style="max-width: 100%; height: auto;" />
+            </td>
+        </tr>
+        <tr>
+            <th>Suroi</th>
+        </tr>
+        <tr>
+            <td>https://github.com/HasangerGames/suroi</td>
+            <td><img loading="lazy" src="Suroi" alt="Suroi" height="50px" /></td>
+        </tr>
+        <tr>
+            <td>https://suroi.io/</td>
+            <td>
+                官服，即官方自己开设的游戏服。官服一堆分服，分为北美、欧洲、南美、亚洲、大洋洲。亚服的延迟是最小的，而北美服和欧服的延迟差别不多，南美服和大洋洲服有点大。服的延迟因人和地区而异，这里给出在中国南北方游玩时的延迟。
+                <table style="border: 1px solid #FF7500; background:#222222; text-align: center;">
+                    <caption>服务器延迟（单位：毫秒，已四舍五入）</caption>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">服务器</th>
+                            <th colspan="2">中国北方</th>
+                            <th>中国南方</th>
+                        </tr>
+                        <tr>
+                            <th>通常</th>
+                            <th>范围</th>
+                            <th>（范围？）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>北美</td>
+                            <td>300~350</td>
+                            <td>250~350</td>
+                            <td>300~400</td>
+                        </tr>
+                        <tr>
+                            <td>欧洲</td>
+                            <td>200~230</td>
+                            <td>200~230</td>
+                            <td>300~400</td>
+                        </tr>
+                        <tr>
+                            <td>南美</td>
+                            <td>400~730</td>
+                            <td>400~1000</td>
+                            <td>400~700</td>
+                        </tr>
+                        <tr>
+                            <td>亚洲</td>
+                            <td>90~110</td>
+                            <td>90~120</td>
+                            <td>50~100</td>
+                        </tr>
+                        <tr>
+                            <td>大洋洲</td>
+                            <td>320~350</td>
+                            <td>320~360</td>
+                            <td>500~700</td>
+                        </tr>
+                    </tbody>
+                </table>
+                “范围”的定义：在测试时，延迟的最小值至最大值。<br />
+                “通常”的定义：在测试时，常出现的延迟数值的范围。（由Kastname提供）
+            </td>
+        </tr>
+        <tr>
+            <td>https://1v1.suroi.io/</td>
+            <td>官方单挑服。分为北美和亚洲服。推荐玩亚服。没有对手的情况下玩家无法移动。</td>
+        </tr>
+        <tr>
+            <td>https://suroi.wiki.gg/</td>
+            <td>Suroi官方维基。目前只有英文，可以用浏览器自带网页翻译功能看中文机翻。托管在wiki.gg这个维基农场上，目前正在建设中，需要社区贡献，现在极需编辑完善。</td>
+        </tr>
+        <tr>
+            <td>https://as.suroi.io/</td>
+            <td>Suroi官方亚服代理XNOR在其所在的服务器上开设的香港服，或者叫亚服，也可以叫亚中亚（亚服中的亚服）。可以在上面玩官方亚服和亚中亚（一般没人）。开这个服是为了加快游戏资源加载的速度，速度通常比在官方网站上快：在官方网站上加载资源需要从美国服务器下载，无法获取人数和模式数据的官方分服会增加耗时；在亚中亚网站上加载资源是从亚服下载的，而且它只获取亚服和亚中亚服自己的人数和模式数据，跳过北美服等其他对中国玩家来说太远、延迟较高或没人的官方分服。</td>
+        </tr>
+        <tr>
+            <td>https://as.suroi.io/custom</td>
+            <td>同上，但是经过了XNOR的自定义魔改，模式是自定义模式（特点有：比单挑服更好的全物资区域、玩家死亡即复活等），可以叫亚洲自定义服，也可以叫亚中自（亚服中的自定义模式服）。</td>
+        </tr>
+        <tr>
+            <td>https://as.suroi.io/1v1</td>
+            <td>同亚中亚，但是模式为官方单挑。可以叫它亚中单（亚服中的单挑模式服）。同样只有官方亚洲单挑服和亚中单。</td>
+        </tr>
+        <tr>
+            <td>https://ea1v1.suroi.io/</td>
+            <td>同亚中单。</td>
+        </tr>
+        <tr>
+            <td>http://cps.hongkongsuroi.top/</td>
+            <td>C服改版服，简称C服。服务器位于香港。版本最新（v0.30.0），有自己加的新枪。由cps陈皮水开设。XNOR提供技术支持与帮助。</td>
+        </tr>
+        <tr>
+            <td>http://47.122.51.231/</td>
+            <td>福建服。有标准模式和自定义模式。由Kastname开设，XNOR提供技术支持与帮助。</td>
+        </tr>
+        <tr>
+            <td>http://suroifun.cyou/</td>
+            <td>SuroiFun，常被大家称为上海服，因为它最初只有上海服（现在它还有香港分服）。有很多魔改内容，还有人机。由群里的ben is big和CTTN共同开设。XNOR在早期提供过很小部分的技术帮助。</td>
+        </tr>
+        <tr>
+            <td>http://101.43.242.20:8880/</td>
+            <td>北京服。不知道是谁开的。现已似乎无法打开。（预计要被移到已失效列表）</td>
+        </tr>
+        <tr>
+            <td>https://play.wo1wan.com/igwroi/</td>
+            <td>畅玩服。不推荐。需要用微信打开链接。要注册账号但用不了多长时间而且有非法组队与氪金旧版，但延迟40毫秒左右。</td>
+        </tr>
+        <tr>
+            <td>https://unblocked-games.s3.amazonaws.com/su-battle-royale.html</td>
+            <td>FreezeNova Games的Suroi服，有人将其称为酥服。只有北美服。通常需开启梯子游玩。</td>
+        </tr>
+        <tr>
+            <th>Survev</th>
+        </tr>
+        <tr>
+            <td>https://github.com/survev/survev</td>
+            <td><img src="Survev" alt="Survev" height="50px" /></td>
+        </tr>
+        <tr>
+            <td>https://survev.io/</td>
+            <td>Survev官方网站。有亚服和俄罗斯服，开梯子后延迟较低。</td>
+        </tr>
+        <tr>
+            <td>https://resurviv.biz/</td>
+            <td>Resurviv.biz游戏站点。只有外服。</td>
+        </tr>
+        <tr>
+            <td>https://survev.wiki.gg/</td>
+            <td>Survev官方英文维基。</td>
+        </tr>
+        <tr>
+            <th>Surviv.io</th>
+        </tr>
+        <tr>
+            <td>https://surviv.io/</td>
+            <td><img src="Surviv.io" alt="Surviv.io" height="50px" /></td>
+        </tr>
+        <tr>
+            <td>https://www.kongregate.com/en/games/monumental/surviv</td>
+            <td>Surviv.io官方网站。有韩服和亚服，开梯子后延迟较低。</td>
+        </tr>
+        <tr>
+            <td>https://app.surviv.io/</td>
+            <td>【强烈推荐】Surviv.io官方网站其二，特点是没有额外的Kongregate网站菜单吸引注意力。</td>
+        </tr>
+        <tr>
+            <td>https://survivio.fandom.com/zh</td>
+            <td>
+                Surviv.io中文维基。<br />
+                Survev玩家也可以参考，因为Survev目前还没有自己的中文维基，但Survev是基于Surviv.io做的，它们很像。可以在正文右上角切换中文为简体等其他中文变体。
+            </td>
+        </tr>
+        <tr>
+            <td>https://survivio.fandom.com/</td>
+            <td>
+                Surviv.io英文维基。部分内容英文维基比中文维基更全。<br />
+                Survev玩家也可以参考，因为Survev目前的官方英文维基还比较新，内容比较少。
+            </td>
+        </tr>
+        <tr>
+            <th id="social">社交媒体</th>
+        </tr>
+        <tr>
+            <td>https://qm.qq.com/q/wWUAfWezWo</td>
+            <td>Suroi Survev Surviv.io QQ群。群号: 227269266。</td>
+        </tr>
+        <tr>
+            <td>https://pd.qq.com/s/elxliwzhc?b=9</td>
+            <td>Suroi Survev Surviv.io QQ频道。频道号: pd227269266。</td>
+        </tr>
+        <tr>
+            <td>https://discord.suroi.io/</td>
+            <td>
+                Suroi官方Discord服务器。<br />
+                Discord通常需要梯子才能打开。
+            </td>
+        </tr>
+        <tr>
+            <td>https://discord.gg/75RAK3p3K2</td>
+            <td>Survev官方Discord服务器。</td>
+        </tr>
+        <tr>
+            <td>https://discord.gg/kongregate</td>
+            <td>Surviv.io官方Discord服务器。实为Kongregate官方Discord服务器，但是有Surviv.io的频道。</td>
+        </tr>
+        <tr>
+            <th>其他</th>
+        </tr>
+        <tr>
+            <td>https://suroimd.io/</td>
+            <td>Suroimd.io 2是一个灵感来自Suroi的新游戏。只有外服。</td>
+        </tr>
+        <tr>
+            <td>https://suroi.fun/</td>
+            <td>重定向https://suroi.io/</td>
+        </tr>
+        <tr>
+            <td>https://suroi.info/</td>
+            <td>重定向https://suroi.io/</td>
+        </tr>
+        <tr>
+            <td>https://suroi.online/</td>
+            <td>重定向https://suroi.io/</td>
+        </tr>
+        <tr>
+            <td>https://suroi.pro/</td>
+            <td>重定向https://suroi.io/</td>
+        </tr>
+        <tr>
+            <td>https://suroi.store/</td>
+            <td>重定向https://suroi.io/</td>
+        </tr>
+        <tr>
+            <td>https://suroi.xyz/</td>
+            <td>重定向https://suroi.io/</td>
+        </tr>
+        <tr>
+            <td>https://suroi.fun/</td>
+            <td>重定向https://suroi.io/</td>
+        </tr>
+        <tr>
+            <td>https://as.suroi.io/gardn</td>
+            <td>Suroi官方亚服代理XNOR在其所在的服务器上开设的其他游戏服。</td>
+        </tr>
+        <tr>
+            <th><span style="color: #FF0000">⚠️已失效</span></th>
+        </tr>
+        <tr>
+            <td>https://suroi.fpsgo.net/</td>
+            <td>（Suroi）FPSGO服，常被简称为F服或繁服（网站上部分文本是繁体，但是也有简体，属于是繁简混合）。人数最高的时候能有百人。时代的眼泪。</td>
+        </tr>
+        <tr>
+            <td>http://suroi.camvan.xyz/</td>
+            <td>（Suroi）香港服。cps陈皮水开的。现已变成动漫网站。</td>
+        </tr>
+        <tr>
+            <td>http://61.147.247.7:13000/</td>
+            <td>（Suroi）江苏服。由Sci_qud购买，XNOR部署的原版服务器，延迟较低。现已无法打开。</td>
+        </tr>
+        <tr>
+            <td>https://resurviv.io/</td>
+            <td>（Survev）Resurviv.io 游戏站点。现已变成跳转赌博网站。</td>
+        </tr>
+    </table>
+</body>
+</html>
