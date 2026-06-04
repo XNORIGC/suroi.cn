@@ -18,6 +18,16 @@ location = /Survev {
     try_files /survev_logo_full.png =404;
 }
 
+location = /Survev.de {
+    root /opt/links;
+    try_files /survev-de_logo_full.png =404;
+}
+
+location = /Resurviv.biz {
+    root /opt/links;
+    try_files /resurviv_logo_full.png =404;
+}
+
 location = /Rezurvev.ru {
     root /opt/links;
     try_files /rezurvev_logo_full.png =404;
