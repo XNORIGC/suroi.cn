@@ -65,18 +65,12 @@ export interface MeleeDefinition extends InventoryItemDefinition {
         }
     }>
 
-    readonly reflectiveSurface?: {
-        readonly pointA: Vector
-        readonly pointB: Vector
-    }
+    readonly reflectivePolygon?: readonly Vector[]
 
     readonly onBack?: {
         readonly angle: number
         readonly position: Vector
-        readonly reflectiveSurface?: {
-            readonly pointA: Vector
-            readonly pointB: Vector
-        }
+        readonly reflectivePolygon?: readonly Vector[]
     }
 }
 
@@ -1050,17 +1044,97 @@ export const Melees = new InventoryItemDefinitions<MeleeDefinition>([
         radius: 2.7,
         offset: Vec(5.5, 2),
         cooldown: 500,
-        reflectiveSurface: {
-            pointA: Vec(3.55, -2),
-            pointB: Vec(2.6, 0.66)
-        },
+        reflectivePolygon: [
+            Vec(3.55, -2),
+            Vec(2.6, 0.66)
+        ],
         onBack: {
             angle: 35,
             position: Vec(-45, 30),
-            reflectiveSurface: {
-                pointA: Vec(-2.83, 0.96),
-                pointB: Vec(-0.35, 2.62)
+            reflectivePolygon: [
+                Vec(-2.83, 0.96),
+                Vec(-0.35, 2.62)
+            ]
+        },
+        fists: {
+            animationDuration: 200,
+            left: Vec(38, -35),
+            right: Vec(45, 35)
+        },
+        image: {
+            separateWorldImage: true,
+            angle: -70,
+            position: Vec(60, 4),
+            lootScale: 0.9
+        },
+        animation: [
+
+            {
+                duration: 175,
+                fists: {
+                    left: Vec(38, -35),
+                    right: Vec(65, 55)
+                },
+                image: {
+                    angle: 15,
+                    position: Vec(105, 65)
+                }
+            },
+            {
+                duration: 175,
+                fists: {
+                    left: Vec(38, -35),
+                    right: Vec(45, 35)
+                },
+                image: {
+                    angle: -70,
+                    position: Vec(60, 4)
+                }
             }
+        ]
+    },
+    {
+        idString: "pans",
+        name: "Pans",
+        defType: DefinitionType.Melee,
+        tier: Tier.S,
+        damage: 42,
+        swingSound: "heavy_swing",
+        hitSound: "pan_hit",
+        speedMultiplier: 1,
+        obstacleMultiplier: 1.5,
+        radius: 2.7,
+        offset: Vec(5.5, 2),
+        cooldown: 500,
+        reflectivePolygon: [
+            Vec(3.55, -2),
+            Vec(2.6, 0.66),
+
+            Vec(2, 3.55),
+            Vec(-0.66, 2.6),
+
+            Vec(-3.55, 2),
+            Vec(-2.6, -0.66),
+
+            Vec(-2, -3.55),
+            Vec(0.66, -2.6)
+        ],
+        onBack: {
+            angle: 35,
+            position: Vec(-45, 30),
+            reflectivePolygon: [
+                Vec(-2.83, 0.96),
+                Vec(-0.35, 2.62),
+
+                Vec(0.96, 2.83),
+                Vec(2.62, 0.35),
+
+                Vec(2.83, -0.96),
+                Vec(0.35, -2.62),
+
+                Vec(-0.96, -2.83),
+                Vec(-2.62, -0.35)
+            ]
         },
         fists: {
             animationDuration: 200,

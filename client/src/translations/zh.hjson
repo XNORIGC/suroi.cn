@@ -523,6 +523,7 @@
 "falchion": "弯刀"
 "chainsaw": "电锯"
 "pan": "平底锅"
+"pans": "平底锅们"
 "kukri": "库克力弯刀"
 "pipe_wrench": "管钳"
 "hand_saw": "手锯"
@@ -613,8 +614,6 @@
     SERVER REGIONS - 服务器地区
 */
 
-"region_bjcustom": "北京（自定义）"
-"region_bj1v1": "北京（单挑）"
 "region_dev": "本地"
 "region_na": "北美"
 "region_eu": "欧洲"
@@ -625,6 +624,8 @@
 "region_test": "测试区域"
 "region_1v1": "1v1区域"
 "region_ea1v1":"东亚1v1区域"
+"region_bjcustom": "北京（自定义）"
+"region_hkcustom": "香港（自定义）"
 
 
 

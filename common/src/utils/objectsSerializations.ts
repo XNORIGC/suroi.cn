@@ -64,6 +64,7 @@ export interface ObjectsNetData extends BaseObjectsNetData {
             readonly hasMagneticField: boolean
             readonly isCycling: boolean
             readonly emitLowHealthParticles: boolean
+            readonly vehicle: boolean
         }
     }
     //
@@ -260,7 +261,8 @@ export const ObjectSerializations: { [K in ObjectCategory]: ObjectSerialization<
                 activeOverdrive,
                 hasMagneticField,
                 isCycling,
-                emitLowHealthParticles
+                emitLowHealthParticles,
+                vehicle
             } }
         ): void {
             stream.writeLayer(layer);
@@ -286,7 +288,8 @@ export const ObjectSerializations: { [K in ObjectCategory]: ObjectSerialization<
                 activeOverdrive,
                 hasMagneticField,
                 isCycling,
-                emitLowHealthParticles
+                emitLowHealthParticles,
+                vehicle
             );
             stream.writeUint8(teamID);
             Loots.writeToStream(stream, activeItem);
@@ -352,7 +355,8 @@ export const ObjectSerializations: { [K in ObjectCategory]: ObjectSerialization<
                 activeOverdrive,
                 hasMagneticField,
                 isCycling,
-                emitLowHealthParticles
+                emitLowHealthParticles,
+                vehicle
             ] = stream.readBooleanGroup2();
 
             return {
@@ -377,7 +381,8 @@ export const ObjectSerializations: { [K in ObjectCategory]: ObjectSerialization<
                 activeOverdrive,
                 hasMagneticField,
                 isCycling,
-                emitLowHealthParticles
+                emitLowHealthParticles,
+                vehicle
             };
         }
     },

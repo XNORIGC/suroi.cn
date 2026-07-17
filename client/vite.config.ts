@@ -12,7 +12,7 @@ export default defineConfig(async({ command, mode }) => {
     process.env = {
         ...process.env,
         VITE_APP_VERSION: pkg.version,
-        DEBUG_CLIENT: isDev.toString()
+        DEBUG_CLIENT: true// isDev.toString()
     };
 
     // So output directory isn't included (thanks Vite).

@@ -196,6 +196,8 @@ export class Player extends GameObject.derive(ObjectCategory.Player) {
 
     reloadMod = 1;
 
+    vehicle = false;
+
     constructor(id: number, data: ObjectsNetData[ObjectCategory.Player]) {
         super(id);
 
@@ -578,7 +580,8 @@ export class Player extends GameObject.derive(ObjectCategory.Player) {
                     activeOverdrive,
                     hasMagneticField,
                     isCycling,
-                    emitLowHealthParticles
+                    emitLowHealthParticles,
+                    vehicle
                 }
             } = data;
 
@@ -1129,18 +1132,48 @@ export class Player extends GameObject.derive(ObjectCategory.Player) {
             DebugRenderer.addCircle(5, this.position, HITBOX_COLORS.obstacleNoCollision, alpha);
         }
 
-        const renderMeleeReflectionSurface = (surface: { pointA: Vector, pointB: Vector }): void => {
+        const renderMeleeReflectionPolygon = (polygon: Vector[]): void => {
+            if (polygon.length < 2) return;
+
             const start = Vec.add(
                 this.position,
-                Vec.rotate(surface.pointA, this.rotation)
+                Vec.rotate(polygon[0], this.rotation)
             );
 
             const lineEnd = (Vec.add(
                 this.position,
-                Vec.rotate(surface.pointB, this.rotation)
+                Vec.rotate(polygon[1], this.rotation)
             ));
 
             DebugRenderer.addLine(start, lineEnd, HITBOX_COLORS.playerWeapon, alpha);
+
+            if (polygon.length < 3) return;
+
+            for (let i = 1; i < polygon.length - 1; i++) {
+                const start = Vec.add(
+                    this.position,
+                    Vec.rotate(polygon[i], this.rotation)
+                );
+
+                const lineEnd = (Vec.add(
+                    this.position,
+                    Vec.rotate(polygon[i + 1], this.rotation)
+                ));
+
+                DebugRenderer.addLine(start, lineEnd, HITBOX_COLORS.playerWeapon, alpha);
+            }
+
+            const polygonStart = Vec.add(
+                this.position,
+                Vec.rotate(polygon.at(-1), this.rotation)
+            );
+
+            const polygonLineEnd = (Vec.add(
+                this.position,
+                Vec.rotate(polygon[0], this.rotation)
+            ));
+
+            DebugRenderer.addLine(polygonStart, polygonLineEnd, HITBOX_COLORS.playerWeapon, alpha);
         };
 
         switch (this.activeItem.defType) {
@@ -1169,8 +1202,8 @@ export class Player extends GameObject.derive(ObjectCategory.Player) {
                     HITBOX_COLORS.playerWeapon,
                     alpha
                 );
-                if (this.activeItem.reflectiveSurface) {
-                    renderMeleeReflectionSurface(this.activeItem.reflectiveSurface);
+                if (this.activeItem.reflectivePolygon) {
+                    renderMeleeReflectionPolygon(this.activeItem.reflectivePolygon);
                 }
 
                 if (this.activeItem.image?.pivot) {
@@ -1196,8 +1229,8 @@ export class Player extends GameObject.derive(ObjectCategory.Player) {
             }
         }
 
-        if (this.backEquippedMelee?.onBack?.reflectiveSurface) {
-            renderMeleeReflectionSurface(this.backEquippedMelee?.onBack.reflectiveSurface);
+        if (this.backEquippedMelee?.onBack?.reflectivePolygon) {
+            renderMeleeReflectionPolygon(this.backEquippedMelee?.onBack.reflectivePolygon);
         }
     }
 

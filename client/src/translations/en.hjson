@@ -349,6 +349,7 @@
 "falchion": "Falchion"
 "chainsaw": "Chain Saw"
 "pan": "Pan"
+"pans": "Pans"
 "kukri": "Kukri"
 "pipe_wrench": "Pipe Wrench"
 "hand_saw": "Hand Saw"
@@ -458,8 +459,6 @@
 "dual_template": "Dual <gun>"
 
 // Regions
-"region_bjcustom": "Beijing (Custom)"
-"region_bj1v1": "Beijing (1v1)"
 "region_dev": "Localhost Server"
 "region_na": "North America"
 "region_eu": "Europe"
@@ -470,6 +469,8 @@
 "region_1v1": "North America (1v1)"
 "region_ea1v1": "East Asia (1v1)"
 "region_test": "Test"
+"region_bjcustom": "Beijing (Custom)"
+"region_hkcustom": "Hong Kong (Custom)"
 
 // Perks
 "second_wind": "Second Wind"

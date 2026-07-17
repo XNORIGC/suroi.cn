@@ -1686,7 +1686,10 @@ export const Game = new (class Game {
                 const type = lootDefinition?.defType;
 
                 // Update interact message
-                if (object !== undefined || (isAction && showCancel)) {
+                if (player.vehicle) {
+                    interactText.text("Get off");
+                    interactMsg.show();
+                } else if (object !== undefined || (isAction && showCancel)) {
                     // If the loot object hasn't changed, we don't need to redo the text
                     if (differences.object || differences.offset || differences.isAction) {
                         let text;
@@ -1757,7 +1760,7 @@ export const Game = new (class Game {
                         if (player.downed && (object?.isLoot || (object?.isObstacle && object.definition.noInteractMessage))) interactMsg.hide();
                     }
                 } else {
-                   if (!UI_DEBUG_MODE) interactMsg.hide();
+                    if (!UI_DEBUG_MODE) interactMsg.hide();
                 }
 
                 renderWeaponComparison(comparisonPayload);

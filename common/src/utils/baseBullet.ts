@@ -276,14 +276,14 @@ export class BaseBullet {
             ) continue;
 
             if (isPlayer) {
-                const getIntersection = (surface: { pointA: Vector, pointB: Vector }): IntersectionResponse => {
+                const getIntersection = (points: [Vector, Vector]): IntersectionResponse => {
                     const pointA = Vec.add(
                         object.position,
-                        Vec.rotate(surface.pointA, object.rotation)
+                        Vec.rotate(points[0], object.rotation)
                     );
                     const pointB = Vec.add(
                         object.position,
-                        Vec.rotate(surface.pointB, object.rotation)
+                        Vec.rotate(points[1], object.rotation)
                     );
                     const point = Collision.lineIntersectsLine(
                         oldPosition,
@@ -300,8 +300,8 @@ export class BaseBullet {
                 const activeDef = object.activeItemDefinition;
                 const backDef = object.backEquippedMelee;
 
-                if (activeDef.defType === DefinitionType.Melee && activeDef.reflectiveSurface) {
-                    const intersection = getIntersection(activeDef.reflectiveSurface);
+                if (activeDef.defType === DefinitionType.Melee && activeDef.reflectivePolygon.length >= 2) {
+                    const intersection = getIntersection(activeDef.reflectivePolygon.slice(0, 2));
                     if (intersection) {
                         collisions.push({
                             intersection: intersection,
@@ -311,10 +311,34 @@ export class BaseBullet {
                             reflectedMeleeDefinition: activeDef
                         });
                     }
+                    if (activeDef.reflectivePolygon.length > 2) {
+                        for (let i = 1; i < activeDef.reflectivePolygon.length - 1; i++) {
+                            const intersection = getIntersection(activeDef.reflectivePolygon.slice(i, i + 2));
+                            if (intersection) {
+                                collisions.push({
+                                    intersection: intersection,
+                                    object,
+                                    dealDamage: false,
+                                    reflected: true,
+                                    reflectedMeleeDefinition: activeDef
+                                });
+                            }
+                        }
+                        const intersection = getIntersection([activeDef.reflectivePolygon.at(-1), activeDef.reflectivePolygon[0]]);
+                        if (intersection) {
+                            collisions.push({
+                                intersection: intersection,
+                                object,
+                                dealDamage: false,
+                                reflected: true,
+                                reflectedMeleeDefinition: activeDef
+                            });
+                        }
+                    }
                 }
 
-                if (backDef?.onBack?.reflectiveSurface) {
-                    const intersection = getIntersection(backDef?.onBack.reflectiveSurface);
+                if (backDef?.onBack?.reflectivePolygon.length >= 2) {
+                    const intersection = getIntersection(backDef?.onBack.reflectivePolygon.slice(0, 2));
                     if (intersection) {
                         collisions.push({
                             intersection: intersection,
@@ -323,6 +347,30 @@ export class BaseBullet {
                             reflected: true,
                             reflectedMeleeDefinition: backDef
                         });
+                    }
+                    if (backDef?.onBack.reflectivePolygon.length > 2) {
+                        for (let i = 1; i < backDef?.onBack.reflectivePolygon.length - 1; i++) {
+                            const intersection = getIntersection(backDef?.onBack.reflectivePolygon.slice(i, i + 2));
+                            if (intersection) {
+                                collisions.push({
+                                    intersection: intersection,
+                                    object,
+                                    dealDamage: false,
+                                    reflected: true,
+                                    reflectedMeleeDefinition: backDef
+                                });
+                            }
+                        }
+                        const intersection = getIntersection([backDef?.onBack.reflectivePolygon.at(-1), backDef?.onBack.reflectivePolygon[0]]);
+                        if (intersection) {
+                            collisions.push({
+                                intersection: intersection,
+                                object,
+                                dealDamage: false,
+                                reflected: true,
+                                reflectedMeleeDefinition: backDef
+                            });
+                        }
                     }
                 }
             }

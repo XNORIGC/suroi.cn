@@ -6,7 +6,7 @@ import common from "./vite.common";
 const config: UserConfig = {
     define: {
         API_URL: JSON.stringify("/api"),
-        DEBUG_CLIENT: false
+        DEBUG_CLIENT: true// false
     },
     plugins: [ViteMinifyPlugin()]
 };

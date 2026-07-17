@@ -104,7 +104,8 @@ export const enum PerkIds {
     Overdrive = "overdrive",
 
     // Custom
-    SniperDeterrence = "sniper_deterrence"
+    SniperDeterrence = "sniper_deterrence",
+    Vehicle = "vehicle"
 }
 
 const perks = [
@@ -689,6 +690,12 @@ const perks = [
     {
         idString: PerkIds.SniperDeterrence,
         name: "Sniper Deterrence",
+        defType: DefinitionType.Perk,
+        category: PerkCategories.Normal
+    },
+    {
+        idString: PerkIds.Vehicle,
+        name: "Vehicle",
         defType: DefinitionType.Perk,
         category: PerkCategories.Normal
     }

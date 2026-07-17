@@ -9,6 +9,7 @@ import { imageSpritesheet } from "./plugins/image-spritesheet-plugin";
 import { audioSpritesheet } from "./plugins/audio-spritesheet-plugin";
 
 const commonConfig: UserConfig = {
+    base: "/custom/",
     server: {
         port: 3000,
         host: "0.0.0.0"

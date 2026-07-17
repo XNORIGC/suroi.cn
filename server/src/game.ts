@@ -519,7 +519,7 @@ export class Game implements GameData {
             )
             && this.now - this.startedTime > 5000
         ) {
-            win();
+            this.win();
         }
 
         // Record performance and start the next tick

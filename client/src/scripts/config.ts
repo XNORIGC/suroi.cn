@@ -3,15 +3,22 @@ import type { ModeName } from "@common/definitions/modes";
 
 export const Config = {
     regions: {
-        bjcustom: {
+        /* bjcustom: {
             name: "Beijing (Custom)",
             flag: "🇨🇳 ",
             mainAddress: "https://suroi.camvan.xyz:7000",
             gameAddress: "wss://suroi.camvan.xyz:7000/game/<gameID>",
             offset: 1
+        },
+        */hkcustom: {
+            name: "Beijing (Custom)",
+            flag: "🇭🇰 ",
+            mainAddress: "https://as.suroi.io:7001",
+            gameAddress: "wss://as.suroi.io:7001/game/<gameID>",
+            offset: 1
         }
     },
-    defaultRegion: "bjcustom"
+    defaultRegion: "hkcustom"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {

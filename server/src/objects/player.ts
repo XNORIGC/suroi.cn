@@ -652,6 +652,8 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
 
     recentlyHitPlayers?: Map<Player, number>;
 
+    vehicle = false;
+
     constructor(game: Game, socket: Bun.ServerWebSocket<PlayerSocketData> | undefined, position: Vector, layer?: Layer, team?: Team) {
         super(game, position);
 
@@ -2273,6 +2275,11 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                 this.reversedMovement = false;
                 break;
             }
+            case PerkIds.Vehicle: {
+                this.vehicle = true;
+                this.setDirty();
+                break;
+            }
         }
         // ! evil ends here
 
@@ -2390,6 +2397,11 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
             }
             case PerkIds.AchingKnees: {
                 this.reversedMovement = false;
+                break;
+            }
+            case PerkIds.Vehicle: {
+                this.vehicle = false;
+                this.setDirty();
                 break;
             }
         }
@@ -2904,6 +2916,9 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                 case PerkIds.Overclocked: {
                     newModifiers.fireRate *= perk.fireRateMod;
                     break;
+                }
+                case PerkIds.Vehicle: {
+                    newModifiers.baseSpeed *= 2;
                 }
             }
         }
@@ -3912,7 +3927,8 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
                 activeOverdrive: this.activeOverdrive,
                 hasMagneticField: this.hasMagneticField,
                 isCycling: this.isCycling,
-                emitLowHealthParticles: this.emitLowHealthParticles
+                emitLowHealthParticles: this.emitLowHealthParticles,
+                vehicle: this.vehicle
             }
         };
 
