@@ -195,5 +195,3 @@ public/img/game/loot/loot_background_mechanical_perk.svg
 public/img/game/perks
 public/img/game/decals/seed_explosion_decal.svg
 public/img/game/decals/seed_explosion_decal_infected.svg
-
->>>>>>> Stashed changes
