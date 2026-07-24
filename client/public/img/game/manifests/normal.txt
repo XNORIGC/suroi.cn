@@ -177,4 +177,23 @@ public/img/game/obstacles/water_cooler
 public/img/game/obstacles/window
 public/img/game/obstacles/window2
 
+#################################
+
+public/img/game/loot/firework_rocket.svg
+public/img/game/loot/vaccine_syringe.svg
+public/img/game/decals/vaccine_syringe_residue.svg
+public/img/game/indicators/helmet_indicator.svg
+public/img/game/indicators/juggernaut_indicator.svg
+public/img/game/indicators/pack_indicator.svg
+public/img/game/indicators/vest_indicator.svg
+public/img/game/loot/power_helmet.svg
+public/img/game/loot/power_pack.svg
+public/img/game/loot/power_vest.svg
 public/img/game/player/shield.svg
+public/img/game/loot/loot_background_perk.svg
+public/img/game/loot/loot_background_mechanical_perk.svg
+public/img/game/perks
+public/img/game/decals/seed_explosion_decal.svg
+public/img/game/decals/seed_explosion_decal_infected.svg
+
+>>>>>>> Stashed changes

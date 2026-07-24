@@ -121,6 +121,199 @@ export const enum SpawnMode {
 export type SpawnOptions = ConfigSchema["spawn"];
 
 const maps = {
+    normal_custom: {
+        width: 1632,
+        height: 1632,
+        mode: "normal",
+        spawn: { mode: "fixed", position: [100, 100] },
+        oceanSize: 128,
+        beachSize: 32,
+        rivers: {
+            minAmount: 1,
+            maxAmount: 2,
+            maxWideAmount: 1,
+            wideChance: 0.35,
+            minWidth: 12,
+            maxWidth: 18,
+            minWideWidth: 25,
+            maxWideWidth: 30,
+            obstacles: {
+                river_rock: 16,
+                lily_pad: 6
+            }
+        },
+        majorBuildings: [
+            "port",
+            "headquarters",
+            "armory",
+            "refinery"
+        ],
+        buildings: {
+            large_bridge: 2,
+            small_bridge: Infinity,
+            river_hut_1: 2,
+            river_hut_2: 2,
+            river_hut_3: 2,
+            lighthouse: 1,
+            tugboat_red: 1,
+            tugboat_white: 5,
+            fulcrum_bunker: 1,
+            small_bunker: 1,
+            warehouse: 5,
+            green_house: 3,
+            blue_house: 2,
+            blue_house_special: 1,
+            red_house: 3,
+            red_house_v2: 3,
+            construction_site: 1,
+            mobile_home: 10,
+            porta_potty: 12,
+            container_green_open1: 2,
+            container_green_open1_damaged: 2,
+            container_blue_open1: 2,
+            container_blue_open1_damaged: 2,
+            container_blue_open2: 1,
+            container_blue_open2_damaged: 2,
+            container_yellow_open1: 1,
+            container_yellow_open2: 2,
+            memorial: 1
+        },
+        quadBuildingLimit: {
+            port: 1,
+            river_hut_1: 1,
+            river_hut_2: 1,
+            river_hut_3: 1,
+            red_house: 1,
+            red_house_v2: 1,
+            warehouse: 2,
+            green_house: 1,
+            blue_house: 1,
+            mobile_home: 3,
+            porta_potty: 3,
+            construction_site: 1,
+            blue_house_special: 1
+        },
+        obstacles: {
+            oil_tank: 12,
+            oak_tree: 110,
+            birch_tree: 20,
+            pine_tree: 10,
+            loot_tree: 1,
+            regular_crate: 100,
+            flint_crate: 5,
+            aegis_crate: 5,
+            grenade_crate: 35,
+            rock: 150,
+            river_chest: 1,
+            bush: 110,
+            // birthday_cake: 100, // birthday mode
+            blueberry_bush: 30,
+            barrel: 80,
+            viking_chest: 1,
+            super_barrel: 30,
+            melee_crate: 1,
+            gold_rock: 1,
+            loot_barrel: 1,
+            flint_lockbox: 1,
+            buoy: 12
+        },
+        obstacleClumps: [
+            {
+                clumpAmount: 100,
+                clump: {
+                    minAmount: 2,
+                    maxAmount: 3,
+                    jitter: 5,
+                    obstacles: ["oak_tree"],
+                    radius: 12
+                }
+            },
+            {
+                clumpAmount: 25,
+                clump: {
+                    minAmount: 2,
+                    maxAmount: 3,
+                    jitter: 5,
+                    obstacles: ["birch_tree"],
+                    radius: 12
+                }
+            },
+            {
+                clumpAmount: 4,
+                clump: {
+                    minAmount: 2,
+                    maxAmount: 3,
+                    jitter: 5,
+                    obstacles: ["pine_tree"],
+                    radius: 12
+                }
+            }
+        ],
+        loots: {
+            ground_loot: 60
+        },
+        onGenerate(map) {
+            // Function to generate all game loot items
+            const genLoots = (pos: Vector, ySpacing: number, xSpacing: number): void => {
+                const width = 80;
+
+                const startPos = Vec.clone(pos);
+                startPos.x -= width / 2;
+                const itemPos = Vec.clone(startPos);
+
+                const countMap = Object.fromEntries(Object.entries({
+                    [DefinitionType.Gun]: 1,
+                    [DefinitionType.Ammo]: Infinity,
+                    [DefinitionType.Melee]: 1,
+                    [DefinitionType.Throwable]: Infinity,
+                    [DefinitionType.HealingItem]: Infinity,
+                    [DefinitionType.Armor]: 1,
+                    [DefinitionType.Backpack]: 1,
+                    [DefinitionType.Scope]: 1,
+                    [DefinitionType.Skin]: 1,
+                    [DefinitionType.Perk]: Infinity
+                }).map(([k, v]) => [k, Infinity]));
+
+                const game = map.game;
+                for (const item of Loots.definitions) {
+                    if (
+                        ((item.defType === DefinitionType.Melee || item.defType === DefinitionType.Scope) && item.noDrop)
+                        || (item.defType === DefinitionType.Ammo && item.ephemeral)
+                        || (item.defType === DefinitionType.Armor && item.level === 5)
+                        || (item.defType === DefinitionType.Backpack && item.level === 0)
+                        || (item.defType === DefinitionType.Perk) // && item.category === PerkCategories.Halloween)
+                        || item.defType === DefinitionType.Skin
+                        || ["power_helmet", "power_vest", "power_pack", "pans"].includes(item.idString)
+                        || item.devItem
+                    ) continue;
+
+                    game.addLoot(item, itemPos, 0, { count: countMap[item.defType] ?? 1, pushVel: 0, jitterSpawn: false });
+
+                    itemPos.x += xSpacing;
+                    if (
+                        (xSpacing > 0 && itemPos.x > startPos.x + width)
+                        || (xSpacing < 0 && itemPos.x < startPos.x - width)
+                    ) {
+                        itemPos.x = startPos.x;
+                        itemPos.y -= ySpacing;
+                    }
+                }
+            };
+
+            const center = Vec(map.width / 2, map.height / 2);
+
+            genLoots(Vec(100, 100), -8, 8);
+        },
+        places: [
+            { name: "stark is pro", position: Vec(0.5, 0.5) },
+            { name: "Banana", position: Vec(0.23, 0.2) },
+            { name: "Takedown", position: Vec(0.23, 0.8) },
+            { name: "Lavlandet", position: Vec(0.75, 0.2) },
+            { name: "Noskin Narrows", position: Vec(0.72, 0.8) },
+            { name: "Mt. Sanger", position: Vec(0.5, 0.35) },
+            { name: "Deepwood", position: Vec(0.5, 0.65) }
+        ]
+    },
     custom: {
         width: 512,
         height: 512,
@@ -155,9 +348,12 @@ const maps = {
                     if (
                         ((item.defType === DefinitionType.Melee || item.defType === DefinitionType.Scope) && item.noDrop)
                         || (item.defType === DefinitionType.Ammo && item.ephemeral)
+                        || (item.defType === DefinitionType.Armor && item.level === 5)
                         || (item.defType === DefinitionType.Backpack && item.level === 0)
-                        || (item.defType === DefinitionType.Perk && item.category === PerkCategories.Halloween)
+                        // || (item.defType === DefinitionType.Perk && item.category === PerkCategories.Halloween)
                         || item.defType === DefinitionType.Skin
+                        || item.idString === "vehicle"
+                        || item.idString === "necrosis"
                         || item.devItem
                     ) continue;
 

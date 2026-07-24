@@ -128,7 +128,7 @@ export function audioSpritesheet(): Plugin[] {
                     server.middlewares.use((req, res, next) => {
                         if (req.originalUrl === undefined) return next();
 
-                        const file = files.get(req.originalUrl.slice("/custom/".length - 1));
+                        const file = files.get(req.originalUrl.slice(1));//"/custom/".length - 1));
                         if (file === undefined) return next();
 
                         res.writeHead(200, { "Content-Type": "audio/mp3" });

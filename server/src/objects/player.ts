@@ -2997,7 +2997,7 @@ export class Player extends BaseGameObject.derive(ObjectCategory.Player) {
 
     // dies of death
     die(params: Omit<DamageParams, "amount">): void {
-        if (!this.disconnected) return this.customDie(params);
+        // if (!this.disconnected) return this.customDie(params);
 
         if (this.health > 0 || this.dead) return;
 

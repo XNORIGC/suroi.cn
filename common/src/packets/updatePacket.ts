@@ -744,7 +744,7 @@ export const UpdatePacket = new Packet<UpdateDataIn, UpdateDataOut>(PacketType.U
         if (data.gas) {
             const gas = data.gas;
             strm.writeUint8(gas.state)
-                .writeUint8(gas.currentDuration)
+                .writeUint16(gas.currentDuration)
                 .writePosition(gas.oldPosition)
                 .writePosition(gas.newPosition)
                 .writeFloat(gas.oldRadius, 0, 2048, 2)
@@ -942,7 +942,7 @@ export const UpdatePacket = new Packet<UpdateDataIn, UpdateDataOut>(PacketType.U
         if ((flags & UpdateFlags.Gas) !== 0) {
             data.gas = {
                 state: stream.readUint8(),
-                currentDuration: stream.readUint8(),
+                currentDuration: stream.readUint16(),
                 oldPosition: stream.readPosition(),
                 newPosition: stream.readPosition(),
                 oldRadius: stream.readFloat(0, 2048, 2),

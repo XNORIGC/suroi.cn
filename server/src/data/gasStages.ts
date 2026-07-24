@@ -30,18 +30,18 @@ export const GasStages: GasStage[] = [
     {
         state: GasState.Inactive,
         duration: 0,
-        oldRadius: gasStageRadii[0],
-        newRadius: gasStageRadii[0],
+        oldRadius: 1,
+        newRadius: 1,
         dps: 0
     },
     {
         state: GasState.Waiting,
-        duration: 75,
-        oldRadius: gasStageRadii[0],
-        newRadius: gasStageRadii[1],
+        duration: 5 * 60,
+        oldRadius: 1,
+        newRadius: 0,
         dps: 0
     },
-    {
+    /* {
         state: GasState.Advancing,
         duration: 20,
         oldRadius: gasStageRadii[0],
@@ -129,13 +129,13 @@ export const GasStages: GasStage[] = [
         dps: 10,
         scaleDamageFactor: 1,
         finalStage: true
-    },
+    }, */
     // Final Zone Closed, 6 min 30 seconds
     {
         state: GasState.Waiting,
         duration: 0,
-        oldRadius: gasStageRadii[6],
-        newRadius: gasStageRadii[6],
+        oldRadius: 0,
+        newRadius: 0,
         dps: 10,
         scaleDamageFactor: 1,
         finalStage: true

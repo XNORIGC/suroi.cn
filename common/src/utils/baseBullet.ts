@@ -300,7 +300,7 @@ export class BaseBullet {
                 const activeDef = object.activeItemDefinition;
                 const backDef = object.backEquippedMelee;
 
-                if (activeDef.defType === DefinitionType.Melee && activeDef.reflectivePolygon.length >= 2) {
+                if (activeDef.defType === DefinitionType.Melee && activeDef.reflectivePolygon?.length >= 2) {
                     const intersection = getIntersection(activeDef.reflectivePolygon.slice(0, 2));
                     if (intersection) {
                         collisions.push({
@@ -337,7 +337,7 @@ export class BaseBullet {
                     }
                 }
 
-                if (backDef?.onBack?.reflectivePolygon.length >= 2) {
+                if (backDef?.onBack?.reflectivePolygon?.length >= 2) {
                     const intersection = getIntersection(backDef?.onBack.reflectivePolygon.slice(0, 2));
                     if (intersection) {
                         collisions.push({
