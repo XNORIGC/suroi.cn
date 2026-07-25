@@ -9,9 +9,9 @@ import { imageSpritesheet } from "./plugins/image-spritesheet-plugin";
 import { audioSpritesheet } from "./plugins/audio-spritesheet-plugin";
 
 const commonConfig: UserConfig = {
-    // base: "/custom/",
+    base: "/custom/",
     server: {
-        port: 3000,
+        // port: 3000,
         host: "0.0.0.0",
         allowedHosts: ["as.suroi.io"],
     },
