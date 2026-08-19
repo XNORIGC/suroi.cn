@@ -1,0 +1,97 @@
+{{显示标题:Suroi Survev Surviv.io链接大全}}
+
+<html><link rel="icon" href="https://suroi.io/favicon.ico"></html>
+
+{| class="wikitable newtab plainlinks notextdecoration" style="width: 100%; background: #121212; color: #FFFFFF"
+
+{{/|https://hk.camvan.xyz/wiki/index.php/Links|Suroi Survev Surviv.io链接大全<br>[[文件:Welcome!.png|替代=欢迎！（七濑胡桃打手枪）|链接=]]}}
+
+{{/| | Suroi | |}}
+
+{{/|https://github.com/HasangerGames/suroi|[[文件:Suroi.svg|替代=Suroi|x50像素|链接=]]}}
+{{/|https://suroi.io/                     |官服，即官方自己开设的游戏服。官服一堆分服，分为北美、欧洲、南美、亚洲、大洋洲。亚服的延迟是最小的，而北美服和欧服的延迟差别不多，南美服和大洋洲服有点大。服的延迟因人和地区而异，这里给出在中国南北方游玩时的延迟。
+{{{!}} style{{=}}"border: 1px solid #FF7500; background: #222222; text-align: center"
+{{!}}+ style{{=}}"white-space: nowrap" {{!}} 服务器延迟（单位：毫秒，已四舍五入）
+{{!}}- style{{=}}"color: #008AFF"
+! rowspan{{=}}"2" {{!}} 服务器 !! colspan{{=}}"2" {{!}} 中国北方 !! 中国南方
+{{!}}- style{{=}}"color: #008AFF"
+! 通常 !! 范围 !! （范围？）
+{{!}}-
+{{!}} 北美 {{!}}{{!}} 300~350 {{!}}{{!}} 250~350  {{!}}{{!}} 300~400
+{{!}}-
+{{!}} 欧洲 {{!}}{{!}} 200~230 {{!}}{{!}} 200~230  {{!}}{{!}} 300~400
+{{!}}-
+{{!}} 南美 {{!}}{{!}} 400~730 {{!}}{{!}} 400~1000 {{!}}{{!}} 400~700
+{{!}}-
+{{!}} 亚洲 {{!}}{{!}} 90~110  {{!}}{{!}} 90~120   {{!}}{{!}} 50~100
+{{!}}-
+{{!}} 亚洲 {{!}}{{!}} 320~350 {{!}}{{!}} 320~360  {{!}}{{!}} 500~700
+{{!}}}
+“范围”的定义：在测试时，延迟的最小值至最大值。<br>
+“通常”的定义：在测试时，常出现的延迟数值的范围。（由Kastname提供）
+}}
+
+{{/|https://1v1.suroi.io/          |官方单挑服。分为北美和亚洲服。推荐玩亚服。没有对手的情况下玩家无法移动。}}
+{{/|https://suroi.wiki.gg/         |Suroi官方维基。目前只有英文，可以用浏览器自带网页翻译功能看中文机翻。托管在wiki.gg这个维基农场上，目前正在建设中，需要社区贡献，现在极需编辑完善。}}
+{{/|https://hk.camvan.xyz/         |Suroi官方亚服代理XNOR在其所在的服务器上开设的香港服，或者叫亚服，也可以叫亚中亚（亚服中的亚服）。可以在上面玩官方亚服和亚中亚（一般没人）。开这个服是为了加快游戏资源加载的速度，速度通常比在官方网站上快：在官方网站上加载资源需要从美国服务器下载，无法获取人数和模式数据的官方分服会增加耗时；在亚中亚网站上加载资源是从亚服下载的，而且它只获取亚服和亚中亚服自己的人数和模式数据，跳过北美服等其他对中国玩家来说太远、延迟较高或没人的官方分服。}}
+{{/|https://hk.camvan.xyz/custom   |同上，但是经过了XNOR的自定义魔改，模式是自定义模式（特点有：比单挑服更好的全物资区域、玩家死亡即复活等），可以叫亚洲自定义服，也可以叫亚中自（亚服中的自定义模式服）。}}
+{{/|https://hk.camvan.xyz/1v1      |同亚中亚，但是模式为官方单挑。可以叫它亚中单（亚服中的单挑模式服）。同样只有官方亚洲单挑服和亚中单。}}
+{{/|https://ea1v1.suroi.io/        |同亚中单。}}
+{{/|http://suroi.starvyweb.top/    |C服改版服，简称C服。服务器位于香港。版本最新（v0.30.0），有自己加的新枪。由cps陈皮水开设。XNOR提供技术支持与帮助。}}
+{{/|http://suroifun.cyou/          |SuroiFun，常被大家称为上海服，因为它最初只有上海服（现在它还有香港分服）。有很多魔改内容，还有人机。由群里的ben is big和CTTN共同开设。XNOR在早期提供过很小部分的技术帮助。}}
+{{/|http://soray.io/               |改版服，有25v25v25v25模式和账号登录系统，甚至新增内容有中文翻译（机翻），但是只有北美服，而且好像没开源。（违反GPL协议）}}
+{{/|http://101.43.242.20:8880/     |北京服。不知道是谁开的。现已似乎无法打开。（预计要被移到已失效列表）}}
+{{/|https://play.wo1wan.com/igwroi/|畅玩服。不推荐。需要用微信打开链接。要注册账号但用不了多长时间而且有非法组队与氪金旧版，但延迟40毫秒左右。}}
+
+{{/|https://unblocked-games.s3.ama<!--
+-->zonaws.com/su-battle-royale.html|FreezeNova Games的Suroi服，有人将其称为酥服。只有北美服。通常需开启梯子游玩。}}
+
+{{/| | Survev | |}}
+
+{{/|https://github.com/survev/survev|[[文件:Survev.png|替代=Survev|x50像素|链接=]]}}
+{{/|https://survev.io/              |Survev官方网站。有亚洲和俄罗斯等服，开梯子后延迟较低。}}
+{{/|https://survev.de/              |[[文件:Survev.de.png|替代=Survev.de|x50像素|链接=]]<br>Survev.de官方网站。有亚服欧服。相比原版有许多修改内容。}}
+{{/|https://resurviv.biz/           |[[文件:Resurviv.biz.png|替代=Resurviv.biz|x50像素|链接=]]<br>Resurviv.biz游戏站点。有亚服欧服美服。}}
+{{/|https://rezurvev.ru/            |[[文件:Rezurvev.ru.png|替代=Rezurvev.ru|x50像素|链接=]]<br>Rezurvev.ru游戏站点。有欧服美服。}}
+{{/|https://hk.camvan.xyz/survev    |XNOR开的Survev游戏服务器。}}
+{{/|https://hk.camvan.xyz/resurviv  |XNOR开的Resurviv游戏服务器。}}
+{{/|https://survev.wiki.gg/         |Survev官方英文维基。}}
+
+{{/| | Surviv.io | |}}
+
+{{/|https://surviv.io/            |[[文件:Surviv.io.png|替代=Surviv.io|x50像素|链接=]]<br>Surviv.io官方网站。有韩服和亚服，开梯子后延迟较低。}}
+{{/|https://www.kongregate<!--
+-->.com/en/games/monumental/surviv|Surviv.io官方网站其二。特点是有额外的Kongregate网站菜单吸引注意力。}}
+{{/|https://survivio.fandom.com/zh|Surviv.io中文维基。<br>Survev玩家也可以参考，因为Survev目前还没有自己的中文维基，但Survev是基于Surviv.io做的，它们很像。可以在正文右上角切换中文为简体等其他中文变体。}}
+{{/|https://survivio.fandom.com/  |Surviv.io英文维基。部分内容英文维基比中文维基更全。<br>Survev玩家也可以参考，因为Survev目前的官方英文维基还比较新，内容比较少。}}
+
+{{/| | 社交媒体 | |}}
+
+{{/|https://qm.qq.com/q/wWUAfWezWo       |Suroi Survev Surviv.io QQ群。群号: 227269266。}}
+{{/|https://pd.qq.com/s/elxliwzhc?b{{=}}9|Suroi Survev Surviv.io QQ频道。频道号: pd227269266。}}
+{{/|https://discord.suroi.io/            |Suroi官方Discord服务器。<br>Discord通常需要梯子才能打开。}}
+{{/|https://discord.gg/75RAK3p3K2        |Survev官方Discord服务器。}}
+{{/|https://discord.gg/kongregate        |Surviv.io官方Discord服务器。实为Kongregate官方Discord服务器，但是有Surviv.io的频道。}}
+
+{{/| | 其他 | |}}
+
+{{/|https://suroimd.io/        |Suroimd.io 2是一个灵感来自Suroi的新游戏。只有外服。}}
+{{/|https://suroi.fun/         |重定向https://suroi.io/}}
+{{/|https://suroi.info/        |重定向https://suroi.io/}}
+{{/|https://suroi.online/      |重定向https://suroi.io/}}
+{{/|https://suroi.pro/         |重定向https://suroi.io/}}
+{{/|https://suroi.store/       |重定向https://suroi.io/}}
+{{/|https://suroi.xyz/         |重定向https://suroi.io/}}
+{{/|https://suroi.fun/         |重定向https://suroi.io/}}
+{{/|https://hk.camvan.xyz/gardn|Suroi官方亚服代理XNOR在其所在的服务器上开设的其他游戏服。}}
+
+{{/| | <span style{{=}}"color: red">⚠️已失效</span> | |}}
+
+{{/|https://suroi.fpsgo.net/  |（Suroi）FPSGO服，常被简称为F服或繁服（网站上部分文本是繁体，但是也有简体，属于是繁简混合）。人数最高的时候能有百人。时代的眼泪。}}
+{{/|http://47.122.51.231/     |福建服。有标准模式和自定义模式。由Kastname开设，XNOR提供技术支持与帮助。}}
+{{/|http://suroi.camvan.xyz/  |（Suroi）香港服。cps陈皮水开的。现已变成动漫网站。}}
+{{/|http://61.147.247.7:13000/|（Suroi）江苏服。由Sci_qud购买，XNOR部署的原版服务器，延迟较低。现已无法打开。}}
+{{/|https://resurviv.io/      |（Survev）Resurviv.io 游戏站点。现已变成跳转赌博网站。}}
+
+|}
+

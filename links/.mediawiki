@@ -1,0 +1,4 @@
+|-
+| {{#如果: {{{1|}}} | style="text-align: center; width: 50px; border: 1px solid #FFFFFF" data-link="{{{1|链接}}}" {{!}} <html><span style="color: #FF7500; cursor: pointer" onclick="navigator.clipboard.writeText(this.parentElement.dataset.link); this.textContent = '已复制'; this.style.color = '#008AFF'; setTimeout(() => { this.textContent = '复制'; this.style.color = '#FF7500' }, 2000)">复制</span></html> {{!}}{{!}} style="width: 200px; border: 1px solid #FFFFFF" {{!}} [{{{1|链接}}} <span style="color: #FF7500; text-decoration: none">{{{1|链接}}}</span>] {{!}}{{!}} style="border: 1px solid #FFFFFF" {{!}} {{{2|描述}}} | colspan="2" style="text-align: center; border: 1px solid #FFFFFF" {{!}} <span style="color: #008AFF">{{{2|分类}}}</span> {{!}}{{!}} style="border: 1px solid #FFFFFF" {{!}} }}
+|-
+
